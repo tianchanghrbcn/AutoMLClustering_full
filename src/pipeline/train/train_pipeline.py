@@ -81,7 +81,7 @@ def main():
                 cleaned_results.append({
                     "dataset_id": dataset_id,
                     "algorithm": algo,
-                    "algorithm_id": 1,
+                    "algorithm_id": 2 if algo == "raha_baran" else 1,
                     "cleaned_file_path": new_file_path,
                     "runtime": runtime
                 })
