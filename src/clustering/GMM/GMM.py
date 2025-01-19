@@ -7,14 +7,11 @@ import optuna
 from sklearn.mixture import GaussianMixture
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics import silhouette_score, davies_bouldin_score
-from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
 from kneed import KneeLocator
 
-# 获取 CSV 文件路径和环境变量参数
+# 获取 CSV 文件路径和环境变量
 csv_file_path = os.getenv("CSV_FILE_PATH")
-cleaning_method = os.getenv("CLEANING_METHOD")
-dataset_name = os.getenv("DATASET_NAME")
+dataset_id = os.getenv("DATASET_ID")
 
 if not csv_file_path:
     print("Error: CSV file path is not provided. Set 'CSV_FILE_PATH' environment variable.")
@@ -141,43 +138,23 @@ final_db_score = davies_bouldin_score(X_scaled, final_labels)
 final_silhouette_score = silhouette_score(X_scaled, final_labels)
 final_combined_score = alpha * (1 / final_db_score) + beta * final_silhouette_score
 
-print(f"Final Davies-Bouldin Score: {final_db_score}")
-print(f"Final Silhouette Score: {final_silhouette_score}")
-print(f"Final Combined Score: {final_combined_score}")
-
-# 可视化结果
-pca = PCA(n_components=3)
-X_pca = pca.fit_transform(X_scaled)
-
-plt.figure(figsize=(16, 10))
-plt.scatter(X_pca[:, 0], X_pca[:, 1], c=final_labels, cmap='Set1', alpha=0.7, s=50)
-plt.title(f'GMM Clustering with {final_best_k} Components ({best_cov_type} covariance)')
-plt.xlabel('PCA Component 1')
-plt.ylabel('PCA Component 2')
-plt.show()
-
 # 保存结果和输出
 base_filename = os.path.splitext(os.path.basename(csv_file_path))[0]
-output_dir = os.path.join(os.getcwd(), "results", "2_clustered_data", cleaning_method,
-                          f"clustered_{cleaning_method}_{dataset_name}")
+output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", "GMM",
+                          f"clustered_{dataset_id}")
 os.makedirs(output_dir, exist_ok=True)
-output_txt_file = os.path.join(output_dir, f"{base_filename}_GMM.txt")
-output_img_file = os.path.join(output_dir, f"{base_filename}_GMM.png")
+output_txt_file = os.path.join(output_dir, f"{base_filename}.txt")
 
 with open(output_txt_file, 'w', encoding='utf-8') as f:
     output_txt = [
-        f"Final optimal number of components: {final_best_k}",
-        f"Optuna best number of components: {k_optuna}",
-        f"Kneedle best number of components: {k_kneedle}",
-        f"Best covariance type: {best_cov_type}",
-        f"Final Davies-Bouldin Score: {final_db_score}",
+        f"Best parameters: k={final_best_k}, covariance type={best_cov_type}",
+        f"Number of clusters: {final_best_k}",
+        f"Final Combined Score: {final_combined_score}",
         f"Final Silhouette Score: {final_silhouette_score}",
-        f"Final Combined Score: {final_combined_score}"
+        f"Final Davies-Bouldin score: {final_db_score}"
     ]
     f.write("\n".join(output_txt))
 print(f"Text output saved as {output_txt_file}")
-plt.savefig(output_img_file)
-print(f"Plot saved as {output_img_file}")
 
 end_time = time.time()
 print(f"Program completed in: {end_time - start_time} seconds")

@@ -6,15 +6,12 @@ import optuna
 from sklearn.cluster import DBSCAN
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics import silhouette_score, davies_bouldin_score
-from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
 
 start_time = time.time()
 
 # 获取 CSV 文件路径和环境变量
 csv_file_path = os.getenv("CSV_FILE_PATH")
-cleaning_method = os.getenv("CLEANING_METHOD")
-dataset_name = os.getenv("DATASET_NAME")
+dataset_id = os.getenv("DATASET_ID")
 
 if not csv_file_path:
     print("Error: CSV file path is not provided. Set 'CSV_FILE_PATH' environment variable.")
@@ -33,6 +30,7 @@ except FileNotFoundError:
 
 # 排除包含 'id' 的列
 excluded_columns = [col for col in df.columns if 'id' in col.lower()]
+print(f"Excluded columns with 'id': {excluded_columns}")
 remaining_columns = df.columns.difference(excluded_columns)
 print(f"Using all columns for clustering: {list(remaining_columns)}")
 
@@ -87,8 +85,6 @@ study.optimize(objective, n_trials=200)
 # 获取最佳参数
 best_params = study.best_params
 best_combined_score = study.best_value
-print(f"Best parameters: {best_params}")
-print(f"Highest Combined Score: {best_combined_score}")
 
 # 使用最佳参数运行 DBSCAN
 best_dbscan = DBSCAN(eps=best_params['eps'], min_samples=best_params['min_samples'], metric='euclidean')
@@ -105,35 +101,19 @@ else:
 
 # 保存结果
 base_filename = os.path.splitext(os.path.basename(csv_file_path))[0]
-output_dir = os.path.join(os.getcwd(), "results", "2_clustered_data", cleaning_method,
-                          f"clustered_{cleaning_method}_{dataset_name}")
+output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", "DBSCAN",
+                          f"clustered_{dataset_id}")
 os.makedirs(output_dir, exist_ok=True)
 
-output_txt_file = os.path.join(output_dir, f"{base_filename}_DBSCAN.txt")
+output_txt_file = os.path.join(output_dir, f"{base_filename}.txt")
 with open(output_txt_file, 'w', encoding='utf-8') as f:
     f.write(f"Best parameters: eps={best_params['eps']}, min_samples={best_params['min_samples']}\n")
     f.write(f"Number of clusters: {n_clusters_final}\n")
     f.write(f"Final Combined Score: {best_combined_score}\n")
-    f.write(f"Final silhouette score: {silhouette_avg}\n")
+    f.write(f"Final Silhouette Score: {silhouette_avg}\n")
     f.write(f"Final Davies-Bouldin score: {db_score}\n")
 
 print(f"Text output saved to {output_txt_file}")
-
-# 3D 可视化
-pca = PCA(n_components=3)
-X_pca = pca.fit_transform(X_scaled)
-
-output_img_file = os.path.join(output_dir, f"{base_filename}_DBSCAN.png")
-fig = plt.figure(figsize=(12, 8))
-ax = fig.add_subplot(111, projection='3d')
-sc = ax.scatter(X_pca[:, 0], X_pca[:, 1], X_pca[:, 2], c=best_labels, cmap="Set1", alpha=0.7)
-plt.colorbar(sc, ax=ax, label='Cluster Label')
-ax.set_title(f'DBSCAN with {n_clusters_final} Clusters')
-ax.set_xlabel('PCA Component 1')
-ax.set_ylabel('PCA Component 2')
-ax.set_zlabel('PCA Component 3')
-plt.savefig(output_img_file)
-print(f"Plot saved as {output_img_file}")
 
 end_time = time.time()
 print(f"Program completed in: {end_time - start_time} seconds")

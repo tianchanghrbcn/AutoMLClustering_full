@@ -1,18 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-pre-processing.py
------------------
-1) 固定 K=5，无需用户输入。
-2) 自动扫描 ../data/ 目录下所有子文件夹，每个子文件夹名作为 dataset_name。
-3) 在该子文件夹中找到以错误率命名的CSV文件 (如 10%.csv, 15%.csv)，
-   并将 clean.csv 的错误率固定为 0.01%。
-4) 解析出错误率并读取数据，计算特征向量(m, n, missing_rate, noise_rate等)。
-5) 为每个 CSV 生成一个唯一的 dataset_id (D1, D2, ...)，并将结果保存到 JSON 文件 (eigenvectors.json)。
-   每次运行脚本都会覆盖原文件，从 D1 开始重新编号。
-"""
-
 import os
 import json
 import pandas as pd
@@ -22,7 +10,6 @@ import numpy as np
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "dataset", "train")
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "..", "..", "..", "results", "eigenvectors.json")
 K_VALUE = 5  # 固定 K=5
-
 
 def compute_missing_rate(df: pd.DataFrame) -> float:
     """
