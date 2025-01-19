@@ -448,44 +448,55 @@ class Detection:
 
 ########################################
 
-def run_mode_cleaning(dirty_path: str, clean_path: str, task_name: str) -> (pd.DataFrame, float):
 
-    start_time = time.time()
+########################################
+if __name__ == "__main__":
+    # Set up argument parser
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--clean_path', type=str, required=True, help="Path to the clean CSV file")
+    parser.add_argument('--dirty_path', type=str, required=True, help="Path to the dirty CSV file")
+    parser.add_argument('--task_name', type=str, required=True, help="Task name (dataset name)")
+    args = parser.parse_args()
 
-    # 加载脏数据和干净数据
+    # Retrieve paths and task name from the arguments
+    clean_path = args.clean_path
+    dirty_path = args.dirty_path
+    task_name = args.task_name
+
+    # Load data
     rep_df = pd.read_csv(dirty_path)
     clean_df = pd.read_csv(clean_path)
 
-    # 提取 {dataset-name}/{error_rate}.csv 部分
-    relative_path = os.path.relpath(dirty_path, os.path.join(os.getcwd(), "dataset", "train"))
-    dataset_name, error_rate_csv = os.path.split(relative_path)
+    # Prepare the result path
+    stra_path = f"{os.getcwd()}/results/{task_name}/raha-baran-results-{task_name}"
+    if os.path.exists(stra_path):
+        shutil.rmtree(stra_path)
+    dataset_name = task_name
 
-    # 准备结果保存路径
-    current_dir = os.getcwd()
-    results_dir = os.path.join(current_dir, "results", "cleaned_data", dataset_name)
-    os.makedirs(results_dir, exist_ok=True)
+    # Only add .csv extension if it's not already part of the filename
+    res_file_name = os.path.basename(dirty_path)
+    if not res_file_name.endswith('.csv'):
+        res_file_name += ".csv"
 
-    repaired_file_name = f"repaired_{dataset_name}_{error_rate_csv}"
-    res_path = os.path.join(results_dir, repaired_file_name)
+    res_path = f"{os.getcwd()}/results/{task_name}/repaired_{task_name}_{res_file_name}"
 
-    # 构建清洗算法需要的数据结构
+    # Create dictionary for the dataset to pass to the detection
     dataset_dictionary = {
-        "name": task_name,
+        "name": dataset_name,
         "path": dirty_path,
         "clean_path": clean_path
     }
 
-    # 运行清洗算法
+    # Run the detection algorithm
+    start_time = time.time()
     app = Detection()
     detection_dictionary = app.run(dataset_dictionary)
 
-    # 应用检测到的修正
+    # Apply corrections
     for cell, val in detection_dictionary.items():
         rep_df.iloc[cell[0], cell[1]] = rep_df[rep_df.columns[cell[1]]].mode()[0]
 
-    # 保存清洗后的数据
+    # Save the repaired data to CSV
+    os.makedirs(os.path.dirname(res_path), exist_ok=True)
     rep_df.to_csv(res_path, index=False)
-
-    time_used = time.time() - start_time
-
-    return rep_df, time_used
+    print(f"Repaired data saved to {res_path}")

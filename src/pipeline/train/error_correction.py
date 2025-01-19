@@ -1,55 +1,78 @@
-# src/pipeline/train/error_correction.py
-
 import os
-import time
+import subprocess
 import pandas as pd
+import shutil
+import time
+import re  # 用于解析 stdout 输出
 
-# 使用绝对导入(前提: 顶层包叫 "src", 并在 sys.path 或 PYTHONPATH 中)
-from src.cleaning.mode.correction_with_mode import run_mode_cleaning
+def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path, output_dir):
 
-def run_error_correction(
-        dataset_name: str,
-        csv_path: str,
-        cleaning_algo: str,
-        work_dir: str,
-        clean_csv_path: str = None
-) -> (str, str, float):
-    """
-    统一的清洗函数入口:
-      - dataset_name: 数据集名称
-      - csv_path:     待清洗的(脏)CSV文件
-      - cleaning_algo: "mode" / "raha_baran" / ...
-      - work_dir:     工作目录
-      - clean_csv_path: 如果算法需要对照干净数据，则传入其路径
+    # 确保输出目录存在
+    os.makedirs(output_dir, exist_ok=True)
 
-    返回: (cleaned_csv_path, cleaning_algo_label, cleaning_time)
-    """
+    # 设置任务名称
+    task_name = f"dataset_{dataset_id}_algo_{algorithm_id}"
+    algo_name = "mode" if algorithm_id == 1 else "baran"
 
-    if cleaning_algo == "mode":
-        # mode算法需要 dirty_path + clean_path
-        if not clean_csv_path:
-            raise ValueError("Mode cleaning requires 'clean_csv_path'.")
+    # 设置命令
+    if algorithm_id == 1:
+        command = [
+            "python", "../../cleaning/mode/correction_with_mode.py",
+            "--clean_path", clean_csv_path,
+            "--dirty_path", dataset_path,
+            "--task_name", task_name
+        ]
+    elif algorithm_id == 2:
+        try:
+            df = pd.read_csv(dataset_path)
+            index_attribute = df.columns[0]  # 获取首列名称作为主键
+        except Exception as e:
+            print(f"读取数据集时出错: {e}")
+            return None, None
 
-        # 执行清洗并记录时间
-        start_time = time.time()
-        repaired_df, algo_time = run_mode_cleaning(
-            dirty_path=csv_path,
-            clean_path=clean_csv_path,
-            task_name=dataset_name
-        )
-        total_time = time.time() - start_time
-
-        # 构造清洗后的文件路径
-        dataset_relative_path = os.path.relpath(csv_path, start=work_dir)
-        dataset_folder, csv_file = os.path.split(dataset_relative_path)
-        error_rate = os.path.splitext(csv_file)[0]
-
-        cleaned_csv_path = os.path.join(
-            work_dir, "results", "cleaned_data", dataset_folder, f"repaired_{dataset_name}_{error_rate}.csv"
-        )
-
-        print(f"[Cleaning - Mode] Dataset={dataset_name}, TimeUsed={total_time:.2f}s => {cleaned_csv_path}")
-        return cleaned_csv_path, cleaning_algo, total_time
-
+        command = [
+            "python", "../../cleaning/baran/correction_with_baran.py",
+            "--dirty_path", dataset_path,
+            "--clean_path", clean_csv_path,
+            "--task_name", task_name,
+            "--output_path", output_dir,
+            "--index_attribute", index_attribute
+        ]
     else:
-        raise ValueError(f"Unknown cleaning algorithm: {cleaning_algo}")
+        print(f"运行清洗算法 {algorithm_id}（其他算法占位符），数据集编号: {dataset_id}")
+        return None, None
+
+    # 执行命令并处理结果
+    try:
+        print(f"运行清洗算法 {algorithm_id}（{algo_name}），数据集编号: {dataset_id}")
+        start_time = time.time()  # 记录开始时间
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        end_time = time.time()  # 记录结束时间
+        runtime = end_time - start_time  # 计算运行时间
+
+        print(f"算法输出:\n{result.stdout}")
+
+        # 动态提取生成的结果文件路径
+        match = re.search(r"Repaired data saved to (.+\.csv)", result.stdout)
+        if match:
+            repaired_file = match.group(1)
+        else:
+            raise FileNotFoundError("无法从算法输出中提取生成的文件路径")
+
+        # 保存结果到指定目录
+        cleaned_data_dir = os.path.join("../../../results/cleaned_data", algo_name)
+        os.makedirs(cleaned_data_dir, exist_ok=True)
+        new_file_path = os.path.join(cleaned_data_dir, f"repaired_{dataset_id}.csv")
+        shutil.copy(repaired_file, new_file_path)
+
+        print(f"结果文件已保存到: {new_file_path}")
+        print(f"运行时间: {runtime:.2f} 秒")
+
+        return new_file_path, runtime
+
+    except subprocess.CalledProcessError as e:
+        print(f"运行错误：{e.stderr}")
+        return None, None
+    except FileNotFoundError as e:
+        print(f"文件错误：{e}")
+        return None, None
