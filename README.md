@@ -49,7 +49,7 @@ nohup python training_pipeline.py > output.log 2>&1 &
 - The output and logs will be saved to the `output.log` file.
 
 ## Project Directory Structure
-
+```plaintext
 AutoMLClustering/
 ├── config.sh                # Configuration script to set up the environment
 ├── dataset/                 # Contains datasets for training and testing
@@ -89,7 +89,7 @@ AutoMLClustering/
 │   │   │   └── error_correction.py     # Error correction module
 │   └── --legacy/            # Legacy or deprecated code
 ├── venv/                    # Virtual environment directory (created by config.sh)
-
+```
 
 ## Logs and Outputs
 
