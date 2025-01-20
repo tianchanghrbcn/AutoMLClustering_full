@@ -96,7 +96,7 @@ def main():
         print(f"错误: DATA_DIR {DATA_DIR} 不存在或不是文件夹。")
         return
 
-    dataset_id_counter = 1
+    dataset_id_counter = 0
 
     for dataset_name in os.listdir(DATA_DIR):
         sub_folder = os.path.join(DATA_DIR, dataset_name)
@@ -111,7 +111,8 @@ def main():
         for csv_file in csv_files:
             csv_path = os.path.join(sub_folder, csv_file)
 
-            dataset_id = f"D{dataset_id_counter}"
+            # 将 dataset_id 设置为递增的整数值，无引号
+            dataset_id = dataset_id_counter
             dataset_id_counter += 1
 
             feature_vector = process_single_file(csv_path, dataset_name, dataset_id)

@@ -26,9 +26,10 @@ def run_clustering(dataset_id, algorithm, cluster_method_id, cleaned_file_path):
         # 设置环境变量
         os.environ["CSV_FILE_PATH"] = cleaned_file_path
         os.environ["DATASET_ID"] = str(dataset_id)
+        os.environ["ALGO"] = algorithm
 
         # 设置结果输出目录
-        output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", cluster_method,
+        output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", cluster_method, algorithm,
                                   f"clustered_{dataset_id}")
         os.makedirs(output_dir, exist_ok=True)
         os.environ["OUTPUT_DIR"] = output_dir

@@ -66,7 +66,6 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
         stdout, stderr = process.communicate()
         stdout_lines.extend(stdout.splitlines())
         full_stdout = "\n".join(stdout_lines)
-        print(f"子进程完整输出:\n{full_stdout}")
 
         if not repaired_file:
             # 如果未检测到路径，尝试从完整输出中匹配
@@ -86,9 +85,6 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
         os.makedirs(cleaned_data_dir, exist_ok=True)
         new_file_path = os.path.join(cleaned_data_dir, f"repaired_{dataset_id}.csv")
         shutil.copy(repaired_file, new_file_path)
-
-        print(f"结果文件已保存到: {new_file_path}")
-        print(f"运行时间: {runtime:.2f} 秒")
 
         return new_file_path, runtime
 

@@ -1,0 +1,53 @@
+[
+    {
+        "dataset_id": 0,
+        "top_k": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.2097311024608093
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5017336004744226,
+                    "preference": -383.0
+                },
+                2.145652322287697
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.130692524968329
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 34.0
+                },
+                0.8119106280287341
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": 32.0,
+                    "covariance type": "tied"
+                },
+                0.7893565567203442
+            ]
+        ]
+    }
+]

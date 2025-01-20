@@ -1,3 +1,4 @@
+import os
 import json
 import re
 from typing import List, Dict, Any
@@ -5,118 +6,138 @@ from collections import defaultdict
 
 def get_k_value(preprocessing_file_path: str) -> int:
     """
-    从 pre-processing.py 文件的第 12 行读取常量 K_VALUE 的值。
+    从 pre-processing.py 文件中读取常量 K_VALUE 的值。
     """
     k_value = 5  # 默认值
     try:
         with open(preprocessing_file_path, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-            if len(lines) >= 12:
-                line = lines[11]
-                match = re.search(r"K_VALUE\s*=\s*(\d+)", line)
-                if match:
-                    k_value = int(match.group(1))
+            content = f.read()
+            match = re.search(r"K_VALUE\s*=\s*(\d+)", content)
+            if match:
+                k_value = int(match.group(1))
             else:
-                print("[ERROR] pre-processing.py 文件内容不足 12 行")
+                print("[WARNING] 未找到 K_VALUE，使用默认值 5")
     except Exception as e:
         print(f"[ERROR] 无法读取 K_VALUE: {e}")
     return k_value
 
 
-def parse_clustering_results(file_path: str) -> Dict[str, float]:
+def parse_cluster_file(directory_path: str, dataset_id: int):
     """
-    从聚类结果文件中提取相关指标。
-    假设文件为 JSON 格式，包含以下字段:
-        - number_of_clusters
-        - combined_score
-        - silhouette_score
-        - davies_bouldin_score
+    解析聚类结果文件 (位于指定目录下的 repaired_{dataset_id}.txt 文件)，
+    从中提取:
+      - Best parameters (返回一个 dict)
+      - Final Combined Score (返回浮点数)
     """
-    metrics = {
-        "number_of_clusters": None,
-        "combined_score": None,
-        "silhouette_score": None,
-        "davies_bouldin_score": None
-    }
+    best_params = {}
+    final_score = 0.0
     try:
+        # 构建具体文件路径
+        file_path = os.path.join(directory_path, f"repaired_{dataset_id}.txt")
+        if not os.path.isfile(file_path):
+            print(f"[ERROR] 文件 {file_path} 不存在")
+            return best_params, final_score
+
+        # 解析文件内容
         with open(file_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            metrics["number_of_clusters"] = data.get("number_of_clusters", None)
-            metrics["combined_score"] = data.get("combined_score", None)
-            metrics["silhouette_score"] = data.get("silhouette_score", None)
-            metrics["davies_bouldin_score"] = data.get("davies_bouldin_score", None)
+            content = f.read().splitlines()
+
+        for line in content:
+            # 解析 Best parameters
+            if "Best parameters" in line:
+                parts = line.split(":", 1)
+                if len(parts) == 2:
+                    param_str = parts[1].strip()
+                    param_pairs = param_str.split(",")
+                    for pp in param_pairs:
+                        key, value = pp.strip().split("=")
+                        try:
+                            best_params[key] = float(value)
+                        except ValueError:
+                            best_params[key] = value
+            # 解析 Final Combined Score
+            if "Final Combined Score" in line:
+                match_score = re.search(r"Final Combined Score\s*:\s*([\d\.]+)", line)
+                if match_score:
+                    final_score = float(match_score.group(1))
     except Exception as e:
-        print(f"[ERROR] 无法解析聚类结果文件 {file_path}: {e}")
-    return metrics
+        print(f"[ERROR] 无法解析文件 {file_path}: {e}")
+
+    return best_params, final_score
 
 
-def generate_training_data(
-    clustered_results: List[Dict[str, Any]],
-    eigenvectors_path: str,
-    k_value: int
-) -> List[Dict[str, Any]]:
+def save_analyzed_results(
+        preprocessing_file_path: str,
+        eigenvectors_path: str,
+        clustered_results_path: str,
+        output_path: str
+):
     """
-    基于聚类结果生成训练数据 (花体 M)。
-    每条记录包含:
-        - dataset_id
-        - x (特征向量)
-        - labels (多标签集合)
+    1) 从 pre-processing.py 中获取 k_value
+    2) 遍历所有 dataset_id (通过 eigenvectors.json 获取)
+    3) 对每个 dataset_id, 在 clustered_results.json 中查找所有方法,
+       解析 clustered_file_path, 获取 best_params, final_score
+    4) 将所有策略按 final_score 排序, 取 top-K
+    5) 以指定格式保存到 output_path
     """
-    # 读取 eigenvectors.json
+
+    # 1) 获取 K 值
+    k_value = get_k_value(preprocessing_file_path)
+    print(f"[INFO] Top-K 值: {k_value}")
+
+    # 2) 读取 eigenvectors.json
     try:
         with open(eigenvectors_path, "r", encoding="utf-8") as f:
-            eigenvectors_data = {item["dataset_id"]: item["x"] for item in json.load(f)}
+            eigenvectors_list = json.load(f)
     except Exception as e:
-        print(f"[ERROR] 无法读取 eigenvectors.json: {e}")
-        return []
+        print(f"[ERROR] 无法读取 {eigenvectors_path}: {e}")
+        return
 
-    # 处理每个 dataset_id 的聚类结果
-    dataset_strategies = defaultdict(list)
-    for result in clustered_results:
-        try:
-            dataset_id = result["dataset_id"]
-            metrics = parse_clustering_results(result["clustered_file_path"])
-            combined_score = metrics["combined_score"]
+    dataset_ids = [item["dataset_id"] for item in eigenvectors_list]
 
-            if combined_score is None:
-                print(f"[WARNING] 数据集 {dataset_id} 的聚类结果缺少 combined_score，跳过。")
-                continue
+    # 3) 读取 clustered_results.json
+    try:
+        with open(clustered_results_path, "r", encoding="utf-8") as f:
+            clustered_results = json.load(f)
+    except Exception as e:
+        print(f"[ERROR] 无法读取 {clustered_results_path}: {e}")
+        return
 
-            strategy_label = f"cleaning={result['cleaning_algorithm']}__clustering={result['clustering_algorithm']}"
-            dataset_strategies[dataset_id].append({
-                "label": strategy_label,
-                "score": combined_score
-            })
-        except Exception as e:
-            print(f"[ERROR] 数据集 {result.get('dataset_id', 'unknown')} 处理失败: {e}")
+    dataset_methods = defaultdict(list)
+    for method_info in clustered_results:
+        dataset_id = method_info.get("dataset_id")
+        if dataset_id is not None:
+            dataset_methods[dataset_id].append(method_info)
 
-    # 构建训练数据
-    training_data = []
-    for dataset_id, strategies in dataset_strategies.items():
-        if dataset_id not in eigenvectors_data:
-            print(f"[WARNING] 在 eigenvectors.json 中找不到 dataset_id={dataset_id} 的特征向量，跳过。")
+    # 4) 遍历每个 dataset_id 的方法
+    analyzed_results = []
+    for dataset_id in dataset_ids:
+        if dataset_id not in dataset_methods:
+            print(f"[WARNING] dataset_id {dataset_id} 在 clustered_results.json 中未找到记录，跳过。")
             continue
 
-        # Top-K 策略
-        strategies_sorted = sorted(strategies, key=lambda x: x["score"], reverse=True)[:k_value]
-        labels = [s["label"] for s in strategies_sorted]
+        strategy_list = []
+        for method_info in dataset_methods[dataset_id]:
+            cleaning_alg = method_info.get("cleaning_algorithm", "unknown_cleaning")
+            clustering_alg = method_info.get("clustering_name", "unknown_clustering")
+            directory_path = method_info.get("clustered_file_path", "")
 
-        training_data.append({
+            # 使用 dataset_id 定位具体的 repaired 文件
+            best_params, final_score = parse_cluster_file(directory_path, dataset_id)
+            strategy_list.append([cleaning_alg, clustering_alg, best_params, final_score])
+
+        strategy_list_sorted = sorted(strategy_list, key=lambda x: x[3], reverse=True)
+        top_k = strategy_list_sorted[:k_value]
+
+        analyzed_results.append({
             "dataset_id": dataset_id,
-            "x": eigenvectors_data[dataset_id],
-            "labels": labels
+            "top_k": top_k
         })
 
-    return training_data
-
-
-def save_training_data(training_data: List[Dict[str, Any]], output_path: str):
-    """
-    保存训练数据 (花体 M) 到 JSON 文件。
-    """
+    # 5) 保存结果
     try:
         with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(training_data, f, ensure_ascii=False, indent=4)
-        print(f"[INFO] 训练数据已保存到 {output_path}")
+            json.dump(analyzed_results, f, ensure_ascii=False, indent=4)
+        print(f"[INFO] 分析结果已保存到 {output_path}")
     except Exception as e:
-        print(f"[ERROR] 无法保存训练数据: {e}")
+        print(f"[ERROR] 无法保存分析结果: {e}")

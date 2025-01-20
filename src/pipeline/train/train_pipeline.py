@@ -4,8 +4,8 @@ import json
 from src.pipeline.train.cluster_methods import ClusterMethod
 from src.pipeline.train.error_correction import run_error_correction
 from src.pipeline.train.cluster_methods import run_clustering
-from src.pipeline.train.clustered_analysis import generate_training_data
-from src.pipeline.train.clustered_analysis import get_k_value
+from src.pipeline.train.clustered_analysis import save_analyzed_results
+from src.pipeline.train.classifier_preparation import generate_training_data
 
 def main():
 
@@ -35,7 +35,7 @@ def main():
     # 遍历所有数据集
     for record_idx, record in enumerate(all_records):
         # 仅测试第一个数据集的第一个 CSV 文件
-        if record_idx > 0:  # 调整此处条件以启用完整测试
+        if record_idx >= 2:  # 调整此处条件以启用完整测试
             break
 
         dataset_id = record_idx  # 使用记录的编号作为 dataset_id
@@ -126,27 +126,28 @@ def main():
     print(f"聚类结果已保存到 {clustered_results_path}")
 
     # ========== 分析聚类结果 ==========
+
     print("[INFO] 开始分析聚类结果")
 
-    # 获取 K 值
-    k_value = get_k_value(preprocessing_file_path)
-
-    # 读取 clustered_results.json
-    with open(clustered_results_path, "r", encoding="utf-8") as f:
-        clustered_results = json.load(f)
-
-    # 调用 generate_training_data 生成最终的训练数据（花体 M）
-    analyzed_results = generate_training_data(
-        clustered_results=clustered_results,
+    # 调用函数，保存分析结果
+    save_analyzed_results(
+        preprocessing_file_path=preprocessing_file_path,
         eigenvectors_path=eigenvectors_path,
-        k_value=k_value
+        clustered_results_path=clustered_results_path,
+        output_path=analyzed_results_path
     )
 
-    # 保存分析后的结果
-    with open(analyzed_results_path, "w", encoding="utf-8") as f:
-        json.dump(analyzed_results, f, ensure_ascii=False, indent=4)
-
     print(f"[INFO] 分析结果已保存到 {analyzed_results_path}")
+
+    # ========== 生成训练数据 ==========
+
+    print("[INFO] 开始生成训练数据")
+
+    try:
+        generate_training_data()
+        print("[INFO] 训练数据已成功生成并保存")
+    except Exception as e:
+        print(f"[ERROR] 生成训练数据时发生错误: {e}")
 
 
 if __name__ == "__main__":

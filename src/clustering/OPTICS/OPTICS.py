@@ -13,6 +13,7 @@ start_time = time.time()
 # 获取 CSV 文件路径和环境变量
 csv_file_path = os.getenv("CSV_FILE_PATH")
 dataset_id = os.getenv("DATASET_ID")
+algorithm_name = os.getenv("ALGO")
 
 if not csv_file_path:
     print("Error: CSV file path is not provided. Set 'CSV_FILE_PATH' environment variable.")
@@ -109,7 +110,7 @@ else:
 
 # 保存结果
 base_filename = os.path.splitext(os.path.basename(csv_file_path))[0]
-output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", "OPTICS",
+output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", "OPTICS", algorithm_name,
                           f"clustered_{dataset_id}")
 os.makedirs(output_dir, exist_ok=True)
 
