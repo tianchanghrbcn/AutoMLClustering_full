@@ -43,8 +43,7 @@ python pre-processing.py
 Run the training pipeline in the background using `nohup` to ensure it continues running even if the session is disconnected:
 
 ```bash
-cd /root/AutoMLClustering
-nohup python -m src.pipeline.train.train_pipeline > output.log 2>&1 &
+nohup python train_pipeline.py > output.log 2>&1 &
 ```
 
 - Ensure that `PYTHONPATH` is correctly set up to avoid `ModuleNotFoundError`.
