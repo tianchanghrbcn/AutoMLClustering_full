@@ -4,7 +4,7 @@ This project implements an automated machine learning pipeline for clustering ta
 
 ## Prerequisites
 
-- Python 3.8 or above
+- Python 3.9 or above
 - Linux-based system (tested on Ubuntu)
 - Required packages (installed via `config.sh`)
 
@@ -50,19 +50,46 @@ nohup python training_pipeline.py > output.log 2>&1 &
 
 ## Project Directory Structure
 
-```plaintext
 AutoMLClustering/
 ├── config.sh                # Configuration script to set up the environment
+├── dataset/                 # Contains datasets for training and testing
+│   ├── train/               # Training datasets
+│   │   ├── beers            # Beers dataset
+│   │   ├── flights          # Flights dataset
+│   │   ├── hospital         # Hospital dataset
+│   │   ├── rayyan           # Rayyan dataset
+│   │   └── ...              # Other datasets (if applicable)
+│   └── test/                # Placeholder for testing datasets
+├── LICENSE                  # Project license (e.g., MIT License)
+├── README.md                # Project documentation
+├── reference/               # References and supporting documentation
+├── requirements.txt         # Python dependencies
+├── results/                 # Directory to store results (e.g., logs, outputs)
+├── src/                     # Source code for the project
+│   ├── cleaning/            # Data cleaning modules
+│   │   ├── baran            # Baran cleaning algorithm
+│   │   ├── mode             # Mode cleaning algorithm
+│   │   └── ...              # Other cleaning algorithms (if applicable)
+│   ├── clustering/          # Clustering methods
+│   │   ├── AP               # Affinity Propagation clustering
+│   │   ├── DBSCAN           # DBSCAN clustering
+│   │   ├── GMM              # Gaussian Mixture Model clustering
+│   │   ├── HC               # Hierarchical clustering
+│   │   ├── KMEANS           # K-Means clustering
+│   │   ├── OPTICS           # OPTICS clustering
+│   │   └── ...              # Other clustering algorithms (if applicable)
+│   ├── pipeline/            # Pipeline implementation
+│   │   ├── train/           # Training pipeline
+│   │   │   ├── pre-processing.py       # Preprocessing script
+│   │   │   ├── train_pipeline.py       # Main training pipeline script
+│   │   │   ├── classifier.py           # Classification logic
+│   │   │   ├── classifier_preparation.py # Classifier data preparation
+│   │   │   ├── cluster_methods.py      # Clustering method utilities
+│   │   │   ├── clustered_analysis.py   # Clustering result analysis
+│   │   │   └── error_correction.py     # Error correction module
+│   └── --legacy/            # Legacy or deprecated code
 ├── venv/                    # Virtual environment directory (created by config.sh)
-├── src/
-│   ├── pipeline/
-│   │   ├── train/
-│   │   │   ├── pre-processing.py    # Preprocessing script
-│   │   │   ├── training_pipeline.py # Main training pipeline script
-│   │   │   └── ...                  # Other pipeline modules
-│   └── ...                          # Additional source code
-└── README.md               # Project documentation
-```
+
 
 ## Logs and Outputs
 
