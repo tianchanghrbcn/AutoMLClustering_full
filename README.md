@@ -1,4 +1,3 @@
-```markdown
 # AutoMLClustering
 
 This project implements an automated machine learning pipeline for clustering tasks, supporting various data preprocessing, error correction, clustering methods, and result analysis.
@@ -86,4 +85,4 @@ AutoMLClustering/
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-```
+
