@@ -42,9 +42,9 @@ This project implements an automated machine learning pipeline for clustering ta
      ```
      Add the following line at the end of the file:
      ```bash
-     export PYTHONPATH=/path/to/AutoMLClustering:$PYTHONPATH
+     export PYTHONPATH=/root/AutoMLClustering:$PYTHONPATH
      ```
-     Replace `/path/to/AutoMLClustering` with the full path to your project root.
+     Replace `root/AutoMLClustering` with the full path to your project root.
 
      Save the file and refresh the configuration:
      ```bash
@@ -65,7 +65,8 @@ python pre-processing.py
 Run the training pipeline in the background using `nohup` to ensure it continues running even if the session is disconnected:
 
 ```bash
-nohup python train_pipeline.py > output.log 2>&1 &
+cd /root/AutoMLClustering
+nohup python -m src.pipeline.train.train_pipeline > output.log 2>&1 &
 ```
 
 - Ensure that `PYTHONPATH` is correctly set up to avoid `ModuleNotFoundError`.
