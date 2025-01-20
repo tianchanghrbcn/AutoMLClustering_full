@@ -43,7 +43,7 @@ python pre-processing.py
 Run the training pipeline in the background using `nohup` to ensure it continues running even if the session is disconnected:
 
 ```bash
-nohup python training_pipeline.py > output.log 2>&1 &
+nohup python train_pipeline.py > output.log 2>&1 &
 ```
 
 - The output and logs will be saved to the `output.log` file.
