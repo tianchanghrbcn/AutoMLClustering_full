@@ -1,3 +1,4 @@
+import os
 import json
 import re
 from typing import List, Dict, Any
@@ -120,3 +121,36 @@ def save_training_data(training_data: List[Dict[str, Any]], output_path: str):
         print(f"[INFO] 训练数据已保存到 {output_path}")
     except Exception as e:
         print(f"[ERROR] 无法保存训练数据: {e}")
+
+
+def main():
+    # 工作目录路径
+    work_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+
+    # 各种文件路径
+    preprocessing_file_path = os.path.join(work_dir, "scripts", "pre-processing.py")
+    eigenvectors_path = os.path.join(work_dir, "results", "eigenvectors.json")
+    clustered_results_path = os.path.join(work_dir, "results", "clustered_results.json")
+    analyzed_results_path = os.path.join(work_dir, "results", "analyzed_results.json")
+
+    # 获取 K_VALUE
+    k_value = get_k_value(preprocessing_file_path)
+    print(f"[INFO] Top-K 值: {k_value}")
+
+    # 读取 clustered_results.json
+    try:
+        with open(clustered_results_path, "r", encoding="utf-8") as f:
+            clustered_results = json.load(f)
+    except Exception as e:
+        print(f"[ERROR] 无法读取 {clustered_results_path}: {e}")
+        return
+
+    # 生成训练数据 (花体 M)
+    training_data = generate_training_data(clustered_results, eigenvectors_path, k_value)
+
+    # 保存训练数据到 analyzed_results.json
+    save_training_data(training_data, analyzed_results_path)
+
+
+if __name__ == "__main__":
+    main()

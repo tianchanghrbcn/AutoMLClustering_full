@@ -5,10 +5,12 @@ from src.pipeline.train.cluster_methods import ClusterMethod
 from src.pipeline.train.error_correction import run_error_correction
 from src.pipeline.train.cluster_methods import run_clustering
 from src.pipeline.train.clustered_analysis import generate_training_data
+from src.pipeline.train.clustered_analysis import get_k_value
 
 def main():
 
     # ========== 配置部分 ==========
+    preprocessing_file_path = os.path.join("pre-processing.py")
     work_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
     eigenvectors_path = os.path.join(work_dir, "results", "eigenvectors.json")
     cleaned_results_path = os.path.join(work_dir, "results", "cleaned_results.json")
@@ -125,13 +127,27 @@ def main():
 
     # ========== 分析聚类结果 ==========
     print("[INFO] 开始分析聚类结果")
-    analyzed_results = generate_training_data(clustered_results_path)
+
+    # 获取 K 值
+    k_value = get_k_value(preprocessing_file_path)
+
+    # 读取 clustered_results.json
+    with open(clustered_results_path, "r", encoding="utf-8") as f:
+        clustered_results = json.load(f)
+
+    # 调用 generate_training_data 生成最终的训练数据（花体 M）
+    analyzed_results = generate_training_data(
+        clustered_results=clustered_results,
+        eigenvectors_path=eigenvectors_path,
+        k_value=k_value
+    )
 
     # 保存分析后的结果
     with open(analyzed_results_path, "w", encoding="utf-8") as f:
         json.dump(analyzed_results, f, ensure_ascii=False, indent=4)
 
-    print(f"分析结果已保存到 {analyzed_results_path}")
+    print(f"[INFO] 分析结果已保存到 {analyzed_results_path}")
+
 
 if __name__ == "__main__":
     main()
