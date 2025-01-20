@@ -29,28 +29,6 @@ This project implements an automated machine learning pipeline for clustering ta
    source venv/bin/activate
    ```
 
-4. Add the project root directory to the `PYTHONPATH`:
-
-   - **Temporary Setup**: (Valid only for the current session)
-     ```bash
-     export PYTHONPATH=$(pwd):$PYTHONPATH
-     ```
-   - **Permanent Setup**: (To persist across sessions)
-     Open the `~/.bashrc` file:
-     ```bash
-     nano ~/.bashrc
-     ```
-     Add the following line at the end of the file:
-     ```bash
-     export PYTHONPATH=/root/AutoMLClustering:$PYTHONPATH
-     ```
-     Replace `root/AutoMLClustering` with the full path to your project root.
-
-     Save the file and refresh the configuration:
-     ```bash
-     source ~/.bashrc
-     ```
-
 ## Running the Project
 
 ### Step 1: Data Preprocessing
