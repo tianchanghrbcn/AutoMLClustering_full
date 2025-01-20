@@ -8,6 +8,10 @@ This project implements an automated machine learning pipeline for clustering ta
 - Linux-based system (tested on Ubuntu)
 - Required packages (installed via `config.sh`)
 
+以下是修改后的 `## Installation` 和 `## Running the Project`，添加了设置 `PYTHONPATH` 的步骤：
+
+---
+
 ## Installation
 
 1. Clone the repository:
@@ -29,6 +33,30 @@ This project implements an automated machine learning pipeline for clustering ta
    source venv/bin/activate
    ```
 
+4. Add the project root directory to the `PYTHONPATH`:
+
+   - **Temporary Setup**: (Valid only for the current session)
+     ```bash
+     export PYTHONPATH=$(pwd):$PYTHONPATH
+     ```
+   - **Permanent Setup**: (To persist across sessions)
+     Open the `~/.bashrc` file:
+     ```bash
+     nano ~/.bashrc
+     ```
+     Add the following line at the end of the file:
+     ```bash
+     export PYTHONPATH=/path/to/AutoMLClustering:$PYTHONPATH
+     ```
+     Replace `/path/to/AutoMLClustering` with the full path to your project root.
+
+     Save the file and refresh the configuration:
+     ```bash
+     source ~/.bashrc
+     ```
+
+---
+
 ## Running the Project
 
 ### Step 1: Data Preprocessing
@@ -46,6 +74,7 @@ Run the training pipeline in the background using `nohup` to ensure it continues
 nohup python train_pipeline.py > output.log 2>&1 &
 ```
 
+- Ensure that `PYTHONPATH` is correctly set up to avoid `ModuleNotFoundError`.
 - The output and logs will be saved to the `output.log` file.
 
 ## Project Directory Structure
