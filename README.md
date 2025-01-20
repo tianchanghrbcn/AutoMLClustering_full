@@ -8,10 +8,6 @@ This project implements an automated machine learning pipeline for clustering ta
 - Linux-based system (tested on Ubuntu)
 - Required packages (installed via `config.sh`)
 
-以下是修改后的 `## Installation` 和 `## Running the Project`，添加了设置 `PYTHONPATH` 的步骤：
-
----
-
 ## Installation
 
 1. Clone the repository:
@@ -54,8 +50,6 @@ This project implements an automated machine learning pipeline for clustering ta
      ```bash
      source ~/.bashrc
      ```
-
----
 
 ## Running the Project
 
