@@ -13,7 +13,7 @@ This project implements an automated machine learning pipeline for clustering ta
 1. Clone the repository:
 
    ```bash
-   git clone git@github.com:username/AutoMLClustering.git
+   git clone git@github.com:tianchanghrbcn/AutoMLClustering.git
    cd AutoMLClustering
    ```
 
