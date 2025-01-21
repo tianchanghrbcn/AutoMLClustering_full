@@ -14,7 +14,7 @@ This project implements an automated machine learning pipeline for clustering ta
 
    ```bash
    git clone git@github.com:tianchanghrbcn/AutoMLClustering.git
-   cd AutoMLClustering
+   cd /root/AutoMLClustering
    ```
 
 2. Run the configuration script to set up the virtual environment and install dependencies:
