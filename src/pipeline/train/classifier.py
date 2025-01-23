@@ -10,8 +10,6 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import hamming_loss, f1_score
 from sklearn.multiclass import OneVsRestClassifier
 from xgboost import XGBClassifier
-
-# 如果你使用 joblib 来保存模型，需要导入
 from joblib import dump
 
 base_path = "../../../results/"
