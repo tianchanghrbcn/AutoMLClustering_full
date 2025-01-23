@@ -43,11 +43,41 @@ python pre-processing.py
 Run the training pipeline in the background using `nohup` to ensure it continues running even if the session is disconnected:
 
 ```bash
-nohup python train_pipeline.py > output.log 2>&1 &
+nohup python train_pipeline.py > output_training.log 2>&1 &
 ```
 
 - Ensure that `PYTHONPATH` is correctly set up to avoid `ModuleNotFoundError`.
-- The output and logs will be saved to the `output.log` file.
+- The output and logs will be saved to the `output_training.log` file.
+
+### Step 3: Start the Classifier
+After completing the training pipeline, run the classifier in the background using the same `nohup` mechanism:
+
+```bash
+nohup python classifier.py > output_classifier.log 2>&1 &
+```
+
+- Ensure that the classifier script is in the correct directory and has all the required configurations.
+- Logs and outputs for the classifier will be stored in the `output_classifier.log` file.
+
+### Notes:
+1. **Check Running Processes**:
+   To ensure both scripts are running:
+   ```bash
+   ps aux | grep python
+   ```
+
+2. **Monitor Logs**:
+   View the logs in real-time with:
+   ```bash
+   tail -f output_training.log
+   tail -f output_classifier.log
+   ```
+
+3. **Stop Processes**:
+   To stop the running processes, find their process IDs (PIDs) using `ps aux` and terminate them:
+   ```bash
+   kill <PID>
+   ```
 
 ## Project Directory Structure
 ```plaintext
