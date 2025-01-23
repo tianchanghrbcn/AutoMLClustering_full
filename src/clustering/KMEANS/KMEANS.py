@@ -48,7 +48,7 @@ print(f"Using multiple columns for clustering: {list(remaining_columns)}")
 # 对类别型特征进行频率编码
 for col in X.columns:
     if X[col].dtype == 'object' or X[col].dtype == 'category':
-        X[col] = X[col].map(X[col].value_counts(normalize=True))
+        X.loc[:, col] = X[col].map(X[col].value_counts(normalize=True))
 
 # 删除包含 NaN 的行
 X = X.dropna()
@@ -87,12 +87,16 @@ def moving_average(data, window_size=3):
 sse_smoothed = moving_average(sse, window_size=3)
 
 # 使用 Kneedle 算法检测肘部位置
-kneedle = KneeLocator(cluster_range[:len(sse_smoothed)], sse_smoothed, curve="convex", direction="decreasing")
-k_kneedle = kneedle.elbow
-print(f"Optimal number of clusters from Kneedle: {k_kneedle}")
+try:
+    kneedle = KneeLocator(cluster_range[:len(sse_smoothed)], sse_smoothed, curve="convex", direction="decreasing")
+    k_kneedle = kneedle.elbow
+    print(f"Optimal number of clusters from Kneedle: {k_kneedle}")
+except ValueError as e:
+    print(f"Kneedle failed to find elbow: {e}")
+    k_kneedle = None
 
 # 第二步：如果 k_optuna 与 k_kneedle 不一致，则进行第二轮优化
-if k_optuna != k_kneedle:
+if k_kneedle is not None and k_optuna != k_kneedle:
     refined_range_min = min(k_optuna, k_kneedle)
     refined_range_max = max(k_optuna, k_kneedle)
     print(f"Refining in range: {refined_range_min} to {refined_range_max}")

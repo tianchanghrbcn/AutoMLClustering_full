@@ -41,7 +41,7 @@ X = df[remaining_columns]
 # 对类别型特征进行频率编码
 for col in X.columns:
     if X[col].dtype == 'object' or X[col].dtype == 'category':
-        X[col] = X[col].map(X[col].value_counts(normalize=True))
+        X.loc[:, col] = X[col].map(X[col].value_counts(normalize=True))
 
 # 删除包含 NaN 的行并标准化数据
 X = X.dropna()

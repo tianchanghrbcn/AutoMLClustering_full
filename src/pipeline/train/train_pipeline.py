@@ -35,6 +35,10 @@ def main():
     # 遍历所有数据集
     for record_idx, record in enumerate(all_records):
 
+        # 仅测试第一个数据集的第一个 CSV 文件
+        #if record_idx >= 2:  # 调整此处条件以启用完整测试
+        #    break
+
         dataset_id = record_idx  # 使用记录的编号作为 dataset_id
         dataset_name = record["dataset_name"]
         csv_file = record["csv_file"]  # 例如 "10%.csv"
@@ -49,7 +53,7 @@ def main():
             continue
 
         # ========== 确定文件路径 ==========
-        dataset_folder = os.path.join(work_dir, "dataset", "train", dataset_name)
+        dataset_folder = os.path.join(work_dir, "datasets", "train", dataset_name)
         if not os.path.exists(dataset_folder):
             print(f"数据集目录 {dataset_folder} 不存在.")
             continue

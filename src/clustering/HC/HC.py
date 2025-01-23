@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import optuna
 from sklearn.cluster import AgglomerativeClustering
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 
 # 获取 CSV 文件路径和环境变量
@@ -17,7 +17,7 @@ if not csv_file_path:
     print("Error: CSV file path is not provided. Set 'CSV_FILE_PATH' environment variable.")
     exit(1)
 
-# 规范化路径以确保跨平台兼容性
+# 规范化路径
 csv_file_path = os.path.normpath(csv_file_path)
 
 # 读取 CSV 文件
@@ -44,9 +44,9 @@ remaining_columns = df.columns.difference(excluded_columns)
 X = df[remaining_columns]
 print(f"Using all columns for clustering: {list(remaining_columns)}")
 
-# 对类别型特征进行频率编码
+# 对类别型特征进行频率编码，避免 `SettingWithCopyWarning`
 for col in X.columns:
-    if X[col].dtype == 'object' or X[col].dtype == 'category':
+    if X[col].dtype == 'object' or X[col].dtype.name == 'category':
         X[col] = X[col].map(X[col].value_counts(normalize=True))
 
 # 删除包含 NaN 的行
@@ -56,29 +56,36 @@ X = X.dropna()
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
+
 # 定义 Optuna 目标函数
 def objective(trial):
-    n_clusters = trial.suggest_int("n_clusters", 5, math.isqrt(X.shape[0]))
+    max_clusters = max(5, math.isqrt(X.shape[0]))  # 确保最大簇数不小于 5
+    if max_clusters < 5:
+        raise optuna.exceptions.TrialPruned(f"Invalid cluster range: max_clusters={max_clusters}")
+
+    n_clusters = trial.suggest_int("n_clusters", 5, max_clusters)
     linkage = trial.suggest_categorical("linkage", ['ward', 'complete', 'average', 'single'])
     metric = trial.suggest_categorical("metric", ['euclidean', 'manhattan', 'cosine'])
 
+    # Ward linkage 只支持欧几里得距离
     if linkage == 'ward' and metric != 'euclidean':
-        return float('-inf')  # Skip incompatible combinations
+        return float('-inf')  # 跳过不兼容的组合
 
     hc = AgglomerativeClustering(n_clusters=n_clusters, linkage=linkage, affinity=metric)
     try:
         labels = hc.fit_predict(X_scaled)
     except ValueError:
-        return float('-inf')  # Skip potential errors
+        return float('-inf')  # 跳过潜在错误
 
     silhouette_avg = silhouette_score(X_scaled, labels, metric='euclidean')
     db_score = davies_bouldin_score(X_scaled, labels)
-    db_score = 1e-6 if db_score == 0 else db_score  # Prevent division by zero
+    db_score = 1e-6 if db_score == 0 else db_score  # 防止除零
 
     combined_score = alpha * (1 / db_score) + beta * silhouette_avg
     return combined_score
 
-# 使用 Optuna 进行一次优化
+
+# 使用 Optuna 进行优化
 study = optuna.create_study(direction="maximize")
 study.optimize(objective, n_trials=200)
 
@@ -87,7 +94,8 @@ best_params = study.best_params
 final_best_k = best_params["n_clusters"]
 linkage_optuna = best_params["linkage"]
 metric_optuna = best_params["metric"]
-print(f"Final optimal parameters from Optuna: n_clusters={final_best_k}, linkage={linkage_optuna}, metric={metric_optuna}")
+print(
+    f"Final optimal parameters from Optuna: n_clusters={final_best_k}, linkage={linkage_optuna}, metric={metric_optuna}")
 
 # 使用最佳参数进行 HC 聚类
 final_hc = AgglomerativeClustering(n_clusters=final_best_k, linkage=linkage_optuna, affinity=metric_optuna)

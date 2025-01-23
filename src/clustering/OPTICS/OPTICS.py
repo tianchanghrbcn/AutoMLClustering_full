@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import optuna
 from sklearn.cluster import OPTICS
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 from sklearn.metrics.pairwise import cosine_distances
 
@@ -39,9 +39,9 @@ print(f"Using all columns for clustering: {list(remaining_columns)}")
 # 使用所有非排除列作为特征
 X = df[remaining_columns]
 
-# 对类别型特征进行频率编码
+# 对类别型特征进行频率编码，避免 SettingWithCopyWarning
 for col in X.columns:
-    if X[col].dtype == 'object' or X[col].dtype == 'category':
+    if X[col].dtype == 'object' or X[col].dtype.name == 'category':
         X[col] = X[col].map(X[col].value_counts(normalize=True))
 
 # 删除包含 NaN 的行并标准化数据
@@ -54,8 +54,9 @@ X_cosine = cosine_distances(X_scaled)
 
 # 定义 Optuna 的目标函数
 def objective(trial):
-    # 参数范围
-    min_samples = trial.suggest_int("min_samples", 5, 30)
+    # 动态设置参数范围，避免 min_samples 超过样本数量
+    max_samples = max(2, len(X) - 1)
+    min_samples = trial.suggest_int("min_samples", 1, max_samples)
     xi = trial.suggest_float("xi", 0.01, 0.1)
     min_cluster_size = trial.suggest_float("min_cluster_size", 0.01, 0.05)
 

@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 # ========== 全局配置 ==========
-DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "dataset", "train")
+DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "datasets", "train")
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "..", "..", "..", "results", "eigenvectors.json")
 K_VALUE = 5  # 固定 K=5
 

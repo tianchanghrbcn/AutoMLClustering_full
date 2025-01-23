@@ -44,7 +44,7 @@ print(f"Using all columns for clustering: {list(remaining_columns)}")
 # 对类别型特征进行频率编码
 for col in X.columns:
     if X[col].dtype == 'object' or X[col].dtype == 'category':
-        X[col] = X[col].map(X[col].value_counts(normalize=True))
+        X.loc[:, col] = X[col].map(X[col].value_counts(normalize=True))
 
 # 删除包含 NaN 的行
 X = X.dropna()
@@ -55,6 +55,7 @@ X_scaled = scaler.fit_transform(X)
 
 # 定义 alpha 和 beta 权重
 alpha, beta = 0.75, 0.25
+
 
 # 定义优化目标函数
 def objective(trial):
@@ -76,19 +77,49 @@ def objective(trial):
     return combined_score  # 返回正值以最大化综合得分
 
 
-# 使用 Optuna 进行参数搜索
-study = optuna.create_study(direction="maximize")
-study.optimize(objective, n_trials=50)
+# 定义运行逻辑
+def run_affinity_propagation(damping_range, preference_range, max_trials=50):
+    study = optuna.create_study(direction="maximize")
+    study.optimize(objective, n_trials=max_trials)
+    return study.best_params, study.best_value
 
-# 获取最佳参数
-best_params = study.best_params
-best_damping = best_params["damping"]
-best_preference = best_params["preference"]
 
-# 使用最佳参数进行 AP 聚类
-best_ap = AffinityPropagation(damping=best_damping, preference=best_preference, random_state=0)
-best_labels = best_ap.fit_predict(X_scaled)
-best_n_clusters = len(np.unique(best_labels))
+# 初始参数范围
+damping_range = (0.5, 0.9)
+preference_range = (-500, -100)
+attempts = 0
+max_attempts = 3
+
+best_params = None
+best_n_clusters = 1
+
+while attempts < max_attempts and best_n_clusters <= 1:
+    attempts += 1
+    print(f"Attempt {attempts} with damping range: {damping_range}, preference range: {preference_range}")
+
+    # 使用当前范围进行优化
+    best_params, best_score = run_affinity_propagation(damping_range, preference_range)
+
+    # 获取最佳参数并运行 AffinityPropagation
+    best_damping = best_params["damping"]
+    best_preference = best_params["preference"]
+
+    best_ap = AffinityPropagation(damping=best_damping, preference=best_preference, random_state=0)
+    best_labels = best_ap.fit_predict(X_scaled)
+    best_n_clusters = len(np.unique(best_labels))
+
+    print(f"Attempt {attempts}: Best parameters: damping={best_damping}, preference={best_preference}")
+    print(f"Number of clusters: {best_n_clusters}")
+
+    # 如果簇数仍然是 1，扩大参数范围
+    if best_n_clusters <= 1:
+        damping_range = (max(0.4, damping_range[0] - 0.1), min(1.0, damping_range[1] + 0.1))
+        preference_range = (preference_range[0] - 200, preference_range[1] + 200)
+
+# 如果最终仍未找到有效簇数
+if best_n_clusters <= 1:
+    print("Failed to find a valid clustering with more than 1 cluster after 3 attempts.")
+    exit(1)
 
 # 计算最终得分
 final_silhouette_score = silhouette_score(X_scaled, best_labels)
