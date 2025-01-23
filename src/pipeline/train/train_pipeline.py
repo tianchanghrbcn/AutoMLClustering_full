@@ -102,7 +102,7 @@ def main():
         return
 
     # 或者测试第一个数据集：
-    # all_records = all_records[:1]
+    all_records = all_records[:1]
 
     cleaned_results = []
     clustered_results = []

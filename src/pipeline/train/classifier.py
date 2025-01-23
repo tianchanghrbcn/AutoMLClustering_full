@@ -5,6 +5,8 @@ import os
 import json
 import math
 import numpy as np
+import time
+from concurrent.futures import ProcessPoolExecutor
 
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import hamming_loss, f1_score
@@ -40,7 +42,6 @@ def bin_k(k_value, sqrt_half, sqrt_n):
     else:
         return "k_bin3"
 
-
 def bin_ap_params(damping, preference):
     """
     AP算法参数分段：
@@ -62,7 +63,6 @@ def bin_ap_params(damping, preference):
 
     return f"{d_label}-{p_label}"
 
-
 def bin_dbscan_params(eps, min_samples):
     """
     DBSCAN参数分段：
@@ -83,7 +83,6 @@ def bin_dbscan_params(eps, min_samples):
 
     return f"{e_label}-{m_label}"
 
-
 def bin_optics_params(min_samples, xi):
     """
     OPTICS参数分段：
@@ -103,7 +102,6 @@ def bin_optics_params(min_samples, xi):
         xi_label = "xi_High"
 
     return f"{ms_label}-{xi_label}"
-
 
 # ========== (2) parse_data_for_multilabel：对参数做分段并拼装标签 ==========
 
@@ -186,7 +184,6 @@ def parse_data_for_multilabel(training_data):
     # 转为 NumPy 数组便于后续处理
     return np.array(X), Y
 
-
 def build_multilabel_binarizer(all_label_sets):
     """
     根据所有样本的标签集合构建并拟合 MultiLabelBinarizer。
@@ -194,7 +191,6 @@ def build_multilabel_binarizer(all_label_sets):
     mlb = MultiLabelBinarizer()
     mlb.fit(all_label_sets)
     return mlb
-
 
 def train_multilabel_classifier(X, Y):
     """
@@ -233,7 +229,6 @@ def train_multilabel_classifier(X, Y):
 
     return model, mlb
 
-
 def save_model_and_binarizer(model, mlb, directory):
     """
     将模型和 MultiLabelBinarizer 保存到指定目录下，以便后续测试使用。
@@ -246,7 +241,6 @@ def save_model_and_binarizer(model, mlb, directory):
 
     print(f"Model saved to: {model_path}")
     print(f"MultiLabelBinarizer saved to: {mlb_path}")
-
 
 def save_training_predictions(X, Y, model, mlb, directory, training_data):
     """
@@ -271,16 +265,29 @@ def save_training_predictions(X, Y, model, mlb, directory, training_data):
 
     print(f"Training predictions saved to: {output_path}")
 
+def process_training_data(training_data):
+    """
+    单个进程的训练数据处理：解析数据、训练模型并保存结果。
+    """
+    start_time = time.time()
+    X, Y = parse_data_for_multilabel(training_data)
+    model, mlb = train_multilabel_classifier(X, Y)
+    end_time = time.time()
+    print(f"[INFO] Process completed in {end_time - start_time:.2f} seconds")
+    return model, mlb, X, Y
 
 def main():
     # 1) 读取 JSON 数据（全部为训练集）
     training_data = load_training_data(training_labels_path)
 
-    # 2) 解析并获取特征 X, 多标签集合 Y
-    X, Y = parse_data_for_multilabel(training_data)
+    # 使用多进程加速训练
+    start_time = time.time()
+    with ProcessPoolExecutor(max_workers=8) as executor:  # 根据机器核心数调整 max_workers
+        future = executor.submit(process_training_data, training_data)
+        model, mlb, X, Y = future.result()
 
-    # 3) 训练多标签分类器（在整个数据集上）
-    model, mlb = train_multilabel_classifier(X, Y)
+    end_time = time.time()
+    print(f"[INFO] Total execution time: {end_time - start_time:.2f} seconds")
 
     # 4) 保存模型和 MultiLabelBinarizer
     save_model_and_binarizer(model, mlb, base_path)
@@ -289,7 +296,6 @@ def main():
     save_training_predictions(X, Y, model, mlb, base_path, training_data)
 
     print("Training completed successfully.")
-
 
 if __name__ == "__main__":
     main()

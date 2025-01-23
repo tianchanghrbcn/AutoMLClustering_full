@@ -13,10 +13,29 @@
                 "mode",
                 "AP",
                 {
-                    "damping": 0.8583580666474742,
-                    "preference": -105.0
+                    "damping": 0.649784370098921,
+                    "preference": -460.0
                 },
-                1.9474997398253686
+                9.843435098778453
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "complete",
+                    "metric": "cosine"
+                },
+                1.620931072478095
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 44.0,
+                    "covariance type": "diag"
+                },
+                1.5199484005899557
             ],
             [
                 "raha_baran",
@@ -24,36 +43,17 @@
                 {
                     "k": 6.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                1.6977286466257298
+                1.4884137180676216
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 48.0
+                    "k": 43.0
                 },
-                1.6018808104989606
-            ],
-            [
-                "mode",
-                "HC",
-                {
-                    "k": 48.0,
-                    "linkage": "average",
-                    "metric": "cosine"
-                },
-                1.5947464561727556
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "k": 48.0,
-                    "covariance type": "full"
-                },
-                1.5552049838083475
+                1.4791384291254497
             ]
         ]
     },
@@ -71,20 +71,30 @@
                 "mode",
                 "HC",
                 {
-                    "k": 45.0,
+                    "k": 41.0,
                     "linkage": "single",
-                    "metric": "euclidean"
+                    "metric": "manhattan"
                 },
-                4.3443149633823435
+                3.6296908394452534
             ],
             [
                 "mode",
                 "AP",
                 {
-                    "damping": 0.6671550146114831,
-                    "preference": -128.0
+                    "damping": 0.7139363836846043,
+                    "preference": -155.0
                 },
-                1.8080846306745355
+                1.6301861767440193
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 7.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.5130314245742036
             ],
             [
                 "mode",
@@ -92,26 +102,16 @@
                 {
                     "k": 48.0
                 },
-                1.556841721396767
+                1.4823503365306667
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 17.0,
+                    "n_components": 21.0,
                     "covariance type": "full"
                 },
-                1.447933585193425
-            ],
-            [
-                "raha_baran",
-                "HC",
-                {
-                    "k": 22.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.3872337520956395
+                1.4242701722158146
             ]
         ]
     },
@@ -127,48 +127,48 @@
         "L": [
             [
                 "mode",
-                "DBSCAN",
+                "AP",
                 {
-                    "eps": 1.5000000000000002,
-                    "min_samples": 5.0
+                    "damping": 0.765790012772452,
+                    "preference": -422.0
                 },
-                29.11350796087746
+                2.4178912193716475
             ],
             [
                 "mode",
-                "AP",
+                "DBSCAN",
                 {
-                    "damping": 0.7059383180528852,
-                    "preference": -248.0
+                    "eps": 0.58,
+                    "min_samples": 7.0
                 },
-                8.36684994790745
+                2.2306873524363717
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "tied"
+                },
+                1.535623886300397
             ],
             [
                 "mode",
                 "HC",
                 {
                     "k": 48.0,
-                    "linkage": "average",
-                    "metric": "cosine"
+                    "linkage": "complete",
+                    "metric": "euclidean"
                 },
-                1.4938056372409756
+                1.4675384416079509
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 48.0
+                    "k": 45.0
                 },
-                1.4467356656698969
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "k": 47.0,
-                    "covariance type": "full"
-                },
-                1.4437561554016811
+                1.4392372827074171
             ]
         ]
     },
@@ -184,49 +184,49 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
-                {
-                    "k": 46.0
-                },
-                2.003283350549253
-            ],
-            [
-                "mode",
                 "HC",
                 {
-                    "k": 46.0,
-                    "linkage": "average",
-                    "metric": "manhattan"
+                    "k": 48.0,
+                    "linkage": "complete",
+                    "metric": "cosine"
                 },
-                1.965968723589482
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.8632109214363702,
-                    "preference": -158.0
-                },
-                1.7476867600168524
+                2.1361304982859854
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 33.0,
-                    "covariance type": "tied"
+                    "n_components": 47.0,
+                    "covariance type": "full"
                 },
-                1.4708452694105176
+                2.0618069143554765
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.8967160786816513,
+                    "preference": -117.0
+                },
+                2.0482479589067966
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                1.9101777981572106
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 9.0,
+                    "k": 6.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                1.2391505946716235
+                1.6157780617694566
             ]
         ]
     },
@@ -242,48 +242,50 @@
         "L": [
             [
                 "mode",
-                "DBSCAN",
+                "AP",
                 {
-                    "eps": 1.9400000000000002,
-                    "min_samples": 6.0
+                    "damping": 0.6081952481841153,
+                    "preference": -178.0
                 },
-                33.1829355678391
+                6.59782249970414
             ],
             [
                 "mode",
-                "AP",
+                "DBSCAN",
                 {
-                    "damping": 0.5374714529470002,
-                    "preference": -196.0
+                    "eps": 1.9700000000000002,
+                    "min_samples": 5.0
                 },
-                9.355491103579338
+                2.639026366122603
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 5.0,
+                    "k": 6.0,
                     "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.5121741625624905
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "ward",
                     "metric": "euclidean"
                 },
-                1.6893488961122665
+                1.4758393550148263
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 47.0,
-                    "covariance type": "full"
+                    "n_components": 46.0,
+                    "covariance type": "spherical"
                 },
-                1.5219006876770758
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 47.0
-                },
-                1.514105806254937
+                1.4108238171300629
             ]
         ]
     },
@@ -299,21 +301,39 @@
         "L": [
             [
                 "mode",
-                "AP",
+                "DBSCAN",
                 {
-                    "damping": 0.708145942749286,
-                    "preference": -409.0
+                    "eps": 1.26,
+                    "min_samples": 5.0
                 },
-                8.504532396360498
+                1.8480959045268508
             ],
             [
                 "mode",
-                "DBSCAN",
+                "HC",
                 {
-                    "eps": 1.9600000000000002,
-                    "min_samples": 5.0
+                    "k": 48.0,
+                    "linkage": "single",
+                    "metric": "cosine"
                 },
-                2.2875413685784167
+                1.563138387020962
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                1.5546725028270807
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.8042796735628259,
+                    "preference": -114.0
+                },
+                1.4258322631680116
             ],
             [
                 "raha_baran",
@@ -321,28 +341,9 @@
                 {
                     "k": 5.0,
                     "linkage": "single",
-                    "metric": "euclidean"
+                    "metric": "manhattan"
                 },
-                1.815841574845259
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "k": 48.0,
-                    "covariance type": "full"
-                },
-                1.634821046285532
-            ],
-            [
-                "mode",
-                "HC",
-                {
-                    "k": 48.0,
-                    "linkage": "ward",
-                    "metric": "euclidean"
-                },
-                1.5771266505585932
+                1.4244616559637342
             ]
         ]
     },
@@ -360,39 +361,39 @@
                 "mode",
                 "DBSCAN",
                 {
-                    "eps": 0.8,
+                    "eps": 0.11,
                     "min_samples": 5.0
                 },
-                37.8211288931052
+                46.14286191219161
             ],
             [
                 "mode",
                 "AP",
                 {
-                    "damping": 0.5201408567572163,
-                    "preference": -136.0
+                    "damping": 0.6372901459680553,
+                    "preference": -223.0
                 },
-                6.8367457864058245
+                3.491396624152268
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 5.0,
+                    "k": 9.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.628632588359463
+                1.6995918345261651
             ],
             [
                 "mode",
                 "HC",
                 {
                     "k": 48.0,
-                    "linkage": "average",
+                    "linkage": "complete",
                     "metric": "cosine"
                 },
-                1.5338719498389306
+                1.5835002384485328
             ],
             [
                 "mode",
@@ -400,7 +401,7 @@
                 {
                     "k": 44.0
                 },
-                1.4148871233099205
+                1.45126063226705
             ]
         ]
     },
@@ -415,50 +416,49 @@
         ],
         "L": [
             [
-                "raha_baran",
-                "HC",
-                {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.7633288021957545
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                1.7537836032107539
-            ],
-            [
                 "mode",
                 "HC",
                 {
                     "k": 48.0,
-                    "linkage": "average",
+                    "linkage": "complete",
                     "metric": "cosine"
                 },
-                1.6752456777695415
+                1.6627906796368757
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 48.0,
+                    "n_components": 47.0,
                     "covariance type": "spherical"
                 },
-                1.58024901163346
+                1.6281789479733173
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 43.0
+                },
+                1.6054655333689214
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.8808902464761887,
+                    "preference": -101.0
+                },
+                1.4970507890992204
             ],
             [
                 "mode",
                 "DBSCAN",
                 {
-                    "eps": 1.1,
-                    "min_samples": 5.0
+                    "eps": 1.87,
+                    "min_samples": 6.0
                 },
-                1.5604674670088088
+                1.45683480522239
             ]
         ]
     },
@@ -474,49 +474,49 @@
         "L": [
             [
                 "mode",
+                "AP",
+                {
+                    "damping": 0.5290225767115934,
+                    "preference": -382.0
+                },
+                3.4726253674891088
+            ],
+            [
+                "mode",
                 "GMM",
                 {
-                    "k": 45.0,
-                    "covariance type": "tied"
+                    "n_components": 48.0,
+                    "covariance type": "full"
                 },
-                2.2847547124498986
+                2.641109564152139
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                2.6199402763458224
             ],
             [
                 "mode",
                 "HC",
                 {
                     "k": 48.0,
-                    "linkage": "complete",
+                    "linkage": "ward",
                     "metric": "euclidean"
                 },
-                2.169338863424919
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 45.0
-                },
-                2.0552722593281363
+                2.59830685455418
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 13.0,
+                    "k": 5.0,
                     "linkage": "single",
-                    "metric": "euclidean"
+                    "metric": "manhattan"
                 },
-                1.8518989295432993
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.8845020689779766,
-                    "preference": -304.0
-                },
-                1.4809710052635983
+                1.64777767415423
             ]
         ]
     },
@@ -531,50 +531,50 @@
         ],
         "L": [
             [
-                "raha_baran",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.9980700592179967
-            ],
-            [
                 "mode",
                 "HC",
                 {
                     "k": 48.0,
-                    "linkage": "average",
-                    "metric": "cosine"
+                    "linkage": "complete",
+                    "metric": "euclidean"
                 },
-                1.7894498741545255
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 47.0
-                },
-                1.7702692145756251
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.54029375099515,
-                    "preference": -288.0
-                },
-                1.769055854636914
+                2.0481379044458246
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 45.0,
+                    "n_components": 44.0,
                     "covariance type": "tied"
                 },
-                1.7288253395591882
+                1.9647920546874607
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 42.0
+                },
+                1.8445393628111941
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.817235934144134,
+                    "preference": -103.0
+                },
+                1.7768207234035893
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 11.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.237440882575337
             ]
         ]
     },
@@ -592,11 +592,11 @@
                 "mode",
                 "HC",
                 {
-                    "k": 16.0,
+                    "k": 14.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.569700917827054
+                1.5681507757463027
             ],
             [
                 "raha_baran",
@@ -606,33 +606,33 @@
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.5088741354276605
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.506201976002092,
-                    "preference": -391.0
-                },
-                1.152354008458531
+                1.2207746491610947
             ],
             [
                 "raha_baran",
                 "GMM",
                 {
-                    "k": 12.0,
+                    "n_components": 15.0,
                     "covariance type": "tied"
                 },
-                0.43483436566450245
+                0.479096364695567
             ],
             [
                 "raha_baran",
                 "KMEANS",
                 {
-                    "k": 16.0
+                    "k": 18.0
                 },
-                0.41099721481420903
+                0.4597335619119709
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.5123508537166291,
+                    "preference": -111.0
+                },
+                0.4570375205567394
             ]
         ]
     },
@@ -647,33 +647,42 @@
         ],
         "L": [
             [
-                "mode",
-                "HC",
-                {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.1833769060102783
-            ],
-            [
                 "raha_baran",
                 "HC",
                 {
                     "k": 5.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                1.9227187452620882
+                2.140328769248442
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 15.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.7312588790096035
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.8866403048611939,
-                    "preference": -100.0
+                    "damping": 0.8076739297800419,
+                    "preference": -110.0
                 },
-                0.7257148980882169
+                0.6918603280710622
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 20.0,
+                    "covariance type": "tied"
+                },
+                0.6688403600562774
             ],
             [
                 "raha_baran",
@@ -681,16 +690,7 @@
                 {
                     "k": 29.0
                 },
-                0.7176327974755692
-            ],
-            [
-                "raha_baran",
-                "GMM",
-                {
-                    "k": 12.0,
-                    "covariance type": "tied"
-                },
-                0.688966615171455
+                0.6529931903834457
             ]
         ]
     },
@@ -708,47 +708,47 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 8.0,
+                    "k": 5.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.5789890469898964
+                2.0485624937146762
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 13.0,
+                    "k": 7.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.530978367381221
-            ],
-            [
-                "mode",
-                "OPTICS",
-                {
-                    "min_samples": 12.0,
-                    "xi": 0.09883593781286538
-                },
-                0.9150240744472824
+                1.8828029278931793
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.7317463227748562,
-                    "preference": -175.0
+                    "damping": 0.7108311096063757,
+                    "preference": -150.0
                 },
-                0.5879797378205847
+                0.5994986581665004
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 14.0,
+                    "covariance type": "spherical"
+                },
+                0.5716747473555208
             ],
             [
                 "raha_baran",
                 "KMEANS",
                 {
-                    "k": 23.0
+                    "k": 25.0
                 },
-                0.5190688613542432
+                0.5363113539060067
             ]
         ]
     },
@@ -766,47 +766,47 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 7.0,
+                    "k": 5.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                2.0377050762363167
+                2.0770757905636152
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 6.0,
+                    "k": 11.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.668200472748175
+                1.69369836984358
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.5800274210225779,
-                    "preference": -103.0
+                    "damping": 0.7928552838087801,
+                    "preference": -101.0
                 },
-                0.7971739775940374
+                0.7709502912712463
             ],
             [
                 "raha_baran",
                 "KMEANS",
                 {
-                    "k": 29.0
+                    "k": 30.0
                 },
-                0.7865505957960199
+                0.7546275429012808
             ],
             [
-                "raha_baran",
-                "GMM",
+                "mode",
+                "AP",
                 {
-                    "k": 22.0,
-                    "covariance type": "tied"
+                    "damping": 0.5788580454632932,
+                    "preference": -415.0
                 },
-                0.6987614700756772
+                0.7532012173824184
             ]
         ]
     },
@@ -824,39 +824,39 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 7.0,
+                    "k": 9.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.628786257576903
+                2.05016461597998
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 11.0,
+                    "k": 7.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.3826343580715978
-            ],
-            [
-                "raha_baran",
-                "GMM",
-                {
-                    "k": 20.0,
-                    "covariance type": "tied"
-                },
-                0.6487691252847435
+                1.6692596140840914
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.6311221704153496,
-                    "preference": -161.0
+                    "damping": 0.8944902367688645,
+                    "preference": -320.0
                 },
-                0.6453001758883254
+                0.6324388982923461
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 11.0,
+                    "covariance type": "tied"
+                },
+                0.5738588972228976
             ],
             [
                 "raha_baran",
@@ -864,7 +864,7 @@
                 {
                     "k": 27.0
                 },
-                0.5632278614343025
+                0.5556823584541143
             ]
         ]
     },
@@ -882,30 +882,30 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 7.0,
+                    "k": 5.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.8137436514920346
+                2.0030646909582392
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 6.0,
+                    "k": 5.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.4571830519045763
+                1.7738651937846435
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.8718346420636106,
-                    "preference": -173.0
+                    "damping": 0.5365142372771253,
+                    "preference": -273.0
                 },
-                0.6664405351547369
+                0.6377812973965036
             ],
             [
                 "raha_baran",
@@ -913,16 +913,16 @@
                 {
                     "k": 26.0
                 },
-                0.6001153475605807
+                0.5564553574693014
             ],
             [
                 "raha_baran",
                 "GMM",
                 {
-                    "k": 25.0,
+                    "n_components": 15.0,
                     "covariance type": "full"
                 },
-                0.6001110989001667
+                0.554521084244668
             ]
         ]
     },
@@ -944,44 +944,43 @@
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.47887276120196
+                1.940578089214017
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.2573226615762496
-            ],
-            [
-                "mode",
-                "OPTICS",
-                {
-                    "min_samples": 11.0,
-                    "xi": 0.0819708082476541
-                },
-                0.9608588910081607
-            ],
-            [
-                "raha_baran",
-                "GMM",
-                {
                     "k": 8.0,
-                    "covariance type": "tied"
+                    "linkage": "single",
+                    "metric": "euclidean"
                 },
-                0.5005312230143532
+                1.1788784646066042
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.7947092481880133,
-                    "preference": -121.0
+                    "damping": 0.659241368016313,
+                    "preference": -465.0
                 },
-                0.4852025080210605
+                0.5953264359250774
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 22.0
+                },
+                0.5757034796557459
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 17.0,
+                    "covariance type": "tied"
+                },
+                0.5596942869072072
             ]
         ]
     },
@@ -1001,9 +1000,9 @@
                 {
                     "k": 9.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                1.9609877690540887
+                1.9418404234841855
             ],
             [
                 "mode",
@@ -1013,25 +1012,16 @@
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.5571010629043323
+                1.5748172814823858
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.6158805049741074,
-                    "preference": -356.0
+                    "damping": 0.8962112239270539,
+                    "preference": -193.0
                 },
-                0.6850923674228362
-            ],
-            [
-                "raha_baran",
-                "GMM",
-                {
-                    "k": 20.0,
-                    "covariance type": "tied"
-                },
-                0.6490621938832287
+                0.7137738542951688
             ],
             [
                 "raha_baran",
@@ -1039,7 +1029,16 @@
                 {
                     "k": 27.0
                 },
-                0.5800842849671259
+                0.6763450493237747
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 25.0,
+                    "covariance type": "tied"
+                },
+                0.660696303120586
             ]
         ]
     },
@@ -1057,39 +1056,21 @@
                 "mode",
                 "HC",
                 {
-                    "k": 5.0,
+                    "k": 8.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.853349799146628
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.5153289058209735,
-                    "preference": -444.0
-                },
-                1.6935440908670572
+                1.6875541661363715
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 15.0,
+                    "k": 5.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.295383981010786
-            ],
-            [
-                "mode",
-                "OPTICS",
-                {
-                    "min_samples": 14.0,
-                    "xi": 0.09178515840441052
-                },
-                0.7815996791178246
+                1.6264587240836328
             ],
             [
                 "raha_baran",
@@ -1097,7 +1078,25 @@
                 {
                     "k": 20.0
                 },
-                0.4997779805081906
+                0.4926729427553459
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.5037277873121443,
+                    "preference": -386.0
+                },
+                0.4843246740492472
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 21.0,
+                    "covariance type": "spherical"
+                },
+                0.47332633638915944
             ]
         ]
     },
@@ -1115,47 +1114,48 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 16.0,
+                    "k": 10.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.5609274199512198
+                1.6985019248200677
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 5.0,
+                    "k": 16.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.2444409824134912
+                1.2942846328687232
             ],
             [
                 "mode",
                 "OPTICS",
                 {
-                    "min_samples": 17.0,
-                    "xi": 0.08139406610315049
+                    "min_samples": 9.0,
+                    "xi": 0.08890595465793392
                 },
-                0.8058714157590997
+                0.6503111590166915
             ],
             [
                 "raha_baran",
-                "KMEANS",
+                "AP",
                 {
-                    "k": 19.0
+                    "damping": 0.7903635777058843,
+                    "preference": -151.0
                 },
-                0.5392572377126564
+                0.5669102868540807
             ],
             [
                 "raha_baran",
                 "GMM",
                 {
-                    "k": 15.0,
-                    "covariance type": "tied"
+                    "n_components": 20.0,
+                    "covariance type": "spherical"
                 },
-                0.527876378959771
+                0.5487350027018405
             ]
         ]
     },
@@ -1173,47 +1173,46 @@
                 "mode",
                 "AP",
                 {
-                    "damping": 0.6164628477567825,
-                    "preference": -100.0
+                    "damping": 0.5283842731294839,
+                    "preference": -338.0
                 },
-                2.2958992221903705
+                2.899003534042593
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 40.0,
-                    "linkage": "average",
-                    "metric": "manhattan"
-                },
-                1.8698607264683733
-            ],
-            [
-                "raha_baran",
-                "HC",
-                {
-                    "k": 11.0,
+                    "k": 29.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.4046156118435071
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 39.0
-                },
-                1.3484483737192827
+                1.9717494338526511
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 33.0,
+                    "n_components": 21.0,
                     "covariance type": "spherical"
                 },
-                1.2738688261437396
+                1.428676306257729
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 35.0
+                },
+                1.3666329481127377
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 1.9600000000000002,
+                    "min_samples": 5.0
+                },
+                1.1700151374500904
             ]
         ]
     },
@@ -1231,47 +1230,47 @@
                 "mode",
                 "AP",
                 {
-                    "damping": 0.5393346197033809,
-                    "preference": -305.0
+                    "damping": 0.5572618341230644,
+                    "preference": -436.0
                 },
-                11.286850933775227
+                5.020890239635498
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 16.0,
+                    "k": 6.0,
                     "linkage": "single",
-                    "metric": "euclidean"
+                    "metric": "manhattan"
                 },
-                1.4573402068818417
+                2.1170630298027904
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 41.0,
-                    "linkage": "average",
-                    "metric": "cosine"
+                    "k": 10.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
                 },
-                0.7790029601227448
-            ],
-            [
-                "mode",
-                "DBSCAN",
-                {
-                    "eps": 1.28,
-                    "min_samples": 5.0
-                },
-                0.7609384255203664
+                1.2621995324141528
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 36.0
+                    "k": 30.0
                 },
-                0.7381376590714963
+                0.822844612192548
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 28.0,
+                    "covariance type": "full"
+                },
+                0.7962044737804796
             ]
         ]
     },
@@ -1289,47 +1288,47 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 5.0,
+                    "k": 6.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                2.0284579895501875
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.5708906906782039,
-                    "preference": -183.0
-                },
-                1.0677715911748795
+                1.9809522723617887
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 39.0,
+                    "k": 5.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                0.8474160486058828
+                1.2876829785735087
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 40.0
+                    "k": 35.0
                 },
-                0.8464097340372607
+                0.8731525040125272
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 36.0,
+                    "covariance type": "spherical"
+                },
+                0.8508578673868712
             ],
             [
                 "mode",
                 "DBSCAN",
                 {
-                    "eps": 1.1800000000000002,
-                    "min_samples": 5.0
+                    "eps": 1.09,
+                    "min_samples": 6.0
                 },
-                0.7704158951322211
+                0.8289712886145404
             ]
         ]
     },
@@ -1345,49 +1344,49 @@
         "L": [
             [
                 "mode",
-                "AP",
+                "HC",
                 {
-                    "damping": 0.6517089776811439,
-                    "preference": -101.0
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
                 },
-                1.5197298705580427
+                2.6397655640171998
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 5.0,
+                    "k": 6.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.4004919311074155
+                1.477338846959447
             ],
             [
                 "mode",
-                "HC",
+                "AP",
                 {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "damping": 0.8056059061565986,
+                    "preference": -433.0
                 },
-                1.2033771164634948
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 31.0
-                },
-                1.013113585004463
+                1.4314428188056825
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 32.0,
-                    "covariance type": "full"
+                    "n_components": 10.0,
+                    "covariance type": "tied"
                 },
-                0.9893028945108623
+                1.189254629202779
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 35.0
+                },
+                1.091454883278148
             ]
         ]
     },
@@ -1402,50 +1401,50 @@
         ],
         "L": [
             [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.500792366373258,
-                    "preference": -444.0
-                },
-                10.586766550778123
-            ],
-            [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 9.0,
+                    "k": 6.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.731587648333957
+                1.996997990634483
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5284980260812302,
+                    "preference": -118.0
+                },
+                1.6985132105817384
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 37.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 6.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
                 },
-                1.5714440712527753
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 32.0
-                },
-                1.3387094963985988
+                1.386418594897389
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 17.0,
-                    "covariance type": "full"
+                    "n_components": 28.0,
+                    "covariance type": "spherical"
                 },
-                1.0609797473856877
+                1.2302084950756977
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 33.0
+                },
+                1.1703417431586591
             ]
         ]
     },
@@ -1463,47 +1462,47 @@
                 "mode",
                 "HC",
                 {
-                    "k": 30.0,
+                    "k": 5.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.9296301153162199
+                1.6606148925177515
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 14.0,
+                    "k": 16.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.6674484513804844
+                1.63379094358017
             ],
             [
                 "mode",
                 "AP",
                 {
-                    "damping": 0.5226978828418085,
-                    "preference": -399.0
+                    "damping": 0.5117238882967851,
+                    "preference": -258.0
                 },
-                0.9304853135068417
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "k": 10.0,
-                    "covariance type": "spherical"
-                },
-                0.9180792972954213
+                0.8881125099647019
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 35.0
+                    "k": 32.0
                 },
-                0.8026959886787923
+                0.8114610123267929
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 16.0,
+                    "covariance type": "spherical"
+                },
+                0.8111372633939162
             ]
         ]
     },
@@ -1518,24 +1517,24 @@
         ],
         "L": [
             [
-                "mode",
+                "raha_baran",
                 "HC",
                 {
-                    "k": 19.0,
+                    "k": 6.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                1.9907776677220808
+                1.799652780510234
             ],
             [
-                "raha_baran",
+                "mode",
                 "HC",
                 {
                     "k": 5.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                1.6519862556133493
+                1.1831260672969377
             ],
             [
                 "mode",
@@ -1543,25 +1542,25 @@
                 {
                     "k": 35.0
                 },
-                0.8150124645195119
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.7386787900667318,
-                    "preference": -342.0
-                },
-                0.7570160497075286
+                0.8378419055518224
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 35.0,
-                    "covariance type": "tied"
+                    "n_components": 34.0,
+                    "covariance type": "spherical"
                 },
-                0.7295798761147669
+                0.7804031102309182
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.7203090983963519,
+                    "preference": -104.0
+                },
+                0.7251538414769716
             ]
         ]
     },
@@ -1576,6 +1575,16 @@
         ],
         "L": [
             [
+                "mode",
+                "HC",
+                {
+                    "k": 6.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.0650920342033197
+            ],
+            [
                 "raha_baran",
                 "HC",
                 {
@@ -1583,43 +1592,33 @@
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                2.223105407011672
-            ],
-            [
-                "mode",
-                "HC",
-                {
-                    "k": 35.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                0.8876801628540608
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 33.0
-                },
-                0.8434714357839375
+                2.0494390568306007
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 33.0,
-                    "covariance type": "tied"
+                    "n_components": 35.0,
+                    "covariance type": "spherical"
                 },
-                0.7812337078709393
+                0.8467306661004366
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.8451508504501956
             ],
             [
                 "mode",
                 "AP",
                 {
-                    "damping": 0.6494094963923056,
-                    "preference": -101.0
+                    "damping": 0.8298084825503195,
+                    "preference": -125.0
                 },
-                0.7043848808597096
+                0.7970641283191067
             ]
         ]
     },
@@ -1637,46 +1636,46 @@
                 "mode",
                 "AP",
                 {
-                    "damping": 0.5288742665925522,
-                    "preference": -480.0
+                    "damping": 0.5800796587288523,
+                    "preference": -317.0
                 },
-                10.024814127204168
+                21.408175461630268
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "cosine"
+                    "k": 6.0,
+                    "linkage": "average",
+                    "metric": "euclidean"
                 },
-                2.8531815414735444
+                2.323098040031579
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 5.0,
-                    "covariance type": "diag"
+                    "n_components": 5.0,
+                    "covariance type": "spherical"
                 },
-                1.916949150076677
+                1.9755814165235228
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 30.0
+                    "k": 38.0
                 },
-                1.4700507235141735
+                1.4101368405892778
             ],
             [
                 "mode",
-                "DBSCAN",
+                "OPTICS",
                 {
-                    "eps": 1.7300000000000002,
-                    "min_samples": 17.0
+                    "min_samples": 314.0,
+                    "xi": 0.09338452027565122
                 },
-                1.3301966865716772
+                1.408225887847833
             ]
         ]
     },
@@ -1694,47 +1693,47 @@
                 "mode",
                 "HC",
                 {
-                    "k": 30.0,
+                    "k": 16.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                2.3011714571251107
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.528186743013221,
-                    "preference": -378.0
-                },
-                2.0248159118208235
+                3.1507078806845
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 10.0,
+                    "k": 5.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.6363269506600728
+                2.4867383157556437
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 31.0
+                    "k": 38.0
                 },
-                0.6581554896156462
+                0.8148577760222424
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 22.0,
+                    "n_components": 35.0,
                     "covariance type": "tied"
                 },
-                0.6159081418177936
+                0.8080663555208301
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.825313229934197,
+                    "preference": -102.0
+                },
+                0.7976928245658171
             ]
         ]
     },
@@ -1750,49 +1749,49 @@
         "L": [
             [
                 "raha_baran",
-                "GMM",
-                {
-                    "k": 2.0,
-                    "covariance type": "tied"
-                },
-                2.92389433224233
-            ],
-            [
-                "raha_baran",
                 "HC",
                 {
-                    "k": 7.0,
+                    "k": 6.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                2.013205590007342
+                2.350090287552371
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.6766494745061898,
+                    "preference": -101.0
+                },
+                1.8040127339659402
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 15.0,
+                    "k": 5.0,
                     "linkage": "single",
-                    "metric": "euclidean"
+                    "metric": "manhattan"
                 },
-                1.028853712425797
+                1.336188571233486
             ],
             [
-                "mode",
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "tied"
+                },
+                1.1322068313908953
+            ],
+            [
+                "raha_baran",
                 "KMEANS",
                 {
-                    "k": 15.0
+                    "k": 8.0
                 },
-                0.7429039798470344
-            ],
-            [
-                "mode",
-                "AP",
-                {
-                    "damping": 0.6347804226906325,
-                    "preference": -106.0
-                },
-                0.6895245524254136
+                1.0559582906279839
             ]
         ]
     },
@@ -1807,13 +1806,32 @@
         ],
         "L": [
             [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "tied"
+                },
+                6.180743455154275
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "complete",
+                    "metric": "manhattan"
+                },
+                3.6135279023289897
+            ],
+            [
                 "mode",
                 "AP",
                 {
-                    "damping": 0.5149806098690307,
-                    "preference": -312.0
+                    "damping": 0.5633593589129551,
+                    "preference": -305.0
                 },
-                1.6367247506866003
+                1.4945686829537346
             ],
             [
                 "mode",
@@ -1821,35 +1839,18 @@
                 {
                     "k": 6.0,
                     "linkage": "single",
-                    "metric": "euclidean"
+                    "metric": "manhattan"
                 },
-                0.9781015569721246
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 13.0
-                },
-                0.593811791997197
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "k": 12.0,
-                    "covariance type": "spherical"
-                },
-                0.5927586863446774
+                0.7904686456842656
             ],
             [
                 "mode",
                 "OPTICS",
                 {
-                    "min_samples": 6.0,
-                    "xi": 0.02656991568007865
+                    "min_samples": 3.0,
+                    "xi": 0.02442926073007822
                 },
-                0.32378922163602175
+                0.6192133353422166
             ]
         ]
     },
@@ -1867,11 +1868,11 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 5.0,
+                    "k": 8.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                3.210074623806811
+                2.9657258626397742
             ],
             [
                 "mode",
@@ -1879,35 +1880,35 @@
                 {
                     "k": 17.0,
                     "linkage": "single",
-                    "metric": "euclidean"
+                    "metric": "manhattan"
                 },
-                2.2223096399870634
+                2.385876435250294
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 17.0
+                    "k": 16.0
                 },
-                1.5355348270364437
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "k": 13.0,
-                    "covariance type": "tied"
-                },
-                1.4807633079137281
+                1.8066337218648036
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.6747625507642306,
-                    "preference": -100.0
+                    "damping": 0.7505563787264162,
+                    "preference": -134.0
                 },
-                1.4589617485927733
+                1.53801311064729
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "tied"
+                },
+                1.4985511237919449
             ]
         ]
     },
@@ -1926,47 +1927,46 @@
                 "HC",
                 {
                     "k": 5.0,
-                    "linkage": "average",
+                    "linkage": "single",
                     "metric": "euclidean"
                 },
-                2.6464129371743152
+                2.304347912040715
             ],
             [
-                "mode",
-                "OPTICS",
+                "raha_baran",
+                "GMM",
                 {
-                    "min_samples": 6.0,
-                    "xi": 0.06716658541291123
+                    "n_components": 8.0,
+                    "covariance type": "tied"
                 },
-                1.0365529390038966
+                1.4440491289333388
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 7.0,
+                    "k": 13.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                0.9414768158884876
+                1.2040460912125408
             ],
             [
                 "mode",
                 "AP",
                 {
-                    "damping": 0.5258238045141995,
-                    "preference": -474.0
+                    "damping": 0.5826100060204072,
+                    "preference": -499.0
                 },
-                0.9406304345505654
+                1.0716767867817307
             ],
             [
-                "mode",
-                "GMM",
+                "raha_baran",
+                "KMEANS",
                 {
-                    "k": 15.0,
-                    "covariance type": "spherical"
+                    "k": 6.0
                 },
-                0.7552100990300632
+                1.0048111180942796
             ]
         ]
     },
@@ -1984,48 +1984,47 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 8.0,
+                    "k": 6.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                2.213412226807262
+                2.551154354584639
             ],
             [
                 "raha_baran",
                 "GMM",
                 {
-                    "k": 2.0,
+                    "n_components": 12.0,
                     "covariance type": "tied"
                 },
-                1.218488019436304
+                1.4751636895643667
             ],
             [
-                "mode",
-                "AP",
+                "raha_baran",
+                "KMEANS",
                 {
-                    "damping": 0.6992579268484529,
-                    "preference": -100.0
+                    "k": 12.0
                 },
-                1.1574119723690606
+                1.3677016883421795
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 14.0,
-                    "linkage": "average",
-                    "metric": "cosine"
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
                 },
-                0.9813759168632723
+                1.2979173199678133
             ],
             [
-                "mode",
-                "GMM",
+                "raha_baran",
+                "AP",
                 {
-                    "k": 12.0,
-                    "covariance type": "tied"
+                    "damping": 0.7974838378418014,
+                    "preference": -102.0
                 },
-                0.9462477549387308
+                1.1491030691376907
             ]
         ]
     },
@@ -2040,50 +2039,50 @@
         ],
         "L": [
             [
-                "raha_baran",
+                "mode",
                 "HC",
                 {
                     "k": 5.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                3.3616216878750262
+                3.586870664981971
             ],
             [
-                "mode",
+                "raha_baran",
                 "HC",
                 {
-                    "k": 6.0,
+                    "k": 8.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                3.042407622402468
+                3.536398987433056
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.7499158214056819,
-                    "preference": -427.0
+                    "damping": 0.6906003329854038,
+                    "preference": -463.0
                 },
-                2.1245404771575287
+                2.100532524580303
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 12.0,
+                    "n_components": 13.0,
                     "covariance type": "tied"
                 },
-                2.056004932540386
+                1.5467779773578239
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 17.0
+                    "k": 18.0
                 },
-                1.5192654316674272
+                1.501595642230614
             ]
         ]
     },
@@ -2099,22 +2098,31 @@
         "L": [
             [
                 "raha_baran",
+                "AP",
+                {
+                    "damping": 0.5066323670851063,
+                    "preference": -329.0
+                },
+                6.292438205856857
+            ],
+            [
+                "raha_baran",
                 "HC",
                 {
-                    "k": 7.0,
+                    "k": 9.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                2.904619369844379
+                2.157618419065657
             ],
             [
                 "raha_baran",
                 "GMM",
                 {
-                    "k": 12.0,
+                    "n_components": 11.0,
                     "covariance type": "tied"
                 },
-                1.5533721997814958
+                1.4477826247249972
             ],
             [
                 "raha_baran",
@@ -2122,7 +2130,7 @@
                 {
                     "k": 12.0
                 },
-                1.507968062230451
+                1.4223916281845537
             ],
             [
                 "mode",
@@ -2130,18 +2138,9 @@
                 {
                     "k": 16.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                1.3344608188178253
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "k": 16.0,
-                    "covariance type": "tied"
-                },
-                1.1350412904589555
+                1.276093463907324
             ]
         ]
     },
@@ -2159,30 +2158,39 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 5.0,
+                    "k": 6.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                2.648924627439287
+                2.4128297301733115
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.5221165543466079,
+                    "preference": -297.0
+                },
+                1.947164846334137
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 8.0,
+                    "k": 10.0,
                     "linkage": "single",
-                    "metric": "manhattan"
+                    "metric": "euclidean"
                 },
-                1.9934759917309302
+                1.3640958272860106
             ],
             [
                 "raha_baran",
                 "GMM",
                 {
-                    "k": 12.0,
+                    "n_components": 13.0,
                     "covariance type": "tied"
                 },
-                1.9619996615345578
+                1.3533828406975483
             ],
             [
                 "raha_baran",
@@ -2190,16 +2198,7 @@
                 {
                     "k": 13.0
                 },
-                1.766358074375441
-            ],
-            [
-                "raha_baran",
-                "AP",
-                {
-                    "damping": 0.7243447032842547,
-                    "preference": -106.0
-                },
-                1.697089694804638
+                1.2157608387024958
             ]
         ]
     },
@@ -2217,46 +2216,48 @@
                 "mode",
                 "HC",
                 {
-                    "k": 19.0,
+                    "k": 6.0,
                     "linkage": "single",
-                    "metric": "cosine"
+                    "metric": "manhattan"
                 },
-                1.3246777943150072
+                1.328539623956853
             ],
             [
-                "mode",
-                "KMEANS",
+                "raha_baran",
+                "GMM",
                 {
-                    "k": 18.0
+                    "n_components": 7.0,
+                    "covariance type": "diag"
                 },
-                0.9853280753905813
+                1.1951404241514936
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.0681974238684422
             ],
             [
                 "mode",
                 "AP",
                 {
-                    "damping": 0.7200766896738966,
-                    "preference": -100.0
+                    "damping": 0.6973707244387481,
+                    "preference": -104.0
                 },
-                0.9201171269511694
+                0.884458642610275
             ],
             [
                 "mode",
                 "GMM",
                 {
-                    "k": 14.0,
+                    "n_components": 9.0,
                     "covariance type": "tied"
                 },
-                0.8601711297044823
-            ],
-            [
-                "mode",
-                "OPTICS",
-                {
-                    "min_samples": 10.0,
-                    "xi": 0.07952068316666568
-                },
-                0.7956845778289562
+                0.8702583831523169
             ]
         ]
     },
@@ -2274,47 +2275,47 @@
                 "raha_baran",
                 "HC",
                 {
-                    "k": 7.0,
+                    "k": 14.0,
                     "linkage": "single",
                     "metric": "manhattan"
                 },
-                3.101595364656078
-            ],
-            [
-                "mode",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.8779753343455148
-            ],
-            [
-                "raha_baran",
-                "KMEANS",
-                {
-                    "k": 15.0
-                },
-                1.7008880286553183
+                2.996640648335277
             ],
             [
                 "raha_baran",
                 "AP",
                 {
-                    "damping": 0.8073297344086716,
-                    "preference": -100.0
+                    "damping": 0.7144702294389572,
+                    "preference": -263.0
                 },
-                1.6093276327707216
+                2.4652017504498516
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 7.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.3845582687540934
             ],
             [
                 "raha_baran",
                 "GMM",
                 {
-                    "k": 14.0,
+                    "n_components": 10.0,
                     "covariance type": "tied"
                 },
-                1.5912784451005662
+                2.1815643832967497
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 14.0
+                },
+                1.8797960733192682
             ]
         ]
     }
