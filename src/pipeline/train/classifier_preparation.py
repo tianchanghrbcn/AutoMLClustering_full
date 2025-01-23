@@ -60,8 +60,3 @@ def generate_training_data():
         json.dump(training_data, f, ensure_ascii=False, indent=4)
 
     print(f"训练数据已生成并保存到文件：{output_path}")
-
-
-if __name__ == "__main__":
-    # 测试生成训练数据
-    generate_training_data()

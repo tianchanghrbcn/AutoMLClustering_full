@@ -34,9 +34,6 @@ def main():
 
     # 遍历所有数据集
     for record_idx, record in enumerate(all_records):
-        # 仅测试第一个数据集的第一个 CSV 文件
-        if record_idx >= 2:  # 调整此处条件以启用完整测试
-            break
 
         dataset_id = record_idx  # 使用记录的编号作为 dataset_id
         dataset_name = record["dataset_name"]
@@ -44,6 +41,12 @@ def main():
         error_rate = record["error_rate"]
 
         print(f"[INFO] 准备处理数据集: {dataset_name} (CSV: {csv_file}, error_rate={error_rate}%)")
+
+        # ========== 如果 error_rate == 0.01，则跳过该数据集 ==========
+        if abs(error_rate - 0.01) < 1e-12:
+            print(f"[INFO] 检测到 clean 数据集 {dataset_name}，跳过清洗和聚类")
+            print("=" * 50)
+            continue
 
         # ========== 确定文件路径 ==========
         dataset_folder = os.path.join(work_dir, "dataset", "train", dataset_name)
@@ -68,9 +71,9 @@ def main():
             print(f"[INFO] 正在运行清洗策略: {algo}")
             new_file_path, runtime = run_error_correction(
                 dataset_path=csv_path,
-                dataset_id=dataset_id,  # 使用编号作为 dataset_id
-                algorithm_id=2 if algo == "raha_baran" else 1,  # 使用编号区分算法
-                clean_csv_path=clean_csv_path,  # 直接传递完整的 clean_csv_path
+                dataset_id=dataset_id,
+                algorithm_id=2 if algo == "raha_baran" else 1,
+                clean_csv_path=clean_csv_path,
                 output_dir=os.path.join(work_dir, "results", dataset_name, algo),
             )
 
@@ -126,7 +129,6 @@ def main():
     print(f"聚类结果已保存到 {clustered_results_path}")
 
     # ========== 分析聚类结果 ==========
-
     print("[INFO] 开始分析聚类结果")
 
     # 调用函数，保存分析结果
@@ -140,7 +142,6 @@ def main():
     print(f"[INFO] 分析结果已保存到 {analyzed_results_path}")
 
     # ========== 生成训练数据 ==========
-
     print("[INFO] 开始生成训练数据")
 
     try:
