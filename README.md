@@ -83,7 +83,7 @@ nohup python classifier.py > output_classifier.log 2>&1 &
 ```plaintext
 AutoMLClustering/
 ├── config.sh                # Configuration script to set up the environment
-├── dataset/                 # Contains datasets for training and testing
+├── datasets/                # Contains datasets for training and testing
 │   ├── train/               # Training datasets
 │   │   ├── beers            # Beers dataset
 │   │   ├── flights          # Flights dataset
