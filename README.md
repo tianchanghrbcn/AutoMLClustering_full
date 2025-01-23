@@ -93,7 +93,7 @@ AutoMLClustering/
 │   └── test/                # Placeholder for testing datasets
 ├── LICENSE                  # Project license (e.g., MIT License)
 ├── README.md                # Project documentation
-├── reference/               # References and supporting documentation
+├── references/               # References and supporting documentation
 ├── requirements.txt         # Python dependencies
 ├── results/                 # Directory to store results (e.g., logs, outputs)
 ├── src/                     # Source code for the project
