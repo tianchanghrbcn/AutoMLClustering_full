@@ -99,16 +99,34 @@ def map_predictions_to_strategies(predictions):
     return strategies
 
 
-def function_back(predictions_file, strategies_file):
+def function_back(predictions_file, strategies_file, eigenvectors_file):
     """
-    主函数：将预测标签映射回具体策略。
+    主函数：将预测标签映射回具体策略，并添加 dataset_name 和 csv_file 字段。
     """
     print("[INFO] 加载预测结果...")
     predictions = load_predictions(predictions_file)
 
+    print("[INFO] 加载特征向量...")
+    with open(eigenvectors_file, "r", encoding="utf-8") as f:
+        eigenvectors = json.load(f)
+
+    # 创建 dataset_id 到 dataset_name 和 csv_file 的映射
+    id_to_metadata = {
+        record["dataset_id"]: {"dataset_name": record["dataset_name"], "csv_file": record["csv_file"]}
+        for record in eigenvectors
+    }
+
     print("[INFO] 映射预测标签到具体策略...")
     strategies = map_predictions_to_strategies(predictions)
+
+    # 添加 dataset_name 和 csv_file 到策略中
+    for strategy in strategies:
+        dataset_id = strategy["dataset_id"]
+        if dataset_id in id_to_metadata:
+            strategy["dataset_name"] = id_to_metadata[dataset_id]["dataset_name"]
+            strategy["csv_file"] = id_to_metadata[dataset_id]["csv_file"]
 
     print("[INFO] 保存映射后的策略...")
     save_strategies(strategies, strategies_file)
     print(f"[INFO] 策略映射完成，结果已保存到 {strategies_file}")
+

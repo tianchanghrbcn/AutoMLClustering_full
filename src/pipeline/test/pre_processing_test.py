@@ -31,7 +31,7 @@ def compute_noise_rate(df: pd.DataFrame) -> float:
     noise_rate = outliers / total_elements if total_elements > 0 else 0.0
     return noise_rate
 
-def process_single_file_test(csv_path: str, dataset_id: int) -> dict:
+def process_single_file_test(csv_path: str, dataset_id: int, dataset_name: str) -> dict:
     """
     读取测试数据集的 CSV 文件，计算特征向量并返回字典。
     """
@@ -58,6 +58,8 @@ def process_single_file_test(csv_path: str, dataset_id: int) -> dict:
 
     return {
         "dataset_id": dataset_id,
+        "dataset_name": dataset_name,
+        "csv_file": file_name,
         "x": x
     }
 
@@ -87,16 +89,15 @@ def process_test_datasets():
             csv_path = os.path.join(sub_folder, csv_file)
 
             # 从文件名中提取 error_rate，跳过 0.01% 的数据集
-            error_rate = float(csv_file.replace('%', '').replace('.csv', ''))
-            if error_rate == 0.01:
-                print(f"跳过 error_rate=0.01% 的数据集: {dataset_name}/{csv_file}")
+            if csv_file == "clean.csv":
+                print(f"跳过 clean 的数据集: {dataset_name}/{csv_file}")
                 continue
 
             # 将 dataset_id 设置为递增的整数值
             dataset_id = dataset_id_counter
             dataset_id_counter += 1
 
-            feature_vector = process_single_file_test(csv_path, dataset_id)
+            feature_vector = process_single_file_test(csv_path, dataset_id, dataset_name)
             existing_data.append(feature_vector)
 
             print(f"[{dataset_id}] 完成处理: {dataset_name}/{csv_file}")
