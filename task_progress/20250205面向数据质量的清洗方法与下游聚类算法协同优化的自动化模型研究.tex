@@ -8,6 +8,9 @@
 \usepackage{subcaption} % 用于支持子表格
 \usepackage{setspace}
 \usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{float}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
 \usepackage[ruled,vlined]{algorithm2e} % 导入 algorithm2e 宏包
 
 % 页面布局设置
@@ -245,7 +248,8 @@ AutoML 在有监督学习（分类与回归）方面已经取得了显著进展�
 
 \begin{table}[ht]
 \centering
-\caption{符号与描述}
+\small % 设置表格字体为0.8倍
+\renewcommand{\arraystretch}{1.1} % 适当调整行距
 \label{tab:symbols-advanced}
 \begin{tabular}{ll}
 \toprule
@@ -268,9 +272,11 @@ $G$ & 映射函数，将数据集特征向量映射到优选子空间 \\
 $\hat{\omega}$ & 最优方案，即在 $\Omega'(D_{\text{test}})$ 中得分最高的组合 \\
 \bottomrule
 \end{tabular}
+\caption{符号与描述}
 \end{table}
 \subsection{先验数据与多标签映射策略}
 \label{sec:prior-data-mapping}
+
 
 在实际应用中，通常可以从历史任务中获取大量已处理或部分标注的数据集，这些可视为\textbf{先验数据}（离线学习）。当面对新任务时，由于需要在较短时间内完成聚类策略的优选与评估，此时的新数据集则称为\textbf{测试数据}（在线应用）。通过在先验数据上深入探索并记录“数据特征—策略表现”的关联信息，就能在测试数据上显著减少不必要的搜索开销，从而提升整体效率。
 
@@ -359,7 +365,7 @@ G\bigl(\mathbf{x}(D)\bigr) = \Omega'(D).
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.8\linewidth]{autocluster_workflow.png}
+  \includegraphics[width=0.85\linewidth]{autocluster_workflow.png}
   \caption{自动化聚类优化流程示意图}
   \label{fig:autocluster-workflow}
 \end{figure}
@@ -450,9 +456,9 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 \section{实验与结果分析}
 \label{sec:chapter5}
 
-本章围绕第~\ref{sec:problem-and-model} 节所提出的问题和模型定义（尤其是第~\ref{subsec:problem-formalization} 小节）展开实验与结果分析。
+本章围绕第~\ref{sec:problem-and-model} 节所提出的问题和模型定义（特别是第~\ref{subsec:problem-formalization} 节）展开实验与结果分析。
 我们将通过对多种数据集和聚类算法的验证，定量评估“数据清洗与聚类协同优化”方案的有效性和适用性，
-并且进一步检验基于自动化模型（多标签学习）的管线在实际场景中的性能表现。
+并进一步检验基于自动化模型（多标签学习）的管线在实际场景中的性能表现。
 
 \subsection{实验设置}
 \label{sec:exp_setting}
@@ -462,36 +468,38 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 \subsubsection{数据集准备}
 \label{sec:dataset_prep}
 
-为确保实验覆盖多种数据质量问题（如缺失值、错误值、噪声等），我们选取了 40 个公开数据集，这些数据集在规模、维度及数据缺陷的分布特征上存在显著差异。基于第~\ref{eq:xD} 小节中对数据特征向量 $\mathbf{x}(D)$ 的定义，我们在实验前对每个数据集统计了错误率、缺失率和噪声率等关键指标。这些统计信息不仅帮助分析数据质量对聚类性能的影响，也为评估不同清洗-聚类策略在多种数据特征下的适配性提供了更精细的对照依据。表~\ref{tab:datasets_info} 列出了部分数据集的关键统计信息。
-
+为确保实验覆盖多种数据质量问题（如缺失值、错误值、噪声等），我们选取了 40 个公开的数据集，这些数据集在规模、维度及数据缺陷的分布上存在显著差异。基于第~\ref{eq:xD} 节中对数据特征向量 $\mathbf{x}(D)$ 的定义，我们在实验前对每个数据集统计了错误率、缺失率和噪声率等关键指标。这些统计信息不仅有助于分析数据质量对聚类性能的影响，也为评估不同清洗-聚类策略在多种数据特征下的适配性提供了精细的对照依据。表~\ref{tab:datasets_info} 列出了部分数据集的关键统计信息。
 
 \begin{table}[htbp]
     \centering
-    \caption{实验中部分数据集的规模与质量问题概览}
-    \label{tab:datasets_info}
     \begin{tabular}{lcccccc}
     \toprule
     \textbf{数据集} & \textbf{数据集个数} & \textbf{样本数} & \textbf{特征数} & \textbf{缺失率范围} & \textbf{错误范围} & \textbf{平均IQR噪声率} \\
     \midrule
-    Flights  & 10  & 2376   & 7  & 0.00\% - 49.99\% & 8.69\% - 67.74\%  & 0.00\%  \\
-    Hospital & 10  & 1000   & 20 & 0.00\% - 28.50\% & 8.53\% - 49.29\%  & 2.62\%  \\
-    Beers    & 10  & 2410   & 11 & 4.04\% - 31.82\% & 6.17\% - 52.00\%  & 1.43\%  \\
-    Rayyan   & 10  & 1000   & 11 & 14.60\% - 39.92\% & 10.75\% - 52.73\% & 3.83\%  \\
+    flights  & 10  & 2376   & 7  & 0.00\% $\sim$ 49.99\% & 8.69\% $\sim$ 67.74\%  & 0.00\%  \\
+    hospital & 10  & 1000   & 20 & 0.00\% $\sim$ 28.50\% & 8.53\% $\sim$ 49.29\%  & 2.62\%  \\
+    beers    & 10  & 2410   & 11 & 4.04\% $\sim$ 31.82\% & 6.17\% $\sim$ 52.00\%  & 1.43\%  \\
+    rayyan   & 10  & 1000   & 11 & 14.60\% $\sim$ 39.92\% & 10.75\% $\sim$ 52.73\% & 3.83\%  \\
     \bottomrule
     \end{tabular}
+    \caption{实验中部分数据集的规模与质量问题概览}
+    \label{tab:datasets_info}
 \end{table}
+
+\noindent
+\vspace{-20pt} % 这里减少表格和下面内容的间距
 
 \subsubsection{算法准备}
 \label{sec:algo_prep}
 
 本研究关注两方面算法：
-(1) \textbf{数据清洗策略}；(2) \textbf{聚类算法及其参数}。
+(1) \textbf{数据清洗策略}；(2) \textbf{聚类算法及对应参数}。
 
 \paragraph{数据清洗策略}
-我们在第~\ref{sec:related_work} 节介绍了若干常用数据清洗方法。本次实验选取了以下三种最具代表性的：
+我们在第~\ref{sec:related_work} 节介绍了若干种常用的数据清洗方法。本次实验选取了以下三种最具代表性的：
 \begin{itemize}
-	\item \textbf{Mode 填补}：该方法用于模拟基础的数据修复，主要通过众数或均值填补缺失值，并进行简单的错误值修正。它计算成本低，适用于数据缺失较少或错误较为简单的情况，但在面对复杂噪声时可能效果有限。
-	\item \textbf{Raha-Baran}：作为模拟深度数据修复的方法，该策略结合上下文规则与统计推断，能够识别并校正更复杂的错误和噪声。虽然能提升数据质量，但相较于基础填补方法，计算成本更高，适用于数据问题较综合和复杂的场景。
+	\item \textbf{Mode 填补}：该方法用来模拟基础的数据修复，主要通过众数或均值填补缺失值，并进行简单的错误值修正。它计算成本低，适用于数据缺失较少或错误较为简单的情况，但在面对复杂噪声时可能效果有限。
+	\item \textbf{Raha-Baran}：作为深度数据修复的方法，该策略结合上下文规则与统计推断，能够识别并校正更复杂的错误和噪声。虽然能提升数据质量，但相较于基础填补方法，计算成本更高，适用于数据问题较综合且复杂的场景。
 	\item \textbf{GroundTruth (GT)}：此方法仅用于对照实验，假设数据已被完全清洗，不含缺失值、错误值或噪声。它并非实际可行的清洗策略，而是用来评估其他数据修复方法的有效性。
 
 \end{itemize}
@@ -501,8 +509,6 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 
 \begin{table}[htbp]
     \centering
-    \caption{选定聚类算法的特点比较}
-    \label{tab:clustering_algorithms}
     \begin{tabular}{lcccc}
         \toprule
         \textbf{算法} & \textbf{聚类方式} & \textbf{算法参数} & \textbf{时间复杂度} & \textbf{参数敏感度} \\
@@ -515,10 +521,12 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
         AffinityPropagation & 消息传递 & Damping（阻尼系数）, Preference（偏好值） & $O(n^2)$ & 中 \\
         \bottomrule
     \end{tabular}
+    \caption{所选聚类算法的特点比较}
+    \label{tab:clustering_algorithms}
 \end{table}
 
 \noindent
-从表~\ref{tab:clustering_algorithms} 可以看出，各聚类算法在适用场景、计算复杂度及对超参数的依赖程度上存在显著差异。例如，K-Means 计算效率较高，但对簇数选择较敏感，适用于球形簇结构的数据；DBSCAN 和 OPTICS 采用密度聚类方法，能够自动确定簇数，并对噪声具有较强的鲁棒性。层次聚类（HC）能够揭示数据的层次关系，但计算复杂度较高，不适合大规模数据。GMM 适用于数据呈高斯混合分布的情况，而 AffinityPropagation 则无需预设簇数，但计算开销较大，且参数选择影响显著。
+从表~\ref{tab:clustering_algorithms} 可以看出，各聚类算法在适用场景、计算复杂度及对超参数的依赖程度上存在显著差异。例如，K-Means 计算效率较高，但对簇数选择较敏感，适用于球形簇结构的数据；DBSCAN 和 OPTICS 采用密度聚类方法，能够自动确定簇数，并对噪声具有较强的鲁棒性。层次聚类（HC）能够揭示数据的层次关系，但计算复杂度较高，不适合大规模数据。GMM 适用于数据呈高斯混合分布的情况，而 AffinityPropagation 则无需预设簇数，但计算开销较大，且受参数选择的影响显著。
 
 在本实验中，我们将在不同数据清洗策略下评估这些聚类算法的表现，分析数据质量对聚类效果的影响，并比较各算法在不同数据特征下的适配性。
 
@@ -526,53 +534,51 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 \subsection{实验流程步骤}
 \label{sec:exp_flow}
 
-为保证实验的系统性与可复现性，我们设计了一套标准化的实验流程，如图~\ref{fig:exp_workflow} 所示。整体流程包括四个主要阶段：数据预处理、清洗与聚类执行、结果分析以及自动化优化。
+为保证实验的系统性与可复现性，我们设计了一套标准化的实验流程，如图~\ref{fig:exp_workflow} 所示。整体流程包括四个主要阶段：数据预处理、清洗与聚类执行、结果分析以及自动化聚类优化。以下是对实验流程图的详细解释：
 
 \begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\linewidth]{exp_workflow.png} % 需替换为实际流程图
-  \caption{实验流程示意图}
-  \label{fig:exp_workflow}
+    \centering
+    \includegraphics[width=1.0\linewidth]{exp_workflow.png}
+    \caption{实验设计流程示意图}
+    \label{fig:exp_workflow}
 \end{figure}
 
 \begin{enumerate}
-    \item \textbf{特征统计与数据预处理}：  
-    计算每个数据集的错误率、缺失率及噪声水平，生成数据特征向量 \(\mathbf{x}(D)\)。对文本字段进行必要的编码转换，确保数据格式适用于后续聚类分析。
+    \item \textbf{错误注入与特征统计}：  
+    在原始数据集上人为注入不同比例的错误（包括缺失值、噪声和异常值），模拟真实数据质量问题。随后，统计各数据集的错误率、缺失率及噪声水平，提取数据特征向量 \(\mathbf{x}(D)\)，为后续清洗与聚类优化提供基础记录。
 
     \item \textbf{清洗与聚类执行}：  
-    依次应用不同的数据清洗策略，对每个数据集生成多个修复版本；随后，在清洗后的数据集上运行各种聚类算法，记录簇数、运行时间及综合得分 \(S(D,\omega)\)（见式 \eqref{eq:S-score}）。
+    依次应用不同的数据清洗策略，对每个数据集生成多个修复版本；随后，在清洗后的数据集上运行各种聚类算法，并记录对应的超参数、聚类簇数、运行时间及综合得分 \(S(D,\omega)\)（计算见式 \eqref{eq:S-score}）。
 
     \item \textbf{结果分析}：  
     比较不同清洗-聚类组合的性能，评估其聚类质量、计算耗时及适用性，分析数据质量对聚类效果的影响，并总结最优策略的适配性。
 
     \item \textbf{自动化优化}：  
-    在离线阶段训练多标签分类器，学习“数据特征 \(\mathbf{x}(D)\) → 优选子空间 \(\Omega'(D)\)”的映射关系；在测试阶段，该模型用于高效推荐清洗-聚类方案，并与全量搜索结果对比，评估损失率 \(\eta(D)\) 和加速比 \(\mathcal{A}(D)\) 。
+    在离线阶段训练多标签分类器，学习“数据特征 \(\mathbf{x}(D)\) → 优选子空间 \(\Omega'(D)\)”的映射关系；在测试阶段，该模型将用于高效推荐清洗-聚类方案，并与全量搜索结果进行对比，计算损失率 \(\eta(D)\) 和加速比 \(\mathcal{A}(D)\) 。
 \end{enumerate}
 
 该流程确保了实验在不同场景下的准确性和可复现性，并为后续实验提供统一框架。
 
-在接下来的实验部分，我们将围绕两项核心任务展开：
+在接下来的部分，我们将围绕两项核心任务展开：
 \begin{itemize}
     \item \textbf{大规模对比实验（第~\ref{sec:large_scale_exp} 节）}：  
     评估各种清洗-聚类组合在全部数据集上的表现，分析最优策略在不同数据质量条件下的适配性。
 
     \item \textbf{自动化聚类模型评估实验（第~\ref{sec:automl_exp} 节）}：  
-    验证自动化管线的有效性，对比多标签学习推荐的“优选子空间搜索”与“全量搜索”，重点考察损失率 \(\eta(D)\) 及加速比 \(\mathcal{A}(D)\)，评估其在大规模数据场景下的可行性。
+    验证自动化管线的有效性，对比多标签学习推荐的“优选子空间搜索”与“全量搜索”，重点考察损失率 \(\eta(D)\) 及加速比 \(\mathcal{A}(D)\)两个指标，评估其在大规模数据场景下的可行性。
 \end{itemize}
-
-这两个实验从\textbf{数据清洗与聚类的协同优化}到\textbf{自动化优化的高效性}两个层面展开分析，以验证所提出方法的实际可行性。
 
 \subsection{大规模对比实验}
 \label{sec:large_scale_exp}
 
-本节针对“清洗策略 + 聚类算法”协同优化进行大规模对比，以回答第~\ref{subsec:problem-formalization} 小节提出的核心问题：
+本节针对“清洗策略 + 聚类算法”协同优化进行大规模对比实验，以回答第~\ref{subsec:problem-formalization} 节提出的核心问题：
 \emph{“不同清洗-聚类组合在多样化数据（含噪声、缺失值、错误值）上的协同表现如何？”}
 
 \subsubsection{实验设置与评估指标}
 \label{sec:exp_setting_largeset}
 
 \paragraph{清洗-聚类组合}
-对每个数据集分别应用 \textbf{Mode}、\textbf{Raha-Baran} 及 \textbf{GT} 三种清洗方法，并运行 K-Means、DBSCAN、OPTICS、HC、GMM 和 AffinityPropagation 六种聚类算法，形成“3 清洗 × 6 聚类 = 18” 种组合。
+对每个数据集分别应用 mode、Raha-Baran 及 GT 三种清洗方法，并运行 K-Means、DBSCAN、OPTICS、HC、GMM 和 AffinityPropagation 六种聚类算法，形成“3 清洗 × 6 聚类 = 18” 种组合。
 
 \paragraph{评估指标}
 本研究主要使用以下三个指标来评估清洗-聚类组合的效果：
@@ -589,26 +595,32 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
     综合得分 \(S(D,\omega)\) 的权重设置为 \(\alpha = 0.75\) 和 \(\beta = 0.25\)，这一选择基于预实验结果。过高的轮廓系数权重会导致簇数过少，与实际需求不符。因此，较低的 \(\beta\) 权重有助于生成数量合适且更稳定的簇。
 
     \item \textbf{百分比得分}：  
-    为了便于比较不同算法组合之间的性能，本研究对综合得分进行百分比归一化处理，以 GroundTruth 清洗策略修复后的最高综合得分为基准，将其定义为 100\%。不合理的实验结果（如算法运行超时、不收敛或簇数明显偏离标准范围）被标记为 0\%，以避免对整体结果分析的干扰。
+    为了便于比较不同算法组合之间的性能，本研究对综合得分进行百分比归一化处理，以 GroundTruth 清洗策略修复后的最高综合得分为基准，将其定义为 100\%。不合理的实验结果（如算法运行超时、不收敛或簇数明显偏离标准范围）被标记为 0\%，以避免其干扰整体结果的分析。
 
 \end{itemize}
 
 \subsubsection{实验结果与分析}
 \label{sec:exp_result_all}
-本节围绕不同数据集的聚类性能展开实验结果呈现和分析。我们从以下三个层面展开讨论：
+本节围绕不同数据集上策略组合的性能展开实验结果呈现和分析。我们从以下三个层面展开讨论：
 \paragraph{(1) 各数据集在不同错误率下的最优方案与得分情况}  
-图~\ref{fig:beers_error}、\ref{fig:flights_error}、\ref{fig:rayyan_error} 和 \ref{fig:hospital_error} 分别展示了 \textit{beers}、\textit{flights}、\textit{rayyan} 与 \textit{hospital} 四个数据集在不同比例错误率（横轴）下的综合得分（左侧纵轴）及缺失值比例（右侧纵轴）。我们引入了\textbf{最接近基准的组合}，其得分是所有清洗-聚类组合中距离 100\% 最近的方案。该方案的选取有助于识别在实际应用中最接近理想基准性能的策略。
+图~\ref{fig:beers_error}、\ref{fig:flights_error}、\ref{fig:rayyan_error} 和 \ref{fig:hospital_error} 分别展示了 \textit{beers}、\textit{flights}、\textit{rayyan} 与 \textit{hospital} 四个数据集在不同比例错误率（横轴）下的百分比综合得分（左侧纵轴）及缺失值比例（右侧纵轴）。我们引入了\textbf{最接近基准的组合}，其得分是除参考标准外距离 100\% 最近的方案。该方案的选取有助于识别在实际应用中最接近理想基准性能的策略。
 
-\begin{figure}[htbp]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{legend_plot.png} % 确保 legend.png 存在
+    \vspace{-14pt} % 减小图例与主图之间的间距
+\end{figure}
+
+\begin{figure}[H]
   \centering
-  \begin{subfigure}{0.48\linewidth} % 每张图占 48% 宽度
+  \begin{subfigure}{0.49\linewidth} % 每张图占 48% 宽度
     \centering
     \includegraphics[width=\linewidth]{beers_error.png} % 替换为实际图片
     \caption{\textit{beers} 数据集：错误率 vs. 综合得分与缺失值比例}
     \label{fig:beers_error}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.48\linewidth}
+  \begin{subfigure}{0.49\linewidth}
     \centering
     \includegraphics[width=\linewidth]{flights_error.png}
     \caption{\textit{flights} 数据集：错误率 vs. 综合得分与缺失值比例}
@@ -617,14 +629,14 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 
   \vspace{0.5em} % 调整行间距
 
-  \begin{subfigure}{0.48\linewidth}
+  \begin{subfigure}{0.49\linewidth}
     \centering
     \includegraphics[width=\linewidth]{rayyan_error.png}
     \caption{\textit{rayyan} 数据集：错误率 vs. 综合得分与缺失值比例}
     \label{fig:rayyan_error}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.48\linewidth}
+  \begin{subfigure}{0.49\linewidth}
     \centering
     \includegraphics[width=\linewidth]{hospital_error.png}
     \caption{\textit{hospital} 数据集：错误率 vs. 综合得分与缺失值比例}
@@ -740,116 +752,118 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 
 \vspace{0.5em}
 \noindent
-基于表~\ref{tab:beers_results} 至表~\ref{tab:hospital_results} 所示的各数据集（\textit{beers}、\textit{flights}、\textit{hospital}、\textit{rayyan}）在不同错误率下的组合排名与偏差情况，我们可以得出以下几点认识：
+基于图~\ref{fig:beers_error} 至图\ref{fig:hospital_error} 和表~\ref{tab:beers_results} 至表~\ref{tab:hospital_results} 所示的不同错误率下的组合排名与偏差情况，我们可以得出以下几点认识：
 
 \begin{enumerate}
     \item \textbf{“最佳组合”与“最接近基准”经常不一致}\\
-    在 \textit{beers}、\textit{flights} 等较大规模、数值型为主的数据中，\texttt{mode + HC} 或 \texttt{mode + DBSCAN} 有时会出现 200\%～300\%、甚至逾千的“爆分”情形。然而，这些高分结果往往偏离基准结构较远，因 \texttt{DBSCAN} 对噪声/缺失值极度敏感，或 \texttt{HC} 采用的簇数与理想情况差异较大。此时，\texttt{Raha-Baran + HC} 或 \texttt{mode + KMeans} 虽绝对分值较低，却更贴近 \texttt{GroundTruth}。
+    在 \textit{Beers}、\textit{Flights} 等较大规模、数值型为主的数据中，mode + HC 或 mode + DBSCAN 有时会出现 200\%～300\%、甚至逾千的“爆分”情形。然而，这些高分结果往往偏离基准结构较远，原因是 DBSCAN 对噪声/缺失值极度敏感，以及 HC 采用的簇数与理想情况差异较大。此时，Raha-Baran + HC 或 mode + KMeans 虽绝对分值较低，却更贴近 GroundTruth 基准。
 
     \item \textbf{极端高分分布并不均衡，受数据维度与语义约束影响}\\
-    在低维数值型的 \textit{flights} 数据中，\texttt{mode + DBSCAN} 出现 1800\%～2500\% 极端情况，表明密度聚类对填补策略和超参数高度敏感。而在更高维或包含语义规则的 \textit{hospital}、\textit{rayyan} 中，聚类分数通常较温和，极少越过 200\%，暗示 \texttt{Raha-Baran} 修复在此类场景下更能保留合理的分布结构，降低了极端划分的可能。
+    在低维数值型的 \textit{Flights} 数据中，mode + DBSCAN 出现 1800\%～2500\% 极端情况，表明密度聚类对填补策略和超参数高度敏感。而在更高维或包含语义规则的 \textit{Hospital}、\textit{Rayyan} 中，聚类分数通常较温和，极少越过 200\%，暗示 Raha-Baran 修复在此类场景下更能保留合理的分布结构，降低了极端划分的可能。
 
-    \item \textbf{\texttt{Raha-Baran + HC} 在中低错误率下尤为稳健}\\
-    在 \textit{hospital}、\textit{rayyan} 等数据集中，当错误率低于 25\% 时，\texttt{Raha-Baran + HC} 常同时取得“最高分”与“最贴近基准”的好成绩。对于高维、具备一定语义约束且规模中等的场景而言，\texttt{Raha-Baran} 能有效减少噪声干扰，\texttt{HC} 则在数据质量良好时更易逼近基准结构。即使错误率升至 40\% 以上，\texttt{Raha-Baran + HC} 也仅出现有限波动，在高维场景下仍优于其他组合。
+    \item \textbf{Raha-Baran + HC 在中低错误率下尤为稳健}\\
+    在 \textit{Hospital}、\textit{Rayyan} 等数据集中，当错误率低于 25\% 时，Raha-Baran + HC 常同时取得“最高分”与“最贴近基准”的好结果。对于高维、具备一定语义约束且规模中等的场景而言，Raha-Baran 能有效减少噪声干扰，HC 则在数据质量良好时更易逼近基准结构。即使错误率升至 40\% 以上，Raha-Baran + HC 也仅出现有限波动，在高维场景下仍优于其他组合。
 \end{enumerate}
-
-
-综合而言，在“最佳组合”与“最接近基准”不匹配的情况下，需结合具体应用需求来平衡分数绝对值与聚类结构的合理性。此外，不同数据集的特征维度、噪声成分与语义约束都可能影响聚类的极端表现，使用精细化清洗（如 \texttt{Raha-Baran}）往往有助于在高维或语义复杂的环境中维持更稳定的聚类结果。
 
 \paragraph{(2) 不同数据集上清洗-聚类方案随错误率变化的趋势}
 前文表格展示了各数据集在不同错误率下的最佳组合及其与基准的偏差，但仅反映离散的关键数值。为直观观察清洗-聚类组合随错误率变化的趋势，本节通过图~\ref{fig:mode_beers} 至图\ref{fig:raha_baran_hospital} 展示各数据集在两种清洗方法下，不同聚类算法的综合得分变化。横轴为错误率，纵轴为综合得分，各曲线对应不同聚类算法，体现其在不同数据质量条件下的波动情况。
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{legend.png} % 确保 legend.png 存在
+    \vspace{-10pt} % 减小图例与主图之间的间距
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
-  \footnotesize % 控制字体大小
+  \footnotesize % 控制整体字体大小（子图内文本）
   \setlength{\abovecaptionskip}{2pt} % 调整标题和图片之间的间距
-  \setlength{\belowcaptionskip}{2pt} % 调整标题和下方正文之间的间距
+  \setlength{\belowcaptionskip}{0pt} % 让 caption 和正文的间距更小
 
   % 第一行：mode 清洗
-  \begin{subfigure}{0.24\linewidth} % 图片尺寸略增大
+  \begin{subfigure}{0.48\linewidth} % 图片尺寸增大
     \centering
     \includegraphics[width=\linewidth]{mode_beers_combined_scores.png}
-    \caption{\textit{beers} + \texttt{mode}}
+    \caption{\textit{mode}, Beers}
     \label{fig:mode_beers}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.24\linewidth}
+  \begin{subfigure}{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{mode_flights_combined_scores.png}
-    \caption{\textit{flights} + \texttt{mode}}
+    \caption{\textit{mode}, Flights}
     \label{fig:mode_flights}
   \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.24\linewidth}
+
+  \vspace{0.2em} % 缩小两行之间的间距
+
+  \begin{subfigure}{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{mode_rayyan_combined_scores.png}
-    \caption{\textit{rayyan} + \texttt{mode}}
+    \caption{\textit{mode}, Rayyan}
     \label{fig:mode_rayyan}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.24\linewidth}
+  \begin{subfigure}{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{mode_hospital_combined_scores.png}
-    \caption{\textit{hospital} + \texttt{mode}}
+    \caption{\textit{mode}, Hospital}
     \label{fig:mode_hospital}
   \end{subfigure}
 
-  \vspace{1em} % 适当增加两行之间的间距，使整体更清晰
+  \vspace{0.2em} % 适当减少两行之间的间距
 
   % 第二行：Raha-Baran 清洗
-  \begin{subfigure}{0.24\linewidth}
+  \begin{subfigure}{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{raha-baran_beers_combined_scores.png}
-    \caption{\textit{beers} + \texttt{Raha-Baran}}
+    \caption{\textit{Raha-Baran}, Beers}
     \label{fig:raha_baran_beers}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.24\linewidth}
+  \begin{subfigure}{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{raha-baran_flights_combined_scores.png}
-    \caption{\textit{flights} + \texttt{Raha-Baran}}
+    \caption{\textit{Raha-Baran}, Flights}
     \label{fig:raha_baran_flights}
   \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.24\linewidth}
+
+  \vspace{0.2em} % 继续缩小行距
+
+  \begin{subfigure}{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{raha-baran_rayyan_combined_scores.png}
-    \caption{\textit{rayyan} + \texttt{Raha-Baran}}
+    \caption{\textit{Raha-Baran}, Rayyan}
     \label{fig:raha_baran_rayyan}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.24\linewidth}
+  \begin{subfigure}{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{raha-baran_hospital_combined_scores.png}
-    \caption{\textit{hospital} + \texttt{Raha-Baran}}
+    \caption{\textit{Raha-Baran}, Hospital}
     \label{fig:raha_baran_hospital}
   \end{subfigure}
 
-  \caption{不同数据集在不同错误率条件下的聚类算法综合得分变化趋势（第一行：\texttt{mode} 清洗，第二行：\texttt{Raha-Baran} 清洗）}
+  \caption{不同数据集在不同错误率条件下的聚类算法综合得分变化趋势}
   \label{fig:all_combined_scores}
 \end{figure}
 
 \noindent
 
-通过综合比对上述不同数据集在 \textit{mode} 与 \textit{raha-baran} 清洗下，各聚类算法随错误率变化的表现，可以得到以下几条规律性结论：
+通过综合比对上述不同数据集在 mode 与 Raha-Baran 清洗下，各聚类算法随错误率变化的表现，可以得到以下几条规律性结论：
 
 \begin{enumerate}
-    \item \textbf{错误率升高易诱发“极端爆分”或“收敛失败”，精细化清洗可缓解但不完全避免} \\
-    当错误率中高时，\texttt{mode} 清洗下的 HC、DBSCAN、AP 更易出现高达 3.00 的极端得分或直接收敛到 0.00。使用 \texttt{raha-baran} 虽然减少了此类“爆分”现象，但在个别极端场景下，KMeans、GMM 或 AP 仍可能无法正常聚类，导致分数骤降至 0.0。
+    \item \textbf{错误率升高易出现“极端爆分”或“收敛失败”，精细化清洗可缓解但不能完全避免} \\
+    当错误率中高时，mode 清洗下的 HC、DBSCAN、AP 更易出现高达 3.00 的极端得分或直接收敛到 0.00。使用 Raha-Baran 虽然减少了此类“爆分”现象，但在个别极端场景下，KMeans、GMM 或 AP 仍可能无法正常聚类，导致分数骤降至 0.0。
 
     \item \textbf{聚类算法对错误率的敏感度差异明显，HC/DBSCAN 波动大，KMeans/GMM/OPTICS 相对平稳} \\
     层次聚类（HC）与密度聚类（DBSCAN）对噪声和超参数敏感度最高，最易在错误率升高后出现大幅波动或极端值。相比之下，KMeans 与 GMM 在大多错误率区间分数处于中等水平，不常爆分但也可能在高错误率时收敛失败；OPTICS 波动相对较小，但平均得分不高。
 
-    \item \textbf{“mode” 与 “raha-baran” 的差异在高错误率下尤为突出} \\
-    低或中等错误率下，两种清洗方法整体表现差异不大；但一旦错误率升至 30\% 以上，\texttt{mode} 更易触发少数算法的极端波动或收敛异常，而 \texttt{raha-baran} 虽也会出现偶发失效，却在多数场景保持了中等或较平稳的分数，展现出对高错误率的相对鲁棒性。
+    \item \textbf{“mode” 与 “Raha-Baran” 的差异在高错误率下尤为突出} \\
+    低或中等错误率下，两种清洗方法整体表现差异不大；但一旦错误率升至 30\% 以上，mode 更易触发少数算法的极端波动或收敛异常，而 Raha-Baran 虽也会出现偶发失效，却在多数场景保持了中等或较平稳的分数，展现出对高错误率的相对鲁棒性。
 \end{enumerate}
 
 \noindent
-综上所述，随着错误率的持续升高，数据质量对聚类算法的影响呈显著放大趋势。尽管使用更精细的清洗方法（如 \texttt{raha-baran}）能够降低极端结果出现的概率，但在高噪声场景下仍有可能出现算法收敛失败。为更全面地评估不同清洗-聚类组合在各种数据集上的整体性能，我们进一步从多个指标对策略的表现进行综合比较。
+综上所述，随着错误率的持续升高，数据质量对聚类算法的影响呈显著放大趋势。尽管使用更精细的清洗方法（如 Raha-Baran）能够降低极端结果出现的概率，但在高噪声场景下仍有可能出现算法收敛失败。为更全面地评估不同清洗-聚类组合在各种数据集上的整体性能，我们将进一步从更多指标对策略的表现进行综合比较。
 
 \paragraph{(3) 基于多指标的综合性能分析}
 图~\ref{fig:alg_comb_metrics} 以 5 张柱状图展示了 18 种清洗-聚类组合策略在不同聚类评估指标下的整体表现，横轴为算法组合，纵轴为相应指标数值，评估指标包括：
@@ -861,7 +875,7 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
     \item \textbf{Average Deviation from Reference (100\%)}：相对于基准方案（100\%）的平均偏离程度，数值越小表示越接近基准。
 \end{itemize}
 
-此外，图~\ref{fig:alg_comb_metrics_low} 在上述基础上选取错误率低于 25\% 的数据，聚焦分析非极端噪声条件下各组合的聚类性能与稳定性，直观对比各方法在低错误率场景下的差异。以下是对这两类图表的主要结论与启示：
+此外，图~\ref{fig:alg_comb_metrics_low} 在上述基础上选取错误率低于 25\% 的数据，聚焦分析非极端噪声条件下各组合的聚类性能与稳定性，直观对比各方法在低错误率场景下的差异。以下是从这两类图表中得出的主要结论与启示：
 
 \begin{figure}[htbp]
     \centering
@@ -869,7 +883,7 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
     \setlength{\belowcaptionskip}{5pt}  % 增加标题与正文之间的间距
 
     % 第一张图（单独占一行）
-    \begin{subfigure}{0.9\linewidth}  % 增大宽度
+    \begin{subfigure}{1.0\linewidth}  % 增大宽度
         \centering
         \includegraphics[width=\linewidth]{alg_comb_metrics.png}
         \caption{18 种清洗-聚类组合在不同聚类评估指标上的综合表现}
@@ -879,7 +893,7 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
     \vspace{1em}  % 增加两张图之间的间距
 
     % 第二张图（单独占一行）
-    \begin{subfigure}{0.9\linewidth}  % 增大宽度
+    \begin{subfigure}{1.0\linewidth}  % 增大宽度
         \centering
         \includegraphics[width=\linewidth]{alg_comb_metrics_low.png}
         \caption{错误率低于 25\% 条件下，各算法组合的聚类性能与稳定性}
@@ -890,13 +904,12 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
     \label{fig:alg_comb_metrics_comparison}
 \end{figure}
 
-
 \subparagraph{全局方案表现与离散度分析}
 图~\ref{fig:alg_comb_metrics} 将所有数据集（含不同错误率）的结果归纳，便于从全局角度评估各方案的稳定性与适应性。可以看到：
 \begin{itemize}
-    \item \textbf{高均值+高方差的“爆分”组合}：例如 \texttt{mode + DBSCAN} 组合虽然平均分高达 147\%，却伴随多达 481.75 的标准差 ，说明其在数值特征为主、规模较大的数据（如 \textit{flights, beers}）上易发生极端聚类效果，实际使用中需谨慎。
-    \item \textbf{Raha-Baran + HC、Mode + HC 整体分数高且方差相对适中}： \texttt{ mode + HC} 约 101.53\%，标准差 64.62；\texttt{raha-baran + HC} 约 90.03\%，标准差 34.80，说明层次聚类在多场景下保持稳定，Raha-Baran 在处理语义或规则错误（如 \textit{hospital, rayyan}）时尤为有效。
-    \item \textbf{其余组合多集中在 30\%--70\% 区间}：如 \texttt{raha-baran + OPTICS} 均值仅 16.75\%，在当前参数设置与数据特征下并未取得良好协同，凸显密度聚类方法在高维或高噪声环境中对参数匹配的依赖度。
+    \item \textbf{高均值+高方差的“爆分”组合}：例如 mode + DBSCAN 组合虽然平均分高达 147\%，却伴随多达 481.75 的标准差 ，说明其在数值特征为主、规模较大的数据（如 \textit{flights, beers}）上易发生极端聚类效果，在实际使用中需谨慎。
+    \item \textbf{Raha-Baran + HC 和 mode + HC 整体分数高且方差相对适中}：  mode + HC 约 101.53\%，标准差 64.62； Raha-Baran + HC 约 90.03\%，标准差 34.80，说明层次聚类在多场景下保持稳定，Raha-Baran 在处理语义或规则错误（如 \textit{hospital, rayyan}）时尤为有效。
+    \item \textbf{其余组合多集中在 30\%--70\% 区间}：如 Raha-Baran + OPTICS 均值仅 16.75\%，在当前参数设置与数据特征下并未取得良好协同，凸显密度聚类方法在高维或高噪声环境中对参数匹配的依赖度。
 \end{itemize}
 总体而言，DBSCAN/OPTICS 虽具潜力但波动大，HC 与合适的清洗策略（Mode 或 Raha-Baran）通常兼具更高均值和更低方差。
 
@@ -905,52 +918,31 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 \begin{itemize}
     \item \textbf{Mode + HC 均值约 100.14\%}，但标准差 74.20：在低错误率场景下，简单填补能够较好保留数据分布，HC 则通过合适的层次切分实现高分。然而，在高维或噪声分布不均的情况下，其表现仍可能出现较大波动。
     \item \textbf{Raha-Baran + HC 稳定性更佳}：均值约 91.04\%，标准差降至 20.04，显示对具备语义或知识库错误的数据集（如 \textit{hospital, rayyan}）而言，精细化修复能显著减少噪声干扰，HC 则在较低错误率下持续逼近或略超基准。
-    \item \textbf{其余组合受益有限}：如 \texttt{mode + GMM}、\texttt{mode + KMeans} 等平均分多介于 50\%--60\%，虽较全局时略有提升，但在面向 11--20 个特征的中等维度数据时仍不具明显优势。
+    \item \textbf{其余组合受益有限}：如 mode + GMM、mode + KMeans 等平均分多介于 50\%--60\%，虽较全局时略有提升，但在面向 11--20 个特征的中等维度数据时仍不具明显优势。
 \end{itemize}
 
 \subsubsection{综合分析与实践建议}
-结合实验结果和多种清洗策略与聚类算法的表现，针对不同数据集的规模、特征类型及错误率水平，提出以下建议以指导清洗与聚类方法组合的选择：
+结合上述实验结果和多种清洗与聚类算法的表现，针对不同规模、特征类型及错误率水平的数据集，提出以下建议来指导清洗与聚类策略的选择：
 
 \begin{itemize}
     \item \textbf{小至中规模数据集、高维/多元特征且可能存在语义错误}：
-    优先选择 \texttt{raha-baran + HC} 组合。Raha-Baran 的上下文修复能力能够有效处理复杂语义错误，而 HC（层次聚类）的分层聚类特性适合高维、多特征数据。若错误率较高，需进一步结合更先进的修复策略，或通过特征选择与降维手段减少特征复杂性。
+    优先选择 Raha-Baran + HC 组合。Raha-Baran 的上下文修复能力能够有效处理复杂语义错误，而 HC（层次聚类）的分层聚类特性适合高维、多特征数据。若错误率较高，需进一步结合更先进的修复策略，或通过特征选择与降维手段减少特征复杂性。
 
     \item \textbf{中至大规模数据集、以数值型特征为主、对内部指标最优化有较强需求}：
-    考虑使用 \texttt{mode + HC} 或 \texttt{mode + DBSCAN}。简单填补策略（Mode）在数值型数据上的效率较高，而 HC 和 DBSCAN 均能对中大规模数据集进行合理划分，但需谨慎对待 \texttt{mode + DBSCAN} 的高方差风险。若应用场景要求聚类结果与基准结构更贴近且解释性更强，应该选择更稳健的组合（如 \texttt{mode + HC} 或 \texttt{mode + KMeans}）。
+    考虑使用 mode + HC 或 mode + DBSCAN。简单填补策略（Mode）在数值型数据上的效率较高，而 HC 和 DBSCAN 均能对中大规模数据集进行合理划分，但需谨慎对待 mode + DBSCAN 的高方差风险。若应用场景要求聚类结果与基准结构更贴近且解释性更强，应该选择更稳健的组合（如 mode + HC 或 mode + KMeans）。
 
     \item \textbf{强噪声分布、不规则簇形状的数据集}：
-    可使用 DBSCAN 或 OPTICS 等密度聚类方法。这些方法在处理不规则簇形状和高噪声数据时具有明显优势。密度聚类方法对超参数（如 $\epsilon$ 和 \texttt{min\_samples}）敏感，因此需要针对不同错误率和特征分布进行精细化超参数调优，以避免出现极端分割（过多单点簇）或过度聚合的情况。自动调优框架（如 Optuna）在此类场景中尤为重要。
+    可使用 DBSCAN 或 OPTICS 等密度聚类方法。这些方法在处理不规则簇形状和高噪声数据时具有明显优势。密度聚类方法对超参数（如 $\varepsilon$ 和 $\xi$）敏感，因此需要针对不同错误率和分布特征进行精细化超参数调优，以避免出现极端分割（过多单点簇）或过度聚合的情况。自动调优框架（如 Optuna）在此类场景中尤为重要。
 \end{itemize}
 
 这些建议为后续应用中选择清洗-聚类方法提供了可行的依据，也为在高噪声及多样化数据环境中平衡聚类质量与可解释性指出了明确方向。
 
 \subsection{自动化聚类模型评估实验}
 \label{sec:automl_exp}
-
-本节旨在验证第~\ref{sec:autoML} 节提出的自动化聚类优化管线，评估其在缩减搜索空间的同时，是否能够保持较高的聚类质量。实验重点考察以下两项关键指标：
-\begin{itemize}
-    \item \textbf{损失率} \(\eta(D)\)：自动化方法在搜索空间缩减后，其最佳得分相较于全量搜索的平均损失比例，衡量聚类质量的下降幅度；
-    \item \textbf{加速比} \(\mathcal{A}(D)\)：自动化方法相较于全量搜索的计算加速倍数，衡量搜索效率的提升程度。
-\end{itemize}
-
-\subsubsection{实验设置}
-\label{sec:exp_setting_automl}
-实验采用前述第~\ref{sec:large_scale_exp} 节的大规模对比实验结果，基于先验数据集训练多标签分类器。具体步骤如下：
-\begin{enumerate}
-    \item \textbf{离线训练阶段}：提取各数据集的特征向量 \(\mathbf{x}(D)\)，并将其映射到表现最佳的 Top-$K$ 清洗-聚类组合，形成多标签训练数据；
-    \item \textbf{在线推理阶段}：在测试数据集上，仅对分类器推荐的候选子空间进行评估，并记录最终聚类得分；
-    \item \textbf{对比分析}：比较自动化推荐的方案与全量搜索的得分差异，以及计算时间的缩短幅度。
-\end{enumerate}
-
-\subsubsection{实验结果与分析}
-\label{sec:res_analysis_automl}
-
-表~\ref{tab:autoML_res} 展示了部分数据集在自动化优化管线下的实验结果。实验表明，该方法能够有效减少无效组合的尝试，使评估时间平均减少 5\textasciitilde10 倍，而聚类得分的损失率仅在 1.9\%\textasciitilde3.1\%之间。
+本节基于第~\ref{sec:large_scale_exp} 节的大规模对比实验，利用先验数据集训练多标签分类器，并测试自动化优化管线在部分数据集上的性能（见表~\ref{tab:autoML_res}）。实验旨在重点评估第~\ref{sec:autoML} 节提出的优化管线在缩减搜索空间的同时，是否能保持较高的聚类质量，主要考察\textbf{损失率} \(\eta(D)\) 和\textbf{综合加速比} \(\mathcal{A}(D)\) 两项关键指标。实验结果表明，该方法能够有效减少无效组合的尝试，使评估时间平均减少 5\textasciitilde10 倍，而聚类得分的损失率仅在 1.9\%\textasciitilde3.1\%之间。
 
 \begin{table}[htbp]
 \centering
-\caption{自动化聚类优化管线 vs. 全量搜索}
-\label{tab:autoML_res}
 \begin{tabular}{lcccc}
 \toprule
 \textbf{数据集} & \textbf{全量搜索耗时 (s)} & \textbf{自动化耗时 (s)} & \textbf{加速比} & \textbf{损失率 (\%)} \\
@@ -960,10 +952,12 @@ Flights & 18.2 & 2.1 & 8.7 & 2.8 \\
 Hospital & 25.0 & 3.2 & 7.8 & 1.9 \\
 \bottomrule
 \end{tabular}
+\caption{自动化聚类优化管线 vs. 全量搜索}
+\label{tab:autoML_res}
 \end{table}
 
 \noindent
-从表~\ref{tab:autoML_res} 可以看出，自动化方法能够大幅缩减计算成本，尤其在大规模数据集（如 \textit{Flights}）上，搜索时间缩短至全量搜索的 1/8，而得分损失保持在 3\%以内，表明该方法在保持较高聚类质量的前提下，实现了显著的搜索加速。其中：
+从表~\ref{tab:autoML_res} 可以看出，自动化方法能够大幅缩减计算成本，尤其在大规模数据集（如 \textit{flights}）上，搜索时间缩短至全量搜索的 1/8，而得分损失保持在 3\%以内，表明该方法在保持较高聚类质量的前提下，实现了显著的搜索加速。其中：
 \begin{itemize}
     \item 低损失率：\texttt{Hospital} 数据集的损失率仅 1.9\%，说明自动化管线对高维、多特征数据依然保持较好性能；
     \item 高加速比：在 \texttt{Flights} 数据集上，加速比达到 8.7 倍，适用于计算成本敏感的应用场景；
@@ -971,35 +965,7 @@ Hospital & 25.0 & 3.2 & 7.8 & 1.9 \\
 \end{itemize}
 
 \noindent
-综上所述，自动化聚类优化管线在大幅降低计算开销的同时，仅牺牲极小的聚类质量，证明了其在高效聚类任务中的实用价值。下一步，我们将结合实际应用需求，探讨该方法在不同数据特征下的适用性及进一步优化方向。
-
-
-\subsection{实验总结}
-\label{sec:exp_summary}
-
-综合本章的大规模对比实验与自动化聚类模型评估实验，可以得出以下主要结论：
-
-\begin{enumerate}
-    \item \textbf{数据质量显著影响聚类效果，多样化清洗策略与聚类算法需协同选择} \\
-    大规模对比实验表明，对于噪声率或错误率较高的数据集，简单填补 (\texttt{Mode}) 或密度聚类 (\texttt{DBSCAN/OPTICS}) 容易触发极端分数，且结果与理想结构偏差较大。相反，语义约束或高维场景下，精细化清洗 (\texttt{Raha-Baran}) 与层次聚类 (\texttt{HC}) 组合更稳健，并能在中低错误率时逼近或略超基准。研究者和实践者应基于数据规模、特征类型、噪声分布等因素选择合适的清洗-聚类策略。
-
-    \item \textbf{分数“爆发”与稳定性并非等价，需要结合应用需求平衡“高均值”与“贴近基准”} \\
-    大规模实验的结果显示，“最佳组合”在内部指标上可能远超 100\%（如 300\% 甚至上千），但与基准结构差异明显。若实际应用更关注“可解释性”或“与真实分布的接近程度”，则建议优先采用相对稳健的清洗-聚类方案（如 \texttt{Raha-Baran + HC} 或 \texttt{mode + KMeans}）。若内部指标最优化是主要目标，则可考虑潜在高方差但高均值的方案（如 \texttt{mode + DBSCAN}），并强化超参数调优。
-
-    \item \textbf{自动化聚类管线在有效缩减搜索空间的同时，能保持较高聚类质量} \\
-    在离线阶段利用多标签分类器学习“数据特征—优选组合”映射后，测试时仅需评估较小的候选子空间便能快速获得与全量搜索近似的聚类效果，损失率控制在 3\% 以内，而加速比最高可达 8.7 倍。该结果证实自动化管线在高效率与高精度之间取得了良好平衡，尤其适用于数据规模较大的应用场景。
-
-\end{enumerate}
-
-基于上述发现，本章的实验为“清洗策略与聚类算法协同优化”提供了系统量化依据，也验证了基于多标签学习的自动化管线在实际环境中的可行性与优势。后续工作可在以下方面进一步改进与扩展：
-
-\begin{itemize}
-    \item \textbf{多样化清洗手段与动态修复}：针对更复杂的数据缺陷（如关联性错误或跨属性噪声），可结合知识图谱、深度学习等方法深化 \texttt{Raha-Baran} 的修复能力。
-    \item \textbf{算法超参数与自动调优}：对 \texttt{DBSCAN}、\texttt{OPTICS} 等密度聚类方法而言，超参数敏感度高，自动调优框架（如 Optuna、Bayesian Optimization）或可进一步提升稳定性。
-    \item \textbf{在线增量学习与自适应管线}：在数据动态更新的情形下（如流式数据或实时监测），结合在线多标签学习方法可使自动化聚类管线适应数据分布的持续变动。
-\end{itemize}
-
-整体而言，实验结果显示，“清洗-聚类协同优化”在不同数据特征、错误率与噪声水平下均能显著提升聚类质量，而自动化管线可减少大规模搜索的额外开销，为真实应用场景中高效、稳健的聚类分析提供可行方案。
+综上所述，自动化聚类优化管线在大幅降低计算开销的同时，仅牺牲极小的聚类质量，证明了其在高效聚类任务中的实用价值。 
 
 %---------------------------------
 % 第六章：结论
@@ -1011,7 +977,7 @@ Hospital & 25.0 & 3.2 & 7.8 & 1.9 \\
 本文针对数据质量问题（错误值、缺失值、噪声）对聚类任务的影响，提出了一种\textbf{清洗-聚类协同优化}方法，并基于\textbf{自动化管线模型}提升搜索效率。通过在 40 个公开数据集上的实验，评估了三种清洗策略（Mode 填补、Raha-Baran 修复、GroundTruth 基准）与六种聚类算法（K-Means、DBSCAN、OPTICS、层次聚类、GMM、AffinityPropagation）的组合表现。主要结论如下：
 
 \begin{enumerate}
-    \item \textbf{数据清洗与聚类算法的协同优化至关重要：}  
+    \item \textbf{数据清洗与聚类算法的协同优化至关重要：}
     清洗方法显著影响聚类效果，不同策略适用于不同数据特征。Raha-Baran + HC 在高维、语义约束数据上表现稳健，而 Mode + DBSCAN 在低维数值型数据中可能产生极端得分，但与真实结构偏离较大。
 
     \item \textbf{自动化管线显著提升搜索效率：}  
@@ -1024,7 +990,7 @@ Hospital & 25.0 & 3.2 & 7.8 & 1.9 \\
 \paragraph{未来工作方向}  
 后续研究可进一步优化以下方面：
 \begin{itemize}
-    \item \textbf{复杂数据清洗：} 结合知识图谱、联邦学习等方法处理跨属性错误与语义冲突。
+    \item \textbf{复杂数据清洗：} 结合知识图谱、联合学习等方法处理跨属性错误与语义冲突。
     \item \textbf{增量式聚类优化：} 研究流式数据场景下的动态策略推荐与自适应管线调整。
     \item \textbf{超参数智能调优：} 利用贝叶斯优化、遗传算法等提升密度聚类的稳定性，并增强可解释性分析。
 \end{itemize}
