@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "dataset_id": 0,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "mode",
+        "algorithm_id": 1,
+        "cleaned_file_path": "../../../results/test_cleaned_data/mode/repaired_0.csv",
+        "cleaning_runtime": 77.41015601158142
+    },
+    {
+        "dataset_id": 0,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "raha_baran",
+        "algorithm_id": 2,
+        "cleaned_file_path": "../../../results/test_cleaned_data/raha_baran/repaired_0.csv",
+        "cleaning_runtime": 1197.6732258796692
+    },
+    {
+        "dataset_id": 1,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "mode",
+        "algorithm_id": 1,
+        "cleaned_file_path": "../../../results/test_cleaned_data/mode/repaired_1.csv",
+        "cleaning_runtime": 82.29973030090332
+    },
+    {
+        "dataset_id": 1,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "raha_baran",
+        "algorithm_id": 2,
+        "cleaned_file_path": "../../../results/test_cleaned_data/raha_baran/repaired_1.csv",
+        "cleaning_runtime": 1243.5635440349579
+    }
+]

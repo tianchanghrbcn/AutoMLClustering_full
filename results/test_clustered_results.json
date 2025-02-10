@@ -1,1 +1,62 @@
-[]
+[
+    {
+        "dataset_id": 0,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "mode",
+        "cleaning_runtime": 77.41015601158142,
+        "clustering_algorithm": "KMEANS",
+        "cluster_method_id": 4,
+        "clustering_runtime": 105.51531457901001,
+        "clustered_file_path": "/mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/KMEANS/KMEANS/clustered_0"
+    },
+    {
+        "dataset_id": 0,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "mode",
+        "cleaning_runtime": 77.41015601158142,
+        "clustering_algorithm": "HC",
+        "cluster_method_id": 3,
+        "clustering_runtime": 32.35550117492676,
+        "clustered_file_path": "/mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/HC/HC/clustered_0"
+    },
+    {
+        "dataset_id": 0,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "raha_baran",
+        "cleaning_runtime": 1197.6732258796692,
+        "clustering_algorithm": "HC",
+        "cluster_method_id": 3,
+        "clustering_runtime": 17.84628129005432,
+        "clustered_file_path": "/mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/HC/HC/clustered_0"
+    },
+    {
+        "dataset_id": 1,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "mode",
+        "cleaning_runtime": 82.29973030090332,
+        "clustering_algorithm": "KMEANS",
+        "cluster_method_id": 4,
+        "clustering_runtime": 109.71226048469543,
+        "clustered_file_path": "/mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/KMEANS/KMEANS/clustered_1"
+    },
+    {
+        "dataset_id": 1,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "mode",
+        "cleaning_runtime": 82.29973030090332,
+        "clustering_algorithm": "HC",
+        "cluster_method_id": 3,
+        "clustering_runtime": 29.251067876815796,
+        "clustered_file_path": "/mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/HC/HC/clustered_1"
+    },
+    {
+        "dataset_id": 1,
+        "dataset_name": "flights",
+        "cleaning_algorithm": "raha_baran",
+        "cleaning_runtime": 1243.5635440349579,
+        "clustering_algorithm": "HC",
+        "cluster_method_id": 3,
+        "clustering_runtime": 23.416623830795288,
+        "clustered_file_path": "/mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/HC/HC/clustered_1"
+    }
+]

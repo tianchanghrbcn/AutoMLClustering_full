@@ -1,1 +1,68 @@
-[]
+[
+    {
+        "dataset_id": 0,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                1.9694059540454183
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 43.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.3544645759990155
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 43.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.3544645759990155
+            ]
+        ]
+    },
+    {
+        "dataset_id": 1,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 46.0
+                },
+                1.9668443176373098
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 44.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.2904685835743657
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 44.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.2904685835743657
+            ]
+        ]
+    }
+]

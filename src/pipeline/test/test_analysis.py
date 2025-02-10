@@ -2,13 +2,11 @@ import json
 from collections import defaultdict
 from src.pipeline.train.clustered_analysis import parse_cluster_file
 
-
 def save_test_analyzed_results(
         eigenvectors_path: str,
         clustered_results_path: str,
         output_path: str
 ):
-
     # 1) 获取 r 值
     r_value = 3
     print(f"[INFO] Top-r 值: {r_value}")
@@ -21,6 +19,7 @@ def save_test_analyzed_results(
         print(f"[ERROR] 无法读取 {eigenvectors_path}: {e}")
         return
 
+    # 这里假设 eigenvectors_list 中的每个元素都有 "dataset_id" 键
     dataset_ids = [item["dataset_id"] for item in eigenvectors_list]
 
     # 3) 读取 clustered_results.json
@@ -47,13 +46,15 @@ def save_test_analyzed_results(
         strategy_list = []
         for method_info in dataset_methods[dataset_id]:
             cleaning_alg = method_info.get("cleaning_algorithm", "unknown_cleaning")
-            clustering_alg = method_info.get("clustering_name", "unknown_clustering")
+            # 修改这里：使用 "clustering_algorithm" 而非 "clustering_name"
+            clustering_alg = method_info.get("clustering_algorithm", "unknown_clustering")
             directory_path = method_info.get("clustered_file_path", "")
 
             # 使用 dataset_id 定位具体的 repaired 文件
             best_params, final_score = parse_cluster_file(directory_path, dataset_id)
             strategy_list.append([cleaning_alg, clustering_alg, best_params, final_score])
 
+        # 根据综合得分排序，取前 r_value 个策略
         strategy_list_sorted = sorted(strategy_list, key=lambda x: x[3], reverse=True)
         top_r = strategy_list_sorted[:r_value]
 
