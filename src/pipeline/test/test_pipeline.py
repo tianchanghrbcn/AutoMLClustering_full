@@ -151,7 +151,6 @@ def process_dataset(record, work_dir):
         return dataset_cleaned_results, dataset_clustered_results
     except Exception as e:
         print(f"[ERROR] 处理数据集时发生异常: {e}", flush=True)
-        # 如果出现异常，确保返回合法（空）结果，避免子进程崩溃
         return [], []
 
 
@@ -161,7 +160,7 @@ def main():
       1. 预处理测试数据集
       2. 分类测试数据
       3. 将预测结果映射到策略
-      4. 对不同数据集执行清洗与聚类（使用多进程并行处理）
+      4. 对不同数据集执行清洗与聚类（使用多进程并行处理，每个数据集一个进程）
       5. 分析聚类结果
     """
     work_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
@@ -215,14 +214,13 @@ def main():
     all_cleaned_results = []
     all_clustered_results = []
 
-    # 使用 spawn 启动方式创建子进程（避免 fork 带来的问题）
+    # 使用 spawn 模式创建子进程，并设置 max_workers 为 8（8 个核，每个数据集一个进程）
     ctx = multiprocessing.get_context("spawn")
-    with ProcessPoolExecutor(max_workers=2, mp_context=ctx) as executor:
+    with ProcessPoolExecutor(max_workers=8, mp_context=ctx) as executor:
         futures = [
             executor.submit(process_dataset, record, work_dir)
             for record in test_strategies
         ]
-
         for future in futures:
             try:
                 cleaned, clustered = future.result()
@@ -255,6 +253,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # 注意：通过为 ProcessPoolExecutor 指定 mp_context 来使用 spawn 模式，
-    # 从而避免 fork 模式下因共享状态导致的 BrokenPipeError。
     main()
