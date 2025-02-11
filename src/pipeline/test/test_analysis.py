@@ -8,7 +8,7 @@ def save_test_analyzed_results(
         output_path: str
 ):
     # 1) 获取 r 值
-    r_value = 3
+    r_value = 5
     print(f"[INFO] Top-r 值: {r_value}")
 
     # 2) 读取 eigenvectors.json
