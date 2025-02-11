@@ -62,13 +62,7 @@ def try_run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_p
 
 
 def process_dataset(record, work_dir):
-    """
-    对单个数据集（record）进行处理：
-      1. 按清洗算法分组（同一算法只运行一次）。
-      2. 对每个清洗算法组，先运行一次清洗任务，再依次运行该组内所有聚类任务。
-    返回：清洗结果列表、聚类结果列表。
-    为防止子进程异常导致无法返回结果，这里做了异常捕获。
-    """
+
     try:
         dataset_id = record.get("dataset_id")
         dataset_name = record.get("dataset_name")
@@ -129,7 +123,7 @@ def process_dataset(record, work_dir):
                 print(f"[INFO] [DatasetID={dataset_id}] 使用清洗结果运行聚类：算法={clustering_algo}, cluster_method_id={cluster_method_id}", flush=True)
                 cluster_output_dir, cluster_runtime = run_clustering(
                     dataset_id=dataset_id,
-                    algorithm=clustering_algo,
+                    algorithm=cleaning_algo,
                     cluster_method_id=cluster_method_id,
                     cleaned_file_path=cleaned_file_path
                 )
@@ -155,14 +149,7 @@ def process_dataset(record, work_dir):
 
 
 def main():
-    """
-    test_pipeline.py 的核心流程：
-      1. 预处理测试数据集
-      2. 分类测试数据
-      3. 将预测结果映射到策略
-      4. 对不同数据集执行清洗与聚类（使用多进程并行处理，每个数据集一个进程）
-      5. 分析聚类结果
-    """
+
     work_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
     # Step 1: 预处理测试数据集
@@ -216,7 +203,7 @@ def main():
 
     # 使用 spawn 模式创建子进程，并设置 max_workers 为 8（8 个核，每个数据集一个进程）
     ctx = multiprocessing.get_context("spawn")
-    with ProcessPoolExecutor(max_workers=8, mp_context=ctx) as executor:
+    with ProcessPoolExecutor(max_workers=4, mp_context=ctx) as executor:
         futures = [
             executor.submit(process_dataset, record, work_dir)
             for record in test_strategies

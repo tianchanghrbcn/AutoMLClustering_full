@@ -108,7 +108,7 @@ def main():
     clustered_results = []
 
     # 使用多进程加速处理
-    with ProcessPoolExecutor(max_workers=2) as executor:
+    with ProcessPoolExecutor(max_workers=8) as executor:
         futures = [
             executor.submit(process_record, record_idx, record, work_dir)
             for record_idx, record in enumerate(all_records)
