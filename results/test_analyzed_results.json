@@ -4,31 +4,49 @@
         "top_r": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 47.0
+                    "k": 48.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
                 },
-                2.2419627050270403
+                2.016912452766485
             ],
             [
                 "mode",
-                "HC",
+                "GMM",
                 {
-                    "k": 41.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "n_components": 47.0,
+                    "covariance type": "full"
                 },
-                1.3022745608447444
+                1.8372092768084283
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.8420853686470084,
+                    "preference": -138.0
+                },
+                1.829925893880724
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 41.0,
+                    "k": 45.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.3022745608447444
+                1.5476530592488988
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 35.0
+                },
+                1.5406373486151572
             ]
         ]
     },
@@ -39,95 +57,47 @@
                 "mode",
                 "HC",
                 {
-                    "k": 43.0,
-                    "linkage": "single",
+                    "k": 38.0,
+                    "linkage": "complete",
                     "metric": "euclidean"
                 },
-                1.6859827625580917
+                2.8610136565543307
             ],
             [
-                "raha_baran",
-                "HC",
+                "mode",
+                "AP",
                 {
-                    "k": 43.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "damping": 0.5708533472006112,
+                    "preference": -143.0
                 },
-                1.6859827625580917
+                1.769742751627045
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "tied"
+                },
+                1.4062834414066914
             ],
             [
                 "mode",
                 "KMEANS",
                 {
-                    "k": 44.0
+                    "k": 47.0
                 },
-                1.5151014199955235
-            ]
-        ]
-    },
-    {
-        "dataset_id": 2,
-        "top_r": [
-            [
-                "mode",
-                "HC",
-                {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.4302127528060296
+                1.3845775990361795
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 9.0,
+                    "k": 34.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.4302127528060296
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 39.0
-                },
-                1.3289485266486294
-            ]
-        ]
-    },
-    {
-        "dataset_id": 3,
-        "top_r": [
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                1.5421714648333882
-            ],
-            [
-                "mode",
-                "HC",
-                {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.386290434510645
-            ],
-            [
-                "raha_baran",
-                "HC",
-                {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.386290434510645
+                1.2936128806597478
             ]
         ]
     }
