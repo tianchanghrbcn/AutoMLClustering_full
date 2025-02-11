@@ -19,4 +19,6 @@ set TARGET_NAME=%today%面向数据质量的清洗方法与下游聚类算法协
 copy /Y paper.pdf "%TARGET_NAME%"
 
 echo Compilation complete. PDF saved as "%TARGET_NAME%"
-pause
+
+:: 自动退出，不等待用户按键
+exit
