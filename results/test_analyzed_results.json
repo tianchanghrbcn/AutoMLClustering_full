@@ -8,27 +8,27 @@
                 {
                     "k": 47.0
                 },
-                1.9694059540454183
+                2.2419627050270403
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "k": 43.0,
+                    "k": 41.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.3544645759990155
+                1.3022745608447444
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 43.0,
+                    "k": 41.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.3544645759990155
+                1.3022745608447444
             ]
         ]
     },
@@ -37,31 +37,97 @@
         "top_r": [
             [
                 "mode",
-                "KMEANS",
-                {
-                    "k": 46.0
-                },
-                1.9668443176373098
-            ],
-            [
-                "mode",
                 "HC",
                 {
-                    "k": 44.0,
+                    "k": 43.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.2904685835743657
+                1.6859827625580917
             ],
             [
                 "raha_baran",
                 "HC",
                 {
-                    "k": 44.0,
+                    "k": 43.0,
                     "linkage": "single",
                     "metric": "euclidean"
                 },
-                1.2904685835743657
+                1.6859827625580917
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 44.0
+                },
+                1.5151014199955235
+            ]
+        ]
+    },
+    {
+        "dataset_id": 2,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 9.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.4302127528060296
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 9.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.4302127528060296
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 39.0
+                },
+                1.3289485266486294
+            ]
+        ]
+    },
+    {
+        "dataset_id": 3,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                1.5421714648333882
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 9.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.386290434510645
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 9.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.386290434510645
             ]
         ]
     }

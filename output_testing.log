@@ -1,0 +1,314 @@
+(venv) user13936@TianChang:/mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test$ python test_pipeline.py
+[STEP 1] 开始预处理测试数据集...
+[0] 完成处理: flights/16.97%.csv
+[1] 完成处理: flights/8.69%.csv
+跳过 clean 的数据集: flights/clean.csv
+
+所有测试数据处理完成，共 2 条记录已写入: /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/test_eigenvectors.json
+[STEP 1] 测试数据集预处理完成！
+[STEP 2] 开始分类测试数据...
+[INFO] 正在加载测试数据...
+[INFO] 正在加载模型和 Binarizer...
+[INFO] 开始分类并提取 Top R 标签...
+[INFO] 正在保存分类结果...
+[INFO] 分类完成，结果已保存到 /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/test_predictions.json
+[STEP 2] 分类测试数据完成！
+[STEP 3] 开始映射预测结果到策略...
+[INFO] 加载预测结果...
+[INFO] 加载特征向量...
+[INFO] 映射预测标签到具体策略...
+[INFO] 保存映射后的策略...
+[INFO] 策略映射完成，结果已保存到 /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/test_strategies.json
+[STEP 3] 映射完成！
+[STEP 4] 开始执行测试清洗 & 聚类流程...
+[INFO] 共 2 条策略记录待处理。
+[INFO] [DatasetID=0] 处理数据集: flights, 文件: 16.97%.csv
+[INFO] [DatasetID=0] 运行清洗算法: mode
+[INFO] 运行清洗算法 1（mode），数据集编号: 0，尝试 1
+Repaired data saved to /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/results/dataset_0_algo_1/repaired_dataset_0_algo_1_16.97%.csv
+[INFO] 清洗结果文件路径: /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/results/dataset_0_algo_1/repaired_dataset_0_algo_1_16.97%.csv
+[INFO] [DatasetID=0] 清洗完成（mode）：文件=../../../results/test_cleaned_data/mode/repaired_0.csv, 运行时间=77.41 秒
+[INFO] [DatasetID=0] 使用清洗结果运行聚类：算法=KMEANS, cluster_method_id=4
+[INFO] 运行聚类算法: KMEANS，数据集编号: 0, 清洗算法: KMEANS
+[INFO] 聚类算法输出:
+Data loaded successfully.
+Excluded columns containing 'id': ['tuple_id']
+Using multiple columns for clustering: ['act_arr_time', 'act_dep_time', 'flight', 'sched_arr_time', 'sched_dep_time', 'src']
+Initial optimal number of clusters from Optuna: 48
+Optimal number of clusters from Kneedle: 14
+Refining in range: 14 to 48
+Refined optimal number of clusters: 47
+Text output saved to /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/KMEANS/KMEANS/clustered_0/repaired_0.txt
+Program completed in: 105.51531457901001 seconds
+
+[INFO] [DatasetID=0] 聚类完成：算法=KMEANS, 运行时间=105.52 秒
+------------------------------------------------------------
+[INFO] [DatasetID=0] 使用清洗结果运行聚类：算法=HC, cluster_method_id=3
+[INFO] 运行聚类算法: HC，数据集编号: 0, 清洗算法: HC
+[INFO] 聚类算法输出:
+Data loaded successfully.
+Excluded columns containing 'id': ['tuple_id']
+Using all columns for clustering: ['act_arr_time', 'act_dep_time', 'flight', 'sched_arr_time', 'sched_dep_time', 'src']
+Final optimal parameters from Optuna: n_clusters=48, linkage=average, metric=euclidean
+Text output saved as /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/HC/HC/clustered_0/repaired_0.txt
+Program completed in: 32.35550117492676 seconds
+
+[INFO] [DatasetID=0] 聚类完成：算法=HC, 运行时间=32.36 秒
+------------------------------------------------------------
+[INFO] [DatasetID=0] 运行清洗算法: raha_baran
+[INFO] 运行清洗算法 2（raha_baran），数据集编号: 0，尝试 1
+------------------------------------------------------------------------
+---------------------Initialize the Dataset Object----------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+--------------------Initialize Error Corrector Models-------------------
+------------------------------------------------------------------------
+The error corrector models are initialized.
+------------------------------------------------------------------------
+--------------Iterative Tuple Sampling, Labeling, and Learning----------
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1792.
+258117 pairs of (a data error, a potential correction) are featurized.
+65% (1611 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 321.
+258125 pairs of (a data error, a potential correction) are featurized.
+66% (1631 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1843.
+258125 pairs of (a data error, a potential correction) are featurized.
+69% (1700 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 577.
+258129 pairs of (a data error, a potential correction) are featurized.
+69% (1700 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 288.
+260783 pairs of (a data error, a potential correction) are featurized.
+69% (1700 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1816.
+264128 pairs of (a data error, a potential correction) are featurized.
+69% (1706 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 2086.
+265124 pairs of (a data error, a potential correction) are featurized.
+69% (1706 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 938.
+267144 pairs of (a data error, a potential correction) are featurized.
+69% (1716 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 594.
+268486 pairs of (a data error, a potential correction) are featurized.
+69% (1716 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1586.
+268486 pairs of (a data error, a potential correction) are featurized.
+69% (1716 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 98.
+269482 pairs of (a data error, a potential correction) are featurized.
+71% (1750 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 2151.
+270492 pairs of (a data error, a potential correction) are featurized.
+72% (1767 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1970.
+271538 pairs of (a data error, a potential correction) are featurized.
+72% (1776 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1612.
+272868 pairs of (a data error, a potential correction) are featurized.
+72% (1776 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 214.
+272868 pairs of (a data error, a potential correction) are featurized.
+72% (1776 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 7.
+272868 pairs of (a data error, a potential correction) are featurized.
+72% (1776 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 427.
+273532 pairs of (a data error, a potential correction) are featurized.
+72% (1776 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 960.
+273546 pairs of (a data error, a potential correction) are featurized.
+72% (1776 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 2068.
+273546 pairs of (a data error, a potential correction) are featurized.
+72% (1776 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 2276.
+274210 pairs of (a data error, a potential correction) are featurized.
+72% (1776 / 2471) of data errors are corrected.
+------------------------------------------------------------------------
+Repaired data saved to /mnt/d/algorithm paper/AutoMLClustering/results/flights/raha_baran/results-dataset_0_algo_2/repaired_dataset_0_algo_2.csv
+[INFO] 检测到修复结果，立即终止进程。
+[INFO] 清洗结果文件路径: /mnt/d/algorithm paper/AutoMLClustering/results/flights/raha_baran/results-dataset_0_algo_2/repaired_dataset_0_algo_2.csv
+[INFO] [DatasetID=0] 清洗完成（raha_baran）：文件=../../../results/test_cleaned_data/raha_baran/repaired_0.csv, 运行时间=1197.67 秒
+[INFO] [DatasetID=0] 使用清洗结果运行聚类：算法=HC, cluster_method_id=3
+[INFO] 运行聚类算法: HC，数据集编号: 0, 清洗算法: HC
+[INFO] 聚类算法输出:
+Data loaded successfully.
+Excluded columns containing 'id': ['tuple_id']
+Using all columns for clustering: ['act_arr_time', 'act_dep_time', 'flight', 'sched_arr_time', 'sched_dep_time', 'src']
+Final optimal parameters from Optuna: n_clusters=43, linkage=single, metric=euclidean
+Text output saved as /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/HC/HC/clustered_0/repaired_0.txt
+Program completed in: 17.84628129005432 seconds
+
+[INFO] [DatasetID=0] 聚类完成：算法=HC, 运行时间=17.85 秒
+------------------------------------------------------------
+[INFO] [DatasetID=1] 处理数据集: flights, 文件: 8.69%.csv
+[INFO] [DatasetID=1] 运行清洗算法: mode
+[INFO] 运行清洗算法 1（mode），数据集编号: 1，尝试 1
+Repaired data saved to /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/results/dataset_1_algo_1/repaired_dataset_1_algo_1_8.69%.csv
+[INFO] 清洗结果文件路径: /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/results/dataset_1_algo_1/repaired_dataset_1_algo_1_8.69%.csv
+[INFO] [DatasetID=1] 清洗完成（mode）：文件=../../../results/test_cleaned_data/mode/repaired_1.csv, 运行时间=82.30 秒
+[INFO] [DatasetID=1] 使用清洗结果运行聚类：算法=KMEANS, cluster_method_id=4
+[INFO] 运行聚类算法: KMEANS，数据集编号: 1, 清洗算法: KMEANS
+[INFO] 聚类算法输出:
+Data loaded successfully.
+Excluded columns containing 'id': ['tuple_id']
+Using multiple columns for clustering: ['act_arr_time', 'act_dep_time', 'flight', 'sched_arr_time', 'sched_dep_time', 'src']
+Initial optimal number of clusters from Optuna: 48
+Optimal number of clusters from Kneedle: 9
+Refining in range: 9 to 48
+Refined optimal number of clusters: 46
+Text output saved to /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/KMEANS/KMEANS/clustered_1/repaired_1.txt
+Program completed in: 109.71226048469543 seconds
+
+[INFO] [DatasetID=1] 聚类完成：算法=KMEANS, 运行时间=109.71 秒
+------------------------------------------------------------
+[INFO] [DatasetID=1] 使用清洗结果运行聚类：算法=HC, cluster_method_id=3
+[INFO] 运行聚类算法: HC，数据集编号: 1, 清洗算法: HC
+[INFO] 聚类算法输出:
+Data loaded successfully.
+Excluded columns containing 'id': ['tuple_id']
+Using all columns for clustering: ['act_arr_time', 'act_dep_time', 'flight', 'sched_arr_time', 'sched_dep_time', 'src']
+Final optimal parameters from Optuna: n_clusters=48, linkage=single, metric=euclidean
+Text output saved as /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/HC/HC/clustered_1/repaired_1.txt
+Program completed in: 29.251067876815796 seconds
+
+[INFO] [DatasetID=1] 聚类完成：算法=HC, 运行时间=29.25 秒
+------------------------------------------------------------
+[INFO] [DatasetID=1] 运行清洗算法: raha_baran
+[INFO] 运行清洗算法 2（raha_baran），数据集编号: 1，尝试 1
+------------------------------------------------------------------------
+---------------------Initialize the Dataset Object----------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+--------------------Initialize Error Corrector Models-------------------
+------------------------------------------------------------------------
+The error corrector models are initialized.
+------------------------------------------------------------------------
+--------------Iterative Tuple Sampling, Labeling, and Learning----------
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 2270.
+166342 pairs of (a data error, a potential correction) are featurized.
+76% (1202 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 207.
+167676 pairs of (a data error, a potential correction) are featurized.
+78% (1236 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 268.
+167676 pairs of (a data error, a potential correction) are featurized.
+79% (1257 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 914.
+167676 pairs of (a data error, a potential correction) are featurized.
+80% (1271 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1035.
+167676 pairs of (a data error, a potential correction) are featurized.
+85% (1344 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 68.
+167676 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1522.
+168840 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1220.
+168840 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1614.
+168840 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1829.
+168910 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 123.
+169750 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1689.
+170082 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 2233.
+170082 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 218.
+170922 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1875.
+171948 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 212.
+171948 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 2100.
+172614 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1041.
+172614 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 18.
+172614 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+The error corrector models are updated with new labeled tuple 1334.
+172614 pairs of (a data error, a potential correction) are featurized.
+85% (1347 / 1587) of data errors are corrected.
+------------------------------------------------------------------------
+Repaired data saved to /mnt/d/algorithm paper/AutoMLClustering/results/flights/raha_baran/results-dataset_1_algo_2/repaired_dataset_1_algo_2.csv
+[INFO] 检测到修复结果，立即终止进程。
+[INFO] 清洗结果文件路径: /mnt/d/algorithm paper/AutoMLClustering/results/flights/raha_baran/results-dataset_1_algo_2/repaired_dataset_1_algo_2.csv
+[INFO] [DatasetID=1] 清洗完成（raha_baran）：文件=../../../results/test_cleaned_data/raha_baran/repaired_1.csv, 运行时间=1243.56 秒
+[INFO] [DatasetID=1] 使用清洗结果运行聚类：算法=HC, cluster_method_id=3
+[INFO] 运行聚类算法: HC，数据集编号: 1, 清洗算法: HC
+[INFO] 聚类算法输出:
+Data loaded successfully.
+Excluded columns containing 'id': ['tuple_id']
+Using all columns for clustering: ['act_arr_time', 'act_dep_time', 'flight', 'sched_arr_time', 'sched_dep_time', 'src']
+Final optimal parameters from Optuna: n_clusters=44, linkage=single, metric=euclidean
+Text output saved as /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/clustered_data/HC/HC/clustered_1/repaired_1.txt
+Program completed in: 23.416623830795288 seconds
+
+[INFO] [DatasetID=1] 聚类完成：算法=HC, 运行时间=23.42 秒
+------------------------------------------------------------
+[STEP 4] 测试清洗结果已保存到 /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/test_cleaned_results.json
+[STEP 4] 测试聚类结果已保存到 /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/test_clustered_results.json
+[STEP 5] 开始分析测试聚类结果...
+[INFO] Top-r 值: 3
+[INFO] 分析结果已保存到 /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/test_analyzed_results.json
+[STEP 5] 测试聚类分析结果已保存到 /mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test/../../../results/test_analyzed_results.json
+[INFO] test_pipeline 全部流程完成！
+(venv) user13936@TianChang:/mnt/d/algorithm paper/AutoMLClustering/src/pipeline/test$ ls

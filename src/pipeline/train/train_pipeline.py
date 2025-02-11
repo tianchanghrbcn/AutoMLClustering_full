@@ -102,13 +102,13 @@ def main():
         return
 
     # 或者测试第一个数据集：
-    all_records = all_records[:1]
+    # all_records = all_records[:1]
 
     cleaned_results = []
     clustered_results = []
 
     # 使用多进程加速处理
-    with ProcessPoolExecutor(max_workers=8) as executor:
+    with ProcessPoolExecutor(max_workers=2) as executor:
         futures = [
             executor.submit(process_record, record_idx, record, work_dir)
             for record_idx, record in enumerate(all_records)

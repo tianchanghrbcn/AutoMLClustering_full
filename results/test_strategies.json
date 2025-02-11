@@ -38,6 +38,62 @@
                 }
             ],
             [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "24.56%.csv"
+    },
+    {
+        "dataset_id": 2,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "30.63%.csv"
+    },
+    {
+        "dataset_id": 3,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
                 "raha_baran",
                 "HC",
                 {
