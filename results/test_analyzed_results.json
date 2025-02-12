@@ -1,0 +1,2040 @@
+[
+    {
+        "dataset_id": 0,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 7.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.699831207633375
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "average",
+                    "metric": "cosine"
+                },
+                1.6122579240564772
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.568045073846557,
+                    "preference": -173.0
+                },
+                1.587854156701896
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 43.0
+                },
+                1.5189563840374156
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 40.0,
+                    "covariance type": "diag"
+                },
+                1.4032127859962968
+            ]
+        ]
+    },
+    {
+        "dataset_id": 1,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 44.0,
+                    "linkage": "complete",
+                    "metric": "manhattan"
+                },
+                4.822954852501069
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.7488553221620954,
+                    "preference": -132.0
+                },
+                2.1160907650602314
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.6302708209788614
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                1.600699288279967
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 15.0,
+                    "covariance type": "diag"
+                },
+                1.558745926113002
+            ]
+        ]
+    },
+    {
+        "dataset_id": 2,
+        "top_r": [
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 0.97,
+                    "min_samples": 6.0
+                },
+                2.7983376696790976
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5368443933830295,
+                    "preference": -134.0
+                },
+                2.321755185328387
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                1.5503417572688372
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "complete",
+                    "metric": "cosine"
+                },
+                1.5461714419203343
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 37.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.3640439708132064
+            ]
+        ]
+    },
+    {
+        "dataset_id": 3,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "complete",
+                    "metric": "euclidean"
+                },
+                2.811487655277662
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "tied"
+                },
+                2.4971241089728946
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "tied"
+                },
+                2.4971241089728946
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 46.0
+                },
+                2.2428875950885163
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.8843501940916587,
+                    "preference": -410.0
+                },
+                1.4683646721888257
+            ]
+        ]
+    },
+    {
+        "dataset_id": 4,
+        "top_r": [
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 0.8,
+                    "min_samples": 5.0
+                },
+                33.441338886623484
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.7068386075980758,
+                    "preference": -468.0
+                },
+                10.28326727868553
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                1.5552475163297665
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "complete",
+                    "metric": "cosine"
+                },
+                1.495086360008202
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.4105644430207642
+            ]
+        ]
+    },
+    {
+        "dataset_id": 5,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6020754626569678,
+                    "preference": -274.0
+                },
+                9.620380786396371
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 0.6,
+                    "min_samples": 5.0
+                },
+                1.703311295934418
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 46.0
+                },
+                1.555835580659635
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "ward",
+                    "metric": "euclidean"
+                },
+                1.552105410625619
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 34.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.3218927792008728
+            ]
+        ]
+    },
+    {
+        "dataset_id": 6,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6460513715462278,
+                    "preference": -245.0
+                },
+                5.463874376470824
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 0.17,
+                    "min_samples": 5.0
+                },
+                1.7042680956230942
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                1.7008947742670648
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 44.0,
+                    "covariance type": "diag"
+                },
+                1.6226274048465492
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "complete",
+                    "metric": "cosine"
+                },
+                1.5606644931245168
+            ]
+        ]
+    },
+    {
+        "dataset_id": 7,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6119666406420463,
+                    "preference": -144.0
+                },
+                1.7637233759993767
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "tied"
+                },
+                1.6238184025522264
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "tied"
+                },
+                1.6238184025522264
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "average",
+                    "metric": "cosine"
+                },
+                1.6047353553110746
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 40.0
+                },
+                1.3740946727267727
+            ]
+        ]
+    },
+    {
+        "dataset_id": 8,
+        "top_r": [
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "spherical"
+                },
+                2.6952061539149406
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "spherical"
+                },
+                2.6952061539149406
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "complete",
+                    "metric": "cosine"
+                },
+                2.5871855147747302
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 45.0
+                },
+                2.2255179543019943
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.8994841333365962,
+                    "preference": -107.0
+                },
+                2.1868569085607072
+            ]
+        ]
+    },
+    {
+        "dataset_id": 9,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                2.09050981490536
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 48.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                2.0649843633952254
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "tied"
+                },
+                1.8806213264763427
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.793390478753513,
+                    "preference": -110.0
+                },
+                1.810131937028703
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.2740215201627176
+            ]
+        ]
+    },
+    {
+        "dataset_id": 10,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 7.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.3641186082618757
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 29.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.0690873749596905
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 17.0,
+                    "covariance type": "tied"
+                },
+                0.47978326971769997
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 20.0
+                },
+                0.4615722349192432
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.5656801120985087,
+                    "preference": -101.0
+                },
+                0.45671540264310745
+            ]
+        ]
+    },
+    {
+        "dataset_id": 11,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 6.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.040680564030154
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 14.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.0058996362403363
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.6583830950588918,
+                    "preference": -103.0
+                },
+                0.7240617160078102
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 26.0
+                },
+                0.6912712018320532
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 19.0,
+                    "covariance type": "spherical"
+                },
+                0.6493990259363204
+            ]
+        ]
+    },
+    {
+        "dataset_id": 12,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 14.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.7005129452850476
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 13.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.3356041788069724
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 22.0
+                },
+                0.6219634612001174
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 12.0,
+                    "covariance type": "diag"
+                },
+                0.4904897929690746
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6797534564286547,
+                    "preference": -102.0
+                },
+                0.4033071482346265
+            ]
+        ]
+    },
+    {
+        "dataset_id": 13,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 12.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.992837814445863
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.544438519488417
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.5859873320848551,
+                    "preference": -104.0
+                },
+                0.7957745035376671
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 25.0
+                },
+                0.7131690684113
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5759228358866089,
+                    "preference": -271.0
+                },
+                0.697936245050879
+            ]
+        ]
+    },
+    {
+        "dataset_id": 14,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.5460809168853262
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.7811779726483332
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.8218103596162726,
+                    "preference": -146.0
+                },
+                0.6516378078807482
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 16.0,
+                    "covariance type": "tied"
+                },
+                0.6117183986926413
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 27.0
+                },
+                0.5907273700429259
+            ]
+        ]
+    },
+    {
+        "dataset_id": 15,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 14.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.7096903392901681
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.4917673772656244
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.8833799158717149,
+                    "preference": -107.0
+                },
+                0.6117751835207654
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 15.0,
+                    "covariance type": "tied"
+                },
+                0.5827764122145054
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 24.0
+                },
+                0.5443672610711459
+            ]
+        ]
+    },
+    {
+        "dataset_id": 16,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.6052970476006403
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 13.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.2976542684052383
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 13.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.2976542684052383
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.7779757631725972,
+                    "preference": -142.0
+                },
+                0.5623857939438115
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 22.0
+                },
+                0.5056989738645883
+            ]
+        ]
+    },
+    {
+        "dataset_id": 17,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 10.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.7532733976777846
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 11.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.358005361954833
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.5613894910367281,
+                    "preference": -122.0
+                },
+                0.6682458245213896
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 28.0
+                },
+                0.6229198754235267
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 24.0,
+                    "covariance type": "tied"
+                },
+                0.6059461757457244
+            ]
+        ]
+    },
+    {
+        "dataset_id": 18,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 6.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.4717158983523662
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 6.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.26147326452255
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 18.0,
+                    "covariance type": "tied"
+                },
+                0.5287329278799787
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.6272380179021858,
+                    "preference": -174.0
+                },
+                0.515681968570396
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 21.0
+                },
+                0.4947717019921705
+            ]
+        ]
+    },
+    {
+        "dataset_id": 19,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 8.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.404443685477395
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 6.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.2952885317050535
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.6182906460879083,
+                    "preference": -102.0
+                },
+                0.49929767198823494
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 21.0
+                },
+                0.4737663021919449
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 11.0,
+                    "covariance type": "full"
+                },
+                0.47280034614344035
+            ]
+        ]
+    },
+    {
+        "dataset_id": 20,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.510170644572381,
+                    "preference": -428.0
+                },
+                2.777442699569065
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 32.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                2.160550393545645
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 9.0,
+                    "covariance type": "tied"
+                },
+                1.510877395498336
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                1.3995386847722826
+            ],
+            [
+                "mode",
+                "OPTICS",
+                {
+                    "min_samples": 75.0,
+                    "xi": 0.04349729248450784
+                },
+                0.5430560978227117
+            ]
+        ]
+    },
+    {
+        "dataset_id": 21,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.9881364862130282
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 12.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.2446167810539799
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 1.09,
+                    "min_samples": 5.0
+                },
+                0.871099052323295
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 27.0
+                },
+                0.7964845803764671
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6745684638051614,
+                    "preference": -100.0
+                },
+                0.7094815366694834
+            ]
+        ]
+    },
+    {
+        "dataset_id": 22,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5668458646963958,
+                    "preference": -386.0
+                },
+                2.3656273569522943
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 36.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.0503208198613017
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 37.0
+                },
+                0.9999814475183864
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 38.0,
+                    "covariance type": "diag"
+                },
+                0.9295033933300827
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 1.09,
+                    "min_samples": 5.0
+                },
+                0.8704687046812505
+            ]
+        ]
+    },
+    {
+        "dataset_id": 23,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6790008814405963,
+                    "preference": -115.0
+                },
+                1.7362666652792582
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 39.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.2813641797333652
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 39.0,
+                    "covariance type": "tied"
+                },
+                1.0928730119137189
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                1.0770388394339891
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 1.2400000000000002,
+                    "min_samples": 5.0
+                },
+                0.7282258713399214
+            ]
+        ]
+    },
+    {
+        "dataset_id": 24,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.522854421148994,
+                    "preference": -496.0
+                },
+                8.33897002104755
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 6.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.7251899154241928
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 38.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.279364342359686
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 32.0,
+                    "covariance type": "spherical"
+                },
+                1.120780005057063
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 35.0
+                },
+                1.1180713213274454
+            ]
+        ]
+    },
+    {
+        "dataset_id": 25,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 6.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.6756693445939799
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 20.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.502901912682724
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6875477392614273,
+                    "preference": -323.0
+                },
+                0.8889241041090857
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6875477392614273,
+                    "preference": -323.0
+                },
+                0.8889241041090857
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 32.0
+                },
+                0.7915115741557327
+            ]
+        ]
+    },
+    {
+        "dataset_id": 26,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 19.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.4228880417356464
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 20.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.5954463616811976
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 32.0
+                },
+                0.7060482826954163
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 23.0,
+                    "covariance type": "spherical"
+                },
+                0.7044511069552073
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.8099900883420562,
+                    "preference": -101.0
+                },
+                0.694860651616133
+            ]
+        ]
+    },
+    {
+        "dataset_id": 27,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.2901680094616426
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5115826221611228,
+                    "preference": -166.0
+                },
+                1.0431106665329262
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 38.0
+                },
+                0.9423366338409873
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 31.0,
+                    "covariance type": "tied"
+                },
+                0.8943542548775866
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": 1.27,
+                    "min_samples": 5.0
+                },
+                0.5578978471425046
+            ]
+        ]
+    },
+    {
+        "dataset_id": 28,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5933108382367739,
+                    "preference": -371.0
+                },
+                4.165205288919979
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 22.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                3.8531392584505015
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "tied"
+                },
+                1.819038625670982
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 38.0
+                },
+                1.5021144318886448
+            ],
+            [
+                "mode",
+                "OPTICS",
+                {
+                    "min_samples": 261.0,
+                    "xi": 0.06513212425331905
+                },
+                1.2614300469061808
+            ]
+        ]
+    },
+    {
+        "dataset_id": 29,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 6.0,
+                    "linkage": "average",
+                    "metric": "euclidean"
+                },
+                4.9485053003479855
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6220498485548408,
+                    "preference": -483.0
+                },
+                3.4788942647592638
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 22.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.5746500373792809
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 37.0
+                },
+                0.7429750976314872
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 36.0,
+                    "covariance type": "full"
+                },
+                0.6447485858803581
+            ]
+        ]
+    },
+    {
+        "dataset_id": 30,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 9.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.5353846959924027
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 14.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.4258139553320075
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.68917012295865,
+                    "preference": -122.0
+                },
+                1.335779116404931
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "full"
+                },
+                1.08207502492417
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.7730073594692175,
+                    "preference": -189.0
+                },
+                0.7850684388869151
+            ]
+        ]
+    },
+    {
+        "dataset_id": 31,
+        "top_r": [
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "tied"
+                },
+                3.867394040769446
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "average",
+                    "metric": "euclidean"
+                },
+                3.2283250413044646
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5496547400340942,
+                    "preference": -339.0
+                },
+                1.680511401521011
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 21.0,
+                    "linkage": "single",
+                    "metric": "cosine"
+                },
+                0.6998725410747869
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 21.0,
+                    "covariance type": "spherical"
+                },
+                0.601805499420218
+            ]
+        ]
+    },
+    {
+        "dataset_id": 32,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                4.3104565077689605
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 18.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                2.5253121891684986
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 18.0
+                },
+                1.8020533129416427
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 14.0,
+                    "covariance type": "tied"
+                },
+                1.593157340634643
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 9.0,
+                    "covariance type": "full"
+                },
+                1.5831721867374686
+            ]
+        ]
+    },
+    {
+        "dataset_id": 33,
+        "top_r": [
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "full"
+                },
+                1.4565588329025818
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "average",
+                    "metric": "euclidean"
+                },
+                1.3067860222530094
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 9.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.1781276896391997
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 9.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.1781276896391997
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.6171815024946846,
+                    "preference": -103.0
+                },
+                0.721737033436989
+            ]
+        ]
+    },
+    {
+        "dataset_id": 34,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                2.800063028562577
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "tied"
+                },
+                1.2884053114692702
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 10.0
+                },
+                1.2397454741061869
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 12.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.0720165776866002
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 17.0,
+                    "covariance type": "tied"
+                },
+                0.8860023599705209
+            ]
+        ]
+    },
+    {
+        "dataset_id": 35,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                3.5774534863575793
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                3.3083342721675333
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.8190688378163979,
+                    "preference": -379.0
+                },
+                2.207959299249975
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "tied"
+                },
+                1.7090107146371314
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 16.0
+                },
+                1.6907659322977484
+            ]
+        ]
+    },
+    {
+        "dataset_id": 36,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                3.009234719577992
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 11.0,
+                    "covariance type": "full"
+                },
+                1.6020465154682493
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 12.0
+                },
+                1.4163437022968322
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 18.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                0.9956985205141653
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.5544744516983227,
+                    "preference": -117.0
+                },
+                0.8380092742709447
+            ]
+        ]
+    },
+    {
+        "dataset_id": 37,
+        "top_r": [
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": 0.8029736683105826,
+                    "preference": -475.0
+                },
+                2.9086292598814687
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 14.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                2.700569593744386
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 9.0,
+                    "covariance type": "tied"
+                },
+                1.5307969423157812
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 14.0
+                },
+                1.3586690148035991
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 11.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.330472659049127
+            ]
+        ]
+    },
+    {
+        "dataset_id": 38,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 5.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                1.7072752516867218
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 11.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                1.515898831278572
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": 0.7170725350793915,
+                    "preference": -107.0
+                },
+                1.2139223154167327
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 13.0,
+                    "covariance type": "tied"
+                },
+                1.0645807990734342
+            ],
+            [
+                "mode",
+                "OPTICS",
+                {
+                    "min_samples": 5.0,
+                    "xi": 0.05418376923866402
+                },
+                0.8260089708649583
+            ]
+        ]
+    },
+    {
+        "dataset_id": 39,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": 16.0,
+                    "linkage": "single",
+                    "metric": "euclidean"
+                },
+                2.442256284850679
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 12.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.162687575764449
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": 12.0,
+                    "linkage": "single",
+                    "metric": "manhattan"
+                },
+                2.162687575764449
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": 14.0
+                },
+                1.7597496212802366
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "n_components": 9.0,
+                    "covariance type": "tied"
+                },
+                1.554014961417866
+            ]
+        ]
+    }
+]
