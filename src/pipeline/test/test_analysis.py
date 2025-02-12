@@ -2,13 +2,14 @@ import json
 from collections import defaultdict
 from src.pipeline.train.clustered_analysis import parse_cluster_file
 
+
 def save_test_analyzed_results(
         eigenvectors_path: str,
         clustered_results_path: str,
         output_path: str
 ):
-    # 1) 获取 r 值
-    r_value = 5
+    # 1) 获取 r 值（这里 r_value 用于初始候选数，但最终输出固定为 5 项）
+    r_value = 7
     print(f"[INFO] Top-r 值: {r_value}")
 
     # 2) 读取 eigenvectors.json
@@ -36,37 +37,61 @@ def save_test_analyzed_results(
         if dataset_id is not None:
             dataset_methods[dataset_id].append(method_info)
 
-    # 4) 遍历每个 dataset_id 的方法
+    # 4) 遍历每个 dataset_id 的方法，构造 analyzed_results
     analyzed_results = []
     for dataset_id in dataset_ids:
         if dataset_id not in dataset_methods:
-            print(f"[WARNING] dataset_id {dataset_id} 在 test_clustered_results.json 中未找到记录，跳过。")
+            print(f"[WARNING] dataset_id {dataset_id} 在 clustered_results 中未找到记录，跳过。")
             continue
 
         strategy_list = []
         for method_info in dataset_methods[dataset_id]:
             cleaning_alg = method_info.get("cleaning_algorithm", "unknown_cleaning")
-            # 修改这里：使用 "clustering_algorithm" 而非 "clustering_name"
             clustering_alg = method_info.get("clustering_algorithm", "unknown_clustering")
             directory_path = method_info.get("clustered_file_path", "")
 
-            # 使用 dataset_id 定位具体的 repaired 文件
+            # 使用 dataset_id 定位具体的 repaired 文件，获取最佳参数和综合得分
             best_params, final_score = parse_cluster_file(directory_path, dataset_id)
             strategy_list.append([cleaning_alg, clustering_alg, best_params, final_score])
 
-        # 根据综合得分排序，取前 r_value 个策略
+        # 对策略根据综合得分进行降序排序
         strategy_list_sorted = sorted(strategy_list, key=lambda x: x[3], reverse=True)
-        top_r = strategy_list_sorted[:r_value]
+
+        # 筛选时：若策略的综合得分 >= 3.0，则忽略（最多忽略两个），否则加入候选列表
+        selected = []
+        ignored_count = 0
+        for s in strategy_list_sorted:
+            if s[3] >= 3.0 and ignored_count < 2:
+                ignored_count += 1
+                continue
+            selected.append(s)
+            if len(selected) == 5:
+                break
+
+        # 如果经过过滤后不足 5 项，则补充未加入候选的策略（不再过滤）
+        if len(selected) < 5:
+            for s in strategy_list_sorted:
+                if s not in selected:
+                    selected.append(s)
+                    if len(selected) == 5:
+                        break
+
+        # 如果依然不足 5 项，则用默认值进行填充（默认值可根据实际需求调整）
+        while len(selected) < 5:
+            selected.append(["unknown_cleaning", "unknown_clustering", {}, 0])
+
+        top_r = selected  # 最终保证每个 dataset 的 top_r 为 5 项
 
         analyzed_results.append({
             "dataset_id": dataset_id,
             "top_r": top_r
         })
 
-    # 5) 保存结果
+    # 5) 保存结果到 output_path
     try:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(analyzed_results, f, ensure_ascii=False, indent=4)
         print(f"[INFO] 分析结果已保存到 {output_path}")
     except Exception as e:
         print(f"[ERROR] 无法保存分析结果: {e}")
+

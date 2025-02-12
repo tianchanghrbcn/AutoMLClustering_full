@@ -77,7 +77,7 @@ def save_analyzed_results(
     2) 遍历所有 dataset_id (通过 eigenvectors.json 获取)
     3) 对每个 dataset_id, 在 clustered_results.json 中查找所有方法,
        解析 clustered_file_path, 获取 best_params, final_score
-    4) 将所有策略按 final_score 排序, 取 top-K
+    4) 将所有策略按 final_score 排序, 取 top-K（同时过滤掉 final_score >= 3.0 的数据）
     5) 以指定格式保存到 output_path
     """
 
@@ -109,7 +109,7 @@ def save_analyzed_results(
         if dataset_id is not None:
             dataset_methods[dataset_id].append(method_info)
 
-    # 4) 遍历每个 dataset_id 的方法
+    # 4) 遍历每个 dataset_id 的方法，过滤掉 final_score >= 3.0 的记录
     analyzed_results = []
     for dataset_id in dataset_ids:
         if dataset_id not in dataset_methods:
@@ -124,9 +124,12 @@ def save_analyzed_results(
 
             # 使用 dataset_id 定位具体的 repaired 文件
             best_params, final_score = parse_cluster_file(directory_path, dataset_id)
+            # 过滤掉综合得分大于等于 3.0 的数据
+            if final_score is not None and final_score >= 3.0:
+                continue
             strategy_list.append([cleaning_alg, clustering_alg, best_params, final_score])
 
-        strategy_list_sorted = sorted(strategy_list, key=lambda x: x[3], reverse=True)
+        strategy_list_sorted = sorted(strategy_list, key=lambda x: x[3] if x[3] is not None else -1, reverse=True)
         top_k = strategy_list_sorted[:k_value]
 
         analyzed_results.append({
