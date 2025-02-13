@@ -1,7 +1,7 @@
 import os
 import json
+import multiprocessing as mp
 from concurrent.futures import ProcessPoolExecutor
-
 from src.pipeline.train.cluster_methods import ClusterMethod
 from src.pipeline.train.error_correction import run_error_correction
 from src.pipeline.train.cluster_methods import run_clustering
@@ -107,17 +107,19 @@ def main():
     cleaned_results = []
     clustered_results = []
 
-    # 使用多进程加速处理
-    with ProcessPoolExecutor(max_workers=8) as executor:
+    with ProcessPoolExecutor(max_workers=4, mp_context=mp.get_context("spawn")) as executor:
         futures = [
             executor.submit(process_record, record_idx, record, work_dir)
             for record_idx, record in enumerate(all_records)
         ]
 
         for future in futures:
-            result_cleaned, result_clustered = future.result()
-            cleaned_results.extend(result_cleaned)
-            clustered_results.extend(result_clustered)
+            try:
+                result_cleaned, result_clustered = future.result()
+                cleaned_results.extend(result_cleaned)
+                clustered_results.extend(result_clustered)
+            except Exception as e:
+                print(f"[ERROR] 处理数据集时发生异常: {e}", flush=True)
 
     with open(cleaned_results_path, "w", encoding="utf-8") as f:
         json.dump(cleaned_results, f, ensure_ascii=False, indent=4)

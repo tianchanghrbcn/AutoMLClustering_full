@@ -201,7 +201,6 @@ def main():
     all_cleaned_results = []
     all_clustered_results = []
 
-    # 使用 spawn 模式创建子进程，并设置 max_workers 为 8（8 个核，每个数据集一个进程）
     ctx = multiprocessing.get_context("spawn")
     with ProcessPoolExecutor(max_workers=4, mp_context=ctx) as executor:
         futures = [
