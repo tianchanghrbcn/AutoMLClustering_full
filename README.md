@@ -29,6 +29,16 @@ This project implements an automated machine learning pipeline for clustering ta
    source venv/bin/activate
    ```
 
+4. **Set up the `PYTHONPATH` to avoid `ModuleNotFoundError`:**  
+   To ensure the training pipeline runs correctly, permanently add the project directory to your `PYTHONPATH`:
+
+   ```bash
+   echo 'export PYTHONPATH=/root/AutoMLClustering:$PYTHONPATH' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+   - This ensures that all modules can be found when running scripts from different directories.
+
 ## Running the Project
 
 ### Step 1: Data Preprocessing
@@ -40,13 +50,6 @@ python pre-processing.py
 ```
 
 ### Step 2: Start the Training Pipeline
-
-Before running the training pipeline, ensure that `PYTHONPATH` is permanently set up to avoid `ModuleNotFoundError`. Run the following command once to add it to your shell configuration:
-
-```bash
-echo 'export PYTHONPATH=/root/AutoMLClustering:$PYTHONPATH' >> ~/.bashrc
-source ~/.bashrc
-```
 
 Now, start the training pipeline in the background using `nohup` to ensure it continues running even if the session is disconnected:
 
