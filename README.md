@@ -29,7 +29,7 @@ This project implements an automated machine learning pipeline for clustering ta
    source venv/bin/activate
    ```
 
-4. **Set up the `PYTHONPATH` to avoid `ModuleNotFoundError`:**  
+4. **Set up the `PYTHONPATH` to avoid `ModuleNotFoundError`(Optional):**  
    To ensure the training pipeline runs correctly, permanently add the project directory to your `PYTHONPATH`:
 
    ```bash
