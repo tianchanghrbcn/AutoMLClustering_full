@@ -36,9 +36,7 @@ This project implements an automated machine learning pipeline for clustering ta
    echo 'export PYTHONPATH=/root/AutoMLClustering:$PYTHONPATH' >> ~/.bashrc
    source ~/.bashrc
    ```
-
-   - This ensures that all modules can be found when running scripts from different directories.
-
+   
 ## Running the Project
 
 ### Step 1: Data Preprocessing
