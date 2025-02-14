@@ -1,0 +1,2375 @@
+[
+    {
+        "dataset_id": 0,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": "0.1-1.0",
+                    "min_samples": "5-25"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "full"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "24.56%.csv"
+    },
+    {
+        "dataset_id": 1,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "8.69%.csv"
+    },
+    {
+        "dataset_id": 2,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "40.76%.csv"
+    },
+    {
+        "dataset_id": 3,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": "0.1-1.0",
+                    "min_samples": "5-25"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "67.74%.csv"
+    },
+    {
+        "dataset_id": 4,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "38.92%.csv"
+    },
+    {
+        "dataset_id": 5,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "full"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "30.63%.csv"
+    },
+    {
+        "dataset_id": 6,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "45.44%.csv"
+    },
+    {
+        "dataset_id": 7,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": "0.1-1.0",
+                    "min_samples": "5-25"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "51.59%.csv"
+    },
+    {
+        "dataset_id": 8,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": "0.1-1.0",
+                    "min_samples": "5-25"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "62.87%.csv"
+    },
+    {
+        "dataset_id": 9,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": "0.1-1.0",
+                    "min_samples": "5-25"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ]
+        ],
+        "dataset_name": "flights",
+        "csv_file": "16.97%.csv"
+    },
+    {
+        "dataset_id": 10,
+        "top_r": [
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "49.29%.csv"
+    },
+    {
+        "dataset_id": 11,
+        "top_r": [
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "11.96%.csv"
+    },
+    {
+        "dataset_id": 12,
+        "top_r": [
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "27.96%.csv"
+    },
+    {
+        "dataset_id": 13,
+        "top_r": [
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "8.53%.csv"
+    },
+    {
+        "dataset_id": 14,
+        "top_r": [
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "21.65%.csv"
+    },
+    {
+        "dataset_id": 15,
+        "top_r": [
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "24.83%.csv"
+    },
+    {
+        "dataset_id": 16,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-500 to -300"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "36.52%.csv"
+    },
+    {
+        "dataset_id": 17,
+        "top_r": [
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "15.34%.csv"
+    },
+    {
+        "dataset_id": 18,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-500 to -300"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "46.52%.csv"
+    },
+    {
+        "dataset_id": 19,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "hospital",
+        "csv_file": "33.68%.csv"
+    },
+    {
+        "dataset_id": 20,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-500 to -300"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "46.73%.csv"
+    },
+    {
+        "dataset_id": 21,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "full"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "31.73%.csv"
+    },
+    {
+        "dataset_id": 22,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "full"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "29.78%.csv"
+    },
+    {
+        "dataset_id": 23,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "45.08%.csv"
+    },
+    {
+        "dataset_id": 24,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-500 to -300"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "40.23%.csv"
+    },
+    {
+        "dataset_id": 25,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-500 to -300"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "6.17%.csv"
+    },
+    {
+        "dataset_id": 26,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-500 to -300"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": "0.1-1.0",
+                    "min_samples": "5-25"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "12.48%.csv"
+    },
+    {
+        "dataset_id": 27,
+        "top_r": [
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "26.60%.csv"
+    },
+    {
+        "dataset_id": 28,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "52.00%.csv"
+    },
+    {
+        "dataset_id": 29,
+        "top_r": [
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "DBSCAN",
+                {
+                    "eps": "0.1-1.0",
+                    "min_samples": "5-25"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-500 to -300"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "beers",
+        "csv_file": "20.34%.csv"
+    },
+    {
+        "dataset_id": 30,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "29.25%.csv"
+    },
+    {
+        "dataset_id": 31,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "47.88%.csv"
+    },
+    {
+        "dataset_id": 32,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "13.79%.csv"
+    },
+    {
+        "dataset_id": 33,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "40.24%.csv"
+    },
+    {
+        "dataset_id": 34,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "24.35%.csv"
+    },
+    {
+        "dataset_id": 35,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-500 to -300"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "10.75%.csv"
+    },
+    {
+        "dataset_id": 36,
+        "top_r": [
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "22.77%.csv"
+    },
+    {
+        "dataset_id": 37,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "19.71%.csv"
+    },
+    {
+        "dataset_id": 38,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "(sqrt(n)/2, sqrt(n)]"
+                }
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "tied"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "spherical"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "52.73%.csv"
+    },
+    {
+        "dataset_id": 39,
+        "top_r": [
+            [
+                "mode",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "KMEANS",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "AP",
+                {
+                    "damping": "0.7-0.9",
+                    "preference": "-300 to -100"
+                }
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "diag"
+                }
+            ],
+            [
+                "raha_baran",
+                "HC",
+                {
+                    "k": "> sqrt(n)"
+                }
+            ],
+            [
+                "raha_baran",
+                "GMM",
+                {
+                    "k": "≤ sqrt(n)/2",
+                    "covariance_type": "full"
+                }
+            ],
+            [
+                "mode",
+                "AP",
+                {
+                    "damping": "0.5-0.7",
+                    "preference": "-300 to -100"
+                }
+            ]
+        ],
+        "dataset_name": "rayyan",
+        "csv_file": "16.88%.csv"
+    }
+]
