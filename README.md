@@ -40,13 +40,21 @@ python pre-processing.py
 ```
 
 ### Step 2: Start the Training Pipeline
-Run the training pipeline in the background using `nohup` to ensure it continues running even if the session is disconnected:
+
+Before running the training pipeline, ensure that `PYTHONPATH` is permanently set up to avoid `ModuleNotFoundError`. Run the following command once to add it to your shell configuration:
+
+```bash
+echo 'export PYTHONPATH=/root/AutoMLClustering:$PYTHONPATH' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Now, start the training pipeline in the background using `nohup` to ensure it continues running even if the session is disconnected:
 
 ```bash
 nohup python train_pipeline.py > output_training.log 2>&1 &
 ```
 
-- **Note:** Ensure that `PYTHONPATH` is correctly set up to avoid `ModuleNotFoundError`.
+- **Note:** The `PYTHONPATH` variable is now set permanently and will persist across sessions.
 - The output and logs will be saved to the `output_training.log` file.
 
 ### Step 3: Start the Classifier
