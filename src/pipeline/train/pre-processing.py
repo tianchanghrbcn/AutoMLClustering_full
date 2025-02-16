@@ -9,7 +9,7 @@ import numpy as np
 # ========== 全局配置 ==========
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "datasets", "train")
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "..", "..", "..", "results", "eigenvectors.json")
-K_VALUE = 3  # 固定 K=3
+K_VALUE = 5  # 固定 K=5
 
 def compute_missing_rate(df: pd.DataFrame) -> float:
     """

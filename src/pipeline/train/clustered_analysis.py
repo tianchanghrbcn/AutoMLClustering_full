@@ -8,7 +8,7 @@ def get_k_value(preprocessing_file_path: str) -> int:
     """
     从 pre-processing.py 文件中读取常量 K_VALUE 的值。
     """
-    k_value = 3  # 默认值
+    k_value = 5  # 默认值
     try:
         with open(preprocessing_file_path, "r", encoding="utf-8") as f:
             content = f.read()

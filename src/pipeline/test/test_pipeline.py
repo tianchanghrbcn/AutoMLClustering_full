@@ -168,7 +168,7 @@ def main():
             model_path=MODEL_FILE,
             binarizer_path=BINARIZER_FILE,
             output_path=PREDICTIONS_OUTPUT_FILE,
-            top_r=7
+            top_r=5
         )
         print("[STEP 2] 分类测试数据完成！", flush=True)
     except Exception as e:

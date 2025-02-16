@@ -7,8 +7,8 @@ def save_test_analyzed_results(
         clustered_results_path: str,
         output_path: str
 ):
-    # 1) 获取 r 值（这里 r_value 用于初始候选数，但最终输出保证仅有3项）
-    r_value = 7
+    # 1) 获取 r 值（这里 r_value 用于初始候选数，但最终输出固定为 5 项）
+    r_value = 5
     print(f"[INFO] Top-r 值: {r_value}")
 
     # 2) 读取 eigenvectors.json
@@ -43,7 +43,6 @@ def save_test_analyzed_results(
             print(f"[WARNING] dataset_id {dataset_id} 在 clustered_results 中未找到记录，跳过。")
             continue
 
-        # 4.1) 先收集全部策略
         strategy_list = []
         for method_info in dataset_methods[dataset_id]:
             cleaning_alg = method_info.get("cleaning_algorithm", "unknown_cleaning")
@@ -52,14 +51,12 @@ def save_test_analyzed_results(
 
             # 使用 dataset_id 定位具体的 repaired 文件，获取最佳参数和综合得分
             best_params, final_score = parse_cluster_file(directory_path, dataset_id)
-
-            # 将信息存入列表
             strategy_list.append([cleaning_alg, clustering_alg, best_params, final_score])
 
-        # 4.2) 对策略根据综合得分进行降序排序
+        # 对策略根据综合得分进行降序排序
         strategy_list_sorted = sorted(strategy_list, key=lambda x: x[3], reverse=True)
 
-        # 4.3) 按你原本的逻辑，忽略 score >= 3.0 的策略，但只忽略 2 个
+        # 筛选时：若策略的综合得分 >= 3.0，则忽略（最多忽略两个），否则加入候选列表
         selected = []
         ignored_count = 0
         for s in strategy_list_sorted:
@@ -67,40 +64,48 @@ def save_test_analyzed_results(
                 ignored_count += 1
                 continue
             selected.append(s)
-            if len(selected) == r_value:  # 这里仍是初步截取 r_value = 7
+            if len(selected) == 5:
                 break
 
-        # 4.4) 如果经过过滤后不足 r_value=7 项，就继续从剩余里补
-        if len(selected) < r_value:
+        # 如果经过过滤后不足 5 项，则补充未加入候选的策略（不再过滤）
+        if len(selected) < 5:
             for s in strategy_list_sorted:
                 if s not in selected:
                     selected.append(s)
-                    if len(selected) == r_value:
+                    if len(selected) == 5:
                         break
 
-        # ---- 到此为止，selected 大小最多是 7，最少也有 7 或更少(如果策略都不够) ----
+        # 如果依然不足 5 项，则用默认值进行填充（默认值可根据实际需求调整）
+        while len(selected) < 5:
+            selected.append(["unknown_cleaning", "unknown_clustering", {}, 0])
 
-        # 4.5) 去重：同一 (cleaning_alg, clustering_alg, best_params) 只留一次
+        # ========== 在这里增加“去重并只保留3个”的步骤 ==========
+
+        # 1) 对已经选出的 5 个策略做去重：
+        #    将清洗算法、聚类算法、参数(字典)三者视为组合的唯一key
         deduped = []
-        seen = set()
+        seen_keys = set()
         for s in selected:
-            # 定义一个“唯一码 key”，比如把 params 转成 JSON 并排序
-            # 注意把 covariance type 或清洗算法字符串中大小写等，都保持一致性
-            param_key = json.dumps(s[2], sort_keys=True)
-            unique_key = (s[0], s[1], param_key)
-            if unique_key not in seen:
+            cleaning_alg, clustering_alg, params, score = s
+            # 将 params 转成 JSON 字符串作为 hash key（保证 dict 顺序不会影响）
+            params_str = json.dumps(params, sort_keys=True)
+            unique_key = (cleaning_alg, clustering_alg, params_str)
+            if unique_key not in seen_keys:
                 deduped.append(s)
-                seen.add(unique_key)
+                seen_keys.add(unique_key)
 
-        # 4.6) 最终只保留 3 条，如果不足3条则用占位补齐
-        top3 = deduped[:3]
-        while len(top3) < 3:
-            top3.append(["unknown_cleaning", "unknown_clustering", {}, 0])
+        # 2) 只保留前3条（如果你的业务需要继续按 score 降序，可在去重前或后都行
+        #    这里selected本就按score排序，所以 deduped 仍保持降序的顺序
+        top_3 = deduped[:3]
 
-        # 4.7) 将这 3 条存入结果
+        # 3) 如果去重后不足3条，则用默认值补足
+        while len(top_3) < 3:
+            top_3.append(["unknown_cleaning", "unknown_clustering", {}, 0])
+
+        # 将这3条写到结果
         analyzed_results.append({
             "dataset_id": dataset_id,
-            "top_r": top3  # 这里就只有 3 项了
+            "top_r": top_3  # 只有3个
         })
 
     # 5) 保存结果到 output_path

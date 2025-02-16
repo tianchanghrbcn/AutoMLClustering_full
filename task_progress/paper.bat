@@ -13,7 +13,7 @@ for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set da
 set today=%datetime:~0,8%
 
 :: 目标文件名
-set TARGET_NAME=%today%面向数据质量的清洗方法与下游聚类算法协同优化的自动化模型研究.pdf
+set TARGET_NAME=%today%数据清洗与下游聚类协同优化的自动化模型构建.pdf
 
 :: 复制并重命名 PDF 文件
 copy /Y paper.pdf "%TARGET_NAME%"
