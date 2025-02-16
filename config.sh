@@ -37,6 +37,6 @@ deactivate
 echo "Baran environment setup complete."
 
 # Set the PYTHONPATH environment variable for Baran
-echo "export PYTHONPATH=\"${PYTHONPATH}:${WORK_DIR}\"" >> ~/.bashrc
+echo 'export PYTHONPATH=/root/AutoMLClustering' >> ~/.bashrc
 source ~/.bashrc
 echo "Baran's PYTHONPATH has been set to include ${WORK_DIR} in .bashrc."
