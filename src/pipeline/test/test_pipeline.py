@@ -202,7 +202,7 @@ def main():
     all_clustered_results = []
 
     ctx = multiprocessing.get_context("spawn")
-    with ProcessPoolExecutor(max_workers=4, mp_context=ctx) as executor:
+    with ProcessPoolExecutor(max_workers=2, mp_context=ctx) as executor:
         futures = [
             executor.submit(process_dataset, record, work_dir)
             for record in test_strategies
