@@ -26,6 +26,9 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
         algo_name = "scared"
     elif algorithm_id == 8:
         algo_name = "Unified"
+    elif algorithm_id == 9:
+        algo_name = "google_gemini"
+
     else:
         print(f"[ERROR] 未支持的算法 ID: {algorithm_id}")
         return None, None
@@ -197,6 +200,22 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
             print("[INFO] Unified 运行完成！")
         except subprocess.CalledProcessError as e:
             print(f"[ERROR] 运行 Unified 时出错: {e}")
+
+
+    elif algorithm_id == 9:
+
+        command = [
+            "/root/miniconda3/envs/torch110/bin/python",
+            "../../cleaning/google_gemini/gemini_cleaning.py",
+            dataset_path,
+            clean_csv_path
+        ]
+
+        try:
+            subprocess.run(command, check=True)
+            print("[INFO] Google Gemini 运行完成！")
+        except subprocess.CalledProcessError as e:
+            print(f"[ERROR] 运行 Google Gemini 时出错: {e}")
 
     else:
         # 理论上不会走到这里，因为前面已经做了判断

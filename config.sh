@@ -42,6 +42,31 @@ EOF
 echo "[INFO] PostgreSQL 配置完成，可以使用 psql -U holocleanuser -W holo 连接数据库"
 
 #######################################
+# ========== 新增：安装 MySQL 并配置 ==========
+#######################################
+echo "[INFO] 安装 MySQL Server..."
+sudo apt install -y mysql-server
+
+echo "[INFO] 启动 MySQL 服务..."
+sudo service mysql start
+
+echo "[INFO] 正在设置 MySQL root 密码并创建 mydb 数据库 (示例)"
+# 注意：如果你已经设置过 root 密码，此处可能需要改为 "sudo mysql -u root -p"
+sudo mysql -u root <<EOFMYSQL
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '5ZSL45ZS28uvI3^#zv#l';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE IF NOT EXISTS mydb;
+-- 如果你想创建其他用户，也可以:
+-- CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypassword';
+-- GRANT ALL PRIVILEGES ON mydb.* TO 'myuser'@'localhost';
+-- FLUSH PRIVILEGES;
+EOFMYSQL
+
+echo "[INFO] MySQL 安装并初步配置完成！可以使用命令登陆："
+echo "      mysql -u root -pMyRootPassword123"
+
+#######################################
 # 4. 在 /root/ 目录安装 Miniconda3
 #######################################
 echo "[INFO] 正在下载并安装 Miniconda3..."
@@ -72,6 +97,12 @@ fi
 
 echo "[INFO] 在当前 (base) 环境安装 raha..."
 pip install raha -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+#######################################
+# ========== 新增：安装 MySQL Python 连接库 ==========
+#######################################
+echo "[INFO] 安装 mysql-connector-python 以供 Python 访问 MySQL..."
+pip install mysql-connector-python
 
 #######################################
 # 8. 创建 hc37 环境 (Python 3.7)
@@ -119,9 +150,10 @@ conda activate torch110
 cd /root/AutoMLClustering
 echo "[INFO] 安装和配置完成！"
 echo "-----------------------------------------------------"
-echo "   PostgreSQL 已安装并配置数据库 holo/holocleanuser."
-echo "   HoloClean 已安装到 hc37 环境."
-echo "   activedetect (Python2.7) 环境下已安装 BoostClean."
+echo "   1) PostgreSQL 已安装并配置数据库 holo/holocleanuser."
+echo "   2) MySQL 已安装并创建 mydb 数据库，root 密码: MyRootPassword123"
+echo "   3) HoloClean 已安装到 hc37 环境."
+echo "   4) activedetect (Python2.7) 环境下已安装 BoostClean."
 echo "   当前环境: torch110."
 echo "   你可以使用以下命令手动切换环境:"
 echo "     conda activate hc37"

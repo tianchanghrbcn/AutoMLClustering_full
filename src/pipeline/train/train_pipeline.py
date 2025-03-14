@@ -118,7 +118,7 @@ def main():
     cleaned_results = []
     clustered_results = []
 
-    with ProcessPoolExecutor(max_workers=4, mp_context=mp.get_context("spawn")) as executor:
+    with ProcessPoolExecutor(max_workers=2, mp_context=mp.get_context("spawn")) as executor:
         futures = [
             executor.submit(process_record, record_idx, record, work_dir)
             for record_idx, record in enumerate(all_records)
