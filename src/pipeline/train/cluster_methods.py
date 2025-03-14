@@ -5,12 +5,12 @@ import time
 import re  # 用于解析输出
 
 class ClusterMethod(Enum):
-    AP = 0         # Affinity Propagation
-    DBSCAN = 1     # Density-Based Spatial Clustering
-    GMM = 2        # Gaussian Mixture Model
-    HC = 3         # Hierarchical Clustering
-    KMEANS = 4     # K-means Clustering
-    OPTICS = 5     # Ordering Points To Identify Cluster Structure
+    #AP = 0         # Affinity Propagation
+    #DBSCAN = 1     # Density-Based Spatial Clustering
+    #GMM = 2        # Gaussian Mixture Model
+    #HC = 3         # Hierarchical Clustering
+    KMEANS = 0     # K-means Clustering
+    #OPTICS = 5     # Ordering Points To Identify Cluster Structure
 
 def run_clustering(dataset_id, algorithm, cluster_method_id, cleaned_file_path):
 

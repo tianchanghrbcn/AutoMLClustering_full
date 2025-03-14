@@ -1,0 +1,56 @@
+Explanation of error combos for task: flights
+
+1 => num_scenario=only_anomaly, cat_scenario=only_format, rate=5%
+  => anomaly=2.50%, missing=0.00%, format=2.50%, knowledge=0.00%
+
+2 => num_scenario=only_anomaly, cat_scenario=only_format, rate=10%
+  => anomaly=5.00%, missing=0.00%, format=5.00%, knowledge=0.00%
+
+3 => num_scenario=only_anomaly, cat_scenario=only_knowledge, rate=5%
+  => anomaly=2.50%, missing=0.00%, format=0.00%, knowledge=2.50%
+
+4 => num_scenario=only_anomaly, cat_scenario=only_knowledge, rate=10%
+  => anomaly=5.00%, missing=0.00%, format=0.00%, knowledge=5.00%
+
+5 => num_scenario=only_anomaly, cat_scenario=half_half, rate=5%
+  => anomaly=2.50%, missing=0.00%, format=1.25%, knowledge=1.25%
+
+6 => num_scenario=only_anomaly, cat_scenario=half_half, rate=10%
+  => anomaly=5.00%, missing=0.00%, format=2.50%, knowledge=2.50%
+
+7 => num_scenario=only_missing, cat_scenario=only_format, rate=5%
+  => anomaly=0.00%, missing=2.50%, format=2.50%, knowledge=0.00%
+
+8 => num_scenario=only_missing, cat_scenario=only_format, rate=10%
+  => anomaly=0.00%, missing=5.00%, format=5.00%, knowledge=0.00%
+
+9 => num_scenario=only_missing, cat_scenario=only_knowledge, rate=5%
+  => anomaly=0.00%, missing=2.50%, format=0.00%, knowledge=2.50%
+
+10 => num_scenario=only_missing, cat_scenario=only_knowledge, rate=10%
+  => anomaly=0.00%, missing=5.00%, format=0.00%, knowledge=5.00%
+
+11 => num_scenario=only_missing, cat_scenario=half_half, rate=5%
+  => anomaly=0.00%, missing=2.50%, format=1.25%, knowledge=1.25%
+
+12 => num_scenario=only_missing, cat_scenario=half_half, rate=10%
+  => anomaly=0.00%, missing=5.00%, format=2.50%, knowledge=2.50%
+
+13 => num_scenario=half_half, cat_scenario=only_format, rate=5%
+  => anomaly=1.25%, missing=1.25%, format=2.50%, knowledge=0.00%
+
+14 => num_scenario=half_half, cat_scenario=only_format, rate=10%
+  => anomaly=2.50%, missing=2.50%, format=5.00%, knowledge=0.00%
+
+15 => num_scenario=half_half, cat_scenario=only_knowledge, rate=5%
+  => anomaly=1.25%, missing=1.25%, format=0.00%, knowledge=2.50%
+
+16 => num_scenario=half_half, cat_scenario=only_knowledge, rate=10%
+  => anomaly=2.50%, missing=2.50%, format=0.00%, knowledge=5.00%
+
+17 => num_scenario=half_half, cat_scenario=half_half, rate=5%
+  => anomaly=1.25%, missing=1.25%, format=1.25%, knowledge=1.25%
+
+18 => num_scenario=half_half, cat_scenario=half_half, rate=10%
+  => anomaly=2.50%, missing=2.50%, format=2.50%, knowledge=2.50%
+

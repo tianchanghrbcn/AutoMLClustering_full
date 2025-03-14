@@ -645,8 +645,6 @@ class Correction:
         return d.corrected_cells
 
 
-########################################
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--dirty_path', type=str, default='../../Data/4_rayyan/dirty_index.csv',
@@ -662,7 +660,6 @@ if __name__ == "__main__":
                         help='List of attributes to calculate MSE, separated by space. Example: --mse_attributes Attribute1 Attribute3')
     args = parser.parse_args()
 
-    # 生成输出目录路径
     dirty_path = args.dirty_path
     clean_path = args.clean_path
     task_name = args.task_name
@@ -671,8 +668,6 @@ if __name__ == "__main__":
     mse_attributes = args.mse_attributes
 
     stra_path = f"{output_path}/results-{task_name}"
-
-    # 如果输出目录不存在，创建该目录
     if not os.path.exists(stra_path):
         os.makedirs(stra_path)
 
@@ -682,6 +677,8 @@ if __name__ == "__main__":
         "path": dirty_path,
         "clean_path": clean_path
     }
+
+    # 启动定时器线程
     time_limit = 24 * 3600  # 24 小时时间限制
     timer = threading.Timer(time_limit, handler)
     timer.start()
@@ -689,24 +686,22 @@ if __name__ == "__main__":
     clean_in_cands = []
 
     try:
-        # 获取Raha的错误检测结果
+        # ========== 1. 错误检测部分 ==========
         time_start = time.time()
         app1 = Detection()
         detected_cells = app1.run(dataset_dictionary)
         p, r, f = app1.d.get_data_cleaning_evaluation(detected_cells)[:3]
         time_end = time.time()
 
-        # 输出文件路径保存在 stra_path 中
         out_path = f"{stra_path}/onlyED_{task_name}{check_string(dirty_path)}.txt"
-        with open(out_path, 'w') as f:
-            sys.stdout = f
+        with open(out_path, 'w') as f_file:
+            sys.stdout = f_file
             print(f"{p}\n{r}\n{f}")
             print(time_end - time_start)
 
-        # 开始错误修正过程
+        # ========== 2. 错误修复部分 ==========
         time_start = time.time()
         data = raha.dataset.Dataset(dataset_dictionary)
-        # 恢复标准输出
         sys.stdout = sys.__stdout__
         app = Correction()
         correction_dictionary = app.run(app1.d)
@@ -720,17 +715,17 @@ if __name__ == "__main__":
             repaired_df.iloc[cell[0], cell[1]] = value
         repaired_df.to_csv(res_path, index=False)
 
-        with open(out_path, 'w') as f:
-            sys.stdout = f
+        with open(out_path, 'w') as f_file:
+            sys.stdout = f_file
             print(f"{p}\n{r}\n{str(f)}")
             time_end = time.time()
             print(time_end - time_start)
 
-        # 分析修复结果
+        # ========== 3. 分析修复结果部分 ==========
         sys.stdout = sys.__stdout__
         out_path = f"{stra_path}/all_compute_{task_name}{check_string(dirty_path)}.txt"
-        with open(out_path, 'w') as f:
-            sys.stdout = f
+        with open(out_path, 'w') as f_file:
+            sys.stdout = f_file
             actual_errors = data.get_actual_errors_dictionary()
             actual_errors_list = list(actual_errors.keys())
             repaired_cells = list(correction_dictionary.keys())
@@ -739,33 +734,28 @@ if __name__ == "__main__":
                                   cell in actual_errors and correction_dictionary[cell] == actual_errors[cell]]
             rec_right = sum(1 for cell in actual_errors_list if cell in repair_right_cells)
 
-            # 输出各种统计结果
             print(f"rep_right:{len(repair_right_cells)}")
             print(f"rec_right:{rec_right}")
             print(f"wrong_cells:{len(actual_errors_list)}")
             print(f"prec:{p}")
             print(f"rec:{r}")
 
-            # 分析修复的正确和错误情况
             wrong2right = len([cell for cell in repair_right_cells if cell in actual_errors_list])
             right2right = len([cell for cell in repair_right_cells if cell not in actual_errors_list])
-            wrong2wrong = len(
-                [cell for cell in repaired_cells if cell in actual_errors_list and cell not in repair_right_cells])
-            right2wrong = len(
-                [cell for cell in repaired_cells if cell not in actual_errors_list and cell not in repair_right_cells])
+            wrong2wrong = len([cell for cell in repaired_cells if cell in actual_errors_list and cell not in repair_right_cells])
+            right2wrong = len([cell for cell in repaired_cells if cell not in actual_errors_list and cell not in repair_right_cells])
 
             print(f"wrong2right:{wrong2right}")
             print(f"right2right:{right2right}")
             print(f"wrong2wrong:{wrong2wrong}")
             print(f"right2wrong:{right2wrong}")
 
-            # 分析干净候选集
             clean_in_cands = list(set(clean_in_cands))
             clean_in_cands = [cell for cell in clean_in_cands if cell in repaired_cells]
             clean_in_cands_repair_right = [cell for cell in clean_in_cands if cell in repair_right_cells]
             print(f"clean_in_cands AFTER filter:{len(clean_in_cands)}")
-            print(
-                f"proportion of clean value in candidates and selected correctly:{len(clean_in_cands_repair_right) / (len(clean_in_cands) + 1e-8)}")
+            print(f"proportion of clean value in candidates and selected correctly: "
+                  f"{len(clean_in_cands_repair_right) / (len(clean_in_cands) + 1e-8)}")
 
         sys.stdout = sys.__stdout__
         print(f"Repaired data saved to {res_path}")
@@ -777,4 +767,6 @@ if __name__ == "__main__":
             out_file.write(now.strftime("%Y-%m-%d %H:%M:%S"))
             out_file.write("Baran with Raha.py: ")
             out_file.write(f" {task_name} {dirty_path}\n")
-
+    finally:
+        # 关键：取消定时器，确保程序正常及时退出
+        timer.cancel()

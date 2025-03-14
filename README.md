@@ -26,7 +26,7 @@ This project implements an automated machine learning pipeline for clustering ta
 3. **Activate the virtual environment:**
 
    ```bash
-   source venv/bin/activate
+   conda activate torch110
    ```
 
 4. **Set up the `PYTHONPATH` to avoid `ModuleNotFoundError` (Optional):**  

@@ -32,35 +32,46 @@ def process_record(record_idx, record, work_dir):
         print(f"数据集 {dataset_name} 的文件路径不存在，跳过。")
         return cleaned_results, clustered_results
 
-    strategies = ["mode", "raha_baran"]
+    # 将 strategies 修改为一个 dict: {算法编号: "算法名称"}
+    strategies = {
+        1: "mode",
+        2: "raha_baran",
+        3: "holoclean",
+        4: "bigdansing",
+        5: "boostclean",
+        6: "horizon",
+        7: "scared",
+        8: "Unified"
+    }
 
-    for algo in strategies:
-        print(f"[INFO] 正在运行清洗策略: {algo}")
+    # 遍历字典的键和值
+    for algo_id, algo_name in strategies.items():
+        print(f"[INFO] 正在运行清洗策略: {algo_name}")
         new_file_path, runtime = run_error_correction(
             dataset_path=csv_path,
             dataset_id=dataset_id,
-            algorithm_id=2 if algo == "raha_baran" else 1,
+            algorithm_id=algo_id,  # 直接使用 algo_id
             clean_csv_path=clean_csv_path,
-            output_dir=os.path.join(work_dir, "results", dataset_name, algo),
+            output_dir=os.path.join(work_dir, "results", dataset_name, algo_name),
         )
 
         if new_file_path and runtime:
-            print(f"清洗完成: Dataset={dataset_name}, Algo={algo}")
+            print(f"清洗完成: Dataset={dataset_name}, Algo={algo_name}")
             print(f"结果文件路径: {new_file_path}")
             print(f"运行时间: {runtime:.2f} 秒")
 
             cleaned_results.append({
                 "dataset_id": dataset_id,
-                "algorithm": algo,
-                "algorithm_id": 2 if algo == "raha_baran" else 1,
+                "algorithm": algo_name,
+                "algorithm_id": algo_id,
                 "cleaned_file_path": new_file_path,
                 "runtime": runtime
             })
 
-            for cluster_method_id in range(6):
+            for cluster_method_id in range(1):
                 cluster_output_dir, cluster_runtime = run_clustering(
                     dataset_id=dataset_id,
-                    algorithm=algo,
+                    algorithm=algo_name,
                     cluster_method_id=cluster_method_id,
                     cleaned_file_path=new_file_path
                 )
@@ -68,7 +79,7 @@ def process_record(record_idx, record, work_dir):
                 if cluster_output_dir and cluster_runtime:
                     clustered_results.append({
                         "dataset_id": dataset_id,
-                        "cleaning_algorithm": algo,
+                        "cleaning_algorithm": algo_name,
                         "cleaning_runtime": runtime,
                         "clustering_algorithm": cluster_method_id,
                         "clustering_name": ClusterMethod(cluster_method_id).name,
