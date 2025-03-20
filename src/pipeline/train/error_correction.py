@@ -204,18 +204,21 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
 
     elif algorithm_id == 9:
 
-        command = [
-            "/root/miniconda3/envs/torch110/bin/python",
-            "../../cleaning/google_gemini/gemini_cleaning.py",
-            dataset_path,
-            clean_csv_path
-        ]
-
         try:
-            subprocess.run(command, check=True)
+            subprocess.run(
+                [
+                    "/root/miniconda3/envs/gm39/bin/python",
+                    "gemini_cleaning.py",
+                    "--input_csv", dataset_path,
+                    "--output_dir", output_dir
+                ],
+                check=True,
+                cwd="/root/AutoMLClustering/src/cleaning/google_gemini"  # 切换目录
+            )
             print("[INFO] Google Gemini 运行完成！")
         except subprocess.CalledProcessError as e:
             print(f"[ERROR] 运行 Google Gemini 时出错: {e}")
+
 
     else:
         # 理论上不会走到这里，因为前面已经做了判断

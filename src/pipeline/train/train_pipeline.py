@@ -41,7 +41,8 @@ def process_record(record_idx, record, work_dir):
         5: "boostclean",
         6: "horizon",
         7: "scared",
-        8: "Unified"
+        8: "Unified",
+        9: "google_gemini"
     }
 
     # 遍历字典的键和值
@@ -68,7 +69,7 @@ def process_record(record_idx, record, work_dir):
                 "runtime": runtime
             })
 
-            for cluster_method_id in range(1):
+            for cluster_method_id in range(4):
                 cluster_output_dir, cluster_runtime = run_clustering(
                     dataset_id=dataset_id,
                     algorithm=algo_name,

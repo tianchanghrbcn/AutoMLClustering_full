@@ -179,12 +179,12 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 178,flightexplorer,0,6:30 p.m.,6:30 p.m.,0,7:25 p.m.
 179,flights,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 180,flightstats,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
-181,flightview,0,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
+181,flightview,0,6:30 p.m.,6:30 p.m.,0,7:25 p.m.
 182,flightwise,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 183,flylouisville,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 184,flytecomm,0,6:30 p.m.,6:30 p.m.,0,7:25 p.m.
 185,foxbusiness,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
-186,gofox,0,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
+186,gofox,0,6:30 p.m.,6:30 p.m.,0,7:25 p.m.
 187,helloflight,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 188,mco,0,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 189,myrateplan,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
@@ -588,7 +588,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 587,flightview,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m., 54:2p.m.,2:46 p.m.
 588,flylouisville,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m., 54:2p.m.,2:50 p.m.
 589,flytecomm,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m., 54:2p.m.,2:46 p.m.
-590,foxbusiness,0,12:15 p.m.,12:41 p.m.,0,2:46 p.m.
+590,foxbusiness,0,12:15 p.m.,12:41 p.m., 54:2p.m.,2:46 p.m.
 591,ox,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m., 54:2p.m.,2:46 p.m.
 592,helloflight,0,12:15 p.m.,12:41 p.m., 54:2p.m.,2:46 p.m.
 593,ifly,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m., 54:2p.m.,2:46 p.m.
@@ -639,7 +639,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 638,flightexplorer,0,2:35 p.m.,2:44 p.m.,0,3:43 p.m.
 639,flights,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 640,flightstats,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
-641,flightview,0,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
+641,flightview,0,2:35 p.m.,2:44p.m.,4:05 p.m.,3:43 p.m.
 642,flylouisville,0,2:35 p.m.,2:44 p.m.,0,3:43 p.m.
 643,flytecomm,0,2:35 p.m.,2:44 p.m.,0,3:43 p.m.
 644,foxbusiness,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
@@ -1029,7 +1029,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1028,flylouisville,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1029,flytecomm,0,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1030,foxbusiness,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
-1031,gofox,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,4:09 p.m.
+1031,gofox,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1032,of,0,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1033,ifly,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1034,myrateplan,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
@@ -1039,13 +1039,13 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1038,IuZcktrip,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1039,travelocity,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1040,weather,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
-1041,world-flight-tracker,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,4:09 p.m.
+1041,world-flight-tracker,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1042,wunderground,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,0,3:50 p.m.
 1043,aa,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1044,airtravelcenter,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1045,allegiantair,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1046,boston,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
-1047,businesstravellogue,0,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
+1047,businesstravellogue,0,6:00a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1048,flightarri$%val###,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1049,flightaware,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1050,flightexplorer,0,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
@@ -1371,7 +1371,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1370,flights,0,2:53 p.m.,3:01 p.m.,0,4:59 p.m.
 1371,flightstats,CO-1250-MIA-IAH,2:53 p.m.,3:01 p.m.,4:48 p.m.,4:59 p.m.
 1372,fl%%%ightview,CO-1250-MIA-IAH,2:53 p.m.,3:01 p.m.,4:48 p.m.,4:59 p.m.
-1373,flylouisville,0,2:53 p.m.,3:01 p.m.,0,4:59 p.m.
+1373,flylouisville,0,2:53 p.m.,3:01 p.m.,4:48 p.m.,4:59 p.m.
 1374,flytecomm,CO-1250-MIA-IAH,2:53 p.m.,3:01 p.m.,4:48 p.m.,4:59 p.m.
 1375,foxbusiness,CO-1250-MIA-IAH,2:53 p.m.,3:01 p.m.,4:48 p.m.,4:59 p.m.
 1376,gofox,CO-1250-MIA-IAH,2:53 p.m.,3:01 p.m.,4:48 p.m.,4:59 p.m.

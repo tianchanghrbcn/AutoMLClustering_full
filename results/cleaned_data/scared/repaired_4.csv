@@ -47,7 +47,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 46,wunderground,AA-1165-JFK-MIA,6:59 a.m.,7:22 a.m.,10:34 a.m.,10:04 a.m.
 47,aa,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 48,airtravelcenter,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,AA-4344-ORD-DTW,9:53 p.m.
-49,allegiantair,AA-1221-MCO-ORD,8:00 p.m.,6:15 p.m.,9:45 p.m.,9:53 p.m.
+49,allegiantair,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 50,boston,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 51,businesstravellogue,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 52,flightarrival,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
@@ -65,9 +65,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 64,myrateplan,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 65,mytripandmore,1:29 p.m.,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 66,orbitz,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
-67,ord,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
-68,panynj,AA-1221-MCO-ORD,8:00 p.m.,10:30 p.m.,9:45 p.m.,9:53 p.m.
-69,quicktrip,AA-1221-MCO-ORD,CO-47-IAH-LAX,8:23 p.m.,9:45 p.m.,9:53 p.m.
+67,ord,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,travelocity,9:53 p.m.
+68,panynj,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
+69,quicktrip,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 70,travelocity,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 71,usatoday,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
 72,weather,AA-1221-MCO-ORD,8:00 p.m.,8:23 p.m.,9:45 p.m.,9:53 p.m.
@@ -102,9 +102,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 101,airtravelcenter,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
 102,allegiantair,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
 103,boston,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
-104,businesstravellogue,AA-2268-PHX-ORD,7:15 a.m.,7:22 a.m.,11:35 a.m.,10:36 a.m.
+104,businesstravellogue,7:30 a.m.,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
 105,flightaware,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
-106,flightexplorer,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
+106,flightexplorer,AA-1434-DFW-MCO,7:15 a.m.,7:10 a.m.,10:35 a.m.,10:36 a.m.
 107,2:25 p.m.,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
 108,flightstats,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
 109,flightview,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
@@ -125,21 +125,21 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 124,world-flight-tracker,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,10:36 a.m.
 125,wunderground,AA-1434-DFW-MCO,UA-938-DEN-ORD,7:21 a.m.,10:35 a.m.,10:36 a.m.
 126,aa,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,3:35 p.m.
-127,airtravelcenter,AA-1522-SFO-ORD,9:20 a.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
+127,airtravelcenter,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 128,allegiantair,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 129,boston,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 130,businesstravellogue,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 131,flightexplorer,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 132,flights,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
-133,weather,AA-1522-SFO-ORD,11:55 p.m.,2:45 p.m.,5:34 p.m.,5:50 a.m.
+133,weather,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:34 p.m.,5:50 a.m.
 134,flightview,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
-135,flylouisville,AA-1522-SFO-ORD,11:55 p.m.,1:30 p.m.,5:50 a.m.,5:50 a.m.
+135,flylouisville,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 136,flytecomm,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
-137,foxbusiness,AA-1522-SFO-ORD,wunderground,11:55 p.m.,5:50 a.m.,5:50 a.m.
+137,foxbusiness,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 138,gofox,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 139,helloflight,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 140,myrateplan,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
-141,orbitz,AA-1522-SFO-ORD,11:55 p.m.,8:00 a.m.,5:50 a.m.,5:50 a.m.
+141,orbitz,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 142,ord,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
 143,panynj,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:22 p.m.,5:50 a.m.
 144,quicktrip,AA-1522-SFO-ORD,11:55 p.m.,11:55 p.m.,5:50 a.m.,5:50 a.m.
@@ -160,7 +160,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 159,flytecomm,AA-1544-SAN-ORD,11:25 a.m.,11:40 a.m.,5:25 p.m.,4:56 p.m.
 160,foxbusiness,AA-1544-SAN-ORD,11:25 a.m.,11:40 a.m.,5:25 p.m.,4:56 p.m.
 161,gofox,AA-1544-SAN-ORD,11:25 a.m.,11:40 a.m.,5:25 p.m.,4:56 p.m.
-162,helloflight,AA-1434-DFW-MCO,7:15 a.m.,7:21 a.m.,10:35 a.m.,4:56 p.m.
+162,helloflight,AA-1544-SAN-ORD,7:15 a.m.,11:40 a.m.,5:25 p.m.,4:56 p.m.
 163,myrateplan,AA-1544-SAN-ORD,11:25 a.m.,11:40 a.m.,5:25 p.m.,4:56 p.m.
 164,mytripandmore,AA-1544-SAN-ORD,11:25 a.m.,11:40 a.m.,5:25 p.m.,4:56 p.m.
 165,orbitz,3:50 p.m.,11:25 a.m.,11:40 a.m.,5:25 p.m.,4:56 p.m.
@@ -180,9 +180,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 179,flights,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 180,flightstats,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 181,flightview,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
-182,flightwise,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
+182,flightwise,AA-1640-MIA-MCO,6:30 p.m.,11:35 a.m.,7:25 p.m.,7:25 p.m.
 183,flylouisville,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
-184,1:16 p.m.,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
+184,1:16 p.m.,AA-1640-MIA-MCO,6:30 p.m.,7:00 p.m.,7:25 p.m.,7:25 p.m.
 185,foxbusiness,flights,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 186,gofox,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 187,helloflight,AA-1640-MIA-MCO,6:30 p.m.,10:40 a.m.,7:25 p.m.,7:25 p.m.
@@ -198,7 +198,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 197,world-flight-tracker,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 198,wunderground,AA-1640-MIA-MCO,6:30 p.m.,6:30 p.m.,7:25 p.m.,7:25 p.m.
 199,aa,AA-1664-MIA-ATL,10:15 a.m.,10:18 a.m.,12:10 p.m.,11:56 a.m.
-200,airtravelcenter,AA-1664-MIA-ATL,10:15 a.m.,CO-50-CLE-EWR,12:10 p.m.,11:56 a.m.
+200,airtravelcenter,AA-1664-MIA-ATL,10:15 a.m.,10:18 a.m.,12:10 p.m.,11:56 a.m.
 201,allegiantair,AA-1664-MIA-ATL,10:15 a.m.,10:18 a.m.,12:10 p.m.,11:56 a.m.
 202,boston,AA-1664-MIA-ATL,10:15 a.m.,10:18 a.m.,12:10 p.m.,11:56 a.m.
 203,businesstravellogue,AA-1664-MIA-ATL,10:15 a.m.,10:18 a.m.,12:10 p.m.,11:56 a.m.
@@ -226,24 +226,24 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 225,aa,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 226,airtravelcenter,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 227,allegiantair,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
-228,7:30 a.m.,AA-1733-ORD-PHX,7:45 p.m.,gofox,10:30 p.m.,10:30 p.m.
-229,businesstravellogue,AA-1733-ORD-PHX,7:45 p.m.,world-flight-tracker,10:30 p.m.,10:30 p.m.
+228,7:30 a.m.,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
+229,businesstravellogue,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 230,flightaware,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 231,flightexplorer,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 232,flights,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 233,flightstats,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
-234,flightview,AA-1733-ORD-PHX,10:47 a.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
+234,flightview,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 235,flylouisville,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 236,flytecomm,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 237,foxbusiness,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 238,gofox,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
-239,helloflight,AA-1733-ORD-PHX,7:45 p.m.,mytripandmore,10:30 p.m.,10:30 p.m.
+239,helloflight,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 240,ifly,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 241,myrateplan,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 242,mytripandmore,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,12:29 a.m.,10:30 p.m.
 243,orbitz,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 244,ord,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
-245,panynj,AA-1733-ORD-PHX,4:48 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
+245,panynj,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 246,quicktrip,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 247,travelocity,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
 248,usatoday,AA-1733-ORD-PHX,7:45 p.m.,7:58 p.m.,10:30 p.m.,10:30 p.m.
@@ -255,38 +255,38 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 254,allegiantair,8:23 p.m.,10:45 a.m.,10:55 a.m.,2:20 p.m.,7:55 p.m.
 255,boston,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 256,businesstravellogue,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
-257,flightexplorer,AA-1886-BOS-MIA,10:45 a.m.,5:00 p.m.,UA-664-ORD-PHL,1:40 p.m.
+257,flightexplorer,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,UA-664-ORD-PHL,1:40 p.m.
 258,flights,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 259,flightview,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 260,flylouisville,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
-261,flytecomm,AA-1886-BOS-MIA,10:45 a.m.,aa,2:20 p.m.,1:40 p.m.
+261,flytecomm,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 262,foxbusiness,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 263,gofox,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
-264,helloflight,AA-1886-BOS-MIA,10:45 a.m.,flightexplorer,2:20 p.m.,1:40 p.m.
+264,helloflight,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 265,myrateplan,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 266,orbitz,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 267,panynj,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 268,travelocity,7:39 a.m.,10:45 a.m.,10:45 a.m.,2:20 p.m.,1:40 p.m.
 269,usatoday,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
 270,weather,AA-1886-BOS-MIA,10:45 a.m.,10:55 a.m.,2:20 p.m.,1:40 p.m.
-271,aa,AA-1917-JFK-MCO,8:51 a.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
-272,airtravelcenter,AA-1917-JFK-MCO,11:50 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
+271,aa,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
+272,airtravelcenter,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 273,6:56 a.m.,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 274,boston,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 275,businesstravellogue,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 276,flightaware,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 277,flights,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
-278,flightstats,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,11:52 a.m.
+278,flightstats,11:30 a.m.,2:55 p.m.,3:27 p.m.,5:55 p.m.,11:52 a.m.
 279,flightview,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 280,flylouisville,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 281,flytecomm,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 282,foxbusiness,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 283,gofox,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
-284,helloflight,AA-1917-JFK-MCO,10:47 a.m.,8:56 p.m.,5:55 p.m.,5:43 p.m.
+284,helloflight,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 285,ifly,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 286,mco,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 287,myrateplan,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
-288,mytripandmore,AA-1917-JFK-MCO,7:29 a.m.,3:27 p.m.,CO-47-IAH-LAX,5:43 p.m.
+288,mytripandmore,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,CO-47-IAH-LAX,5:43 p.m.
 289,orbitz,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 290,panynj,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
 291,quicktrip,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,5:43 p.m.
@@ -301,7 +301,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 300,businesstravellogue,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 301,flightaware,orbitz,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 302,flightexplorer,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
-303,flights,AA-204-LAX-MCO,5:56 a.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
+303,flights,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 304,flightstats,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 305,flightview,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 306,flylouisville,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
@@ -313,7 +313,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 312,myrateplan,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 313,mytripandmore,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 314,orbitz,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
-315,panynj,AA-204-LAX-MCO,11:25 p.m.,10:20 a.m.,6:55 a.m.,6:55 a.m.
+315,panynj,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 316,quicktrip,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 317,travelocity,AA-204-LAX-MCO,11:25 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
 318,weather,7:21 a.m.,5:30 p.m.,11:25 p.m.,6:55 a.m.,6:55 a.m.
@@ -333,14 +333,14 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 332,flylouisville,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
 333,flytecomm,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
 334,foxbusiness,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
-335,gofox,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
+335,gofox,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,8:25 p.m.,2:46 p.m.
 336,helloflight,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
-337,ifly,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
+337,ifly,7:10 p.m.,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
 338,mia,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
-339,myrateplan,AA-2050-ORD-MIA,11:35 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
-340,orbitz,AA-2050-ORD-MIA,UA-2906-PHL-MCO,11:05 a.m.,2:45 p.m.,2:46 p.m.
+339,myrateplan,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
+340,orbitz,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
 341,ord,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
-342,panynj,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
+342,panynj,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,travelocity,2:46 p.m.
 343,quicktrip,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
 344,travelocity,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
 345,usatoday,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,2:46 p.m.
@@ -357,9 +357,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 356,flightexplorer,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 357,flights,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 358,flightstats,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
-359,flightview,AA-222-LAX-BOS,12:09 p.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
+359,flightview,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 360,flylouisville,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
-361,flytecomm,AA-222-LAX-BOS,UA-664-ORD-PHL,7:31 a.m.,3:30 p.m.,3:14 p.m.
+361,flytecomm,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 362,foxbusiness,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 363,gofox,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 364,AA-1886-BOS-MIA,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
@@ -369,10 +369,10 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 368,quicktrip,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 369,travelocity,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 370,weather,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
-371,world-flight-tracker,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
-372,4:57 p.m.,AA-3979-CVG-ORD,7:30 a.m.,8:04 a.m.,8:00 a.m.,3:14 p.m.
+371,world-flight-tracker,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,7:30 a.m.,3:14 p.m.
+372,4:57 p.m.,AA-222-LAX-BOS,7:10 a.m.,7:31 a.m.,3:30 p.m.,3:14 p.m.
 373,aa,AA-2268-PHX-ORD,7:15 a.m.,7:22 a.m.,11:35 a.m.,11:06 a.m.
-374,airtravelcenter,AA-2268-PHX-ORD,7:15 a.m.,7:22 a.m.,11:35 a.m.,11:06 a.m.
+374,airtravelcenter,AA-2268-PHX-ORD,7:15 a.m.,7:22 a.m.,3:05 p.m.,11:06 a.m.
 375,AA-3859-IAH-ORD,AA-2268-PHX-ORD,7:15 a.m.,7:22 a.m.,11:35 a.m.,11:06 a.m.
 376,boston,AA-2268-PHX-ORD,7:15 a.m.,7:22 a.m.,11:35 a.m.,11:06 a.m.
 377,businesstravellogue,AA-2268-PHX-ORD,7:15 a.m.,7:22 a.m.,11:35 a.m.,11:06 a.m.
@@ -402,7 +402,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 401,allegiantair,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 402,boston,AA-3468-CVG-MIA,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 403,businesstravellogue,AA-4344-ORD-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
-404,11:55 a.m.,AA-2268-PHX-ORD,7:15 a.m.,7:22 a.m.,11:35 a.m.,11:50 p.m.
+404,11:55 a.m.,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 405,flightarrival,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 406,flightaware,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 407,flightexplorer,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,CO-4888-IAH-DAL
@@ -411,20 +411,20 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 410,flightview,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,8:53 p.m.,11:50 p.m.
 411,flightwise,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 412,flylouisville,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
-413,flytecomm,AA-2312-DFW-DTW,8:25 p.m.,allegiantair,11:50 p.m.,11:50 p.m.
+413,flytecomm,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 414,foxbusiness,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:52 a.m.,11:50 p.m.
 415,gofox,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 416,helloflight,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
-417,myrateplan,AA-2312-DFW-DTW,9:14 a.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
+417,myrateplan,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 418,mytripandmore,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 419,orbitz,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 420,panynj,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
-421,8:25 p.m.,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
+421,8:25 p.m.,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,boston,11:50 p.m.
 422,travelocity,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 423,weather,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 424,world-flight-tracker,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
 425,10:39 a.m.,AA-2312-DFW-DTW,8:25 p.m.,8:25 p.m.,11:50 p.m.,11:50 p.m.
-426,aa,AA-2525-DFW-MIA,7:39 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
+426,aa,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
 427,10:34 a.m.,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
 428,allegiantair,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,3:50 p.m.,11:06 a.m.
 429,boston,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
@@ -434,7 +434,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 433,flights,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
 434,flightstats,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
 435,flightview,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,7:22 a.m.
-436,flightwise,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
+436,flightwise,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,3:21 p.m.,11:06 a.m.
 437,flylouisville,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
 438,flytecomm,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
 439,foxbusiness,AA-2525-DFW-MIA,7:25 a.m.,7:39 a.m.,11:10 a.m.,11:06 a.m.
@@ -480,7 +480,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 479,allegiantair,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 480,boston,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 481,businesstravellogue,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
-482,flightarrival,AA-2957-DFW-CVG,7:55 a.m.,AA-4307-ORD-DTW,11:05 a.m.,11:01 a.m.
+482,flightarrival,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 483,flightaware,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 484,flightexplorer,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 485,flights,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
@@ -495,7 +495,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 494,orbitz,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 495,panynj,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 496,quicktrip,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,7:29 a.m.,11:01 a.m.
-497,travelocity,AA-2957-DFW-CVG,7:55 a.m.,5:05 p.m.,11:05 a.m.,11:01 a.m.
+497,travelocity,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 498,iad,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:25 a.m.
 499,weather,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
 500,world-flight-tracker,AA-2957-DFW-CVG,7:55 a.m.,8:04 a.m.,11:05 a.m.,11:01 a.m.
@@ -589,18 +589,18 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 588,flylouisville,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 589,flytecomm,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 590,foxbusiness,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,8:40 a.m.,2:50 p.m.
-591,gofox,AA-3756-ORD-SLC,12:15 p.m.,wunderground,2:45 p.m.,2:50 p.m.
+591,gofox,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 592,helloflight,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
-593,ifly,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
+593,ifly,12:30 a.m.,12:15 p.m.,12:30 a.m.,2:45 p.m.,2:50 p.m.
 594,myrateplan,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 595,orbitz,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
-596,ord,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
+596,ord,5:34 p.m.,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 597,panynj,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 598,quicktrip,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 599,travelocity,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,1:15 p.m.
 600,usatoday,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 601,weather,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
-602,world-flight-tracker,AA-3756-ORD-SLC,12:15 p.m.,4:57 p.m.,2:45 p.m.,2:50 p.m.
+602,world-flight-tracker,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 603,wunderground,AA-3756-ORD-SLC,12:15 p.m.,12:41 p.m.,2:45 p.m.,2:50 p.m.
 604,aa,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,quicktrip
 605,airtravelcenter,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
@@ -609,39 +609,39 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 608,businesstravellogue,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 609,flightarrival,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 610,flightaware,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
-611,flights,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
+611,flights,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,7:05 a.m.,6:15 p.m.
 612,flightstats,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 613,flightview,AA-3786-IAH-ORD,10:16 a.m.,4:12 p.m.,6:40 p.m.,8:41 a.m.
-614,flightwise,AA-3786-IAH-ORD,flightexplorer,4:12 p.m.,6:40 p.m.,6:15 p.m.
+614,flightwise,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 615,flylouisville,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 616,flytecomm,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 617,foxbusiness,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 618,gofox,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 619,helloflight,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 620,ifly,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
-621,myrateplan,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,7:25 a.m.
+621,myrateplan,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,flightexplorer,7:25 a.m.
 622,mytripandmore,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 623,orbitz,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 624,ord,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 625,panynj,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 626,quicktrip,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 627,travelocity,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
-628,usatoday,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
+628,usatoday,11:32 a.m.,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 629,weather,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
-630,world-flight-tracker,AA-3786-IAH-ORD,11:50 a.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
+630,world-flight-tracker,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 631,wunderground,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:15 p.m.
 632,aa,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 633,airtravelcenter,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
-634,allegiantair,AA-3804-PHL-ORD,2:35 p.m.,5:11 a.m.,4:05 p.m.,3:43 p.m.
+634,allegiantair,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 635,boston,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
-636,businesstravellogue,AA-3804-PHL-ORD,2:35 p.m.,5:17 p.m.,4:05 p.m.,3:43 p.m.
+636,businesstravellogue,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 637,flightaware,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 638,flightexplorer,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 639,flights,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
-640,flightstats,AA-3804-PHL-ORD,2:35 p.m.,aa,4:05 p.m.,3:43 p.m.
+640,flightstats,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 641,flightview,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 642,flylouisville,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
-643,flytecomm,AA-3804-PHL-ORD,7:22 a.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
+643,flytecomm,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 644,foxbusiness,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 645,gofox,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 646,helloflight,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,aa
@@ -649,12 +649,12 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 648,myrateplan,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 649,orbitz,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,11:01 a.m.
 650,ord,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
-651,panynj,AA-3804-PHL-ORD,AA-3786-IAH-ORD,2:44 p.m.,4:05 p.m.,3:43 p.m.
+651,panynj,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 652,phl,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 653,quicktrip,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,iad,3:43 p.m.
 654,travelocity,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
 655,usatoday,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,4:05 p.m.,3:43 p.m.
-656,weather,AA-3804-PHL-ORD,8:00 a.m.,2:44 p.m.,CO-52-IAH-LAX,3:43 p.m.
+656,weather,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,CO-52-IAH-LAX,3:43 p.m.
 657,world-flight-tracker,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,3:01 p.m.,2:15 p.m.
 658,wunderground,AA-3804-PHL-ORD,2:35 p.m.,2:44 p.m.,12:30 a.m.,3:43 p.m.
 659,aa,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
@@ -672,7 +672,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 671,flylouisville,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
 672,flytecomm,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
 673,foxbusiness,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
-674,10:20 a.m.,AA-3809-PHX-LAX,5:38 p.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
+674,10:20 a.m.,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
 675,helloflight,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
 676,ifly,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
 677,myrateplan,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
@@ -680,9 +680,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 679,panynj,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
 680,quicktrip,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
 681,travelocity,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
-682,usatoday,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,6:19 a.m.
-683,weather,AA-3809-PHX-LAX,11:06 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
-684,world-flight-tracker,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
+682,usatoday,9:25 a.m.,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
+683,weather,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
+684,world-flight-tracker,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,UA-2830-MCO-CLT,6:19 a.m.
 685,wunderground,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,6:19 a.m.
 686,aa,AA-3823-LAX-DEN,9:00 p.m.,9:00 p.m.,12:15 a.m.,12:15 a.m.
 687,airtravelcenter,AA-3823-LAX-DEN,9:00 p.m.,9:00 p.m.,12:15 a.m.,12:15 a.m.
@@ -711,23 +711,23 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 710,world-flight-tracker,AA-3823-LAX-DEN,9:00 p.m.,9:00 p.m.,12:15 a.m.,12:15 a.m.
 711,wunderground,AA-3823-LAX-DEN,9:00 p.m.,9:00 p.m.,12:15 a.m.,12:15 a.m.
 712,aa,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
-713,airtravelcenter,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
+713,airtravelcenter,AA-3842-MSP-ORD,6:00 a.m.,7:29 a.m.,7:30 a.m.,7:51 a.m.
 714,3:50 p.m.,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
-715,boston,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
+715,boston,AA-3842-MSP-ORD,6:00 a.m.,8:41 a.m.,7:30 a.m.,7:51 a.m.
 716,businesstravellogue,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 717,flightaware,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 718,flightexplorer,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 719,flights,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
-720,flightstats,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,7:51 a.m.
+720,flightstats,AA-3842-MSP-ORD,8:35 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 721,flightview,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 722,flightwise,AA-3842-MSP-ORD,5:42 p.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
-723,flylouisville,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,7:51 a.m.
+723,flylouisville,5:34 p.m.,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 724,flytecomm,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,5:30 p.m.
 725,foxbusiness,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,CO-58-DEN-IAH
 726,gofox,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,flightwise
-727,helloflight,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
+727,helloflight,AA-3842-MSP-ORD,6:00 a.m.,AA-2268-PHX-ORD,7:30 a.m.,7:51 a.m.
 728,ifly,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
-729,myrateplan,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
+729,myrateplan,AA-3842-MSP-ORD,6:00 a.m.,UA-2830-MCO-CLT,7:30 a.m.,7:51 a.m.
 730,mytripandmore,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 731,orbitz,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 732,ord,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
@@ -736,7 +736,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 735,travelocity,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 736,weather,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
 737,world-flight-tracker,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
-738,wunderground,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:51 a.m.
+738,wunderground,AA-3842-MSP-ORD,6:00 a.m.,UA-414-LAX-SFO,7:30 a.m.,7:51 a.m.
 739,aa,7:17 a.m.,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
 740,airtravelcenter,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
 741,allegiantair,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
@@ -749,7 +749,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 748,flightstats,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
 749,flightview,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
 750,flightwise,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
-751,4:12 p.m.,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
+751,4:12 p.m.,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,4:59 p.m.,9:32 a.m.
 752,flytecomm,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
 753,foxbusiness,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
 754,gofox,AA-3859-IAH-ORD,7:10 a.m.,7:16 a.m.,9:40 a.m.,9:32 a.m.
@@ -790,10 +790,10 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 789,weather,flightexplorer,7:30 a.m.,8:04 a.m.,8:00 a.m.,8:06 a.m.
 790,world-flight-tracker,AA-3979-CVG-ORD,7:30 a.m.,8:04 a.m.,8:00 a.m.,8:06 a.m.
 791,wunderground,dfw,7:30 a.m.,8:04 a.m.,8:00 a.m.,8:06 a.m.
-792,aa,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
+792,aa,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,CO-52-IAH-LAX,3:04 p.m.
 793,airtravelcenter,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 794,allegiantair,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
-795,boston,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,3:04 p.m.
+795,boston,11:45 a.m.,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 796,businesstravellogue,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 797,dfw,1:33 p.m.,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 798,flightarrival,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
@@ -801,9 +801,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 800,flights,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 801,flightstats,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 802,flightview,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
-803,flylouisville,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,3:04 p.m.
+803,flylouisville,8:20 p.m.,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 804,flytecomm,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
-805,11:06 a.m.,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
+805,11:06 a.m.,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,10:29 p.m.,3:04 p.m.
 806,gofox,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 807,helloflight,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
 808,myrateplan,AA-400-DFW-JFK,10:40 a.m.,11:01 a.m.,2:59 p.m.,3:04 p.m.
@@ -834,34 +834,34 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 833,myrateplan,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
 834,mytripandmore,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
 835,orbitz,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
-836,panynj,AA-404-MIA-MCO,9:10 p.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
-837,quicktrip,AA-404-MIA-MCO,iad,6:57 a.m.,7:45 a.m.,7:40 a.m.
+836,panynj,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
+837,quicktrip,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
 838,travelocity,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
 839,usatoday,10:56 a.m.,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
 840,weather,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
 841,world-flight-tracker,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
-842,wunderground,AA-404-MIA-MCO,helloflight,6:57 a.m.,7:45 a.m.,7:40 a.m.
+842,wunderground,AA-404-MIA-MCO,6:45 a.m.,6:57 a.m.,7:45 a.m.,7:40 a.m.
 843,aa,11:30 a.m.,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 844,airtravelcenter,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 845,allegiantair,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 846,boston,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 847,businesstravellogue,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 848,flights,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
-849,flightstats,AA-415-BOS-ORD,7:31 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
+849,flightstats,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 850,flightview,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 851,flylouisville,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
-852,flytecomm,AA-415-BOS-ORD,9:14 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
+852,flytecomm,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 853,foxbusiness,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 854,gofox,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 855,helloflight,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
-856,ifly,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,9:43 a.m.
+856,ifly,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,6:40 p.m.,9:43 a.m.
 857,myrateplan,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 858,mytripandmore,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 859,orbitz,6:23 p.m.,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 860,ord,6:30 p.m.,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 861,panynj,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 862,quicktrip,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
-863,travelocity,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
+863,travelocity,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,4:15 p.m.,10:16 a.m.
 864,weather,AA-415-BOS-ORD,8:35 a.m.,8:56 a.m.,10:40 a.m.,10:16 a.m.
 865,aa,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
 866,airtravelcenter,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
@@ -875,12 +875,12 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 874,flightstats,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
 875,flightview,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
 876,flylouisville,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
-877,flytecomm,AA-2050-ORD-MIA,10:40 a.m.,11:05 a.m.,2:45 p.m.,12:50 p.m.
+877,flytecomm,1:15 p.m.,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
 878,foxbusiness,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
 879,gofox,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,AA-3063-SLC-LAX
 880,helloflight,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
 881,myrateplan,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
-882,orbitz,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
+882,orbitz,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,11:25 p.m.,12:50 p.m.
 883,ord,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
 884,panynj,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,12:50 p.m.
 885,quicktrip,AA-4198-ORD-CLE,10:40 a.m.,10:54 a.m.,12:55 p.m.,flightexplorer
@@ -933,7 +933,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 932,helloflight,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,8:53 p.m.
 933,myrateplan,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,8:53 p.m.
 934,mytripandmore,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,UA-2830-MCO-CLT,4:55 p.m.
-935,orbitz,AA-4307-ORD-DTW,AA-1544-SAN-ORD,6:55 p.m.,9:10 p.m.,8:53 p.m.
+935,orbitz,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,8:53 p.m.
 936,ord,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,flights
 937,panynj,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,8:53 p.m.
 938,quicktrip,7:30 a.m.,6:45 p.m.,6:55 p.m.,6:28 p.m.,8:53 p.m.
@@ -941,14 +941,14 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 940,usatoday,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,8:53 p.m.
 941,weather,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,8:53 p.m.
 942,world-flight-tracker,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,8:53 p.m.
-943,wunderground,AA-4307-ORD-DTW,6:45 p.m.,9:43 a.m.,9:10 p.m.,8:53 p.m.
+943,wunderground,AA-4307-ORD-DTW,6:45 p.m.,6:55 p.m.,9:10 p.m.,8:53 p.m.
 944,aa,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 945,airtravelcenter,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 946,allegiantair,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
-947,boston,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
+947,boston,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,travelocity,11:44 a.m.
 948,businesstravellogue,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 949,flightarrival,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
-950,flightaware,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
+950,flightaware,flightstats,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 951,flightexplorer,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 952,flights,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 953,flightstats,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
@@ -961,7 +961,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 960,ifly,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 961,myrateplan,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 962,mytripandmore,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
-963,orbitz,AA-431-MIA-SFO,3:35 p.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
+963,orbitz,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 964,panynj,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 965,quicktrip,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
 966,sfo,AA-431-MIA-SFO,8:35 a.m.,8:51 a.m.,11:50 a.m.,11:44 a.m.
@@ -985,10 +985,10 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 984,foxbusiness,AA-4330-CVG-ORD,11:25 p.m.,3:36 p.m.,4:00 p.m.,8:53 p.m.
 985,gofox,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,3:33 p.m.
 986,11:55 a.m.,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,3:33 p.m.
-987,flightexplorer,AA-4330-CVG-ORD,3:35 p.m.,11:01 a.m.,4:00 p.m.,3:33 p.m.
+987,flightexplorer,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,3:33 p.m.
 988,orbitz,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,3:33 p.m.
 989,ord,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,3:33 p.m.
-990,panynj,AA-4330-CVG-ORD,3:35 p.m.,1:40 p.m.,4:00 p.m.,3:33 p.m.
+990,panynj,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,3:33 p.m.
 991,quicktrip,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,3:33 p.m.
 992,usatoday,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,8:26 a.m.
 993,wunderground,AA-4330-CVG-ORD,3:35 p.m.,3:36 p.m.,4:00 p.m.,3:33 p.m.
@@ -997,10 +997,10 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 996,allegiantair,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
 997,boston,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
 998,businesstravellogue,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
-999,flightarrival,AA-4344-ORD-DTW,10:30 p.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
+999,flightarrival,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
 1000,flightexplorer,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
 1001,flights,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
-1002,flightstats,AA-4344-ORD-DTW,11:45 a.m.,3:50 p.m.,2:00 p.m.,2:10 p.m.
+1002,flightstats,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
 1003,flightview,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,1:30 p.m.,2:10 p.m.
 1004,flylouisville,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
 1005,flytecomm,AA-4344-ORD-DTW,11:45 a.m.,12:13 p.m.,2:00 p.m.,2:10 p.m.
@@ -1033,7 +1033,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1032,helloflight,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,CO-52-IAH-LAX,4:09 p.m.
 1033,ifly,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
 1034,UA-414-LAX-SFO,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
-1035,orbitz,AA-446-DFW-PHL,5:26 p.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
+1035,orbitz,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
 1036,panynj,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
 1037,phl,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
 1038,quicktrip,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
@@ -1042,11 +1042,11 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1041,world-flight-tracker,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
 1042,wunderground,AA-446-DFW-PHL,11:50 a.m.,12:12 p.m.,3:50 p.m.,4:09 p.m.
 1043,aa,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
-1044,airtravelcenter,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,9:05 a.m.
+1044,airtravelcenter,8:41 a.m.,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1045,allegiantair,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1046,boston,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1047,businesstravellogue,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
-1048,flightarrival,AA-3809-PHX-LAX,6:00 a.m.,6:10 a.m.,6:40 a.m.,9:05 a.m.
+1048,flightarrival,AA-4307-ORD-DTW,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1049,flightaware,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1050,flightexplorer,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1051,flights,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
@@ -1060,7 +1060,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1059,mia,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1060,myrateplan,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1061,mytripandmore,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
-1062,orbitz,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
+1062,orbitz,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,11:30 a.m.,9:05 a.m.
 1063,panynj,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1064,quicktrip,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,9:05 a.m.
 1065,1:30 p.m.,AA-466-IAH-MIA,6:00 a.m.,6:08 a.m.,9:20 a.m.,UA-257-JFK-SFO
@@ -1072,7 +1072,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1071,airtravelcenter,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1072,allegiantair,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1073,myrateplan,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
-1074,businesstravellogue,AA-484-DFW-MIA,10:30 p.m.,10:15 p.m.,UA-2515-DFW-CLT,7:39 p.m.
+1074,businesstravellogue,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,UA-2515-DFW-CLT,7:39 p.m.
 1075,dfw,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1076,flightaware,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1077,flightexplorer,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
@@ -1080,11 +1080,11 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1079,flightstats,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1080,flightview,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1081,flylouisville,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
-1082,flytecomm,AA-484-DFW-MIA,mco,4:29 p.m.,7:55 p.m.,7:39 p.m.
+1082,flytecomm,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1083,foxbusiness,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1084,gofox,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1085,7:30 a.m.,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
-1086,mia,AA-484-DFW-MIA,7:53 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
+1086,mia,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1087,myrateplan,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1088,orbitz,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
 1089,panynj,AA-484-DFW-MIA,4:15 p.m.,4:29 p.m.,7:55 p.m.,7:39 p.m.
@@ -1099,7 +1099,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1098,CO-89-IAH-EWR,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1099,boston,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1100,businesstravellogue,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
-1101,flightaware,AA-518-MIA-JFK,6:40 a.m.,ifly,9:25 a.m.,9:28 a.m.
+1101,flightaware,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1102,flights,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1103,flightstats,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1104,flightview,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
@@ -1108,32 +1108,32 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1107,foxbusiness,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1108,gofox,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1109,helloflight,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
-1110,myrateplan,AA-518-MIA-JFK,6:40 a.m.,flylouisville,9:25 a.m.,9:28 a.m.
+1110,myrateplan,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1111,orbitz,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1112,panynj,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1113,quicktrip,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
-1114,8:53 p.m.,AA-518-MIA-JFK,AA-446-DFW-PHL,6:54 a.m.,9:25 a.m.,9:28 a.m.
-1115,usatoday,AA-518-MIA-JFK,helloflight,6:54 a.m.,9:25 a.m.,9:28 a.m.
+1114,8:53 p.m.,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
+1115,usatoday,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1116,7:39 a.m.,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
-1117,world-flight-tracker,AA-518-MIA-JFK,7:25 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
+1117,world-flight-tracker,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1118,wunderground,AA-518-MIA-JFK,6:40 a.m.,6:54 a.m.,9:25 a.m.,9:28 a.m.
 1119,aa,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,ifly
 1120,9:35 a.m.,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1121,allegiantair,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1122,boston,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
-1123,businesstravellogue,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
+1123,businesstravellogue,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,4:00 p.m.,11:12 a.m.
 1124,flightarrival,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,weather
 1125,flightaware,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1126,flightexplorer,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1127,flights,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1128,flightstats,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
-1129,flightview,AA-59-JFK-SFO,ifly,7:39 a.m.,10:45 a.m.,11:12 a.m.
+1129,flightview,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1130,flightwise,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1131,panynj,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1132,flytecomm,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1133,foxbusiness,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1134,gofox,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
-1135,helloflight,AA-59-JFK-SFO,6:15 p.m.,3:50 p.m.,10:45 a.m.,11:12 a.m.
+1135,helloflight,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1136,ifly,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1137,myrateplan,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
 1138,mytripandmore,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,11:12 a.m.
@@ -1150,14 +1150,14 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1149,airtravelcenter,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1150,AA-1917-JFK-MCO,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1151,boston,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
-1152,businesstravellogue,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
+1152,businesstravellogue,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,AA-446-DFW-PHL,1:27 p.m.
 1153,flightarrival,AA-616-DFW-DTW,CO-52-IAH-LAX,10:10 a.m.,12:35 p.m.,gofox
 1154,flightaware,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
-1155,AA-4344-ORD-DTW,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
-1156,flights,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
+1155,AA-4344-ORD-DTW,7:15 p.m.,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
+1156,flights,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,9:53 p.m.,1:27 p.m.
 1157,flightstats,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1158,flightview,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
-1159,flylouisville,AA-616-DFW-DTW,8:56 p.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
+1159,flylouisville,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1160,flytecomm,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1161,foxbusiness,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,8:15 a.m.
 1162,gofox,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
@@ -1165,28 +1165,28 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1164,ifly,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1165,myrateplan,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1166,mytripandmore,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
-1167,orbitz,AA-616-DFW-DTW,gofox,10:10 a.m.,12:35 p.m.,1:27 p.m.
+1167,orbitz,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1168,panynj,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1169,quicktrip,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
-1170,travelocity,4:12 p.m.,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
+1170,travelocity,4:12 p.m.,9:05 a.m.,10:10 a.m.,flightaware,1:27 p.m.
 1171,weather,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1172,world-flight-tracker,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
 1173,wunderground,AA-616-DFW-DTW,9:05 a.m.,10:10 a.m.,12:35 p.m.,1:27 p.m.
-1174,aa,AA-643-MIA-ORD,5:05 p.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
+1174,aa,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1175,airtravelcenter,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1176,allegiantair,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1177,boston,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1178,businesstravellogue,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
-1179,flightaware,AA-643-MIA-ORD,iad,7:30 a.m.,9:35 a.m.,9:31 a.m.
+1179,flightaware,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1180,flightexplorer,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1181,flights,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1182,flightstats,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
-1183,flightview,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
-1184,flightwise,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,9:31 a.m.
+1183,flightview,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,3:01 p.m.,9:31 a.m.
+1184,flightwise,2:35 p.m.,7:10 a.m.,7:30 a.m.,7:10 p.m.,9:31 a.m.
 1185,flylouisville,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1186,flytecomm,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1187,foxbusiness,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
-1188,gofox,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
+1188,gofox,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,10:40 a.m.,9:31 a.m.
 1189,helloflight,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,airtravelcenter
 1190,myrateplan,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1191,mytripandmore,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
@@ -1196,11 +1196,11 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1195,quicktrip,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1196,travelocity,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1197,weather,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
-1198,world-flight-tracker,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
+1198,world-flight-tracker,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,12:35 p.m.,9:31 a.m.
 1199,wunderground,AA-643-MIA-ORD,7:10 a.m.,7:30 a.m.,9:35 a.m.,9:31 a.m.
 1200,aa,AA-649-ORD-SNA,1:30 p.m.,1:30 p.m.,3:50 p.m.,3:50 p.m.
-1201,airtravelcenter,AA-649-ORD-SNA,1:30 p.m.,10:47 a.m.,3:50 p.m.,3:50 p.m.
-1202,allegiantair,AA-649-ORD-SNA,1:30 p.m.,7:05 p.m.,3:50 p.m.,3:50 p.m.
+1201,airtravelcenter,AA-649-ORD-SNA,1:30 p.m.,1:30 p.m.,3:50 p.m.,3:50 p.m.
+1202,allegiantair,AA-649-ORD-SNA,1:30 p.m.,1:30 p.m.,3:50 p.m.,3:50 p.m.
 1203,boston,AA-649-ORD-SNA,1:30 p.m.,1:30 p.m.,3:50 p.m.,3:50 p.m.
 1204,businesstravellogue,AA-649-ORD-SNA,1:30 p.m.,1:30 p.m.,3:50 p.m.,3:50 p.m.
 1205,flightaware,AA-649-ORD-SNA,1:30 p.m.,1:30 p.m.,3:50 p.m.,3:50 p.m.
@@ -1229,9 +1229,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1228,flightaware,7:25 a.m.,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1229,flightexplorer,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,myrateplan,3:13 p.m.
 1230,flights,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
-1231,flightstats,AA-789-ORD-DEN,1:05 p.m.,5:05 p.m.,2:35 p.m.,3:13 p.m.
+1231,flightstats,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1232,7:10 a.m.,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
-1233,flightwise,AA-789-ORD-DEN,1:05 p.m.,1:30 p.m.,2:35 p.m.,3:13 p.m.
+1233,flightwise,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1234,flylouisville,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1235,7:16 a.m.,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1236,foxbusiness,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
@@ -1239,7 +1239,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1238,helloflight,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1239,ifly,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1240,myrateplan,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
-1241,12:55 p.m.,AA-789-ORD-DEN,1:05 p.m.,10:15 p.m.,2:35 p.m.,3:13 p.m.
+1241,12:55 p.m.,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1242,ord,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1243,panynj,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1244,quicktrip,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
@@ -1250,7 +1250,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1249,wunderground,AA-789-ORD-DEN,1:05 p.m.,1:19 p.m.,2:35 p.m.,3:13 p.m.
 1250,aa,AA-85-JFK-SFO,3:05 p.m.,3:36 p.m.,6:30 p.m.,6:43 p.m.
 1251,airtravelcenter,AA-85-JFK-SFO,3:05 p.m.,3:36 p.m.,6:30 p.m.,6:43 p.m.
-1252,allegiantair,AA-85-JFK-SFO,3:05 p.m.,7:00 a.m.,6:30 p.m.,6:43 p.m.
+1252,allegiantair,AA-85-JFK-SFO,3:05 p.m.,3:36 p.m.,6:30 p.m.,6:43 p.m.
 1253,boston,AA-85-JFK-SFO,3:05 p.m.,3:36 p.m.,6:30 p.m.,6:43 p.m.
 1254,businesstravellogue,AA-85-JFK-SFO,3:05 p.m.,3:36 p.m.,6:30 p.m.,UA-397-JFK-SFO
 1255,flightarrival,AA-85-JFK-SFO,3:05 p.m.,3:36 p.m.,6:30 p.m.,6:43 p.m.
@@ -1274,7 +1274,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1273,weather,6:23 p.m.,3:05 p.m.,3:36 p.m.,6:30 p.m.,CO-47-IAH-LAX
 1274,world-flight-tracker,7:53 p.m.,3:05 p.m.,3:36 p.m.,6:30 p.m.,6:43 p.m.
 1275,wunderground,AA-85-JFK-SFO,3:05 p.m.,3:36 p.m.,6:30 p.m.,6:43 p.m.
-1276,CO,CO-1023-IAH-DEN,11:40 a.m.,11:56 a.m.,1:17 p.m.,1:14 p.m.
+1276,CO,CO-1023-IAH-DEN,11:40 a.m.,11:56 a.m.,10:55 a.m.,1:14 p.m.
 1277,airtravelcenter,10:20 a.m.,11:40 a.m.,11:56 a.m.,1:17 p.m.,1:14 p.m.
 1278,allegiantair,CO-1023-IAH-DEN,11:40 a.m.,11:56 a.m.,1:17 p.m.,1:14 p.m.
 1279,boston,CO-1023-IAH-DEN,11:40 a.m.,11:56 a.m.,1:17 p.m.,4:57 p.m.
@@ -1317,13 +1317,13 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1316,travelocity,CO-1088-CLE-IAH,8:40 a.m.,8:40 a.m.,10:54 a.m.,10:56 a.m.
 1317,weather,CO-1088-CLE-IAH,8:40 a.m.,8:40 a.m.,10:54 a.m.,10:56 a.m.
 1318,CO,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
-1319,airtravelcenter,CO-1090-BOS-IAH,9:45 a.m.,10:25 a.m.,1:16 p.m.,1:19 p.m.
-1320,allegiantair,CO-1090-BOS-IAH,4:05 p.m.,11:06 a.m.,1:16 p.m.,1:19 p.m.
+1319,airtravelcenter,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
+1320,allegiantair,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1321,boston,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1322,businesstravellogue,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1323,flightarrival,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1324,flights,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
-1325,flightstats,CO-1090-BOS-IAH,1:29 p.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
+1325,flightstats,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1326,flightview,2:35 p.m.,9:45 a.m.,10:19 a.m.,11:55 p.m.,1:19 p.m.
 1327,flylouisville,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1328,flytecomm,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
@@ -1331,7 +1331,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1330,gofox,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1331,helloflight,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1332,ifly,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
-1333,myrateplan,CO-1090-BOS-IAH,9:45 a.m.,6:46 p.m.,1:16 p.m.,1:19 p.m.
+1333,myrateplan,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1334,mytripandmore,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1335,orbitz,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,1:19 p.m.
 1336,panynj,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,8:25 p.m.,1:19 p.m.
@@ -1356,7 +1356,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1355,mco,CO-1193-EWR-MCO,9:15 a.m.,9:14 a.m.,12:18 p.m.,12:09 p.m.
 1356,myrateplan,CO-1193-EWR-MCO,9:15 a.m.,9:14 a.m.,6:45 p.m.,12:09 p.m.
 1357,orbitz,CO-1193-EWR-MCO,9:15 a.m.,9:14 a.m.,12:18 p.m.,12:09 p.m.
-1358,panynj,CO-1193-EWR-MCO,9:15 a.m.,6:45 p.m.,12:18 p.m.,12:09 p.m.
+1358,panynj,CO-1193-EWR-MCO,9:15 a.m.,9:14 a.m.,12:18 p.m.,12:09 p.m.
 1359,quicktrip,CO-1193-EWR-MCO,9:15 a.m.,9:14 a.m.,12:18 p.m.,12:09 p.m.
 1360,travelocity,CO-1193-EWR-MCO,9:15 a.m.,9:14 a.m.,12:18 p.m.,12:09 p.m.
 1361,usatoday,CO-1193-EWR-MCO,9:15 a.m.,9:14 a.m.,12:18 p.m.,12:09 p.m.
@@ -1395,7 +1395,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1394,CO-47-IAH-LAX,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
 1395,flightstats,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
 1396,flightview,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
-1397,flylouisville,CO-1561-PHX-IAH,8:05 a.m.,7:30 a.m.,11:35 a.m.,11:32 a.m.
+1397,flylouisville,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
 1398,flytecomm,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
 1399,foxbusiness,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
 1400,gofox,3:13 p.m.,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
@@ -1405,7 +1405,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1404,panynj,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
 1405,quicktrip,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
 1406,5:34 p.m.,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
-1407,weather,CO-1561-PHX-IAH,8:05 a.m.,1:15 p.m.,11:35 a.m.,11:32 a.m.
+1407,weather,CO-1561-PHX-IAH,8:05 a.m.,8:00 a.m.,11:35 a.m.,11:32 a.m.
 1408,CO,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
 1409,7:51 a.m.,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
 1410,allegiantair,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
@@ -1423,7 +1423,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1422,helloflight,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
 1423,mco,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
 1424,myrateplan,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
-1425,AA-466-IAH-MIA,CO-1090-BOS-IAH,9:45 a.m.,10:19 a.m.,1:16 p.m.,10:29 p.m.
+1425,AA-466-IAH-MIA,CO-1586-IAH-MCO,9:45 a.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
 1426,orbitz,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
 1427,panynj,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
 1428,quicktrip,CO-1586-IAH-MCO,7:00 p.m.,7:14 p.m.,10:15 p.m.,10:29 p.m.
@@ -1435,14 +1435,14 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1434,boston,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
 1435,businesstravellogue,10:39 a.m.,10:25 a.m.,10:20 a.m.,4:28 p.m.,6:34 p.m.
 1436,flightarrival,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
-1437,flights,CO-16-LAX-EWR,10:25 a.m.,1:40 p.m.,6:44 p.m.,6:34 p.m.
+1437,flights,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
 1438,flightstats,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
-1439,flightview,CO-16-LAX-EWR,10:39 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
+1439,flightview,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
 1440,flylouisville,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
 1441,flytecomm,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,helloflight
 1442,foxbusiness,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
-1443,gofox,CO-16-LAX-EWR,AA-1522-SFO-ORD,10:20 a.m.,6:44 p.m.,6:34 p.m.
-1444,helloflight,CO-16-LAX-EWR,10:25 a.m.,5:30 p.m.,6:44 p.m.,6:34 p.m.
+1443,gofox,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
+1444,helloflight,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
 1445,ifly,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
 1446,myrateplan,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
 1447,orbitz,CO-16-LAX-EWR,10:25 a.m.,10:20 a.m.,6:44 p.m.,6:34 p.m.
@@ -1465,7 +1465,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1464,foxbusiness,7:22 a.m.,12:30 a.m.,12:41 a.m.,5:35 a.m.,5:26 a.m.
 1465,gofox,CO-1614-LAX-IAH,12:30 a.m.,12:41 a.m.,5:35 a.m.,5:26 a.m.
 1466,helloflight,CO-1614-LAX-IAH,12:30 a.m.,12:41 a.m.,5:35 a.m.,5:26 a.m.
-1467,ifly,CO-1614-LAX-IAH,12:30 a.m.,12:41 a.m.,5:35 a.m.,5:26 a.m.
+1467,ifly,11:35 a.m.,12:30 a.m.,12:41 a.m.,5:35 a.m.,5:26 a.m.
 1468,myrateplan,CO-1614-LAX-IAH,12:30 a.m.,12:41 a.m.,5:35 a.m.,5:26 a.m.
 1469,mytripandmore,CO-1614-LAX-IAH,12:30 a.m.,12:41 a.m.,myrateplan,5:26 a.m.
 1470,orbitz,CO-1614-LAX-IAH,12:30 a.m.,12:41 a.m.,5:35 a.m.,5:26 a.m.
@@ -1503,9 +1503,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1502,allegiantair,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1503,boston,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1504,businesstravellogue,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
-1505,flightaware,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:36 p.m.
+1505,flightaware,foxbusiness,4:00 p.m.,1:40 p.m.,7:05 p.m.,6:36 p.m.
 1506,flights,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
-1507,flightstats,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
+1507,flightstats,CO-45-EWR-MIA,4:00 p.m.,7:55 a.m.,7:05 p.m.,6:36 p.m.
 1508,3:35 p.m.,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1509,6:00 a.m.,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1510,flytecomm,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
@@ -1513,12 +1513,12 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1512,gofox,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1513,helloflight,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1514,myrateplan,CO-45-EWR-MIA,AA-2957-DFW-CVG,3:58 p.m.,7:05 p.m.,6:36 p.m.
-1515,orbitz,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
-1516,panynj,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
+1515,orbitz,CO-45-EWR-MIA,4:00 p.m.,AA-4344-ORD-DTW,7:05 p.m.,6:36 p.m.
+1516,panynj,CO-45-EWR-MIA,4:00 p.m.,7:17 a.m.,7:05 p.m.,6:36 p.m.
 1517,quicktrip,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1518,travelocity,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1519,weather,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
-1520,world-flight-tracker,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
+1520,world-flight-tracker,CO-45-EWR-MIA,4:00 p.m.,10:40 a.m.,7:05 p.m.,6:36 p.m.
 1521,wunderground,CO-45-EWR-MIA,4:00 p.m.,3:58 p.m.,7:05 p.m.,6:36 p.m.
 1522,CO,CO-47-IAH-LAX,7:10 p.m.,8:25 p.m.,8:56 p.m.,9:52 p.m.
 1523,airtravelcenter,CO-47-IAH-LAX,7:10 p.m.,8:25 p.m.,8:56 p.m.,9:52 p.m.
@@ -1541,7 +1541,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1540,panynj,CO-47-IAH-LAX,7:10 p.m.,8:25 p.m.,8:56 p.m.,9:52 p.m.
 1541,quicktrip,CO-47-IAH-LAX,7:10 p.m.,8:25 p.m.,8:56 p.m.,9:52 p.m.
 1542,wunderground,CO-47-IAH-LAX,7:10 p.m.,8:25 p.m.,8:56 p.m.,9:52 p.m.
-1543,CO,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
+1543,CO,9:15 a.m.,5:30 p.m.,5:30 p.m.,12:10 p.m.,6:40 p.m.
 1544,airtravelcenter,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
 1545,allegiantair,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,UA-2945-PHL-CLT,6:40 p.m.
 1546,boston,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
@@ -1558,7 +1558,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1557,gofox,9:05 a.m.,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
 1558,helloflight,flightarrival,9:10 p.m.,5:30 p.m.,6:40 p.m.,2:44 p.m.
 1559,myrateplan,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
-1560,orbitz,CO-4888-IAH-DAL,8:53 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
+1560,orbitz,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
 1561,panynj,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
 1562,AA-1917-JFK-MCO,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
 1563,usatoday,CO-4888-IAH-DAL,5:30 p.m.,5:30 p.m.,6:40 p.m.,6:40 p.m.
@@ -1580,16 +1580,16 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1579,myrateplan,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,5:26 p.m.
 1580,mytripandmore,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,5:26 p.m.
 1581,orbitz,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,5:26 p.m.
-1582,panynj,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,5:26 p.m.
+1582,panynj,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,AA-204-LAX-MCO,5:26 p.m.
 1583,quicktrip,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,5:26 p.m.
 1584,travelocity,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,5:26 p.m.
 1585,weather,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,5:26 p.m.
-1586,CO,CO-52-IAH-LAX,myrateplan,7:29 a.m.,AA-2312-DFW-DTW,9:14 a.m.
+1586,CO,CO-52-IAH-LAX,7:35 a.m.,7:29 a.m.,AA-2312-DFW-DTW,9:14 a.m.
 1587,airtravelcenter,CO-52-IAH-LAX,7:35 a.m.,7:29 a.m.,9:21 a.m.,9:14 a.m.
 1588,allegiantair,CO-52-IAH-LAX,7:35 a.m.,7:29 a.m.,9:21 a.m.,9:14 a.m.
 1589,boston,CO-52-IAH-LAX,7:35 a.m.,7:29 a.m.,9:21 a.m.,9:14 a.m.
 1590,businesstravellogue,CO-52-IAH-LAX,7:35 a.m.,7:29 a.m.,9:21 a.m.,9:14 a.m.
-1591,flightarrival,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,9:14 a.m.
+1591,flightarrival,aa,7:35 a.m.,7:29 a.m.,9:21 a.m.,9:14 a.m.
 1592,flightaware,CO-52-IAH-LAX,7:35 a.m.,7:29 a.m.,9:21 a.m.,9:14 a.m.
 1593,12:09 p.m.,CO-52-IAH-LAX,7:35 a.m.,7:29 a.m.,9:21 a.m.,9:14 a.m.
 1594,flightstats,CO-52-IAH-LAX,7:35 a.m.,7:29 a.m.,9:21 a.m.,9:14 a.m.
@@ -1634,10 +1634,10 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1633,flightstats,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 1634,flightview,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 1635,flylouisville,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
-1636,flytecomm,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,11:53 a.m.
+1636,flytecomm,helloflight,2:30 p.m.,2:48 p.m.,7:03 p.m.,11:53 a.m.
 1637,foxbusiness,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 1638,gofox,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
-1639,helloflight,CO-62-IAH-EWR,7:55 a.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
+1639,helloflight,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 1640,myrateplan,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 1641,mytripandmore,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,phl
 1642,orbitz,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
@@ -1646,7 +1646,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1645,travelocity,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 1646,weather,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 1647,CO,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
-1648,airtravelcenter,CO-63-EWR-IAH,5:25 p.m.,6:00 a.m.,8:22 p.m.,8:03 p.m.
+1648,airtravelcenter,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1649,allegiantair,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1650,boston,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1651,businesstravellogue,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
@@ -1656,20 +1656,20 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1655,flightview,CO-63-EWR-IAH,9:10 p.m.,5:22 p.m.,8:22 p.m.,2:10 p.m.
 1656,flightwise,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1657,flylouisville,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:35 a.m.,8:03 p.m.
-1658,flytecomm,CO-63-EWR-IAH,9:45 a.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
+1658,flytecomm,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1659,foxbusiness,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
-1660,gofox,CO-63-EWR-IAH,AA-1221-MCO-ORD,5:22 p.m.,8:22 p.m.,8:03 p.m.
+1660,gofox,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1661,helloflight,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1662,myrateplan,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1663,orbitz,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1664,panynj,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:23 p.m.
 1665,quicktrip,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,UA-1500-IAH-GUA
 1666,usatoday,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
-1667,wunderground,CO-63-EWR-IAH,5:25 p.m.,AA-643-MIA-ORD,8:22 p.m.,8:03 p.m.
+1667,wunderground,CO-63-EWR-IAH,5:25 p.m.,5:22 p.m.,8:22 p.m.,8:03 p.m.
 1668,CO,10:36 a.m.,6:00 a.m.,6:02 a.m.,10:20 a.m.,10:27 a.m.
 1669,airtravelcenter,CO-89-IAH-EWR,6:00 a.m.,6:02 a.m.,10:20 a.m.,10:27 a.m.
 1670,allegiantair,CO-89-IAH-EWR,6:00 a.m.,6:02 a.m.,10:20 a.m.,10:27 a.m.
-1671,boston,CO-89-IAH-EWR,6:00 a.m.,6:02 a.m.,10:20 a.m.,10:27 a.m.
+1671,boston,CO-89-IAH-EWR,6:00 a.m.,AA-3859-IAH-ORD,10:20 a.m.,10:27 a.m.
 1672,businesstravellogue,CO-89-IAH-EWR,6:00 a.m.,6:02 a.m.,10:20 a.m.,10:27 a.m.
 1673,flights,CO-89-IAH-EWR,6:00 a.m.,6:02 a.m.,10:20 a.m.,10:27 a.m.
 1674,flightstats,CO-89-IAH-EWR,6:00 a.m.,6:02 a.m.,10:20 a.m.,10:27 a.m.
@@ -1690,7 +1690,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1689,allegiantair,UA-1500-IAH-GUA,8:55 a.m.,9:16 a.m.,11:45 a.m.,11:56 a.m.
 1690,boston,UA-1500-IAH-GUA,8:55 a.m.,9:16 a.m.,11:45 a.m.,9:45 a.m.
 1691,businesstravellogue,UA-1500-IAH-GUA,8:55 a.m.,9:16 a.m.,11:45 a.m.,11:56 a.m.
-1692,flightarrival,UA-1500-IAH-GUA,CO-1090-BOS-IAH,9:16 a.m.,11:45 a.m.,11:56 a.m.
+1692,flightarrival,UA-1500-IAH-GUA,8:55 a.m.,9:16 a.m.,11:45 a.m.,11:56 a.m.
 1693,flights,UA-1500-IAH-GUA,8:55 a.m.,9:16 a.m.,11:45 a.m.,11:56 a.m.
 1694,flightview,UA-1500-IAH-GUA,8:55 a.m.,9:16 a.m.,11:45 a.m.,11:56 a.m.
 1695,flylouisville,UA-1500-IAH-GUA,8:55 a.m.,9:16 a.m.,11:45 a.m.,11:56 a.m.
@@ -1706,10 +1706,10 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1705,airtravelcenter,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1706,allegiantair,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1707,boston,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
-1708,businesstravellogue,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
+1708,businesstravellogue,UA-2314-ATL-PHL,2:55 p.m.,mia,5:00 p.m.,4:47 p.m.
 1709,flightarrival,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1710,flights,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
-1711,12:15 p.m.,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,4:47 p.m.
+1711,12:15 p.m.,11:35 a.m.,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1712,flightview,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1713,flylouisville,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1714,flytecomm,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
@@ -1721,7 +1721,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1720,orbitz,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1721,panynj,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1722,quicktrip,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
-1723,travelocity,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
+1723,travelocity,UA-2314-ATL-PHL,2:55 p.m.,flights,5:00 p.m.,4:47 p.m.
 1724,ua,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1725,weather,UA-2314-ATL-PHL,2:55 p.m.,2:55 p.m.,5:00 p.m.,4:47 p.m.
 1726,airtravelcenter,UA-233-LAX-JFK,4:25 p.m.,4:25 p.m.,12:29 a.m.,12:29 a.m.
@@ -1735,7 +1735,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1734,flightstats,UA-233-LAX-JFK,4:25 p.m.,4:25 p.m.,12:29 a.m.,12:29 a.m.
 1735,flightview,UA-233-LAX-JFK,4:25 p.m.,4:25 p.m.,12:29 a.m.,7:30 a.m.
 1736,flylouisville,UA-233-LAX-JFK,4:25 p.m.,4:25 p.m.,12:29 a.m.,12:29 a.m.
-1737,flytecomm,UA-233-LAX-JFK,ifly,4:25 p.m.,12:29 a.m.,12:29 a.m.
+1737,flytecomm,UA-233-LAX-JFK,4:25 p.m.,4:25 p.m.,12:29 a.m.,12:29 a.m.
 1738,foxbusiness,UA-233-LAX-JFK,4:25 p.m.,4:25 p.m.,12:29 a.m.,12:29 a.m.
 1739,gofox,8:41 a.m.,4:25 p.m.,4:25 p.m.,12:29 a.m.,12:29 a.m.
 1740,helloflight,UA-233-LAX-JFK,4:25 p.m.,4:25 p.m.,12:29 a.m.,12:29 a.m.
@@ -1753,7 +1753,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1752,wunderground,UA-233-LAX-JFK,4:25 p.m.,4:25 p.m.,12:29 a.m.,12:29 a.m.
 1753,airtravelcenter,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
 1754,allegiantair,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
-1755,boston,UA-248-PHX-ORD,6:55 a.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
+1755,boston,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
 1756,businesstravellogue,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
 1757,flightexplorer,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,3:15 p.m.
 1758,flights,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,10:55 a.m.,5:34 p.m.
@@ -1763,8 +1763,8 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1762,flytecomm,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
 1763,foxbusiness,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
 1764,gofox,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
-1765,helloflight,UA-248-PHX-ORD,10:56 a.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
-1766,myrateplan,UA-248-PHX-ORD,1:16 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
+1765,helloflight,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
+1766,myrateplan,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
 1767,orbitz,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
 1768,ord,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
 1769,panynj,UA-248-PHX-ORD,12:57 p.m.,1:32 p.m.,5:15 p.m.,5:34 p.m.
@@ -1789,31 +1789,31 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1788,orbitz,UA-2515-DFW-CLT,7:05 a.m.,7:05 a.m.,AA-4344-ORD-DTW,10:47 a.m.
 1789,panynj,UA-2515-DFW-CLT,7:05 a.m.,7:05 a.m.,10:31 a.m.,10:47 a.m.
 1790,quicktrip,UA-2515-DFW-CLT,7:05 a.m.,7:05 a.m.,10:31 a.m.,10:47 a.m.
-1791,travelocity,UA-2515-DFW-CLT,panynj,7:05 a.m.,10:31 a.m.,10:47 a.m.
-1792,ua,UA-2515-DFW-CLT,orbitz,7:05 a.m.,5:30 p.m.,10:47 a.m.
+1791,travelocity,UA-2515-DFW-CLT,7:05 a.m.,7:05 a.m.,10:31 a.m.,10:47 a.m.
+1792,ua,UA-2515-DFW-CLT,7:05 a.m.,7:05 a.m.,5:30 p.m.,10:47 a.m.
 1793,weather,UA-2515-DFW-CLT,7:05 a.m.,7:05 a.m.,10:31 a.m.,10:47 a.m.
 1794,airtravelcenter,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
-1795,allegiantair,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
+1795,allegiantair,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,AA-2957-DFW-CVG,5:42 p.m.
 1796,boston,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1797,businesstravellogue,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1798,flightarrival,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,10:35 a.m.
 1799,flightaware,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1800,flightexplorer,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
-1801,flights,CO-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,5:42 p.m.
+1801,flights,7:15 p.m.,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1802,flightstats,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1803,flightview,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1804,flylouisville,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1805,flytecomm,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
-1806,foxbusiness,UA-257-JFK-SFO,4:17 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
+1806,foxbusiness,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1807,gofox,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1808,helloflight,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1809,myrateplan,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
-1810,mytripandmore,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
-1811,orbitz,UA-257-JFK-SFO,11:06 a.m.,UA-2704-DTW-PHX,6:15 p.m.,5:42 p.m.
+1810,mytripandmore,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,1:30 p.m.,5:42 p.m.
+1811,orbitz,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1812,panynj,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1813,quicktrip,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1814,sfo,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
-1815,travelocity,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
+1815,travelocity,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,AA-4330-CVG-ORD,5:42 p.m.
 1816,ua,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1817,usatoday,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
 1818,weather,UA-257-JFK-SFO,2:30 p.m.,2:26 p.m.,6:15 p.m.,5:42 p.m.
@@ -1841,10 +1841,10 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1840,usatoday,UA-2704-DTW-PHX,11:15 a.m.,11:15 a.m.,1:40 p.m.,2:00 p.m.
 1841,weather,UA-2704-DTW-PHX,11:15 a.m.,11:15 a.m.,1:40 p.m.,2:00 p.m.
 1842,airtravelcenter,UA-2708-EWR-CLT,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
-1843,allegiantair,CO-50-CLE-EWR,2:55 p.m.,3:31 p.m.,4:49 p.m.,4:44 p.m.
+1843,allegiantair,5:42 p.m.,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
 1844,boston,UA-2708-EWR-CLT,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
 1845,businesstravellogue,UA-2708-EWR-CLT,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
-1846,flights,AA-1917-JFK-MCO,2:55 p.m.,3:27 p.m.,5:55 p.m.,4:44 p.m.
+1846,flights,CO-1090-BOS-IAH,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
 1847,flightstats,UA-2708-EWR-CLT,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
 1848,flightview,UA-2708-EWR-CLT,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
 1849,flylouisville,UA-2708-EWR-CLT,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
@@ -1860,9 +1860,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1859,ua,11:40 a.m.,12:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
 1860,usatoday,UA-2708-EWR-CLT,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
 1861,weather,UA-2708-EWR-CLT,2:55 p.m.,2:55 p.m.,4:53 p.m.,4:44 p.m.
-1862,airtravelcenter,UA-2726-FLL-PHL,10:19 a.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
+1862,airtravelcenter,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1863,allegiantair,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
-1864,boston,UA-2726-FLL-PHL,8:22 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
+1864,boston,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1865,businesstravellogue,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,1:30 p.m.
 1866,flightaware,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1867,flights,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
@@ -1871,18 +1871,18 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1870,flylouisville,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1871,flytecomm,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1872,foxbusiness,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
-1873,gofox,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
+1873,gofox,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,5:34 p.m.,6:28 p.m.
 1874,helloflight,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
-1875,myrateplan,UA-2726-FLL-PHL,5:50 a.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
+1875,myrateplan,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1876,4:49 p.m.,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
-1877,orbitz,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:28 p.m.
+1877,orbitz,quicktrip,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1878,panynj,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1879,quicktrip,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1880,travelocity,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
-1881,ua,UA-2726-FLL-PHL,6:54 a.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
+1881,ua,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1882,weather,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1883,world-flight-tracker,UA-2726-FLL-PHL,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
-1884,wunderground,AA-3786-IAH-ORD,4:00 p.m.,4:12 p.m.,6:40 p.m.,6:28 p.m.
+1884,wunderground,12:55 p.m.,4:00 p.m.,4:00 p.m.,6:46 p.m.,6:28 p.m.
 1885,airtravelcenter,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,5:05 p.m.,5:17 p.m.
 1886,allegiantair,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,5:05 p.m.,5:17 p.m.
 1887,boston,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,5:05 p.m.,5:17 p.m.
@@ -1890,7 +1890,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1889,flights,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,5:05 p.m.,5:17 p.m.
 1890,flightstats,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,UA-2906-PHL-MCO,5:17 p.m.
 1891,flightview,5:38 p.m.,3:27 p.m.,3:27 p.m.,5:05 p.m.,5:17 p.m.
-1892,flylouisville,UA-2830-MCO-CLT,3:27 p.m.,world-flight-tracker,5:05 p.m.,5:17 p.m.
+1892,flylouisville,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,5:05 p.m.,5:17 p.m.
 1893,flytecomm,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,5:05 p.m.,5:17 p.m.
 1894,foxbusiness,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,5:05 p.m.,5:17 p.m.
 1895,gofox,UA-2830-MCO-CLT,3:27 p.m.,3:27 p.m.,5:05 p.m.,7:15 a.m.
@@ -1915,7 +1915,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1914,flightview,UA-2906-PHL-MCO,3:50 p.m.,7:25 a.m.,6:23 p.m.,6:38 p.m.
 1915,flylouisville,UA-2906-PHL-MCO,3:50 p.m.,4:28 p.m.,6:23 p.m.,6:38 p.m.
 1916,flytecomm,UA-2906-PHL-MCO,3:50 p.m.,4:28 p.m.,6:23 p.m.,6:38 p.m.
-1917,8:23 p.m.,UA-2906-PHL-MCO,3:50 p.m.,4:28 p.m.,6:23 p.m.,6:38 p.m.
+1917,8:23 p.m.,3:30 p.m.,3:50 p.m.,flights,6:23 p.m.,6:38 p.m.
 1918,gofox,UA-2906-PHL-MCO,3:50 p.m.,4:28 p.m.,6:23 p.m.,11:01 a.m.
 1919,7:29 a.m.,UA-2906-PHL-MCO,3:50 p.m.,4:28 p.m.,6:23 p.m.,6:38 p.m.
 1920,ifly,UA-2906-PHL-MCO,3:50 p.m.,4:28 p.m.,6:23 p.m.,6:38 p.m.
@@ -1940,7 +1940,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 1939,flytecomm,UA-2945-PHL-CLT,12:00 a.m.,3:11 a.m.,1:45 p.m.,1:15 p.m.
 1940,foxbusiness,UA-2945-PHL-CLT,12:00 a.m.,3:11 a.m.,1:45 p.m.,AA-3823-LAX-DEN
 1941,gofox,UA-2945-PHL-CLT,12:00 a.m.,3:11 a.m.,1:45 p.m.,1:15 p.m.
-1942,helloflight,UA-2945-PHL-CLT,12:00 a.m.,world-flight-tracker,1:45 p.m.,1:15 p.m.
+1942,helloflight,UA-2945-PHL-CLT,12:00 a.m.,3:11 a.m.,1:45 p.m.,1:15 p.m.
 1943,myrateplan,UA-2945-PHL-CLT,12:00 a.m.,3:11 a.m.,1:45 p.m.,1:15 p.m.
 1944,mytripandmore,UA-2945-PHL-CLT,12:00 a.m.,3:11 a.m.,9:52 p.m.,1:15 p.m.
 1945,orbitz,UA-2945-PHL-CLT,12:00 a.m.,3:11 a.m.,1:45 p.m.,1:15 p.m.
@@ -2002,7 +2002,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2001,wunderground,UA-3099-PHX-PHL,11:55 a.m.,11:55 a.m.,6:17 p.m.,5:38 p.m.
 2002,airtravelcenter,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,10:20 a.m.
 2003,allegiantair,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
-2004,boston,UA-3373-IAD-PHL,AA-1886-BOS-MIA,1:30 p.m.,9:24 a.m.,9:13 a.m.
+2004,boston,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
 2005,businesstravellogue,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
 2006,flightarrival,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
 2007,flightexplorer,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
@@ -2012,7 +2012,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2011,flylouisville,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,7:22 a.m.
 2012,flytecomm,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
 2013,foxbusiness,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,AA-446-DFW-PHL,9:13 a.m.
-2014,gofox,UA-3373-IAD-PHL,8:29 a.m.,8:35 a.m.,9:24 a.m.,9:13 a.m.
+2014,gofox,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
 2015,helloflight,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
 2016,ifly,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
 2017,myrateplan,UA-3373-IAD-PHL,8:29 a.m.,8:26 a.m.,9:24 a.m.,9:13 a.m.
@@ -2047,18 +2047,18 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2046,allegiantair,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2047,boston,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2048,businesstravellogue,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
-2049,flightarrival,UA-37-EDI-EWR,9:05 a.m.,10:25 a.m.,11:53 a.m.,12:09 p.m.
+2049,flightarrival,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2050,flights,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2051,flightview,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2052,flylouisville,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,6:46 p.m.
 2053,flytecomm,6:55 a.m.,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
-2054,foxbusiness,UA-37-EDI-EWR,3:31 p.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
+2054,foxbusiness,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2055,gofox,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:06 a.m.,12:09 p.m.
 2056,helloflight,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2057,myrateplan,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2058,mytripandmore,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2059,orbitz,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
-2060,panynj,UA-37-EDI-EWR,UA-2314-ATL-PHL,8:52 a.m.,11:53 a.m.,12:09 p.m.
+2060,panynj,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2061,travelocity,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2062,ua,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
 2063,usatoday,UA-37-EDI-EWR,9:05 a.m.,8:52 a.m.,11:53 a.m.,12:09 p.m.
@@ -2082,7 +2082,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2081,orbitz,UA-37-EWR-MCO,1:29 p.m.,1:48 p.m.,4:17 p.m.,4:17 p.m.
 2082,panynj,UA-37-EWR-MCO,1:29 p.m.,1:48 p.m.,4:17 p.m.,4:17 p.m.
 2083,quicktrip,UA-37-EWR-MCO,1:29 p.m.,1:48 p.m.,4:17 p.m.,4:17 p.m.
-2084,ua,UA-37-EWR-MCO,1:29 p.m.,1:48 p.m.,4:17 p.m.,4:17 p.m.
+2084,ua,UA-37-EWR-MCO,1:29 p.m.,CO-52-IAH-LAX,4:17 p.m.,4:17 p.m.
 2085,wunderground,UA-37-EWR-MCO,1:29 p.m.,1:48 p.m.,4:17 p.m.,4:17 p.m.
 2086,airtravelcenter,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
 2087,allegiantair,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,11:55 p.m.
@@ -2097,7 +2097,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2096,flylouisville,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
 2097,flytecomm,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
 2098,foxbusiness,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
-2099,gofox,UA-382-IAD-LAX,8:12 a.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
+2099,gofox,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
 2100,helloflight,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
 2101,iad,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
 2102,myrateplan,UA-382-IAD-LAX,12:30 p.m.,12:35 p.m.,3:19 p.m.,3:21 p.m.
@@ -2117,7 +2117,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2116,flightexplorer,UA-3925-IAD-ORF,8:41 a.m.,8:42 a.m.,9:54 a.m.,9:43 a.m.
 2117,flights,UA-3925-IAD-ORF,8:41 a.m.,8:42 a.m.,9:54 a.m.,9:43 a.m.
 2118,flightstats,UA-3925-IAD-ORF,8:41 a.m.,8:42 a.m.,9:54 a.m.,9:43 a.m.
-2119,flightview,UA-3925-IAD-ORF,AA-789-ORD-DEN,8:42 a.m.,9:54 a.m.,9:43 a.m.
+2119,flightview,UA-3925-IAD-ORF,8:41 a.m.,8:42 a.m.,9:54 a.m.,9:43 a.m.
 2120,flightwise,UA-3925-IAD-ORF,8:41 a.m.,8:42 a.m.,9:54 a.m.,9:43 a.m.
 2121,flylouisville,UA-3925-IAD-ORF,8:41 a.m.,8:42 a.m.,9:54 a.m.,9:43 a.m.
 2122,flytecomm,UA-3925-IAD-ORF,8:41 a.m.,8:42 a.m.,9:54 a.m.,9:43 a.m.
@@ -2163,7 +2163,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2162,businesstravellogue,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
 2163,flightarrival,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
 2164,flightexplorer,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
-2165,flights,AA-3842-MSP-ORD,6:00 a.m.,6:56 a.m.,7:30 a.m.,7:17 a.m.
+2165,flights,mco,6:00 a.m.,5:56 a.m.,flights,7:17 a.m.
 2166,flightstats,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
 2167,flightview,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
 2168,8:51 a.m.,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
@@ -2176,7 +2176,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2175,panynj,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
 2176,quicktrip,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
 2177,sfo,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
-2178,9:45 a.m.,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
+2178,9:45 a.m.,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,11:12 a.m.,7:17 a.m.
 2179,ua,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
 2180,usatoday,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
 2181,weather,UA-414-LAX-SFO,6:00 a.m.,5:56 a.m.,7:23 a.m.,7:17 a.m.
@@ -2198,21 +2198,21 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2197,4:00 p.m.,UA-5487-SFO-MRY,10:39 a.m.,10:33 a.m.,11:19 a.m.,11:21 a.m.
 2198,ua,UA-5487-SFO-MRY,10:39 a.m.,ifly,11:19 a.m.,11:21 a.m.
 2199,weather,UA-5487-SFO-MRY,1:19 p.m.,10:33 a.m.,11:19 a.m.,11:21 a.m.
-2200,airtravelcenter,UA-62-IAH-EWR,6:45 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
+2200,airtravelcenter,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2201,allegiantair,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2202,boston,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
-2203,businesstravellogue,UA-62-IAH-EWR,2:30 p.m.,7:53 a.m.,7:03 p.m.,7:10 p.m.
+2203,businesstravellogue,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2204,flights,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2205,flightstats,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2206,flightview,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2207,flylouisville,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2208,flytecomm,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
-2209,foxbusiness,UA-62-IAH-EWR,3:50 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
+2209,foxbusiness,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2210,gofox,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2211,helloflight,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2212,ifly,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
-2213,myrateplan,UA-62-IAH-EWR,2:30 p.m.,UA-3373-IAD-PHL,7:03 p.m.,7:10 p.m.
-2214,orbitz,UA-62-IAH-EWR,AA-204-LAX-MCO,2:48 p.m.,7:03 p.m.,7:10 p.m.
+2213,myrateplan,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
+2214,orbitz,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2215,panynj,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2216,quicktrip,UA-62-IAH-EWR,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
 2217,travelocity,CO,2:30 p.m.,2:48 p.m.,7:03 p.m.,7:10 p.m.
@@ -2222,9 +2222,9 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2221,allegiantair,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
 2222,boston,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
 2223,businesstravellogue,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
-2224,flightarrival,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
-2225,flightexplorer,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
-2226,flights,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
+2224,flightarrival,UA-6273-YYC-SFO,7:35 a.m.,11:06 a.m.,9:43 a.m.,8:45 a.m.
+2225,flightexplorer,UA-6273-YYC-SFO,7:35 a.m.,3:05 p.m.,9:43 a.m.,8:45 a.m.
+2226,flights,myrateplan,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
 2227,flightview,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
 2228,flylouisville,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
 2229,flytecomm,UA-6273-YYC-SFO,7:35 a.m.,7:27 a.m.,9:43 a.m.,8:45 a.m.
@@ -2249,14 +2249,14 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2248,flights,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2249,flightstats,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2250,flightview,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
-2251,flightwise,UA-664-ORD-PHL,1:33 p.m.,phl,4:31 p.m.,4:23 p.m.
-2252,10:39 a.m.,UA-664-ORD-PHL,6:46 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
+2251,flightwise,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
+2252,10:39 a.m.,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2253,flytecomm,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2254,foxbusiness,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2255,gofox,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2256,helloflight,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2257,ifly,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
-2258,myrateplan,UA-664-ORD-PHL,mytripandmore,1:31 p.m.,4:31 p.m.,4:23 p.m.
+2258,myrateplan,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2259,orbitz,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2260,ord,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2261,panynj,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
@@ -2269,7 +2269,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2268,world-flight-tracker,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2269,wunderground,UA-664-ORD-PHL,1:33 p.m.,1:31 p.m.,4:31 p.m.,4:23 p.m.
 2270,airtravelcenter,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:25 p.m.
-2271,allegiantair,UA-828-SFO-ORD,10:55 a.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
+2271,allegiantair,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
 2272,8:26 a.m.,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
 2273,businesstravellogue,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
 2274,flightarrival,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
@@ -2279,7 +2279,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2278,flightstats,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
 2279,flightview,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
 2280,flylouisville,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,9:20 a.m.
-2281,flytecomm,UA-828-SFO-ORD,11:08 p.m.,UA-2945-PHL-CLT,5:11 a.m.,5:11 a.m.
+2281,flytecomm,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
 2282,foxbusiness,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,4:00 p.m.,5:11 a.m.
 2283,gofox,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
 2284,helloflight,UA-828-SFO-ORD,11:08 p.m.,11:08 p.m.,5:11 a.m.,5:11 a.m.
@@ -2308,7 +2308,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2307,orbitz,UA-843-LAX-ORD,1:55 p.m.,2:10 p.m.,7:53 p.m.,7:58 p.m.
 2308,ord,UA-843-LAX-ORD,1:55 p.m.,2:10 p.m.,7:53 p.m.,7:58 p.m.
 2309,panynj,UA-843-LAX-ORD,1:55 p.m.,2:10 p.m.,7:53 p.m.,7:58 p.m.
-2310,5:34 p.m.,UA-843-LAX-ORD,1:55 p.m.,2:10 p.m.,7:53 p.m.,7:58 p.m.
+2310,5:34 p.m.,1:45 p.m.,1:55 p.m.,2:10 p.m.,7:53 p.m.,7:58 p.m.
 2311,travelocity,UA-843-LAX-ORD,1:55 p.m.,2:10 p.m.,7:53 p.m.,AA-1544-SAN-ORD
 2312,ua,UA-843-LAX-ORD,1:55 p.m.,2:10 p.m.,7:53 p.m.,7:58 p.m.
 2313,usatoday,UA-843-LAX-ORD,1:55 p.m.,2:10 p.m.,7:53 p.m.,7:58 p.m.
@@ -2317,8 +2317,8 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2316,allegiantair,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2317,boston,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2318,businesstravellogue,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
-2319,flightarrival,AA-59-JFK-SFO,7:10 a.m.,7:39 a.m.,10:45 a.m.,1:30 p.m.
-2320,flights,UA-854-SFO-IAH,1:15 p.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
+2319,flightarrival,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
+2320,flights,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2321,flightstats,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2322,flightview,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2323,flylouisville,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
@@ -2327,7 +2327,7 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2326,gofox,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2327,helloflight,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2328,myrateplan,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,10:34 a.m.
-2329,orbitz,UA-854-SFO-IAH,7:53 a.m.,world-flight-tracker,1:39 p.m.,1:30 p.m.
+2329,orbitz,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2330,panynj,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2331,quicktrip,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
 2332,travelocity,UA-854-SFO-IAH,7:53 a.m.,7:49 a.m.,1:39 p.m.,1:30 p.m.
@@ -2347,10 +2347,10 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2346,gofox,UA-858-PVG-SFO,1:45 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
 2347,helloflight,UA-858-PVG-SFO,1:45 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
 2348,myrateplan,UA-858-PVG-SFO,1:45 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
-2349,orbitz,UA-858-PVG-SFO,1:45 p.m.,AA-3063-SLC-LAX,8:27 a.m.,8:02 a.m.
+2349,orbitz,UA-858-PVG-SFO,1:45 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
 2350,panynj,UA-858-PVG-SFO,1:45 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
 2351,travelocity,UA-858-PVG-SFO,1:45 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
-2352,ua,UA-858-PVG-SFO,12:09 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
+2352,ua,UA-858-PVG-SFO,1:45 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
 2353,weather,UA-858-PVG-SFO,1:45 p.m.,1:32 p.m.,8:27 a.m.,8:02 a.m.
 2354,airtravelcenter,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2355,allegiantair,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
@@ -2362,15 +2362,15 @@ ID,src,flight,sched_dep_time,act_dep_time,sched_arr_time,act_arr_time
 2361,flights,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2362,flightstats,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2363,flightview,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
-2364,flylouisville,UA-938-DEN-ORD,4:16 p.m.,7:30 a.m.,7:35 p.m.,7:36 p.m.
+2364,flylouisville,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2365,flytecomm,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,11:53 a.m.,7:36 p.m.
 2366,foxbusiness,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,11:52 a.m.,7:36 p.m.
 2367,gofox,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
-2368,helloflight,UA-938-DEN-ORD,orbitz,AA-204-LAX-MCO,7:35 p.m.,7:36 p.m.
+2368,helloflight,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2369,ifly,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2370,myrateplan,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2371,3:50 p.m.,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
-2372,ord,UA-938-DEN-ORD,8:27 a.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
+2372,ord,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2373,panynj,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2374,quicktrip,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.
 2375,ua,UA-938-DEN-ORD,4:16 p.m.,4:15 p.m.,7:35 p.m.,7:36 p.m.

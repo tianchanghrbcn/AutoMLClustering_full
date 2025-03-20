@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "D:\algorithm paper\AutoMLClustering\src\cleaning\google_gemini\gemini_cleaning.py", line 353, in <module>
+    main()
+  File "D:\algorithm paper\AutoMLClustering\src\cleaning\google_gemini\gemini_cleaning.py", line 336, in main
+    create_table_and_import_csv(input_csv)
+  File "D:\algorithm paper\AutoMLClustering\src\cleaning\google_gemini\gemini_cleaning.py", line 45, in create_table_and_import_csv
+    df = pd.read_csv(csv_file, dtype=str, keep_default_na=False, na_filter=False)
+  File "D:\programs\PythonPrograms\analyze_clusters\.venv\lib\site-packages\pandas\io\parsers\readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "D:\programs\PythonPrograms\analyze_clusters\.venv\lib\site-packages\pandas\io\parsers\readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "D:\programs\PythonPrograms\analyze_clusters\.venv\lib\site-packages\pandas\io\parsers\readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "D:\programs\PythonPrograms\analyze_clusters\.venv\lib\site-packages\pandas\io\parsers\readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "D:\programs\PythonPrograms\analyze_clusters\.venv\lib\site-packages\pandas\io\common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'data.csv'

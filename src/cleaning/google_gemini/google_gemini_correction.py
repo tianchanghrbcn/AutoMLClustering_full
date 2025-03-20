@@ -8,7 +8,10 @@ import json
 import time
 import asyncio
 import pandas as pd
+# ---------------------------------------
+# 改为仅使用顶级的 generativeai 而不是 genai.text
 import google.generativeai as genai
+# ---------------------------------------
 
 # -----------------------------------------------------------------
 # 1. Google Gemini API Key
@@ -66,8 +69,14 @@ def build_fix_prompt(df: pd.DataFrame, error_batch: list) -> str:
         "default_num": 0.055,
         "ipa_num": 0.06,
         "stout_num": 0.065,
-        "cities": ["Chicago", "New York", "San Diego", "Portland", "Austin", "Denver", "Seattle", "Houston", "Los Angeles"],
-        "states": ["CA", "NY", "TX", "IL", "WA", "OR", "CO", "FL", "MI", "NC", "IN", "AZ", "WI"]
+        "cities": [
+            "Chicago", "New York", "San Diego", "Portland", "Austin",
+            "Denver", "Seattle", "Houston", "Los Angeles"
+        ],
+        "states": [
+            "CA", "NY", "TX", "IL", "WA", "OR", "CO", "FL",
+            "MI", "NC", "IN", "AZ", "WI"
+        ]
     }
 
     stats_json = json.dumps(known_stats, indent=2)
@@ -87,7 +96,6 @@ def build_fix_prompt(df: pd.DataFrame, error_batch: list) -> str:
 
     batch_json = json.dumps(instructions_list, indent=2, ensure_ascii=False)
 
-    # 在提示中更加严格地要求：每个出错列都必须给出修正值。
     prompt = f"""
 We have some 'known_stats' for filling missing or invalid values:
 {stats_json}
@@ -98,9 +106,11 @@ You are a data cleaning expert. For each row in this batch:
    - For numeric columns, try to infer from known_stats or use 'default_num' if you're unsure.
    - For city/state, pick a likely option from known_stats if none is obvious from context.
    - Do not leave any missing value unfilled.
-3. If a numeric column is missing or invalid, do NOT just fill with 0.0 blindly. Infer from known_stats or use a sensible default/mean.
+3. If a numeric column is missing or invalid, do NOT just fill with 0.0 blindly. 
+   Use 'default_num' or another suitable value from known_stats.
 4. If city/state is missing or invalid, try to infer from known_stats or data context.
-5. You must NOT omit any column listed in 'errors'. If a column is in 'errors', you must provide a corrected value for it.
+5. You must NOT omit any column listed in 'errors'. 
+   If a column is in 'errors', you must provide a corrected value for it.
 6. Do NOT output disclaimers or extra text. Return a valid JSON that starts with {{ and ends with }}.
 7. JSON format:
 {{
@@ -118,18 +128,24 @@ Below is the batch (max 20 lines) in JSON:
 {batch_json}
 
 Now return the corrected JSON object only.
-"""
-    return prompt.strip()
+""".strip()
+
+    return prompt
 
 
 # -----------------------------------------------------------------
 # 5. Call Gemini
 # -----------------------------------------------------------------
 def call_gemini(prompt: str) -> str:
-    """Use gemini-2.0-flash to get the raw text response."""
-    model = genai.GenerativeModel(model_name='gemini-2.0-flash')
-    response = model.generate_content(prompt)
-    raw_text = response.text if (response and response.text) else ""
+    """Use gemini-2.0-flash to get the raw text response using new API."""
+    # ★★★ 改为顶级函数 generate_text(...) 而不是 text.generate_text ★★★
+    response = genai.generate_text(
+        model="models/gemini-2.0-flash",
+        prompt=prompt,
+        temperature=0.2,
+        max_output_tokens=256,
+    )
+    raw_text = response.generated_text if response and response.generated_text else ""
     return raw_text.strip()
 
 
@@ -208,7 +224,7 @@ def parse_raw_corrections(raw_file: str) -> dict:
         cleaned = re.sub(r"```(json)?", "", raw_txt)
         cleaned = re.sub(r"```", "", cleaned).strip()
 
-        # 首先尝试解析大模型返回的 JSON
+        # 尝试解析大模型返回的 JSON
         partial_dict = {}
         try:
             corr_obj = json.loads(cleaned)
@@ -224,7 +240,7 @@ def parse_raw_corrections(raw_file: str) -> dict:
         except json.JSONDecodeError as ex:
             print(f"❌ JSON parse error in batch {batch_item.get('batch_num','?')}: {ex}")
 
-        # ========== 关键：补漏检查 / fallback 逻辑 ==========
+        # ========== 补漏检查 / fallback 逻辑 ==========
         error_lines = batch_item.get("error_lines", [])
         partial_dict = enforce_corrections_for_all_errors(error_lines, partial_dict)
 
@@ -244,13 +260,18 @@ def enforce_corrections_for_all_errors(error_lines, partial_dict):
     如果某个 (row_str, col) 本来在 errors 里，但模型没给修正值，
     则使用 fallback 填充。
     """
-    # 可复用和 prompt 中一致的 known_stats
     known_stats = {
         "default_num": 0.055,
         "ipa_num": 0.06,
         "stout_num": 0.065,
-        "cities": ["Chicago", "New York", "San Diego", "Portland", "Austin", "Denver", "Seattle", "Houston", "Los Angeles"],
-        "states": ["CA", "NY", "TX", "IL", "WA", "OR", "CO", "FL", "MI", "NC", "IN", "AZ", "WI"]
+        "cities": [
+            "Chicago", "New York", "San Diego", "Portland", "Austin",
+            "Denver", "Seattle", "Houston", "Los Angeles"
+        ],
+        "states": [
+            "CA", "NY", "TX", "IL", "WA", "OR", "CO", "FL",
+            "MI", "NC", "IN", "AZ", "WI"
+        ]
     }
 
     for (row_str, col_errors) in error_lines:
@@ -267,14 +288,6 @@ def enforce_corrections_for_all_errors(error_lines, partial_dict):
 
 
 def fallback_value(col, err_desc, known_stats):
-    """
-    如果模型遗漏某列的修正值，则这里给一个缺省值。
-    简单逻辑演示：
-      1) 如果列名包含 city => 返回 known_stats['cities'][0]
-      2) 如果列名包含 state => 返回 known_stats['states'][0]
-      3) 否则一律用 known_stats['default_num']
-    你也可以做更复杂的推断。
-    """
     lower_col = col.lower()
     if "city" in lower_col:
         return known_stats["cities"][0]  # "Chicago"
@@ -288,8 +301,6 @@ def fallback_value(col, err_desc, known_stats):
 # 8. Main
 # -----------------------------------------------------------------
 if __name__ == "__main__":
-    import sys
-
     if len(sys.argv) < 3:
         print("Usage: python gemini_correction.py <csv_file> <error_json>")
         sys.exit(1)
@@ -301,21 +312,23 @@ if __name__ == "__main__":
     df = load_csv(csv_file)
     errors_dict = load_error_dict(error_json)
 
+    # Windows-specific event loop fix
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
     start_time = time.time()
+
     # run batch corrections
     raw_corrections = asyncio.run(run_batch_corrections(df, errors_dict, batch_size=20))
 
     # save raw
-    with open("raw_gemini_correction.json","w",encoding="utf-8") as f:
+    with open("raw_gemini_correction.json", "w", encoding="utf-8") as f:
         json.dump(raw_corrections, f, indent=4, ensure_ascii=False)
     print("\n✅ raw_gemini_correction.json saved.")
 
     # parse => gemini_corrections.json
     final_corrections = parse_raw_corrections("raw_gemini_correction.json")
-    with open("gemini_corrections.json","w",encoding="utf-8") as f:
+    with open("gemini_corrections.json", "w", encoding="utf-8") as f:
         json.dump(final_corrections, f, indent=4, ensure_ascii=False)
 
     cost = time.time() - start_time
