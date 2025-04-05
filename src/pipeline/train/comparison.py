@@ -13,21 +13,9 @@ CLEANING_METHODS = ["mode", "bigdansing", "boostclean", "holoclean", "horizon", 
 
 # （2）工具函数：解析 explanation.txt 内容
 def parse_explanation_file(explanation_path):
-    """
-    读取 explanation.txt, 返回一个 dict:
-        {
-          num (int): {
-              "scenario_info": "xx",
-              "details": "xx"
-          },
-          ...
-        }
-    其中 scenario_info 可能包含 "num_scenario=xxx, cat_scenario=xxx, rate=5%"，
-         details 可能包含 "anomaly=2.50%, missing=0.00%, format=1.25%, knowledge=1.25%"
-    """
     scenario_dict = {}
+
     if not os.path.isfile(explanation_path):
-        # 如果不存在该文件，返回空
         return scenario_dict
 
     with open(explanation_path, 'r', encoding='utf-8') as f:
@@ -37,26 +25,20 @@ def parse_explanation_file(explanation_path):
             if not line:
                 continue
 
-            # 匹配形如  "5 => num_scenario=only_anomaly, cat_scenario=half_half, rate=5%"
-            # 也可能出现 "   => anomaly=2.50%, missing=..."
+            # Match lines like "5 => anomaly=0%, missing=5%"
             match = re.match(r'^(\d+)\s*=>\s*(.*)$', line)
             if match:
-                # 第一次: 5 => num_scenario=..., cat_scenario=..., rate=...
                 current_num = int(match.group(1))
-                scenario_info = match.group(2).strip()
+                details = match.group(2).strip()
                 scenario_dict[current_num] = {
-                    "scenario_info": scenario_info,
-                    "details": ""
+                    "details": details,
+                    "scenario_info": ""
                 }
             else:
-                # 可能是 "=> anomaly=2.50%, missing=0.00%, ..."
-                # 去除开头 "=>" 之类
-                if line.startswith("=>"):
-                    line = line[2:].strip()
-
-                if current_num is not None:
-                    # 追加到 details
-                    scenario_dict[current_num]["details"] = line
+                # If a line is enclosed in parentheses, treat it as scenario_info
+                match_info = re.match(r'^\((.*)\)$', line)
+                if match_info and current_num is not None:
+                    scenario_dict[current_num]["scenario_info"] = match_info.group(1).strip()
 
     return scenario_dict
 
@@ -71,9 +53,6 @@ def main():
     with open(eigenvectors_fullpath, 'r', encoding='utf-8') as f:
         eigen_data = json.load(f)  # eigen_data是一个list，每个元素是个dict
 
-    # 构建对照： (task_name, num) -> [record, record, ...]
-    # 因为可能有多个 dataset_id 指向同一个 "csv_file"
-    # dictionary: { "flights_5": [ {...}, {...} ], ... }
     file_map = {}
     for rec in eigen_data:
         task_name = rec["dataset_name"]  # e.g. "flights"

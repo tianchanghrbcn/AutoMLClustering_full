@@ -32,8 +32,8 @@ except FileNotFoundError:
 start_time = time.time()
 
 # 定义 alpha 和 beta 权重
-alpha = 0.75
-beta = 0.25
+alpha = 0.5
+beta = 0.5
 
 # 排除包含 'id' 的列
 excluded_columns = [col for col in df.columns if 'id' in col.lower()]

@@ -75,7 +75,7 @@ def objective(trial):
     except ValueError:
         return float('-inf')  # 跳过异常情况
 
-    alpha, beta = 0.75, 0.25
+    alpha, beta = 0.5, 0.5
     combined_score = (alpha * (1 / db_score) + beta * silhouette_avg) * noise_penalty
     return combined_score
 
@@ -112,7 +112,7 @@ with open(output_txt_file, 'w', encoding='utf-8') as f:
     f.write(f"Number of clusters: {n_clusters_final}\n")
     f.write(f"Final Combined Score: {best_combined_score}\n")
     f.write(f"Final Silhouette Score: {silhouette_avg}\n")
-    f.write(f"Final Davies-Bouldin score: {db_score}\n")
+    f.write(f"Final Davies-Bouldin Score: {db_score}\n")
 
 print(f"Text output saved to {output_txt_file}")
 

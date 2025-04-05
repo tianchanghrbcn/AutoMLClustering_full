@@ -138,7 +138,7 @@ with open(output_txt_file, 'w', encoding='utf-8') as f:
     output_txt.append(f"Number of clusters: {best_n_clusters}")
     output_txt.append(f"Final Combined Score: {final_combined_score}")
     output_txt.append(f"Final Silhouette Score: {final_silhouette_score}")
-    output_txt.append(f"Final Davies-Bouldin score: {final_db_score}")
+    output_txt.append(f"Final Davies-Bouldin Score: {final_db_score}")
     f.write("\n".join(output_txt))
 
 print(f"Text output saved to {output_txt_file}")

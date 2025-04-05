@@ -1,56 +1,47 @@
 Explanation of error combos for task: hospital
 
-1 => num_scenario=only_anomaly, cat_scenario=only_format, rate=5%
-  => anomaly=2.50%, missing=0.00%, format=2.50%, knowledge=0.00%
+1 => anomaly=0%, missing=5%
+   (These rates are applied independently to different cells)
 
-2 => num_scenario=only_anomaly, cat_scenario=only_format, rate=10%
-  => anomaly=5.00%, missing=0.00%, format=5.00%, knowledge=0.00%
+2 => anomaly=0%, missing=10%
+   (These rates are applied independently to different cells)
 
-3 => num_scenario=only_anomaly, cat_scenario=only_knowledge, rate=5%
-  => anomaly=2.50%, missing=0.00%, format=0.00%, knowledge=2.50%
+3 => anomaly=0%, missing=15%
+   (These rates are applied independently to different cells)
 
-4 => num_scenario=only_anomaly, cat_scenario=only_knowledge, rate=10%
-  => anomaly=5.00%, missing=0.00%, format=0.00%, knowledge=5.00%
+4 => anomaly=5%, missing=0%
+   (These rates are applied independently to different cells)
 
-5 => num_scenario=only_anomaly, cat_scenario=half_half, rate=5%
-  => anomaly=2.50%, missing=0.00%, format=1.25%, knowledge=1.25%
+5 => anomaly=5%, missing=5%
+   (These rates are applied independently to different cells)
 
-6 => num_scenario=only_anomaly, cat_scenario=half_half, rate=10%
-  => anomaly=5.00%, missing=0.00%, format=2.50%, knowledge=2.50%
+6 => anomaly=5%, missing=10%
+   (These rates are applied independently to different cells)
 
-7 => num_scenario=only_missing, cat_scenario=only_format, rate=5%
-  => anomaly=0.00%, missing=2.50%, format=2.50%, knowledge=0.00%
+7 => anomaly=5%, missing=15%
+   (These rates are applied independently to different cells)
 
-8 => num_scenario=only_missing, cat_scenario=only_format, rate=10%
-  => anomaly=0.00%, missing=5.00%, format=5.00%, knowledge=0.00%
+8 => anomaly=10%, missing=0%
+   (These rates are applied independently to different cells)
 
-9 => num_scenario=only_missing, cat_scenario=only_knowledge, rate=5%
-  => anomaly=0.00%, missing=2.50%, format=0.00%, knowledge=2.50%
+9 => anomaly=10%, missing=5%
+   (These rates are applied independently to different cells)
 
-10 => num_scenario=only_missing, cat_scenario=only_knowledge, rate=10%
-  => anomaly=0.00%, missing=5.00%, format=0.00%, knowledge=5.00%
+10 => anomaly=10%, missing=10%
+   (These rates are applied independently to different cells)
 
-11 => num_scenario=only_missing, cat_scenario=half_half, rate=5%
-  => anomaly=0.00%, missing=2.50%, format=1.25%, knowledge=1.25%
+11 => anomaly=10%, missing=15%
+   (These rates are applied independently to different cells)
 
-12 => num_scenario=only_missing, cat_scenario=half_half, rate=10%
-  => anomaly=0.00%, missing=5.00%, format=2.50%, knowledge=2.50%
+12 => anomaly=15%, missing=0%
+   (These rates are applied independently to different cells)
 
-13 => num_scenario=half_half, cat_scenario=only_format, rate=5%
-  => anomaly=1.25%, missing=1.25%, format=2.50%, knowledge=0.00%
+13 => anomaly=15%, missing=5%
+   (These rates are applied independently to different cells)
 
-14 => num_scenario=half_half, cat_scenario=only_format, rate=10%
-  => anomaly=2.50%, missing=2.50%, format=5.00%, knowledge=0.00%
+14 => anomaly=15%, missing=10%
+   (These rates are applied independently to different cells)
 
-15 => num_scenario=half_half, cat_scenario=only_knowledge, rate=5%
-  => anomaly=1.25%, missing=1.25%, format=0.00%, knowledge=2.50%
-
-16 => num_scenario=half_half, cat_scenario=only_knowledge, rate=10%
-  => anomaly=2.50%, missing=2.50%, format=0.00%, knowledge=5.00%
-
-17 => num_scenario=half_half, cat_scenario=half_half, rate=5%
-  => anomaly=1.25%, missing=1.25%, format=1.25%, knowledge=1.25%
-
-18 => num_scenario=half_half, cat_scenario=half_half, rate=10%
-  => anomaly=2.50%, missing=2.50%, format=2.50%, knowledge=2.50%
+15 => anomaly=15%, missing=15%
+   (These rates are applied independently to different cells)
 

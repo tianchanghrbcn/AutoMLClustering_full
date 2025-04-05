@@ -5,8 +5,8 @@ import time
 import re  # 用于解析 stdout 输出
 import subprocess
 
-def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path, output_dir):
 
+def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path, output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
     # 给每个算法固定起一个名称，方便后续处理
@@ -44,14 +44,13 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
     # 算法 1：mode
     if algorithm_id == 1:
         command = [
-            "python", "../../cleaning/mode/correction_with_mode.py",
+            "python", "../../cleaning/mode/mode.py",
             "--clean_path", clean_csv_path,
             "--dirty_path", dataset_path,
-            "--task_name", task_name_1
+            "--task_name", task_name_2
         ]
 
         try:
-            # **直接在指定 conda 环境下运行 HoloClean**
             subprocess.run(command, check=True)
             print(f"[INFO] Mode 任务 `{task_name_2}` 运行成功！")
         except subprocess.CalledProcessError as e:
@@ -86,7 +85,8 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
     elif algorithm_id == 3:
 
         command = [
-            "timeout", "1d", "/root/miniconda3/envs/hc37/bin/python", "/root/AutoMLClustering/src/cleaning/holoclean-master/holoclean_run.py",
+            "timeout", "1d", "/root/miniconda3/envs/hc37/bin/python",
+            "/root/AutoMLClustering/src/cleaning/holoclean-master/holoclean_run.py",
             "--dirty_path", dataset_path,
             "--clean_path", clean_csv_path,
             "--task_name", task_name_2,
@@ -125,7 +125,8 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
     elif algorithm_id == 5:
 
         command = [
-            "/root/miniconda3/envs/activedetect/bin/python", "../../cleaning/BoostClean/activedetect/experiments/Experiment.py",
+            "/root/miniconda3/envs/activedetect/bin/python",
+            "../../cleaning/BoostClean/activedetect/experiments/Experiment.py",
             "--task_name", task_name_2,
             "--rule_path", rule_path,
             "--onlyed", "0",
@@ -227,7 +228,7 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
 
     # ========== 执行命令并捕获输出 ==========
 
-    if algorithm_id in [1, 2]:
+    if algorithm_id in [2]:
 
         try:
             print(f"运行清洗算法 {algorithm_id}（{algo_name}），数据集编号: {dataset_id}")
@@ -298,7 +299,7 @@ def run_error_correction(dataset_path, dataset_id, algorithm_id, clean_csv_path,
             if pattern.match(filename):
                 repaired_csv_name = filename
                 break  # 如果只需要第一个符合条件的文件，则可以break
-        
+
         repaired_file_path = os.path.join(repaired_res_dir, repaired_csv_name)
 
         if not os.path.isfile(repaired_file_path):

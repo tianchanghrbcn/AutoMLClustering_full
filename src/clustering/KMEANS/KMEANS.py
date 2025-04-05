@@ -33,8 +33,8 @@ except FileNotFoundError:
 start_time = time.time()
 
 # 定义 alpha 和 beta 权重
-alpha = 0.75
-beta = 0.25
+alpha = 0.5
+beta = 0.5
 
 # 排除包含 'id' 的列
 excluded_columns = [col for col in df.columns if 'id' in col.lower()]
@@ -138,7 +138,7 @@ with open(output_txt_file, 'w', encoding='utf-8') as f:
         f"Number of clusters: {final_best_k}",
         f"Final Combined Score: {final_combined_score}",
         f"Final Silhouette Score: {final_silhouette_score}",
-        f"Final Davies-Bouldin score: {final_db_score}"
+        f"Final Davies-Bouldin Score: {final_db_score}"
     ]
     f.write("\n".join(output_txt))
 print(f"Text output saved to {output_txt_file}")

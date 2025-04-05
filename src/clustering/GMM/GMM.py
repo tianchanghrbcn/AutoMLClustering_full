@@ -50,8 +50,8 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # 定义 alpha 和 beta 权重
-alpha = 0.75
-beta = 0.25
+alpha = 0.5
+beta = 0.5
 
 # 第一轮：使用 Optuna 进行初步的簇数优化
 def objective(trial):
@@ -153,7 +153,7 @@ with open(output_txt_file, 'w', encoding='utf-8') as f:
         f"Best parameters: n_components={final_best_k}, covariance type={best_cov_type}",
         f"Final Combined Score: {final_combined_score}",
         f"Final Silhouette Score: {final_silhouette_score}",
-        f"Final Davies-Bouldin score: {final_db_score}"
+        f"Final Davies-Bouldin Score: {final_db_score}"
     ]
     f.write("\n".join(output_txt))
 print(f"Text output saved to {output_txt_file}")

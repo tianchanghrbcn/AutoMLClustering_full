@@ -36,7 +36,7 @@ def process_record(record_idx, record, work_dir):
     # 这里列出所有清洗算法名称，对应 cleaned_data/{algo_name}/repaired_{dataset_id}.csv
     strategies = {
         1: "mode",
-        2: "raha_baran",
+        2: "baran",
         3: "holoclean",
         4: "bigdansing",
         5: "boostclean",
