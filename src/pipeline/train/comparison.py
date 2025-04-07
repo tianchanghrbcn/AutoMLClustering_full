@@ -8,7 +8,7 @@ import re
 # （1）先定义关键路径 & 全局变量
 EIGENVECTORS_PATH = "../../../results/eigenvectors.json"  # 3层向上到 results/eigenvectors.json
 TASK_NAMES = ["beers", "flights", "hospital", "rayyan"]
-CLEANING_METHODS = ["mode", "bigdansing", "boostclean", "holoclean", "horizon", "scared", "baran", "Unified"]
+CLEANING_METHODS = ["mode", "bigdansing", "boostclean", "holoclean", "horizon", "scared", "baran", "Unified", "GroundTruth"]
 
 
 # （2）工具函数：解析 explanation.txt 内容

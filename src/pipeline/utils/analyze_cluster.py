@@ -14,7 +14,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # 任务和清洗方法列表（仅处理这几个任务和方法）
 TASK_NAMES = ["beers", "flights", "hospital", "rayyan"]
-CLEANING_METHODS = ["mode", "bigdansing", "boostclean", "holoclean", "horizon", "scared", "baran", "Unified"]
+CLEANING_METHODS = ["mode", "bigdansing", "boostclean", "holoclean", "horizon", "scared", "baran", "Unified", "GroundTruth"]
 # 聚类算法列表
 CLUSTER_METHODS = ["KMEANSNF", "GMM", "HC", "KMEANS", "KMEANSPPS"]
 

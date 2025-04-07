@@ -4,6 +4,9 @@ import pandas as pd
 import numpy as np
 import csv
 
+from src.pipeline.train.distribution_analysis import parse_details
+
+
 def main():
     # 1. 读取配置文件（相对于脚本位置）
     comparison_path = os.path.normpath(os.path.join(os.path.dirname(__file__),
@@ -22,8 +25,13 @@ def main():
         error_rate = item["error_rate"]
         m_ = item["m"]
         n_ = item["n"]
-        anomaly = item.get("anomaly", 0)
-        missing = item.get("missing", 0)
+
+        # 从 details 中解析 anomaly, missing
+        details_str = item.get("details", "")
+        d_dict = parse_details(details_str)
+        anomaly = d_dict["anomaly"]
+        missing = d_dict["missing"]
+
 
         # 读取相对于 comparison.json 的路径 => 需要拼接
         clean_csv_path = os.path.normpath(os.path.join(os.path.dirname(comparison_path),
