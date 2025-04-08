@@ -3,6 +3,15 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# 在所有绘图之前统一设置字体为 Times New Roman
+plt.rcParams["font.family"] = "Times New Roman"
+
+# 增大横纵坐标刻度数字的字体大小
+plt.rcParams["xtick.labelsize"] = 14
+plt.rcParams["ytick.labelsize"] = 14
+
+# 增大标题字体（axes标题）大小
+plt.rcParams["axes.titlesize"] = 16
 
 def plot_cleaning_effect_sub(ax, df, task_name):
     """
@@ -99,11 +108,11 @@ def main():
 
     # 图1: 不同清洗方法(4子图)
     fig1, axs1 = plt.subplots(2, 2, figsize=(14, 10))
-    fig1.suptitle("Figure 1: Different Cleaning Methods (Median of Precision/Recall/F1/EDR)")
+    fig1.suptitle("Figure 1: Different Cleaning Methods (Median of Precision/Recall/F1/EDR)", fontsize=20)
 
     # 图2: 不同聚类算法(4子图)
     fig2, axs2 = plt.subplots(2, 2, figsize=(14, 10))
-    fig2.suptitle("Figure 2: Different Cluster Methods (Median => Sil, DB(1-), Combined)")
+    fig2.suptitle("Figure 2: Different Cluster Methods (Median => Sil, DB(1-), Combined)", fontsize=20)
 
     for i, task in enumerate(task_names):
         data_file = os.path.join(data_dir, f"{task}_summary.xlsx")
@@ -132,8 +141,11 @@ def main():
 
     out_fig1 = os.path.join(data_dir, "figure1_cleaning_4tasks_median.png")
     out_fig2 = os.path.join(data_dir, "figure2_cluster_4tasks_median.png")
-    fig1.savefig(out_fig1, dpi=150)
-    fig2.savefig(out_fig2, dpi=150)
+
+    # 增加保存图片的分辨率（dpi）以提高清晰度
+    fig1.savefig(out_fig1, dpi=300)
+    fig2.savefig(out_fig2, dpi=300)
+
     plt.close(fig1)
     plt.close(fig2)
 

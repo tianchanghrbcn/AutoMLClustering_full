@@ -5,6 +5,17 @@ import os
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import matplotlib
+
+# 在绘图之前，统一设置字体为 Times New Roman
+matplotlib.rc('font', family='Times New Roman')
+
+# 增大横纵坐标轴刻度数字的字体大小
+plt.rcParams["xtick.labelsize"] = 14
+plt.rcParams["ytick.labelsize"] = 14
+
+# 增大标题字体（axes.titlesize）大小
+plt.rcParams["axes.titlesize"] = 16
 
 def plot_metric_for_all_tasks(task_names, data_dir, metric):
     """
@@ -13,7 +24,8 @@ def plot_metric_for_all_tasks(task_names, data_dir, metric):
     在每个子图中用箱线图 x=cleaning_method, y=metric, hue=cluster_method
     """
     fig, axs = plt.subplots(2, 2, figsize=(14, 10))
-    fig.suptitle(f"{metric} for 4 tasks (boxplot)")
+    # 增大 suptitle 字体
+    fig.suptitle(f"{metric} for 4 tasks (boxplot)", fontsize=20)
 
     # 遍历任务,把 (row,col) => i//2, i%2
     for i, task in enumerate(task_names):
@@ -37,6 +49,7 @@ def plot_metric_for_all_tasks(task_names, data_dir, metric):
             ax.set_title(f"{task} - No valid {metric}")
             continue
 
+        # 绘制箱线图
         sns.boxplot(
             x="cleaning_method",
             y=metric,
@@ -44,21 +57,27 @@ def plot_metric_for_all_tasks(task_names, data_dir, metric):
             data=df_plot,
             ax=ax
         )
+
         ax.set_title(f"{task} - {metric}")
         ax.tick_params(axis='x', rotation=45)
+
+        # 移除默认的 x、y 轴标签
+        ax.set_xlabel('')
+        ax.set_ylabel('')
 
         # 不要子图自己的legend
         if ax.get_legend() is not None:
             ax.get_legend().remove()
 
     # 全局添加legend (从第一个子图拿handles)
-    handles, labels = axs[0,0].get_legend_handles_labels() if axs[0,0].get_legend() else (None,None)
+    handles, labels = axs[0,0].get_legend_handles_labels() if axs[0,0].get_legend() else (None, None)
     if handles and labels:
         fig.legend(handles, labels, loc='upper right')
 
     fig.tight_layout(rect=[0,0,1,0.96])
     out_fig = os.path.join(data_dir, f"figure_relative_{metric}_4tasks.png")
-    plt.savefig(out_fig, dpi=150)
+    # 增大dpi提高清晰度
+    plt.savefig(out_fig, dpi=300)
     plt.close(fig)
     print(f"[INFO] Saved {metric} distribution for all 4 tasks => {out_fig}")
 

@@ -3,12 +3,19 @@
 
 import os
 import sys
-import pandas as pd
 import numpy as np
+import pandas as pd
 from scipy.stats import pearsonr
 
 import matplotlib.pyplot as plt
+import matplotlib
 import seaborn as sns
+
+# 在所有绘图代码执行之前，设置字体为 Times New Roman
+matplotlib.rc('font', family='Times New Roman')
+# 如果需要对 seaborn 的默认样式做进一步调整，也可以加:
+# sns.set_style("whitegrid")  # 如果想保留 seaborn 的白色网格风格
+# sns.set(font="Times New Roman")  # 进一步确保 seaborn 中也用 Times New Roman
 
 def main():
     # -------------------------------------------
@@ -134,7 +141,8 @@ def main():
             palette="RdBu",
             sizes=(20,200),
             alpha=0.8,
-            edgecolor="black"
+            edgecolor="black",
+            legend=False  # <--- 1) 去掉自动生成的 r_value 图例
         )
 
         # Colorbar
@@ -144,14 +152,17 @@ def main():
         cbar = plt.colorbar(sm)
         cbar.set_label(f"Pearson r ({x_metric} vs. {y_metric})")
 
-        plt.xticks(rotation=90)
-        plt.xlabel("dataset_id (sorted by max |r| desc)")
-        plt.ylabel("cluster_method")
+        # 2) 删除坐标轴标签
+        plt.xlabel('')
+        plt.ylabel('')
+
+        # 保留主标题（如不想保留可注释掉以下行）
         plt.title(f"Pearson r: {x_metric} vs. {y_metric}\n(dot size=|r|, color=sign(r))")
 
         out_png = os.path.join(out_dir, f"dot_{x_metric}_vs_{y_metric}_sorted.png")
         plt.tight_layout()
-        plt.savefig(out_png, dpi=120)
+        # 3) 提高图片清晰度
+        plt.savefig(out_png, dpi=300)
         plt.close()
         print(f"[INFO] => {out_png} saved.\n")
 
