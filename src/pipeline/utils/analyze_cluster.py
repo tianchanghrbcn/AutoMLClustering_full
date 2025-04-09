@@ -16,7 +16,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 TASK_NAMES = ["beers", "flights", "hospital", "rayyan"]
 CLEANING_METHODS = ["mode", "bigdansing", "boostclean", "holoclean", "horizon", "scared", "baran", "Unified", "GroundTruth"]
 # 聚类算法列表
-CLUSTER_METHODS = ["KMEANSNF", "GMM", "HC", "KMEANS", "KMEANSPPS"]
+CLUSTER_METHODS = ["KMEANSNF", "GMM", "HC", "KMEANS", "KMEANSPPS", "DBSCAN"]
 
 # 定义输出csv的字段顺序
 CSV_FIELDS = [

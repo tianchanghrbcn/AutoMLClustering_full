@@ -3,9 +3,9 @@
 
 import os
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # 在绘图之前，统一设置字体为 Times New Roman
 matplotlib.rc('font', family='Times New Roman')
@@ -26,6 +26,9 @@ def plot_metric_for_all_tasks(task_names, data_dir, metric):
     fig, axs = plt.subplots(2, 2, figsize=(14, 10))
     # 增大 suptitle 字体
     fig.suptitle(f"{metric} for 4 tasks (boxplot)", fontsize=20)
+
+    # 用于记录全局图例的句柄与标签
+    global_handles, global_labels = None, None
 
     # 遍历任务,把 (row,col) => i//2, i%2
     for i, task in enumerate(task_names):
@@ -60,23 +63,40 @@ def plot_metric_for_all_tasks(task_names, data_dir, metric):
 
         ax.set_title(f"{task} - {metric}")
         ax.tick_params(axis='x', rotation=45)
-
-        # 移除默认的 x、y 轴标签
+        # 移除子图自己的 x、y 轴标签
         ax.set_xlabel('')
         ax.set_ylabel('')
 
-        # 不要子图自己的legend
+        # 如果当前子图产生了图例，就获取其 handles 和 labels
         if ax.get_legend() is not None:
+            handles, labels = ax.get_legend_handles_labels()
+
+            # 如果全局还没保存过 handles, labels，则保存第一个有效子图的
+            if not global_handles and not global_labels:
+                global_handles, global_labels = handles, labels
+
+            # 移除子图自身的 legend（防止子图重复显示 legend）
             ax.get_legend().remove()
 
-    # 全局添加legend (从第一个子图拿handles)
-    handles, labels = axs[0,0].get_legend_handles_labels() if axs[0,0].get_legend() else (None, None)
-    if handles and labels:
-        fig.legend(handles, labels, loc='upper right')
+    # 如果成功获取到全局句柄和标签，则在主标题下方展示一个全局横向图例
+    if global_handles and global_labels:
+        fig.legend(
+            global_handles,
+            global_labels,
+            loc='upper center',
+            # bbox_to_anchor 的 (x=0.5, y=0.92) 表示图例居中且稍微贴近主标题
+            bbox_to_anchor=(0.5, 0.92),
+            ncol=len(global_labels),
+            title='Cluster Method',
+            fontsize=12,          # 适当增大图例字体
+            title_fontsize=14     # 适当增大图例标题字体
+        )
 
-    fig.tight_layout(rect=[0,0,1,0.96])
+    # 调整布局以防止重叠
+    # rect=[left, bottom, right, top], 让出一点顶部空间给 suptitle 和 legend
+    fig.tight_layout(rect=[0, 0, 1, 0.90])
     out_fig = os.path.join(data_dir, f"figure_relative_{metric}_4tasks.png")
-    # 增大dpi提高清晰度
+    # 增大 dpi 提高清晰度
     plt.savefig(out_fig, dpi=300)
     plt.close(fig)
     print(f"[INFO] Saved {metric} distribution for all 4 tasks => {out_fig}")
