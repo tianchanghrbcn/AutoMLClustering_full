@@ -162,7 +162,7 @@ def main():
         out_png = os.path.join(out_dir, f"dot_{x_metric}_vs_{y_metric}_sorted.png")
         plt.tight_layout()
         # 3) 提高图片清晰度
-        plt.savefig(out_png, dpi=300)
+        plt.savefig(out_png, dpi=300, bbox_inches="tight")
         plt.close()
         print(f"[INFO] => {out_png} saved.\n")
 

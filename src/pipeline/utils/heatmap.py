@@ -66,7 +66,7 @@ def plot_heatmap_for_each_task(df, data_dir, value_col='Comb_relative'):
         # 保存到与 xlsx 相同的目录
         outfile = os.path.join(data_dir, f"heatmap_{tname}_{value_col}.png")
         plt.tight_layout()
-        plt.savefig(outfile, dpi=300)  # 再次声明 dpi以防
+        plt.savefig(outfile, dpi=300, bbox_inches="tight")  # 再次声明 dpi以防
         plt.close()
         print(f"[INFO] 为 task_name={tname} 绘制的图已保存到: {outfile}")
 

@@ -150,7 +150,7 @@ def main():
 
         plt.tight_layout()
         out_png = os.path.join(out_dir, f"CEGR_5pct_{task}.png")
-        plt.savefig(out_png, dpi=300)
+        plt.savefig(out_png, dpi=300, bbox_inches="tight")
         plt.close()
 
         print(f"[INFO] => {out_png} saved for task={task}")
