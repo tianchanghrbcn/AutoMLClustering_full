@@ -1,147 +1,185 @@
 import os
 import time
 import math
-import pandas as pd
+import json
 import numpy as np
+import pandas as pd
 import optuna
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.metrics import silhouette_score, davies_bouldin_score
 from kneed import KneeLocator
+from sklearn.cluster import kmeans_plusplus
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
 
-# 获取 CSV 文件路径和环境变量参数
+# --------------------------------------------------
+# 0. 环境参数与数据读取
+# --------------------------------------------------
 csv_file_path = os.getenv("CSV_FILE_PATH")
-dataset_id = os.getenv("DATASET_ID")
+dataset_id    = os.getenv("DATASET_ID")
 algorithm_name = os.getenv("ALGO")
-
 if not csv_file_path:
-    print("Error: CSV file path is not provided. Set 'CSV_FILE_PATH' environment variable.")
-    exit(1)
+    raise SystemExit("Error: CSV_FILE_PATH env not set.")
 
-# 规范化路径以确保跨平台兼容性
 csv_file_path = os.path.normpath(csv_file_path)
-
-# 读取 CSV 文件
 try:
     df = pd.read_csv(csv_file_path)
     print("Data loaded successfully.")
 except FileNotFoundError:
-    print(f"Error: File '{csv_file_path}' not found. Please check the path and try again.")
-    exit(1)
+    raise SystemExit(f"File '{csv_file_path}' not found.")
 
-# 计时开始
 start_time = time.time()
+alpha, beta = 0.5, 0.5   # Combined‑score 权重
 
-# 定义 alpha 和 beta 权重
-alpha = 0.5
-beta = 0.5
-
-# 排除包含 'id' 的列
-excluded_columns = [col for col in df.columns if 'id' in col.lower()]
-print(f"Excluded columns containing 'id': {excluded_columns}")
-
-# 选择多列作为特征列
-remaining_columns = df.columns.difference(excluded_columns)
-X = df[remaining_columns]
-print(f"Using multiple columns for clustering: {list(remaining_columns)}")
-
-# 对类别型特征进行频率编码
+# --------------------------------------------------
+# 1. 预处理
+# --------------------------------------------------
+excluded_cols = [c for c in df.columns if 'id' in c.lower()]
+X = df[df.columns.difference(excluded_cols)].copy()
 for col in X.columns:
-    if X[col].dtype == 'object' or X[col].dtype == 'category':
-        X.loc[:, col] = X[col].map(X[col].value_counts(normalize=True))
-
-# 删除包含 NaN 的行
+    if X[col].dtype in ("object", "category"):
+        X[col] = X[col].map(X[col].value_counts(normalize=True))
 X = X.dropna()
+X_scaled = StandardScaler().fit_transform(X)
 
-# 标准化数据
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
+# --------------------------------------------------
+# 2. K‑means with full tracking
+# --------------------------------------------------
 
-# 第一步：使用 Optuna 进行初步的簇数优化
+def run_kmeans_tracking(X, k, max_iter=300, tol=1e-4, seed=0):
+    rng = np.random.default_rng(seed)
+    centers, _ = kmeans_plusplus(X, n_clusters=k, random_state=seed)
+
+    history = []
+    for t in range(1, max_iter + 1):
+        dists = np.linalg.norm(X[:, None, :] - centers[None, :, :], axis=2)
+        labels = dists.argmin(axis=1)
+        new_centers = np.vstack([X[labels == j].mean(axis=0) if np.any(labels == j) else X[rng.integers(0, X.shape[0])] for j in range(k)])
+
+        delta = float(np.linalg.norm(new_centers - centers))
+        rel_delta = delta / (np.linalg.norm(centers) + 1e-12)
+        sse = float(np.sum((X - new_centers[labels]) ** 2))
+        history.append({"iter": t, "delta": delta, "relative_delta": rel_delta, "sse": sse})
+
+        if delta < tol:
+            centers = new_centers
+            break
+        centers = new_centers
+
+    return labels, history, t, sse
+
+# --------------------------------------------------
+# 3. Optuna search + enhanced stats
+# --------------------------------------------------
+optuna_trials = []
+
+def add_extra_stats(trial_dict):
+    deltas = [h["delta"] for h in trial_dict["history"] if h["delta"] > 1e-12]
+    if len(deltas) > 1:
+        auc_delta = float(np.sum(deltas))
+        geo_decay = float((deltas[-1] / deltas[0]) ** (1 / (len(deltas) - 1)))
+    else:
+        auc_delta, geo_decay = 0.0, 0.0
+    trial_dict.update({"auc_delta": auc_delta, "geo_decay": geo_decay})
+
+
+def make_record(trial_number, k, labels, hist, iters, sse):
+    db  = max(davies_bouldin_score(X_scaled, labels), 1e-7)
+    sil = silhouette_score(X_scaled, labels)
+    ch  = calinski_harabasz_score(X_scaled, labels)
+    combo = alpha * (1 / db) + beta * sil
+    rec = {
+        "trial_number": trial_number,
+        "n_clusters": k,
+        "sse": sse,
+        "iterations": iters,
+        "combined_score": combo,
+        "silhouette": sil,
+        "davies_bouldin": db,
+        "calinski_harabasz": ch,
+        "history": hist
+    }
+    add_extra_stats(rec)
+    return rec
+
+
 def objective(trial):
-    n_clusters = trial.suggest_int("n_clusters", 5, math.isqrt(X.shape[0]))
-    kmeans = KMeans(n_clusters=n_clusters, init='k-means++', random_state=0)
-    kmeans.fit(X_scaled)
-    sse = kmeans.inertia_
-    return sse  # 返回 SSE 以最小化
+    k = trial.suggest_int("n_clusters", 5, max(2, math.isqrt(X.shape[0])))
+    labels, hist, iters, sse = run_kmeans_tracking(X_scaled, k)
+    rec = make_record(trial.number, k, labels, hist, iters, sse)
+    optuna_trials.append(rec)
+    return sse
 
-study = optuna.create_study(direction="minimize")
-study.optimize(objective, n_trials=20)
+optuna.create_study(direction="minimize").optimize(objective, n_trials=20)
 
-# 获取 Optuna 的最佳簇数
-k_optuna = study.best_params["n_clusters"]
-print(f"Initial optimal number of clusters from Optuna: {k_optuna}")
+best_sse_trial = min(optuna_trials, key=lambda d: d["sse"])
+k_opt = best_sse_trial["n_clusters"]
+print(f"Optimal k (Optuna): {k_opt}")
 
-# 计算并绘制 SSE 曲线
-sse = []
+# --------------------------------------------------
+# 4. Kneedle refinement (optional)
+# --------------------------------------------------
 cluster_range = range(2, math.isqrt(X.shape[0]) + 1)
-for k in cluster_range:
-    kmeans = KMeans(n_clusters=k, init='k-means++', random_state=0)
-    kmeans.fit(X_scaled)
-    sse.append(kmeans.inertia_)
-
-# 使用移动平均法对 SSE 曲线进行平滑处理
-def moving_average(data, window_size=3):
-    return np.convolve(data, np.ones(window_size) / window_size, mode='valid')
-
-sse_smoothed = moving_average(sse, window_size=3)
-
-# 使用 Kneedle 算法检测肘部位置
+sse_curve = [run_kmeans_tracking(X_scaled, k, max_iter=30, tol=1e-3)[3] for k in cluster_range]
 try:
-    kneedle = KneeLocator(cluster_range[:len(sse_smoothed)], sse_smoothed, curve="convex", direction="decreasing")
+    kneedle = KneeLocator(cluster_range, sse_curve, curve="convex", direction="decreasing")
     k_kneedle = kneedle.elbow
-    print(f"Optimal number of clusters from Kneedle: {k_kneedle}")
-except ValueError as e:
-    print(f"Kneedle failed to find elbow: {e}")
+except ValueError:
     k_kneedle = None
 
-# 第二步：如果 k_optuna 与 k_kneedle 不一致，则进行第二轮优化
-if k_kneedle is not None and k_optuna != k_kneedle:
-    refined_range_min = min(k_optuna, k_kneedle)
-    refined_range_max = max(k_optuna, k_kneedle)
-    print(f"Refining in range: {refined_range_min} to {refined_range_max}")
+if k_kneedle and k_kneedle != k_opt:
+    k_low, k_high = sorted([k_opt, k_kneedle])
+    def refined_obj(trial):
+        k = trial.suggest_int("n_clusters", k_low, k_high)
+        labels, hist, iters, sse = run_kmeans_tracking(X_scaled, k)
+        rec = make_record(trial.number, k, labels, hist, iters, sse)
+        optuna_trials.append(rec)
+        return sse
+    optuna.create_study(direction="minimize").optimize(refined_obj, n_trials=10)
+    best_sse_trial = min(optuna_trials, key=lambda d: d["sse"])
 
-    def refined_objective(trial):
-        k = trial.suggest_int("n_clusters", refined_range_min, refined_range_max)
-        kmeans = KMeans(n_clusters=k, init='k-means++', random_state=0)
-        kmeans.fit(X_scaled)
-        sse = kmeans.inertia_
-        return sse  # 继续最小化 SSE
+k_final = best_sse_trial["n_clusters"]
+print(f"Final k: {k_final}")
 
-    refined_study = optuna.create_study(direction="minimize")
-    refined_study.optimize(refined_objective, n_trials=10)
-    final_best_k = refined_study.best_params["n_clusters"]
-    print(f"Refined optimal number of clusters: {final_best_k}")
-else:
-    final_best_k = k_optuna
-    print(f"No further refinement needed. Final optimal number of clusters: {final_best_k}")
+# --------------------------------------------------
+# 5. Final model & files
+# --------------------------------------------------
+labels_final, hist_final, final_iters, final_sse = run_kmeans_tracking(X_scaled, k_final)
+final_db  = davies_bouldin_score(X_scaled, labels_final)
+final_sil = silhouette_score(X_scaled, labels_final)
+final_ch  = calinski_harabasz_score(X_scaled, labels_final)
+final_combo = alpha * (1 / final_db) + beta * final_sil
 
-# 使用最终的最佳簇数进行 KMeans 聚类
-final_kmeans = KMeans(n_clusters=final_best_k, init='k-means++', random_state=0)
-final_labels = final_kmeans.fit_predict(X_scaled)
+base = os.path.splitext(os.path.basename(csv_file_path))[0]
+root_out = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", "KMEANS", algorithm_name, f"clustered_{dataset_id}")
+os.makedirs(root_out, exist_ok=True)
 
-# 计算最终的 DB 系数、轮廓系数和综合得分
-final_db_score = davies_bouldin_score(X_scaled, final_labels)
-final_silhouette_score = silhouette_score(X_scaled, final_labels)
-final_combined_score = alpha * (1 / final_db_score) + beta * final_silhouette_score
+with open(os.path.join(root_out, f"{base}.txt"), "w", encoding="utf-8") as f:
+    f.write("\n".join([
+        f"Best parameters: k={k_final}",
+        f"Number of clusters: {k_final}",
+        f"Final Combined Score: {final_combo}",
+        f"Final Silhouette Score: {final_sil}",
+        f"Final Davies-Bouldin Score: {final_db}",
+        f"Calinski-Harabasz: {final_ch}",
+        f"Iterations to converge: {final_iters}",
+        f"Final SSE: {final_sse}"
+    ]))
 
-# 保存结果和输出
-base_filename = os.path.splitext(os.path.basename(csv_file_path))[0]
-output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", "KMEANS", algorithm_name,
-                          f"clustered_{dataset_id}")
-os.makedirs(output_dir, exist_ok=True)
-output_txt_file = os.path.join(output_dir, f"{base_filename}.txt")
+summary = {
+    "n_trials": len(optuna_trials),
+    "avg_iterations": float(np.mean([t["iterations"] for t in optuna_trials])),
+    "median_iterations": float(np.median([t["iterations"] for t in optuna_trials])),
+    "avg_auc_delta": float(np.mean([t["auc_delta"] for t in optuna_trials])),
+    "avg_geo_decay": float(np.mean([t["geo_decay"] for t in optuna_trials])),
+    "best_k": k_final,
+    "best_combined_score": final_combo,
+    "best_sse": best_sse_trial["sse"],
+    "total_runtime_sec": time.time() - start_time
+}
 
-with open(output_txt_file, 'w', encoding='utf-8') as f:
-    output_txt = [
-        f"Best parameters: k={final_best_k}",
-        f"Number of clusters: {final_best_k}",
-        f"Final Combined Score: {final_combined_score}",
-        f"Final Silhouette Score: {final_silhouette_score}",
-        f"Final Davies-Bouldin Score: {final_db_score}"
-    ]
-    f.write("\n".join(output_txt))
-print(f"Text output saved to {output_txt_file}")
+with open(os.path.join(root_out, f"{base}_centroid_history.json"), "w", encoding="utf-8") as fp:
+    json.dump(optuna_trials, fp, indent=4)
+with open(os.path.join(root_out, f"{base}_summary.json"), "w", encoding="utf-8") as fp:
+    json.dump(summary, fp, indent=4)
+print("History and summary files saved.")
 
-end_time = time.time()
-print(f"Program completed in: {end_time - start_time} seconds")
+print(f"Total runtime: {summary['total_runtime_sec']:.2f} s")

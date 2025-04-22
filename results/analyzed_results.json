@@ -3,53 +3,44 @@
         "dataset_id": 0,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.8358437865164712
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.1609273467266632
-            ],
-            [
-                "horizon",
-                "DBSCAN",
-                {
-                    "eps": 1.9000000000000001,
-                    "min_samples": 20.0
-                },
-                1.1345460162611625
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.0918689949431133
+                1.150341481751495
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.0625818934680265
+                0.7903845261673882
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 40.0
+                },
+                0.7489356963180693
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 41.0
+                },
+                0.7380182193780448
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 44.0
+                },
+                0.6607702838062404
             ]
         ]
     },
@@ -57,53 +48,44 @@
         "dataset_id": 1,
         "top_k": [
             [
-                "holoclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.541988533712075
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.3406655870557764
-            ],
-            [
-                "horizon",
-                "DBSCAN",
-                {
-                    "eps": 1.86,
-                    "min_samples": 9.0
-                },
-                1.3249697702236851
+                0.9286660005658307
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 48.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.2008295170915662
+                0.9238460403356785
             ],
             [
-                "boostclean",
-                "HC",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "k": 35.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 47.0
                 },
-                1.0895019778353605
+                0.8537443808121477
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 45.0
+                },
+                0.8365616152214733
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 40.0
+                },
+                0.7980078145189877
             ]
         ]
     },
@@ -111,53 +93,44 @@
         "dataset_id": 2,
         "top_k": [
             [
-                "holoclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.541988533712075
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.3352603900582944
-            ],
-            [
-                "horizon",
-                "DBSCAN",
-                {
-                    "eps": 1.62,
-                    "min_samples": 5.0
-                },
-                1.318399504161772
+                1.402259539903609
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 44.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 45.0
                 },
-                0.9992188667363298
+                0.8325210755804653
             ],
             [
-                "Unified",
-                "HC",
+                "holoclean",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                0.987738228143203
+                0.7903845261673882
+            ],
+            [
+                "boostclean",
+                "KMEANS",
+                {
+                    "k": 35.0
+                },
+                0.7268644076486075
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 43.0
+                },
+                0.726490989669188
             ]
         ]
     },
@@ -165,54 +138,44 @@
         "dataset_id": 3,
         "top_k": [
             [
-                "holoclean",
-                "HC",
+                "Unified",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.541988533712075
+                0.881566511179678
             ],
             [
-                "boostclean",
-                "HC",
+                "holoclean",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.1765296623253556
+                0.7903845261673882
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                0.7802475683640504
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 47.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.125389354519267
+                0.7384467263162353
             ],
             [
-                "Unified",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 43.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.0895308100628194
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.0530934713926698
+                0.6845277686942259
             ]
         ]
     },
@@ -220,53 +183,44 @@
         "dataset_id": 4,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.7108392157871413
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.5192254523567066
+                1.5549384468236207
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 45.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 45.0
                 },
-                1.4350925735381637
+                0.8773134791975898
+            ],
+            [
+                "holoclean",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                0.7903845261673882
             ],
             [
                 "horizon",
-                "DBSCAN",
+                "KMEANS",
                 {
-                    "eps": 1.9200000000000002,
-                    "min_samples": 13.0
+                    "k": 40.0
                 },
-                1.1834527826721601
+                0.7622116362197487
             ],
             [
-                "Unified",
-                "HC",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 36.0
                 },
-                1.1291834561889755
+                0.669391599619938
             ]
         ]
     },
@@ -274,54 +228,44 @@
         "dataset_id": 5,
         "top_k": [
             [
-                "Unified",
-                "HC",
+                "holoclean",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.5701997190157369
+                0.7903845261673882
             ],
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.5222936346231497
+                0.7647568633081941
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                0.7555779915096614
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 16.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 47.0
                 },
-                1.2101122907170865
+                0.7539685709843988
             ],
             [
-                "holoclean",
-                "HC",
+                "Unified",
+                "KMEANS",
                 {
-                    "k": 26.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 41.0
                 },
-                1.0502261585890815
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                0.9860854192462323
+                0.7330879141647627
             ]
         ]
     },
@@ -329,54 +273,44 @@
         "dataset_id": 6,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 13.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.820894754574945
+                0.9669219863946588
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 46.0
                 },
-                1.3674608654781601
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 10.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.2475955554892066
+                0.8357956297813304
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 47.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.0543171046325042
+                0.7903845261673882
             ],
             [
-                "boostclean",
-                "HC",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 42.0
                 },
-                0.9756376268285624
+                0.6995355893258637
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 43.0
+                },
+                0.6970049002774399
             ]
         ]
     },
@@ -384,52 +318,44 @@
         "dataset_id": 7,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.6817635794263308
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 11.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.1474153759602816
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.1288466670596689
+                1.2503980015482736
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.0625818934680265
+                0.7903845261673882
             ],
             [
                 "horizon",
-                "KMEANSNF",
+                "KMEANS",
                 {
-                    "k": 7.0
+                    "k": 43.0
                 },
-                0.9055773947803337
+                0.7115219340715682
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 33.0
+                },
+                0.6943060671628447
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                0.6939881886580532
             ]
         ]
     },
@@ -437,54 +363,44 @@
         "dataset_id": 8,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.7612864688867464
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.3367239732393912
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.175037795087163
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.1541969673791044
+                1.0133492823098822
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 26.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.0502261585890815
+                0.7903845261673882
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 46.0
+                },
+                0.7522936405547935
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 43.0
+                },
+                0.7175154829023724
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 43.0
+                },
+                0.6831370531804549
             ]
         ]
     },
@@ -493,53 +409,43 @@
         "top_k": [
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.541988533712075
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.245442863423348
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.139621197406454
+                0.7903845261673882
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 41.0
                 },
-                1.1236584345550304
+                0.726614860197133
             ],
             [
-                "boostclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                0.9618516443427179
+                0.711160493737245
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 47.0
+                },
+                0.7033076298494958
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                0.6925276445953945
             ]
         ]
     },
@@ -547,53 +453,44 @@
         "dataset_id": 10,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.5493185510219227
+                0.8054721323255547
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.541988533712075
+                0.7903845261673882
             ],
             [
-                "Unified",
-                "DBSCAN",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "eps": 1.9900000000000002,
-                    "min_samples": 5.0
+                    "k": 47.0
                 },
-                1.4180316297305602
+                0.7867700578014126
             ],
             [
-                "boostclean",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 45.0
                 },
-                1.1400983197402625
+                0.7623773486541755
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 44.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                0.9693859930968851
+                0.7388781361610808
             ]
         ]
     },
@@ -601,54 +498,44 @@
         "dataset_id": 11,
         "top_k": [
             [
-                "holoclean",
-                "HC",
-                {
-                    "k": 23.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.0470355856835882
-            ],
-            [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 48.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.041325551080035
+                0.8974309242581268
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 40.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.0351797481290013
+                0.8831171204373961
             ],
             [
-                "boostclean",
-                "HC",
+                "holoclean",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                0.9920817086827133
+                0.7903845261673882
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                0.7901139259968759
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 38.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                0.9441885824507432
+                0.7718329421083041
             ]
         ]
     },
@@ -656,51 +543,44 @@
         "dataset_id": 12,
         "top_k": [
             [
-                "horizon",
-                "DBSCAN",
+                "mode",
+                "KMEANS",
                 {
-                    "eps": 1.87,
-                    "min_samples": 7.0
+                    "k": 48.0
                 },
-                1.6494706142603424
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.5977896953389772
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 47.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.0543171046325042
-            ],
-            [
-                "horizon",
-                "KMEANSNF",
-                {
-                    "k": 7.0
-                },
-                1.0400965528453194
+                1.5818920494010835
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 42.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 46.0
                 },
-                1.0381917020062084
+                0.8352499193665892
+            ],
+            [
+                "holoclean",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                0.7903845261673882
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 39.0
+                },
+                0.7297937083509252
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 18.0
+                },
+                0.6683420848274141
             ]
         ]
     },
@@ -708,54 +588,44 @@
         "dataset_id": 13,
         "top_k": [
             [
-                "baran",
-                "HC",
+                "Unified",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.5992245803065033
+                0.8574651120558229
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.541988533712075
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.0753320826709034
+                0.7903845261673882
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 48.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                0.9123456308745443
+                0.7620043737806745
             ],
             [
-                "boostclean",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                0.8998926127030813
+                0.6959643108165332
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                0.6552299003462945
             ]
         ]
     },
@@ -763,53 +633,44 @@
         "dataset_id": 14,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                2.1849962479832614
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.1658847970687658
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.1408546026429003
-            ],
-            [
-                "horizon",
-                "GMM",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "tied"
-                },
-                1.1305761663625349
+                1.5758937834445987
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 48.0
                 },
-                1.0625818934680265
+                0.7903845261673882
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 44.0
+                },
+                0.7051275060558098
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 40.0
+                },
+                0.7049186052503204
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 38.0
+                },
+                0.6971702770655525
             ]
         ]
     },
@@ -818,53 +679,43 @@
         "top_k": [
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 10.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 27.0
                 },
-                1.873109516801073
+                0.6531383568414281
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "complete",
-                    "metric": "manhattan"
+                    "k": 20.0
                 },
-                1.291681681863625
+                0.6091675498989549
             ],
             [
-                "bigdansing",
-                "HC",
+                "boostclean",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 12.0
                 },
-                1.0732055600393333
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.031563410261208
+                0.4849785137966726
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 12.0
                 },
-                0.9690218042392066
+                0.4601402091794614
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 22.0
+                },
+                0.44530250036618374
             ]
         ]
     },
@@ -873,53 +724,43 @@
         "top_k": [
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.7546936537663538
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.3332046932271144
+                0.5608095151915177
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 10.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.1462957290358269
+                0.41062882522004407
             ],
             [
-                "boostclean",
-                "HC",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.0666655197609565
+                0.354066454090855
             ],
             [
-                "Unified",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.066665508309199
+                0.3418749647975924
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.3188469257081296
             ]
         ]
     },
@@ -928,53 +769,43 @@
         "top_k": [
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 28.0
                 },
-                1.689297579478484
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                0.8975767069948081
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                0.8614091271627502
+                0.4420948087795663
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 18.0
                 },
-                0.8289738140437478
+                0.4274833471637872
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.3418749647975924
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 18.0
+                },
+                0.3075154368424575
             ],
             [
                 "boostclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 12.0
                 },
-                0.665434594988049
+                0.29596430224188724
             ]
         ]
     },
@@ -982,54 +813,44 @@
         "dataset_id": 18,
         "top_k": [
             [
-                "baran",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                2.00622737815115
-            ],
-            [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 15.0
                 },
-                1.2758892779525577
+                0.7010475419948092
             ],
             [
-                "holoclean",
-                "HC",
+                "baran",
+                "KMEANS",
                 {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 26.0
                 },
-                1.162172215434797
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.0749258531527102
+                0.5799210196735706
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 6.0
                 },
-                0.9175738617871456
+                0.5207815629526641
+            ],
+            [
+                "boostclean",
+                "KMEANS",
+                {
+                    "k": 6.0
+                },
+                0.46230373001598457
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 16.0
+                },
+                0.4275005865432576
             ]
         ]
     },
@@ -1038,53 +859,43 @@
         "top_k": [
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 25.0
                 },
-                1.8502634989287794
+                0.44192104661382087
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 21.0
                 },
-                1.182946922351733
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
-                },
-                1.0128137186321036
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.0128137186321036
+                0.4254329827884986
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 14.0
                 },
-                0.9918407681093969
+                0.3719589973725695
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.3418749647975924
+            ],
+            [
+                "boostclean",
+                "KMEANS",
+                {
+                    "k": 7.0
+                },
+                0.33077032560133474
             ]
         ]
     },
@@ -1092,54 +903,44 @@
         "dataset_id": 20,
         "top_k": [
             [
-                "baran",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.3698426706343865
-            ],
-            [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 14.0
                 },
-                1.1881921829739945
+                0.5468397525106186
             ],
             [
-                "holoclean",
-                "HC",
+                "baran",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 26.0
                 },
-                1.0910397008777213
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.0293252973612603
+                0.5267422101898159
             ],
             [
                 "boostclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 6.0
                 },
-                1.0276396969387853
+                0.3464152954254667
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 6.0
+                },
+                0.3464152954254667
+            ],
+            [
+                "holoclean",
+                "KMEANS",
+                {
+                    "k": 28.0
+                },
+                0.34197911987910623
             ]
         ]
     },
@@ -1148,53 +949,43 @@
         "top_k": [
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 27.0
                 },
-                1.83525464822605
+                0.5878589409771134
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 19.0
+                },
+                0.5221997139819052
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 29.0
                 },
-                1.6870955224738977
+                0.5215234462849716
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 21.0
                 },
-                1.5280850901854355
+                0.40110083975128463
             ],
             [
                 "boostclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 12.0
                 },
-                1.2271886455909842
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.2271886455909842
+                0.3651341446531139
             ]
         ]
     },
@@ -1203,53 +994,43 @@
         "top_k": [
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 29.0
                 },
-                1.6870955224738977
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.494799355553361
+                0.5215234462849716
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 19.0
                 },
-                1.0160308376216658
+                0.4653312992132271
             ],
             [
-                "bigdansing",
-                "HC",
+                "baran",
+                "KMEANS",
                 {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 28.0
                 },
-                0.9210063881403965
+                0.43813939987249767
             ],
             [
                 "boostclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 12.0
                 },
-                0.8321237570278726
+                0.34632151722902704
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 12.0
+                },
+                0.34632151722902704
             ]
         ]
     },
@@ -1257,54 +1038,44 @@
         "dataset_id": 23,
         "top_k": [
             [
-                "baran",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 15.0
                 },
-                1.8570147854545362
+                0.5286348565171622
             ],
             [
-                "holoclean",
-                "HC",
+                "baran",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 24.0
                 },
-                1.5198351726407815
+                0.5049365896593773
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 7.0
                 },
-                1.1093922351497492
+                0.47322839336390343
             ],
             [
-                "horizon",
-                "HC",
+                "holoclean",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 28.0
                 },
-                1.0366592595735695
+                0.46518145180091774
             ],
             [
-                "bigdansing",
-                "HC",
+                "boostclean",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 7.0
                 },
-                1.033698118450088
+                0.39776836304127716
             ]
         ]
     },
@@ -1313,53 +1084,43 @@
         "top_k": [
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.5000405873075109
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.4541235044960312
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.2739300722687952
+                0.521879656730463
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 31.0
                 },
-                1.2323424943422872
+                0.4066584092067549
             ],
             [
-                "Unified",
-                "HC",
+                "holoclean",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 31.0
                 },
-                1.1037418184365861
+                0.34303744853329043
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.340652765741229
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.32168725933811504
             ]
         ]
     },
@@ -1367,54 +1128,44 @@
         "dataset_id": 25,
         "top_k": [
             [
-                "holoclean",
-                "HC",
-                {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.6614757838673464
-            ],
-            [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 29.0
                 },
-                1.4263277992219767
+                0.5829810232764835
             ],
             [
-                "bigdansing",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 25.0
                 },
-                1.3132388574578968
+                0.5522622249783783
+            ],
+            [
+                "holoclean",
+                "KMEANS",
+                {
+                    "k": 30.0
+                },
+                0.5224253510658209
             ],
             [
                 "boostclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 20.0
                 },
-                1.2282043142981844
+                0.46198454538841977
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 20.0
                 },
-                1.2282043142981844
+                0.46198454538841977
             ]
         ]
     },
@@ -1423,53 +1174,43 @@
         "top_k": [
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 11.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 30.0
                 },
-                1.6529242937531077
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.5124583968263623
+                0.5224253510658209
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 16.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 29.0
                 },
-                1.3932734267009212
+                0.47571730428533643
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 24.0
                 },
-                1.1087499929464597
+                0.4125535068963788
             ],
             [
-                "Unified",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 15.0
                 },
-                1.0999579110489326
+                0.3751317249784086
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 26.0
+                },
+                0.3633020021764701
             ]
         ]
     },
@@ -1477,54 +1218,44 @@
         "dataset_id": 27,
         "top_k": [
             [
-                "holoclean",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                2.000457570224895
-            ],
-            [
                 "boostclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 19.0
                 },
-                1.936841033281921
+                0.6649634010213865
             ],
             [
-                "baran",
-                "HC",
+                "holoclean",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 30.0
                 },
-                1.6845673471148461
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.6512836212952084
+                0.6585235890460988
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 25.0
                 },
-                1.4888870065484345
+                0.6221242942739699
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 28.0
+                },
+                0.6135261639442142
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 19.0
+                },
+                0.6134990430047123
             ]
         ]
     },
@@ -1532,54 +1263,44 @@
         "dataset_id": 28,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "baran",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.8220110043381144
+                0.5587305460132217
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.5535653049325704
             ],
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.7450549544155507
+                0.5200700819134345
             ],
             [
-                "bigdansing",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.6247879023901242
+                0.512914508826009
             ],
             [
-                "baran",
-                "HC",
+                "Unified",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.6106029131353736
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.3187815267328522
+                0.512914508826009
             ]
         ]
     },
@@ -1588,53 +1309,43 @@
         "top_k": [
             [
                 "holoclean",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                1.7450549544155507
+                0.5200700819134345
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 18.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 29.0
                 },
-                1.396121924076474
+                0.5035216588997343
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 24.0
                 },
-                1.2320977466217868
+                0.4023668522063065
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 10.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 25.0
                 },
-                0.9833083069987822
+                0.32686289498081456
             ],
             [
-                "boostclean",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 19.0
                 },
-                0.8449042007682009
+                0.30444090761388815
             ]
         ]
     },
@@ -1642,54 +1353,44 @@
         "dataset_id": 30,
         "top_k": [
             [
-                "boostclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 49.0
                 },
-                2.2001254015343683
+                0.6303118424500564
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 32.0
                 },
-                2.121847419849189
+                0.5653140841864956
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                2.0836043481827162
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.957154847403371
+                0.5579593263939824
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 34.0
                 },
-                1.8576796830228157
+                0.5564229271921993
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 33.0
+                },
+                0.5528325847887137
             ]
         ]
     },
@@ -1698,53 +1399,43 @@
         "top_k": [
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 37.0
                 },
-                2.4234496413796665
+                0.6139484966018882
             ],
             [
-                "bigdansing",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 36.0
                 },
-                2.1578611343758594
+                0.5704419534395566
             ],
             [
-                "boostclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 49.0
                 },
-                2.153742737582111
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 14.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.1140714636380857
+                0.5555239212152775
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 37.0
                 },
-                2.0897818293980066
+                0.5374450539600006
+            ],
+            [
+                "holoclean",
+                "KMEANS",
+                {
+                    "k": 48.0
+                },
+                0.5345920919579814
             ]
         ]
     },
@@ -1752,54 +1443,44 @@
         "dataset_id": 32,
         "top_k": [
             [
-                "boostclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 49.0
                 },
-                1.9043797982095292
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.8921051907210844
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.632239755669016
+                0.842469139703921
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 22.0
                 },
-                1.5741086758297167
+                0.5743739129640856
             ],
             [
-                "holoclean",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 22.0
                 },
-                1.5116702494644523
+                0.5533407098900044
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 16.0
+                },
+                0.543626146836046
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 19.0
+                },
+                0.5133773653439705
             ]
         ]
     },
@@ -1807,54 +1488,44 @@
         "dataset_id": 33,
         "top_k": [
             [
-                "baran",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 49.0
                 },
-                2.290785049432409
+                0.5782961140343954
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 37.0
+                },
+                0.5738950831431827
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 39.0
                 },
-                1.9061143456231853
+                0.5488493850963053
             ],
             [
-                "boostclean",
-                "HC",
+                "baran",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 37.0
                 },
-                1.7503064474574912
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.7193040436200495
+                0.5453536292393752
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 39.0
                 },
-                1.7137097207688075
+                0.5307946138674642
             ]
         ]
     },
@@ -1862,54 +1533,44 @@
         "dataset_id": 34,
         "top_k": [
             [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 49.0
+                },
+                0.7854821642113232
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 21.0
+                },
+                0.6571784222008703
+            ],
+            [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 31.0
                 },
-                2.232460330357379
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.8502062185713082
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.8072432038239385
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.6702608095519806
+                0.5942031222164624
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 28.0
                 },
-                1.6626369440899347
+                0.5525056752799726
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 25.0
+                },
+                0.5257309571892131
             ]
         ]
     },
@@ -1917,54 +1578,44 @@
         "dataset_id": 35,
         "top_k": [
             [
-                "baran",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 49.0
                 },
-                2.7070806327583505
+                0.8826299060316827
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 23.0
                 },
-                1.955387707352481
+                0.6679974422250384
             ],
             [
-                "boostclean",
-                "HC",
+                "baran",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 30.0
                 },
-                1.6680820919956303
+                0.6355887290576681
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 16.0
+                },
+                0.5795060690224958
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 22.0
                 },
-                1.4665324962608703
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.4544972039501
+                0.5489461644664971
             ]
         ]
     },
@@ -1972,54 +1623,44 @@
         "dataset_id": 36,
         "top_k": [
             [
-                "boostclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 49.0
                 },
-                1.5764358082809502
+                0.8056397414164144
             ],
             [
-                "horizon",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 20.0
                 },
-                1.5319205798980278
+                0.5680504474879583
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 27.0
                 },
-                1.4864976075598488
+                0.520844176520562
             ],
             [
-                "Unified",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 26.0
                 },
-                1.4828790796322489
+                0.5193983803499764
             ],
             [
-                "holoclean",
-                "HC",
+                "boostclean",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 24.0
                 },
-                1.4544972039501
+                0.5115537780135605
             ]
         ]
     },
@@ -2027,54 +1668,44 @@
         "dataset_id": 37,
         "top_k": [
             [
-                "boostclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 49.0
                 },
-                2.144333457479587
+                0.6391118670973317
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.5808401827969055
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 30.0
+                },
+                0.5806442329747079
+            ],
+            [
+                "boostclean",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.5670092425308272
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 32.0
                 },
-                1.9879290106556642
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.9456556838305004
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.944792536365724
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 16.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.7610967793080337
+                0.5321041795016652
             ]
         ]
     },
@@ -2082,54 +1713,44 @@
         "dataset_id": 38,
         "top_k": [
             [
-                "holoclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.3247922366077094
-            ],
-            [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 37.0
                 },
-                2.0395986416274443
+                0.568667675260429
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 38.0
                 },
-                2.032662133724454
+                0.5637467049537569
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 49.0
+                },
+                0.5544215641593204
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 38.0
                 },
-                1.777278300537253
+                0.5327829636175146
             ],
             [
-                "boostclean",
-                "HC",
+                "holoclean",
+                "KMEANS",
                 {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 48.0
                 },
-                1.7642269085208462
+                0.5151864181734677
             ]
         ]
     },
@@ -2137,54 +1758,44 @@
         "dataset_id": 39,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 49.0
                 },
-                2.5207560649860166
+                0.8078526097712667
             ],
             [
-                "boostclean",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 13.0
                 },
-                2.395031692078121
+                0.709048721603798
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 22.0
+                },
+                0.655850843630216
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 22.0
                 },
-                2.185320347324345
+                0.588078723114455
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 19.0
                 },
-                2.0791836856820556
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.954720982634195
+                0.5800150492856756
             ]
         ]
     },
@@ -2192,54 +1803,44 @@
         "dataset_id": 40,
         "top_k": [
             [
-                "Unified",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 49.0
                 },
-                2.5058825771428115
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.418283527487415
+                0.6778470370259104
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 34.0
                 },
-                2.391378574832603
+                0.5725982007463685
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 33.0
                 },
-                2.350560067489625
+                0.5425517889074142
             ],
             [
-                "holoclean",
-                "HC",
+                "Unified",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 32.0
                 },
-                1.954720982634195
+                0.5327666644894008
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                0.5241159980522644
             ]
         ]
     },
@@ -2247,54 +1848,44 @@
         "dataset_id": 41,
         "top_k": [
             [
-                "holoclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 49.0
                 },
-                2.724365805039498
+                0.8476095728243842
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 20.0
                 },
-                1.9288277005971581
+                0.5899118038163478
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 17.0
+                },
+                0.5622330930156842
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 23.0
+                },
+                0.5610216627504419
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 22.0
                 },
-                1.910174515127918
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                1.7238483996856897
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.6500221972345772
+                0.5590353024027284
             ]
         ]
     },
@@ -2302,54 +1893,44 @@
         "dataset_id": 42,
         "top_k": [
             [
-                "holoclean",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 49.0
                 },
-                2.724365805039498
+                0.7216204644351573
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 27.0
+                },
+                0.5700695563132834
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 34.0
                 },
-                2.062603728048983
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.6489979374232668
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                1.5875740120786968
+                0.5558799366784124
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 30.0
                 },
-                1.5841977484057188
+                0.5299947000269314
+            ],
+            [
+                "boostclean",
+                "KMEANS",
+                {
+                    "k": 30.0
+                },
+                0.5116052825823967
             ]
         ]
     },
@@ -2357,54 +1938,44 @@
         "dataset_id": 43,
         "top_k": [
             [
-                "baran",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 49.0
                 },
-                2.6482420183731534
+                0.8175799345983887
             ],
             [
-                "holoclean",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 21.0
                 },
-                2.4198365197312293
+                0.7135478866962729
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 27.0
                 },
-                2.3409615487694735
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.199422259713275
+                0.6512869892056459
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 27.0
                 },
-                2.193648683443113
+                0.62452509158012
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 25.0
+                },
+                0.5987882676362157
             ]
         ]
     },
@@ -2412,54 +1983,44 @@
         "dataset_id": 44,
         "top_k": [
             [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 49.0
+                },
+                0.7248902036338827
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 28.0
+                },
+                0.6781660504027188
+            ],
+            [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 33.0
                 },
-                2.6509407479995892
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.4198365197312293
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                2.2415056725768006
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.0623343620107013
+                0.6721903025312409
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 28.0
                 },
-                1.8479518414385048
+                0.6201387565431272
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 25.0
+                },
+                0.5839133671847005
             ]
         ]
     },
@@ -2467,24 +2028,12 @@
         "dataset_id": 45,
         "top_k": [
             [
-                "baran",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 8.0
                 },
-                2.786618223337344
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.438924996064692
+                1.9375108699826822
             ],
             [
                 "baran",
@@ -2492,26 +2041,31 @@
                 {
                     "k": 11.0
                 },
-                1.8708298985739966
+                1.8103911464926106
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 8.0
+                },
+                1.4899479552109551
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 8.0
                 },
-                1.8565059303022164
+                1.4526113327809207
             ],
             [
-                "Unified",
-                "GMM",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "n_components": 10.0,
-                    "covariance type": "tied"
+                    "k": 10.0
                 },
-                1.8117991729508343
+                1.2151724417140264
             ]
         ]
     },
@@ -2519,52 +2073,44 @@
         "dataset_id": 46,
         "top_k": [
             [
-                "Unified",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.93949757009009
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 10.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.8388622441568394
-            ],
-            [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 13.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 21.0
                 },
-                2.6006549751412997
-            ],
-            [
-                "bigdansing",
-                "GMM",
-                {
-                    "n_components": 13.0,
-                    "covariance type": "tied"
-                },
-                1.5174611321257545
+                1.4246422489974044
             ],
             [
                 "horizon",
-                "GMM",
+                "KMEANS",
                 {
-                    "n_components": 11.0,
-                    "covariance type": "tied"
+                    "k": 19.0
                 },
-                1.4579850753347001
+                1.3138509225511337
+            ],
+            [
+                "mode",
+                "KMEANS",
+                {
+                    "k": 31.0
+                },
+                1.265186713890018
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 20.0
+                },
+                1.12461110349784
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 18.0
+                },
+                1.0271495878073271
             ]
         ]
     },
@@ -2572,51 +2118,44 @@
         "dataset_id": 47,
         "top_k": [
             [
-                "holoclean",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.414621562702252
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.4001880428738334
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.180997333539053
-            ],
-            [
                 "bigdansing",
                 "KMEANS",
                 {
                     "k": 14.0
                 },
-                2.0302832573445
+                2.0302832667595787
             ],
             [
-                "bigdansing",
-                "GMM",
+                "horizon",
+                "KMEANS",
                 {
-                    "n_components": 14.0,
-                    "covariance type": "tied"
+                    "k": 12.0
                 },
-                2.0302832573445
+                1.4567191755959894
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 12.0
+                },
+                1.2911833439925418
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 13.0
+                },
+                1.239890742304069
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 12.0
+                },
+                1.159278146980817
             ]
         ]
     },
@@ -2629,46 +2168,39 @@
                 {
                     "k": 13.0
                 },
-                2.971420979865294
-            ],
-            [
-                "bigdansing",
-                "GMM",
-                {
-                    "n_components": 12.0,
-                    "covariance type": "tied"
-                },
-                2.890587786283284
+                2.0826746701159577
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 11.0
                 },
-                2.596766785171371
+                1.4281222725259881
             ],
             [
-                "holoclean",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 11.0
                 },
-                2.414621562702252
+                1.2751242316000413
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 11.0
+                },
+                1.2410692806420476
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 12.0
                 },
-                2.3898106882317283
+                1.0408404980855814
             ]
         ]
     },
@@ -2677,51 +2209,43 @@
         "top_k": [
             [
                 "bigdansing",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.8384526048319056
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "average",
-                    "metric": "manhattan"
-                },
-                2.7874150707205794
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.66482416976439
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.0557682496528393
-            ],
-            [
-                "bigdansing",
                 "KMEANS",
                 {
                     "k": 13.0
                 },
-                1.8169152713488697
+                1.7891811965612967
+            ],
+            [
+                "horizon",
+                "KMEANS",
+                {
+                    "k": 11.0
+                },
+                1.6568012068715938
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 11.0
+                },
+                1.398785076398605
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 11.0
+                },
+                1.3890094822476171
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 11.0
+                },
+                1.0154277779437626
             ]
         ]
     },
@@ -2729,50 +2253,44 @@
         "dataset_id": 50,
         "top_k": [
             [
-                "baran",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                2.4161255569638143
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                2.3407618137800172
-            ],
-            [
                 "bigdansing",
-                "GMM",
+                "KMEANS",
                 {
-                    "n_components": 10.0,
-                    "covariance type": "full"
+                    "k": 21.0
                 },
-                1.7271939557863958
+                1.4770538169300258
             ],
             [
-                "bigdansing",
+                "horizon",
                 "KMEANS",
                 {
                     "k": 20.0
                 },
-                1.4505856428226083
+                1.3658260917147287
             ],
             [
-                "horizon",
-                "GMM",
+                "scared",
+                "KMEANS",
                 {
-                    "n_components": 9.0,
-                    "covariance type": "tied"
+                    "k": 20.0
                 },
-                1.3693726377951592
+                1.1872210775017642
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 19.0
+                },
+                1.0873807962449085
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 20.0
+                },
+                1.0659016869589153
             ]
         ]
     },
@@ -2780,53 +2298,44 @@
         "dataset_id": 51,
         "top_k": [
             [
-                "Unified",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
+                    "k": 8.0
                 },
-                2.6835867859840667
+                1.4299896927136282
             ],
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 10.0
                 },
-                2.3434138743074917
+                1.4214621703215287
             ],
             [
-                "horizon",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 8.0
                 },
-                2.2815907960505015
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.2623656289249543
+                1.3469913730983587
             ],
             [
                 "Unified",
-                "GMM",
+                "KMEANS",
                 {
-                    "n_components": 6.0,
-                    "covariance type": "full"
+                    "k": 8.0
                 },
-                2.02309050217122
+                1.2803940316441975
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 9.0
+                },
+                0.9978802922258652
             ]
         ]
     },
@@ -2835,49 +2344,43 @@
         "top_k": [
             [
                 "bigdansing",
-                "GMM",
-                {
-                    "n_components": 12.0,
-                    "covariance type": "tied"
-                },
-                2.93745553225772
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.826510034313473
-            ],
-            [
-                "baran",
-                "GMM",
-                {
-                    "n_components": 4.0,
-                    "covariance type": "tied"
-                },
-                2.482118652504311
-            ],
-            [
-                "bigdansing",
                 "KMEANS",
                 {
                     "k": 17.0
                 },
-                1.8962977453768592
+                2.208414052735402
             ],
             [
-                "holoclean",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 15.0
                 },
-                1.693766969222119
+                1.3699063965568374
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 15.0
+                },
+                1.1865411094186145
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 15.0
+                },
+                1.115481577556538
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 15.0
+                },
+                1.11095175978031
             ]
         ]
     },
@@ -2885,53 +2388,44 @@
         "dataset_id": 53,
         "top_k": [
             [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 15.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.6644658225995435
-            ],
-            [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "average",
-                    "metric": "manhattan"
+                    "k": 15.0
                 },
-                2.5640667931691112
+                1.4149640993357506
             ],
             [
-                "holoclean",
-                "HC",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 17.0
                 },
-                2.518864417274303
+                1.378782830463927
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 15.0
                 },
-                2.5006665577954275
+                1.3566100639775995
             ],
             [
-                "bigdansing",
-                "GMM",
+                "scared",
+                "KMEANS",
                 {
-                    "n_components": 11.0,
-                    "covariance type": "tied"
+                    "k": 15.0
                 },
-                2.011246052759164
+                1.2594152228286104
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 15.0
+                },
+                1.069872123788787
             ]
         ]
     },
@@ -2940,53 +2434,43 @@
         "top_k": [
             [
                 "bigdansing",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 8.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 22.0
                 },
-                2.729539879957991
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.534492841853887
+                1.3706496947087339
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 9.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 20.0
                 },
-                2.371731924266208
+                1.1708119922479516
             ],
             [
-                "Unified",
-                "HC",
+                "mode",
+                "KMEANS",
                 {
-                    "k": 17.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 31.0
                 },
-                2.3060158645498325
+                1.0537299002864784
             ],
             [
-                "holoclean",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 30.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 20.0
                 },
-                1.8408703542662201
+                1.0235267265063064
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 19.0
+                },
+                0.9914458136956582
             ]
         ]
     },
@@ -2994,51 +2478,44 @@
         "dataset_id": 55,
         "top_k": [
             [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 17.0
+                },
+                1.5125120741733449
+            ],
+            [
                 "horizon",
-                "HC",
-                {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.7913422313549683
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
-                },
-                2.3375169747555735
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "average",
-                    "metric": "euclidean"
-                },
-                2.1065774752825517
-            ],
-            [
-                "bigdansing",
-                "GMM",
-                {
-                    "n_components": 17.0,
-                    "covariance type": "tied"
-                },
-                1.5979171541540125
-            ],
-            [
-                "bigdansing",
                 "KMEANS",
                 {
                     "k": 15.0
                 },
-                1.5532125890279582
+                1.113893644159337
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 15.0
+                },
+                1.0501485484529673
+            ],
+            [
+                "holoclean",
+                "KMEANS",
+                {
+                    "k": 30.0
+                },
+                0.9988369872231817
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 15.0
+                },
+                0.9834561849140387
             ]
         ]
     },
@@ -3047,50 +2524,43 @@
         "top_k": [
             [
                 "bigdansing",
-                "HC",
-                {
-                    "k": 14.0,
-                    "linkage": "complete",
-                    "metric": "manhattan"
-                },
-                2.6129190391931014
-            ],
-            [
-                "bigdansing",
-                "GMM",
-                {
-                    "n_components": 12.0,
-                    "covariance type": "full"
-                },
-                2.335274385001424
-            ],
-            [
-                "bigdansing",
                 "KMEANS",
                 {
                     "k": 14.0
                 },
-                2.1887222733169853
+                1.9846269098686424
             ],
             [
-                "baran",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 12.0
                 },
-                2.1485402664182622
+                1.0097805392542207
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 12.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 12.0
                 },
-                2.124085673509866
+                0.9847785849581081
+            ],
+            [
+                "Unified",
+                "KMEANS",
+                {
+                    "k": 12.0
+                },
+                0.9790151123558506
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 12.0
+                },
+                0.9678171965847093
             ]
         ]
     },
@@ -3098,53 +2568,44 @@
         "dataset_id": 57,
         "top_k": [
             [
-                "bigdansing",
-                "HC",
+                "scared",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "complete",
-                    "metric": "euclidean"
+                    "k": 8.0
                 },
-                2.5235244545834967
+                1.8136011483798216
+            ],
+            [
+                "bigdansing",
+                "KMEANS",
+                {
+                    "k": 11.0
+                },
+                1.5291376069995455
             ],
             [
                 "horizon",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 8.0
                 },
-                2.5208171716136367
+                1.526036374940323
+            ],
+            [
+                "baran",
+                "KMEANS",
+                {
+                    "k": 8.0
+                },
+                1.1283961473962274
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 8.0
                 },
-                2.1044671919771294
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 6.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                2.019060939623408
-            ],
-            [
-                "horizon",
-                "GMM",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "spherical"
-                },
-                2.0155770184288104
+                1.076554698267171
             ]
         ]
     },
@@ -3152,54 +2613,44 @@
         "dataset_id": 58,
         "top_k": [
             [
-                "horizon",
-                "HC",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 17.0
                 },
-                2.8302884846345946
+                1.667789179596983
             ],
             [
-                "bigdansing",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 16.0
                 },
-                2.7526560126096875
+                1.4676229094492208
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 16.0
+                },
+                1.178815769430974
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
+                    "k": 16.0
                 },
-                2.599853994373977
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "k": 10.0,
-                    "linkage": "single",
-                    "metric": "euclidean"
-                },
-                2.534477732672826
+                1.169559598288437
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 15.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 16.0
                 },
-                2.4916229259923157
+                1.1304386813671918
             ]
         ]
     },
@@ -3207,53 +2658,44 @@
         "dataset_id": 59,
         "top_k": [
             [
-                "Unified",
-                "GMM",
+                "bigdansing",
+                "KMEANS",
                 {
-                    "n_components": 2.0,
-                    "covariance type": "tied"
+                    "k": 11.0
                 },
-                2.8208558963194057
+                1.6656849974661319
             ],
             [
                 "Unified",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "average",
-                    "metric": "manhattan"
+                    "k": 9.0
                 },
-                2.555470213470925
+                1.2165718777471788
             ],
             [
-                "holoclean",
-                "HC",
+                "horizon",
+                "KMEANS",
                 {
-                    "k": 5.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 9.0
                 },
-                2.526025698854409
+                1.2140375942079384
+            ],
+            [
+                "scared",
+                "KMEANS",
+                {
+                    "k": 9.0
+                },
+                1.199051315835786
             ],
             [
                 "baran",
-                "HC",
+                "KMEANS",
                 {
-                    "k": 7.0,
-                    "linkage": "single",
-                    "metric": "manhattan"
+                    "k": 10.0
                 },
-                2.1939630827817274
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "k": 10.0,
-                    "linkage": "ward",
-                    "metric": "euclidean"
-                },
-                1.983689066422872
+                1.0448586858588267
             ]
         ]
     }

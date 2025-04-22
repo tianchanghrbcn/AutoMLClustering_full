@@ -3,11 +3,8 @@ import json
 import multiprocessing as mp
 from concurrent.futures import ProcessPoolExecutor
 
-# 按你原先的包结构导入
 from src.pipeline.train.cluster_methods import ClusterMethod
 from src.pipeline.train.cluster_methods import run_clustering
-from src.pipeline.train.clustered_analysis import save_analyzed_results
-from src.pipeline.train.classifier_preparation import generate_training_data
 
 def process_record(record_idx, record, work_dir):
     """
@@ -43,7 +40,6 @@ def process_record(record_idx, record, work_dir):
         6: "horizon",
         7: "scared",
         8: "Unified",
-        9: "google_gemini"
     }
 
     # 遍历所有清洗算法，拼出 "cleaned_data/{algo_name}/repaired_{dataset_id}.csv"
@@ -65,7 +61,7 @@ def process_record(record_idx, record, work_dir):
         cleaning_runtime = 0.0
 
         # 示例中只有 1 种聚类算法。如果有多种，修改此 range 或自行遍历
-        for cluster_method_id in range(1):
+        for cluster_method_id in range(6):
             cluster_output_dir, cluster_runtime = run_clustering(
                 dataset_id=dataset_id,
                 algorithm=algo_name,

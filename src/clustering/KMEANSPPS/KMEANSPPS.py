@@ -1,205 +1,204 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+K‑MC² + Vanilla K‑means (tracking)
+★ I/O 完全对齐 baseline_kmeans.py ★
+"""
 
-import os
-import sys
-import math
-import time
-import numpy as np
-import pandas as pd
-import optuna
-
-from sklearn.metrics import silhouette_score, davies_bouldin_score
+import os, time, math, json, numpy as np, pandas as pd, optuna
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
 
-##############################################################################
-# =============== 核心算法：kmeans_new_formulation (保持原逻辑) ===============
-
-def initialize_labels(n, k):
-    """随机初始化聚类标签"""
-    return np.random.randint(0, k, size=n)
-
-def indicator_matrix(labels, k, n):
-    """将标签向量转换为指示矩阵 F"""
-    F = np.zeros((n, k))
-    for i in range(n):
-        F[i, labels[i]] = 1
-    return F
-
-def kmeans_new_formulation(X, k, labels=None, max_iter=1000, inner_max_iter=100):
-    """
-    X: shape = (d, n), d=特征数, n=样本数
-    返回: (labels, iter_num, centers, obj)
-      - labels: 最终聚类标签
-      - iter_num: 迭代次数
-      - centers: 聚类中心 (d, k)
-      - obj: SSE (或类似目标函数)
-    """
-    n = X.shape[1]
-
-    if labels is None:
-        labels = initialize_labels(n, k)
-
-    F = indicator_matrix(labels, k, n)
-    A = X.T @ X  # (n, n)
-    s = np.ones(k)
-    M = np.ones((n, k))
-
-    max_iter_num = 0
-    for iter_num in range(max_iter):
-        labels_last = labels.copy()
-
-        # 更新 s_i
-        for i in range(k):
-            f = F[:, i]
-            numerator = np.sqrt(f.T @ A @ f)
-            denominator = (f.T @ f) + 1e-10
-            s[i] = numerator / denominator
-
-        # 内部循环
-        for _ in range(inner_max_iter):
-            for j in range(k):
-                f = F[:, j]
-                temp4 = A @ f
-                temp3 = np.sqrt(f.T @ temp4)
-                M[:, j] = (1.0 / (temp3 + 1e-10)) * temp4
-
-            S = np.tile(s, (n, 1))
-            temp_M = 2 * S * M
-            temp_S = S ** 2
-            temp5 = temp_S - temp_M
-
-            labels_new = np.argmin(temp5, axis=1)
-            F = indicator_matrix(labels_new, k, n)
-
-            if np.array_equal(labels, labels_new):
-                break
-            labels = labels_new.copy()
-
-        max_iter_num = iter_num
-        if np.array_equal(labels, labels_last):
-            break
-
-    # 计算聚类中心
-    sum_F = np.sum(F, axis=0, keepdims=True) + 1e-10
-    centers = (X @ F) / sum_F
-
-    # 计算目标函数 (SSE)
-    temp6 = X - centers @ F.T
-    obj = np.linalg.norm(temp6, 'fro') ** 2
-
-    return labels, max_iter_num, centers, obj
-
-
-##############################################################################
-# =============== 主流程：IO方式与“第二段脚本”一致，改用DB+Sil搜索最优k ===============
-
-# 获取 CSV 文件路径和环境变量参数
-csv_file_path = os.getenv("CSV_FILE_PATH")
-dataset_id = os.getenv("DATASET_ID")
-algorithm_name = os.getenv("ALGO")
-
+# --------------------------------------------------
+# 0. 环境参数与数据读取
+# --------------------------------------------------
+csv_file_path = os.getenv("CSV_FILE_PATH")      # ==== CHANGE ====
+dataset_id    = os.getenv("DATASET_ID")         # ==== CHANGE ====
+algorithm_name = os.getenv("ALGO")              # ==== CHANGE ====
 if not csv_file_path:
-    print("Error: CSV file path is not provided. Set 'CSV_FILE_PATH' environment variable.")
-    sys.exit(1)
+    raise SystemExit("Error: CSV_FILE_PATH env not set.")
 
-# 规范化路径以确保跨平台兼容性
 csv_file_path = os.path.normpath(csv_file_path)
-
-# 读取 CSV 文件
 try:
     df = pd.read_csv(csv_file_path)
-    print("Data loaded successfully.")
+    print("Data loaded successfully.")          # 与基准保持一致
 except FileNotFoundError:
-    print(f"Error: File '{csv_file_path}' not found. Please check the path and try again.")
-    sys.exit(1)
+    raise SystemExit(f"File '{csv_file_path}' not found.")
 
-# 计时开始
-start_time = time.time()
+alpha, beta = 0.5, 0.5
+start_time  = time.time()
 
-# 定义 alpha 和 beta
-alpha = 0.75
-beta = 0.25
+# --------------------------------------------------
+# 1. 预处理（同基准）
+# --------------------------------------------------
+excluded_cols = [c for c in df.columns if 'id' in c.lower()]
+X = df[df.columns.difference(excluded_cols)].copy()
+for col in X.select_dtypes(['object', 'category']).columns:
+    X[col] = X[col].map(X[col].value_counts(normalize=True))
+X = X.dropna()
+X_scaled = StandardScaler().fit_transform(X)     # (n_samples, n_features)
 
-# 排除包含 'id' 的列
-excluded_columns = [col for col in df.columns if 'id' in col.lower()]
-print(f"Excluded columns containing 'id': {excluded_columns}")
+# --------------------------------------------------
+# 2. K‑MC² 初始化
+# --------------------------------------------------
+def k_mc2(X, k, m, rng):
+    n = X.shape[0]
+    centers = [X[rng.integers(n)]]
+    for _ in range(1, k):
+        x = X[rng.integers(n)]
+        dx = np.min(np.sum((x - centers) ** 2, axis=1))
+        for _ in range(m):
+            y = X[rng.integers(n)]
+            dy = np.min(np.sum((y - centers) ** 2, axis=1))
+            if dy / dx > rng.random():
+                x, dx = y, dy
+        centers.append(x)
+    return np.vstack(centers)
 
-# 选择多列作为特征列
-remaining_columns = df.columns.difference(excluded_columns)
-X_df = df[remaining_columns]
-print(f"Using multiple columns for clustering: {list(remaining_columns)}")
+# --------------------------------------------------
+# 3. 手写 K‑means（带追踪）
+# --------------------------------------------------
+def kmeans_track(X, init_centers, max_iter=300, tol=1e-4):
+    rng = np.random.default_rng(0)
+    centers = init_centers.copy()
+    k = centers.shape[0]
+    history = []
 
-# 对类别型特征进行频率编码
-for col in X_df.columns:
-    if X_df[col].dtype == 'object' or X_df[col].dtype.name == 'category':
-        X_df.loc[:, col] = X_df[col].map(X_df[col].value_counts(normalize=True))
+    for t in range(1, max_iter + 1):
+        dists = np.linalg.norm(X[:, None, :] - centers[None, :, :], axis=2)
+        labels = dists.argmin(axis=1)
 
-# 删除包含 NaN 的行
-X_df = X_df.dropna()
+        new_centers = np.vstack([
+            X[labels == j].mean(axis=0) if (labels == j).any()
+            else X[rng.integers(X.shape[0])]
+            for j in range(k)
+        ])
 
-# 标准化数据
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X_df)  # shape=(n, d)
+        delta = float(np.linalg.norm(new_centers - centers))
+        rel_delta = delta / (np.linalg.norm(centers) + 1e-12)
+        sse = float(np.sum((X - new_centers[labels]) ** 2))
+        history.append({"iter": t, "delta": delta,
+                        "relative_delta": rel_delta, "sse": sse})
 
-# 转置 => (d, n)
-X_trans = X_scaled.T
-n_samples = X_trans.shape[1]
+        if delta < tol:
+            centers = new_centers
+            break
+        centers = new_centers
 
-# 利用Optuna搜索 k, 令 combined_score = alpha*(1/DB) + beta*(Silhouette)
-import optuna
-from sklearn.metrics import davies_bouldin_score, silhouette_score
+    return labels, centers, history
+
+# --------------------------------------------------
+# 4. Optuna 搜索
+# --------------------------------------------------
+optuna_trials = []
+
+def _add_extra_stats(rec):
+    deltas = [h["delta"] for h in rec["history"] if h["delta"] > 1e-12]
+    if len(deltas) > 1:
+        rec["auc_delta"] = float(sum(deltas))
+        rec["geo_decay"] = float((deltas[-1] / deltas[0]) ** (1 / (len(deltas) - 1)))
+    else:
+        rec["auc_delta"] = rec["geo_decay"] = 0.0
 
 def objective(trial):
-    # 遍历 k in [5, sqrt(n)] 也可调
-    n_clusters = trial.suggest_int("n_clusters", 5, max(2, int(math.isqrt(X_df.shape[0]))))
+    k = trial.suggest_int("n_clusters", 5, max(2, int(math.isqrt(X_scaled.shape[0]))))
+    m = trial.suggest_int("m", 100, 500)
 
-    labels, _, _, _ = kmeans_new_formulation(X_trans, n_clusters)
-    db_val = davies_bouldin_score(X_scaled, labels)
-    db_val = max(db_val, 1e-7)
-    sil_val = silhouette_score(X_scaled, labels)
+    init_centers = k_mc2(X_scaled, k, m, np.random.default_rng(trial.number))
+    labels, _, hist = kmeans_track(X_scaled, init_centers)
 
-    # 我们想最大化 => alpha*(1/DB)+beta*(Sil)
-    # optuna默认 direction="minimize", 所以返回负值
-    comb = alpha*(1.0/db_val) + beta*sil_val
-    return -comb
+    db  = max(davies_bouldin_score(X_scaled, labels), 1e-7)
+    sil = silhouette_score(X_scaled, labels)
+    ch  = calinski_harabasz_score(X_scaled, labels)
+    combo = alpha * (1 / db) + beta * sil
+    sse = hist[-1]["sse"]
 
-study = optuna.create_study(direction="minimize")
-study.optimize(objective, n_trials=20)
+    rec = {"trial_number": trial.number,
+           "n_clusters": k, "m": m,
+           "iterations": len(hist),
+           "combined_score": combo,
+           "silhouette": sil,
+           "davies_bouldin": db,
+           "calinski_harabasz": ch,
+           "sse": sse,
+           "history": hist}
+    _add_extra_stats(rec)
+    optuna_trials.append(rec)
+    return sse
 
-best_k = study.best_params["n_clusters"]
-print(f"Initial optimal number of clusters from Optuna: {best_k}")
+optuna.create_study(direction="minimize").optimize(objective, n_trials=30)
 
-# 直接使用 best_k (不再使用Kneedle)
+best_trial = min(optuna_trials, key=lambda d: d["sse"])
+k_opt, m_opt = best_trial["n_clusters"], best_trial["m"]
+print(f"Optimal k (Optuna): {k_opt}  (m={m_opt})")
 
-final_labels, final_iter, final_centers, final_obj = kmeans_new_formulation(X_trans, best_k)
+# --------------------------------------------------
+# 5. 最终模型（使用最佳 k,m 重新训练）
+# --------------------------------------------------
+final_init = k_mc2(X_scaled, k_opt, m_opt, np.random.default_rng(42))
+labels_final, centers_final, hist_final = kmeans_track(X_scaled, final_init)
+final_sse = hist_final[-1]["sse"]
+final_db  = davies_bouldin_score(X_scaled, labels_final)
+final_sil = silhouette_score(X_scaled, labels_final)
+final_ch  = calinski_harabasz_score(X_scaled, labels_final)
+final_combo = alpha * (1 / final_db) + beta * final_sil
+final_iters = len(hist_final)
 
-# 计算最终 DB, Sil
-final_db_score = davies_bouldin_score(X_scaled, final_labels)
-final_db_score = max(final_db_score, 1e-7)
-final_silhouette_score = silhouette_score(X_scaled, final_labels)
+# 把最终一次运行附加到历史，保持文件结构一致
+best_trial_final = best_trial.copy()
+best_trial_final.update({"history": hist_final,
+                         "iterations": final_iters,
+                         "sse": final_sse,
+                         "silhouette": final_sil,
+                         "davies_bouldin": final_db,
+                         "calinski_harabasz": final_ch,
+                         "combined_score": final_combo})
+optuna_trials.append(best_trial_final)
 
-final_combined_score = alpha*(1.0/final_db_score) + beta*final_silhouette_score
+# --------------------------------------------------
+# 6. 统一输出目录 & 文件写出（与基准脚本相同）
+# --------------------------------------------------
+root_out = os.path.join(os.getcwd(), "..", "..", "..", "results",
+                        "clustered_data", "KMEANS",            # ==== CHANGE ====
+                        algorithm_name,
+                        f"clustered_{dataset_id}")
+os.makedirs(root_out, exist_ok=True)
 
-# 保存结果和输出
-base_filename = os.path.splitext(os.path.basename(csv_file_path))[0]
-output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", "KMEANSPPS", algorithm_name,
-                          f"clustered_{dataset_id}")
-os.makedirs(output_dir, exist_ok=True)
-output_txt_file = os.path.join(output_dir, f"{base_filename}.txt")
+base = os.path.splitext(os.path.basename(csv_file_path))[0]
 
-with open(output_txt_file, 'w', encoding='utf-8') as f:
-    output_txt = [
-        f"Best parameters: k={best_k}",
-        f"Number of clusters: {best_k}",
-        f"Final Combined Score: {final_combined_score}",
-        f"Final Silhouette Score: {final_silhouette_score}",
-        f"Final Davies-Bouldin Score: {final_db_score}"
-    ]
-    f.write("\n".join(output_txt))
+# ---- TXT ----
+with open(os.path.join(root_out, f"{base}.txt"), "w", encoding="utf-8") as f:
+    f.write("\n".join([
+        f"Best parameters: k={k_opt}",
+        f"Number of clusters: {k_opt}",
+        f"Final Combined Score: {final_combo}",
+        f"Final Silhouette Score: {final_sil}",
+        f"Final Davies-Bouldin Score: {final_db}",
+        f"Calinski-Harabasz: {final_ch}",
+        f"Iterations to converge: {final_iters}",
+        f"Final SSE: {final_sse}"
+    ]))
 
-print(f"Text output saved to {output_txt_file}")
+# ---- JSON: 历史 ----
+with open(os.path.join(root_out, f"{base}_centroid_history.json"),
+          "w", encoding="utf-8") as fp:
+    json.dump(optuna_trials, fp, indent=4)
 
-end_time = time.time()
-print(f"Program completed in: {end_time - start_time:.2f} seconds")
+# ---- JSON: summary ----
+summary = {
+    "n_trials":          len(optuna_trials),
+    "avg_iterations":    float(np.mean([t["iterations"] for t in optuna_trials])),
+    "median_iterations": float(np.median([t["iterations"] for t in optuna_trials])),
+    "avg_auc_delta":     float(np.mean([t["auc_delta"] for t in optuna_trials])),
+    "avg_geo_decay":     float(np.mean([t["geo_decay"] for t in optuna_trials])),
+    "best_k":            k_opt,
+    "best_combined_score": final_combo,
+    "best_sse":          final_sse,
+    "total_runtime_sec": time.time() - start_time
+}
+with open(os.path.join(root_out, f"{base}_summary.json"),
+          "w", encoding="utf-8") as fp:
+    json.dump(summary, fp, indent=4)
+
+print("History and summary files saved.")
+print(f"Total runtime: {summary['total_runtime_sec']:.2f} s")

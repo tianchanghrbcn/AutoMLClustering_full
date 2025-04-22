@@ -1,129 +1,190 @@
-import os
-import time
-import math
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Agglomerative Clustering (HC) with full merge‑tree tracking
+* 保持原环境变量 / 输入输出
+* 保留 4 行文本输出格式（n_components / best_cov_type 字段名不变）
+* 额外输出 3 份 JSON: merge_history, summary, (可选)param_shift
+"""
+import os, time, math, json
 import pandas as pd
-import numpy as np
 import optuna
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import silhouette_score, davies_bouldin_score
+from sklearn.metrics import silhouette_score, davies_bouldin_score, pairwise_distances
 
-# 获取 CSV 文件路径和环境变量
-csv_file_path = os.getenv("CSV_FILE_PATH")
-dataset_id = os.getenv("DATASET_ID")
+# --------------------------------------------------
+# 0. 环境变量
+# --------------------------------------------------
+csv_file_path  = os.getenv("CSV_FILE_PATH")
+dataset_id     = os.getenv("DATASET_ID")
 algorithm_name = os.getenv("ALGO")
+clean_state    = os.getenv("CLEAN_STATE", "raw")         # raw / cleaned
 
 if not csv_file_path:
-    print("Error: CSV file path is not provided. Set 'CSV_FILE_PATH' environment variable.")
-    exit(1)
-
-# 规范化路径
+    raise SystemExit("CSV_FILE_PATH not provided")
 csv_file_path = os.path.normpath(csv_file_path)
 
-# 读取 CSV 文件
-try:
-    df = pd.read_csv(csv_file_path)
-    print("Data loaded successfully.")
-except FileNotFoundError:
-    print(f"Error: File '{csv_file_path}' not found. Please check the path and try again.")
-    exit(1)
+# --------------------------------------------------
+# 1. 读取与预处理
+# --------------------------------------------------
+df = pd.read_csv(csv_file_path)
+excluded = [c for c in df.columns if 'id' in c.lower()]
+X = df[df.columns.difference(excluded)].copy()
 
-# 计时开始
+for col in X.columns:
+    if X[col].dtype in ("object", "category"):
+        X[col] = X[col].map(X[col].value_counts(normalize=True))
+X = X.dropna()
+X_scaled = StandardScaler().fit_transform(X)
+
+alpha, beta = 0.5, 0.5           # combined‑score 权重
 start_time = time.time()
 
-# 定义 alpha 和 beta 权重
-alpha = 0.5
-beta = 0.5
+# --------------------------------------------------
+# 2. HC + merge‑tree 追踪函数
+# --------------------------------------------------
+def run_hc_tracking(k, linkage, metric):
+    """返回 labels, merge_history(list[dict]), core_stats"""
+    hc = AgglomerativeClustering(n_clusters=k,
+                                 linkage=linkage,
+                                 affinity=metric,
+                                 compute_distances=True)   # sklearn ≥1.2
+    labels = hc.fit_predict(X_scaled)
 
-# 排除包含 'id' 的列
-excluded_columns = [col for col in df.columns if 'id' in col.lower()]
-print(f"Excluded columns containing 'id': {excluded_columns}")
+    # merge history: children_, distances_
+    merges = []
+    if hasattr(hc, "children_") and hasattr(hc, "distances_"):
+        for step, (i, j, d) in enumerate(zip(hc.children_[:, 0],
+                                             hc.children_[:, 1],
+                                             hc.distances_)):
+            merges.append({"step": int(step+1),
+                           "cluster_i": int(i),
+                           "cluster_j": int(j),
+                           "dist": float(d)})
+    # 核心 / 边界稳定度 (近似): 计算簇内 vs 簇间平均距离
+    dist_mat = pairwise_distances(X_scaled, metric="euclidean")
+    intra, inter, cnt_intra, cnt_inter = 0.0, 0.0, 0, 0
+    for i in range(len(labels)):
+        for j in range(i+1, len(labels)):
+            if labels[i] == labels[j]:
+                intra += dist_mat[i, j]; cnt_intra += 1
+            else:
+                inter += dist_mat[i, j]; cnt_inter += 1
+    intra_mean = intra / max(cnt_intra, 1)
+    inter_mean = inter / max(cnt_inter, 1)
+    core_stats = {"intra_dist_mean": intra_mean,
+                  "inter_dist_mean": inter_mean,
+                  "ratio_intra_inter": intra_mean / (inter_mean + 1e-12)}
+    return labels, merges, core_stats
 
-# 使用所有非排除列作为特征
-remaining_columns = df.columns.difference(excluded_columns)
-X = df[remaining_columns]
-print(f"Using all columns for clustering: {list(remaining_columns)}")
+def combined(db, sil):                       # helper
+    return alpha * (1/db) + beta * sil
 
-# 对类别型特征进行频率编码，避免 `SettingWithCopyWarning`
-for col in X.columns:
-    if X[col].dtype == 'object' or X[col].dtype.name == 'category':
-        X[col] = X[col].map(X[col].value_counts(normalize=True))
+# --------------------------------------------------
+# 3. Optuna 超参数搜索 (k / linkage / metric)
+# --------------------------------------------------
+optuna_trials = []
 
-# 删除包含 NaN 的行
-X = X.dropna()
-
-# 标准化数据
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-
-# 定义 Optuna 目标函数
 def objective(trial):
-    max_clusters = max(5, math.isqrt(X.shape[0]))  # 确保最大簇数不小于 5
-    if max_clusters < 5:
-        raise optuna.exceptions.TrialPruned(f"Invalid cluster range: max_clusters={max_clusters}")
-
-    n_clusters = trial.suggest_int("n_clusters", 5, max_clusters)
-    linkage = trial.suggest_categorical("linkage", ['ward', 'complete', 'average', 'single'])
-    metric = trial.suggest_categorical("metric", ['euclidean', 'manhattan', 'cosine'])
-
-    # Ward linkage 只支持欧几里得距离
+    k = trial.suggest_int("n_clusters", 5, max(5, math.isqrt(X.shape[0])))
+    linkage = trial.suggest_categorical("linkage",
+                                        ['ward', 'complete', 'average', 'single'])
+    metric = trial.suggest_categorical("metric",
+                                       ['euclidean', 'manhattan', 'cosine'])
     if linkage == 'ward' and metric != 'euclidean':
-        return float('-inf')  # 跳过不兼容的组合
+        raise optuna.exceptions.TrialPruned()
+    labels, merges, core_stats = run_hc_tracking(k, linkage, metric)
+    sil = silhouette_score(X_scaled, labels)
+    db  = davies_bouldin_score(X_scaled, labels)
+    comb = combined(db, sil)
+    optuna_trials.append({
+        "trial_number": trial.number,
+        "n_clusters": k,
+        "linkage": linkage,
+        "metric": metric,
+        "combined_score": comb,
+        "silhouette": sil,
+        "davies_bouldin": db,
+        "n_merge_steps": len(merges),
+        **core_stats
+    })
+    return comb
 
-    hc = AgglomerativeClustering(n_clusters=n_clusters, linkage=linkage, affinity=metric)
-    try:
-        labels = hc.fit_predict(X_scaled)
-    except ValueError:
-        return float('-inf')  # 跳过潜在错误
-
-    silhouette_avg = silhouette_score(X_scaled, labels, metric='euclidean')
-    db_score = davies_bouldin_score(X_scaled, labels)
-    db_score = 1e-6 if db_score == 0 else db_score  # 防止除零
-
-    combined_score = alpha * (1 / db_score) + beta * silhouette_avg
-    return combined_score
-
-
-# 使用 Optuna 进行优化
 study = optuna.create_study(direction="maximize")
-study.optimize(objective, n_trials=200)
+study.optimize(objective, n_trials=100)
+best = max(optuna_trials, key=lambda d: d["combined_score"])
 
-# 获取最佳参数
-best_params = study.best_params
-final_best_k = best_params["n_clusters"]
-linkage_optuna = best_params["linkage"]
-metric_optuna = best_params["metric"]
-print(
-    f"Final optimal parameters from Optuna: n_clusters={final_best_k}, linkage={linkage_optuna}, metric={metric_optuna}")
+# 统一变量名以满足固定输出格式
+final_best_k        = best["n_clusters"]
+linkage_optuna      = best["linkage"]
+metric_optuna       = best["metric"]
+best_cov_type       = f"{linkage_optuna}-{metric_optuna}"   # 仅为占位，保持字段
+# --------------------------------------------------
+# 4. 最终模型 + merge 详细记录
+# --------------------------------------------------
+labels_final, merge_history, core_stats_final = run_hc_tracking(
+    final_best_k, linkage_optuna, metric_optuna)
 
-# 使用最佳参数进行 HC 聚类
-final_hc = AgglomerativeClustering(n_clusters=final_best_k, linkage=linkage_optuna, affinity=metric_optuna)
-final_labels = final_hc.fit_predict(X_scaled)
+final_db   = davies_bouldin_score(X_scaled, labels_final)
+final_sil  = silhouette_score(X_scaled, labels_final)
+final_comb = combined(final_db, final_sil)
 
-# 计算最终的 DB 系数、轮廓系数和综合得分
-final_db_score = davies_bouldin_score(X_scaled, final_labels)
-final_silhouette_score = silhouette_score(X_scaled, final_labels, metric='euclidean')
-final_combined_score = alpha * (1 / final_db_score) + beta * final_silhouette_score
+# --------------------------------------------------
+# 5. 输出
+# --------------------------------------------------
+base = os.path.splitext(os.path.basename(csv_file_path))[0]
+root = os.path.join(os.getcwd(), "..", "..", "..", "results",
+                    "clustered_data", "HC", algorithm_name,
+                    f"clustered_{dataset_id}")
+os.makedirs(root, exist_ok=True)
 
-# 创建输出目录
-base_filename = os.path.splitext(os.path.basename(csv_file_path))[0]
-output_dir = os.path.join(os.getcwd(), "..", "..", "..", "results", "clustered_data", "HC", algorithm_name,
-                          f"clustered_{dataset_id}")
-os.makedirs(output_dir, exist_ok=True)
-output_txt_file = os.path.join(output_dir, f"{base_filename}.txt")
+# 5‑1 文本 —— 保留要求的 4 行
+txt_path = os.path.join(root, f"{base}.txt")
+with open(txt_path, "w", encoding="utf-8") as fh:
+    fh.write("\n".join([
+        f"Best parameters: n_components={final_best_k}, covariance type={best_cov_type}",
+        f"Final Combined Score: {final_comb}",
+        f"Final Silhouette Score: {final_sil}",
+        f"Final Davies-Bouldin Score: {final_db}"
+    ]))
 
-# 保存文本输出
-with open(output_txt_file, 'w', encoding='utf-8') as f:
-    output_txt = [
-        f"Best parameters: k={final_best_k}, linkage={linkage_optuna}, metric={metric_optuna}",
-        f"Number of clusters: {final_best_k}",
-        f"Final Combined Score: {final_combined_score}",
-        f"Final Silhouette Score: {final_silhouette_score}",
-        f"Final Davies-Bouldin Score: {final_db_score}"
-    ]
-    f.write("\n".join(output_txt))
-print(f"Text output saved as {output_txt_file}")
+# 5‑2 JSON: merge history + summary
+hist_path   = os.path.join(root, f"{base}_{clean_state}_merge_history.json")
+summary_path = os.path.join(root, f"{base}_{clean_state}_summary.json")
+with open(hist_path, "w", encoding="utf-8") as fp:
+    json.dump(merge_history, fp, indent=4)
 
-end_time = time.time()
-print(f"Program completed in: {end_time - start_time} seconds")
+summary = {
+    "clean_state": clean_state,
+    "best_k": final_best_k,
+    "linkage": linkage_optuna,
+    "metric": metric_optuna,
+    "combined": final_comb,
+    "silhouette": final_sil,
+    "davies_bouldin": final_db,
+    **core_stats_final,
+    "n_merge_steps": len(merge_history),
+    "total_runtime_sec": time.time() - start_time
+}
+with open(summary_path, "w", encoding="utf-8") as fp:
+    json.dump(summary, fp, indent=4)
+
+# 5‑3 Δk / Δcombined 偏移 (如另一个状态已存在)
+other_state = "cleaned" if clean_state == "raw" else "raw"
+other_path  = os.path.join(root, f"{base}_{other_state}_summary.json")
+if os.path.exists(other_path):
+    with open(other_path) as fp:
+        other = json.load(fp)
+    shift = {
+        "dataset_id": dataset_id,
+        "delta_k": summary["best_k"] - other["best_k"],
+        "delta_combined": summary["combined"] - other["combined"],
+        "rel_shift": abs(summary["best_k"] - other["best_k"]) / max(other["best_k"], 1)
+    }
+    shift_path = os.path.join(root, f"{base}_param_shift.json")
+    with open(shift_path, "w", encoding="utf-8") as fp:
+        json.dump(shift, fp, indent=4)
+
+print(f"All files saved in: {root}")
+print(f"Program completed in {summary['total_runtime_sec']:.2f} sec")

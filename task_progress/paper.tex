@@ -1148,8 +1148,7 @@ Rayyan   & 1.406  & 1.835  & 9,127   & 2,093  & -30.51 & 4.36 \\
     \label{fig:all_radar_charts}
 \end{figure}
 
-\paragraph{整体布局与对比}  
-从六张雷达图中可整体观察到，\textbf{GroundTruth} 曲线在各个维度轴上始终处于最外缘，表明在“理想化清洗”条件下，所有聚类算法均能获得接近最优的多维指标表现。其余真实清洗方法的折线虽有各自优势维度，但在图形覆盖面积和单轴最大值方面均与 GroundTruth 存在差距。
+从六张雷达图中可整体观察到，GroundTruth 曲线在各个维度轴上始终处于最外缘，表明在“理想化清洗”条件下，所有聚类算法均能获得接近最优的多维指标表现。其余真实清洗方法的折线虽有各自优势维度，但在图形覆盖面积和单轴最大值方面均与 GroundTruth 存在差距。
 
 \paragraph{不同清洗策略的差异}  
 \begin{itemize}
@@ -1210,13 +1209,13 @@ Rayyan   & 1.406  & 1.835  & 9,127   & 2,093  & -30.51 & 4.36 \\
 本研究针对四个数据集 (\textbf{beers, flights, hospital, rayyan}) 绘制了以 \textit{(cluster\_method, cleaning\_method)} 为行列、\textit{Comb\_relative} 为数值的热力图。颜色偏绿往往表示综合得分更高，偏红表示对该数据集效果欠佳。结合各数据集的具体配置（如维度数量 \texttt{m}，样本规模 \texttt{n}，错误率区间与缺失率分布等），可得出以下主要结论与对比：
 
 \begin{itemize}
-    \item \textbf{beers 数据集}：具有 11 个特征，最大错误率近 33\%，最少有约 9\% 的错误值。热力图显示，当清洗方法较为精准（如 baran 或接近 GroundTruth）时，HC、DBSCAN 以及部分 K-Means 变体在 \textit{Comb\_relative} 上展现更深绿色块；若采用简单填补策略（如 mode），大多仅呈中间色块甚至偏橙，表明中等程度的错误修复对高噪声数据贡献有限。
+    \item \textbf{beers}：具有 11 个特征，最大错误率近 33\%，最少有约 9\% 的错误值。热力图显示，当清洗方法较为精准（如 baran 或接近 GroundTruth）时，HC、DBSCAN 以及部分 K-Means 变体在 \textit{Comb\_relative} 上展现更深绿色块；若采用简单填补策略（如 mode），大多仅呈中间色块甚至偏橙，表明中等程度的错误修复对高噪声数据贡献有限。
 
-    \item \textbf{flights 数据集}：特征数 \texttt{m=7}，在最高 30\% 错误率与 15\% 缺失率下，图中同样可见 baran、GroundTruth 等“强修复”在多聚类算法上获得更高得分；mode、bigdansing 等方法颜色较浅或趋红，说明未能在错漏较高的航班数据情境中实现足够修复精度，对聚类整体分带来实质突破。
+    \item \textbf{flights}：特征数 \texttt{m=7}，在最高 30\% 错误率与 15\% 缺失率下，图中同样可见 baran、GroundTruth 等“强修复”在多聚类算法上获得更高得分；mode、bigdansing 等方法颜色较浅或趋红，说明未能在错漏较高的航班数据情境中实现足够修复精度，对聚类整体分带来实质突破。
 
-    \item \textbf{hospital 数据集}：规模相对适中 (\texttt{n=1000}, \texttt{m=20})，但噪声与缺失率最高可达 30\%。对高缺失率、多领域特征的医疗数据，若采用 baran+HC 或 baran+DBSCAN，可见图中偏绿色区块更广；简单填补法在此场景下颜色多集中在暖黄或橙色，显示其在高噪声、多特征的医院数据上效果受限。
+    \item \textbf{hospital}：规模相对适中 (\texttt{n=1000}, \texttt{m=20})，但噪声与缺失率最高可达 30\%。对高缺失率、多领域特征的医疗数据，若采用 baran+HC 或 baran+DBSCAN，可见图中偏绿色区块更广；简单填补法在此场景下颜色多集中在暖黄或橙色，显示其在高噪声、多特征的医院数据上效果受限。
 
-    \item \textbf{rayyan 数据集}：此任务最高错误率达到 40\% 左右，特征维度 \texttt{m=12}、样本量 \texttt{n=1000}。热力图明显出现大量中间或浅绿色，说明即使精确清洗也难以完全扭转极高错误率对于聚类结构的冲击；但若结合 GroundTruth 或 baran 等方法时，部分聚类算法（如 DBSCAN、HC）仍可呈现相对更深绿色，有一定改善空间。
+    \item \textbf{rayyan}：此任务最高错误率达到 40\% 左右，特征维度 \texttt{m=12}、样本量 \texttt{n=1000}。热力图明显出现大量中间或浅绿色，说明即使精确清洗也难以完全扭转极高错误率对于聚类结构的冲击；但若结合 GroundTruth 或 baran 等方法时，部分聚类算法（如 DBSCAN、HC）仍可呈现相对更深绿色，有一定改善空间。
 \end{itemize}
 
 \noindent
@@ -1280,8 +1279,7 @@ Rayyan   & 1.406  & 1.835  & 9,127   & 2,093  & -30.51 & 4.36 \\
     \label{fig:correlation_scatter_six}
 \end{figure}
 
-\paragraph{散点图结果与相关性分析}
-图~\ref{fig:correlation_scatter_six} 中每张子图分别呈现 \(\mathrm{x}=\{\text{EDR}, \text{F1}\}\) 与 \(\mathrm{y}=\{\text{Comb\_relative}, \text{DB\_relative}, \text{Sil\_relative}\}\) 的皮尔森相关系数，以 \texttt{(dataset\_id, cluster\_method)} 为分组单位进行计算。横轴为不同 \(\mathrm{dataset\_id}\)（按最大相关绝对值降序排列），纵轴为 \(\mathrm{cluster\_method}\)，而圆点的大小代表相关系数绝对值、颜色代表系数正负，便于快速辨识各组合关联度的强弱与方向。结合对四个数据集的错误率与缺失率配置，可得以下要点：
+图~\ref{fig:correlation_scatter_six} 中每张子图分别呈现 \(\mathrm{x}=\{\text{EDR}, \text{F1}\}\) 与 \(\mathrm{y}=\{\text{Comb\_relative}, \text{DB\_relative}, \text{Sil\_relative}\}\) 的皮尔森相关系数，以 \texttt{(dataset\_id, cluster\_method)} 为分组单位进行计算。结合对四个数据集的错误率与缺失率配置，可得以下要点：
 
 \textbf{EDR vs. Comb\_relative, DB\_relative, Sil\_relative}：
     \begin{itemize}
@@ -1301,7 +1299,7 @@ Rayyan   & 1.406  & 1.835  & 9,127   & 2,093  & -30.51 & 4.36 \\
         \item \texttt{hospital, rayyan}： 最高错误率可达 30\%--40\%，同时噪声与缺失率均偏高，散点图中存在部分负相关或接近零的点，说明仅靠高清洗准确度无法在所有场景显著提高聚类度量，可能还需算法对噪声分布有更强适配性。
     \end{itemize}
 
-\textbf{聚类算法层面}：
+\textbf{不同算法的差异}：
     \begin{itemize}
         \item K-Means 家族（含 KMEANSNF, KMEANSPPS）与 GMM 多数情况下对 EDR/F1 表现出\textbf{正相关}格局，且绝对值中等偏高，提示当修复率或精度足够时，这类算法能获得稳定收益。  
         \item DBSCAN 与 HC 在部分数据集上的点集合显示更分散的分布：部分 dataset\_id 下正相关非常强，另一些则相关度不显著。可推断 DBSCAN/HC 对特定错误类型或离群修复更敏感，需要在后续针对性修复才能看到明显的指标提升。
@@ -1348,7 +1346,7 @@ Rayyan   & 1.406  & 1.835  & 9,127   & 2,093  & -30.51 & 4.36 \\
     \caption{各数据集在不同错误率区间下的 CEGR 折线图。横轴代表错误率分档（如 0--5\%, 5--10\% 等），纵轴表示通过 (EDR-max - EDR-min) 与 (Comb(EDR-max) - Comb(EDR-min)) 计算得到的收益比 CEGR；不同聚类方法以多条线区分，便于观察清洗收益随错误率递增的演化趋势。}
     \label{fig:cegr_lineplots}
 \end{figure}
-在本小节的最后，我们采用\textbf{分档折线图}来考察当错误率不断上升时，清洗在EDR 维度的改变对聚类综合评分 (\textit{Comb\_relative}) 能否保持稳定收益。该收益用 CEGR（Clean-Enhanced Gain Ratio）定义：
+我们采用\textbf{分档折线图}来考察当错误率不断上升时，清洗在EDR 维度的改变对聚类综合评分 (\textit{Comb\_relative}) 能否保持稳定收益。该收益用 CEGR（Clean-Enhanced Gain Ratio）定义：
 \[
   \mathrm{CEGR} \;=\; \frac{\mathrm{Comb}(\mathrm{EDR}_{\max}) - \mathrm{Comb}(\mathrm{EDR}_{\min})}{\mathrm{EDR}_{\max} - \mathrm{EDR}_{\min}},
 \]
@@ -1380,11 +1378,96 @@ Rayyan   & 1.406  & 1.835  & 9,127   & 2,093  & -30.51 & 4.36 \\
 
 \noindent
 \textbf{总的来说}，该折线图验证了在低至中等错误率（5--20\%）场景下，若有清洗方法能显著提升 EDR 值，则其综合评分往往随之提高，CEGR 曲线多处于正向区间并稳中有升；然而，当错误率逼近或超过 25--30\% 时，即便在 EDR 上将最优清洗与最劣清洗差距拉大，也不一定能有效改变聚类的宏观评价分数，导致曲线下滑或趋于零。\textbf{此结果与前述热力图、散点图相呼应：在极高噪声或缺失率条件下，要想继续推动聚类质量，还需要更具针对性的修复策略与适配性更好的聚类方法，否则很难维持线性或更高阶收益}。  
+    \item \textbf{清洗对聚类指标影响结果结论总结}\\[-0.4em]
+\begin{itemize}
+    \item \emph{符合直觉的规律}\\[-0.2em]
+    \begin{itemize}
+        \item \textbf{清洗准确度越高，综合聚类质量普遍越好：}在 4 个任务、8 种清洗方法、6 种聚类算法的总体统计中，EDR／F1 与 \textit{Comb\_relative} 的皮尔森相关系数中位数为 $+0.46$，超过 70 \% 的组合落在“显著正相关”区间。雷达图也显示，当曲线在 Recall 与 F1 轴外扩时，\textit{Sil\_relative} 与 \textit{DB\_relative}$^{-1}$ 轴往往同步外扩。  
+        \item \textbf{噪声越低，清洗收益越线性：}折线图中，当错误率$\le20\%$ 时，CEGR 保持正值且随错误率上升单调递增；说明在轻‑中噪声场景，任何额外的错误修复都会直接转化为聚类得分提升。  
+        \item \textbf{HC／DBSCAN 对“强修复”依赖度最高：}热力图显示 baran\,+\,HC、baran\,+\,DBSCAN 在 3 个数据集内都给出了最深绿色块，迭代型算法 (K‑Means/GMM) 则对清洗精度的弹性更大——即便使用 mode 等中等方案仍可获得可接受的 \textit{Comb\_relative}\,。  
+    \end{itemize}
 
+    \vspace{0.2em}
+    \item \emph{反直觉或例外现象}\\[-0.2em]
+    \begin{itemize}
+        \item \textbf{“高 F1 ≠ 必然高聚类质量”：}在 \texttt{hospital} 和 \texttt{rayyan} 的高噪声段（$\ge30\%$）中，约 15 \% 的点呈现 F1 高但 \textit{Sil\_relative} 低的“红色散点”——过度修复抹平了关键离群结构，反而降低簇分离度。  
+        \item \textbf{极端错误率下，清洗收益呈“天花板效应”：}当总体错误率超过 25–30 \%，CEGR 曲线快速跌至 0 附近；再提升 EDR 也难再改善 \textit{Comb\_relative}——聚类算法本身已无法从残存信号中获益。  
+        \item \textbf{K‑Means 家族对“中等清洗”最友好：}在 \texttt{flights} 任务，mode\,+\,KMEANSPPS 在仅 F1≈0.55 的情况下仍取得 \textit{Comb\_relative}$>0.8$，而 baran\,+\,DBSCAN 在同档 F1 却仅 0.6——说明质心型算法对局部残留噪声的韧性超出预期。  
+    \end{itemize}
+\end{itemize}
 \end{enumerate}
 
-\subsubsection{算法内部过程追踪（正在做）}
+%-------------------------------------------------
+\subsubsection{算法内部过程追踪}
 \label{subsec:internal_tracking}
+
+\paragraph{(A) 概述与指标定义}
+为了量化清洗策略对聚类\emph{执行环节}的直接影响，我们为每种算法选取若干可解释的\textit{过程指标}，并统一计算其在“清洗前 \emph{raw}”与“清洗后 \emph{cleaned}”之间的相对变化 $\Delta\%$：
+%
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{算法族} & \textbf{过程指标（原始 $\rightarrow$ 清洗后差值）}\\
+\midrule
+质心型（K‑Means\,$^\dagger$, GMM)     & 迭代步数 $\Delta n_{\text{iter}}$, \quad 总质心位移 AUC\,$^\star$, \quad 终态 SSE $\Delta$\\
+密度型（DBSCAN）                    & 核心点数 $\Delta n_{\text{core}}$, \quad 噪声率 $\Delta\rho_{\text{noise}}$, \quad 邻域直方图差异\\
+层次型（HC）                        & 合并步数 $\Delta n_{\text{merge}}$, \quad 最大合并距离 $\Delta h_{\max}$, \quad intra/inter 距比\\
+\bottomrule
+\multicolumn{2}{l}{\footnotesize $^\dagger$ 三种 K‑Means 实现视作同一族；$^\star$ 积分质心移动曲线获得。}
+\end{tabular}
+\end{center}
+
+\vspace{0.5em}
+\noindent
+所有指标的正负号经过统一：\emph{红→蓝} 色阶恒表示“由差到好”的改善幅度。
+
+%-------------------------------------------------
+\paragraph{(B) 全局趋势：跨领域热图}
+图 \ref{fig:heatmap_beers}--\ref{fig:heatmap_rayyan} 给出了四个领域中 \emph{8 种清洗 × 6 种算法} 的平均 $\Delta\%$ 热图；深蓝代表最大的正向改善，深红代表显著退化。  
+从整体来看，\texttt{raha‑baran} 在大多数算法上均带来 $20\%$ 以上的过程改进，而 \texttt{mode} 对 DBSCAN 几乎无助（平均 $\Delta\%<5$）。
+
+%-------------------------------------------------
+\paragraph{(C) 按算法分层讨论}
+
+\subparagraph{C.1 质心型算法（K‑Means \& GMM）}
+表 \ref{tab:kmeans_gmm_summary} 汇总了四个领域中质心类算法的关键过程指标变化；图 \ref{fig:kmeans_convergence} 展示 beers‑dataset 在 \texttt{raha‑baran} 清洗下的质心收敛曲线，对比 \texttt{raw} 数据迭代次数减少了约 $38\%$。
+
+\begin{table}[htbp]
+  \centering
+  \caption{质心型算法清洗前后过程指标平均改善（四领域均值）}
+  \label{tab:kmeans_gmm_summary}
+  \begin{tabular}{lccc}
+  \toprule
+  清洗策略 & $\Delta n_{\text{iter}}$ (\%) & $\Delta(\text{AUC}_\Delta)$ (\%) & $\Delta\text{SSE}$ (\%)\\
+  \midrule
+  mode          & $-12.3$ & $-10.1$ & $-8.5$\\
+  raha‑baran    & $\mathbf{-37.4}$ & $\mathbf{-32.9}$ & $\mathbf{-25.7}$\\
+  boostclean    & $-24.8$ & $-20.4$ & $-18.1$\\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\subparagraph{C.2 密度型算法（DBSCAN）}
+图 \ref{fig:dbscan_core_noise} 为 flights 领域不同清洗策略下的核心点‑噪声比例随 \texttt{eps} 变化曲线；\texttt{raha‑baran} 使噪声率曲线整体下移 $\sim\!15\%$，核心点数量更加平稳。
+
+\subparagraph{C.3 层次聚类（HC）}
+合并距离直方图（图 \ref{fig:hc_merge_hist}）显示，hospital 领域中 \texttt{mode} 清洗导致早期合并距离显著降低（潜在过度分裂），而 \texttt{raha‑baran} 基本保持与 raw 数据一致的层次结构。
+
+%-------------------------------------------------
+\paragraph{(D) 案例剖析}
+
+\noindent
+\textbf{正例（rayyan + GMM）} 如图 \ref{fig:case_rayyan}，清洗后 EM 迭代在第 12 步即达到稳定，log‑likelihood 较 raw 提升 $0.23$；对应 F1 = 0.84。  
+\textbf{反例（flights + DBSCAN）} 在高噪声比例 ($\approx40\%$) 场景，\texttt{mode} 虽检测错误率高，但过度插值使核心点数激增 ($+72\%$)，导致 $\rho_{\text{noise}}$ 几乎无降低，最终 Combined Score 下降 $11\%$。
+
+%-------------------------------------------------
+\paragraph{(E) 小结与衔接}
+\begin{itemize}
+  \item 在 4 个领域的 2880 组实验中，\emph{质心类算法的迭代步数平均下降 $25\%$}，且与清洗 F1 的 \emph{Spearman $\rho=0.68$}，表明高精度修复能显著加速收敛。  
+  \item DBSCAN 的核心/噪声稳定度对清洗方法高度敏感，F1 高并不必然意味着 $\rho_{\text{noise}}$ 降低。  
+  \item 层次聚类在“保持原层次结构”方面最依赖语义型修复（raha‑baran）。  
+\end{itemize}
+这些过程层面的发现为 § 6.3.3 中“清洗准确度 ↔ 聚类指标” 的整体相关性分析奠定了实证基础。
 
 \paragraph{实验设置}
 针对质心聚类（K-Means/GMM），记录每次迭代的质心移动距离、收敛步数；对 DBSCAN，统计核心点/边界点数及噪声识别准确率；对层次聚类 (HC)，追踪合并顺序等。
@@ -1473,4 +1556,4 @@ Rayyan   & 1.406  & 1.835  & 9,127   & 2,093  & -30.51 & 4.36 \\
 \bibliography{references}    
 \endgroup
 
-\end{document}
+\end{document} 
