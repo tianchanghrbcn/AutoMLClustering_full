@@ -142,7 +142,6 @@ def main():
                         "num": num_val,
                         "dataset_id": dataset_id,
                         "error_rate": error_rate,
-                        "missing_rate": missing_rate,
                         "noise_rate": noise_rate,
                         "m": m,
                         "n": n,

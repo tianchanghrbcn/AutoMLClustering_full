@@ -11,43 +11,47 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 48.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.150341481751495
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
+                1.8437137307838045
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 40.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7489356963180693
+                1.8358437865164712
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "mode",
+                "GMM",
                 {
-                    "k": 41.0
+                    "n_components": 40.0,
+                    "covariance type": "diag"
                 },
-                0.7380182193780448
+                1.3906968475270143
             ],
             [
-                "baran",
+                "mode",
                 "KMEANS",
                 {
-                    "k": 44.0
+                    "k": 48.0
                 },
-                0.6607702838062404
+                1.3229982018639674
+            ],
+            [
+                "horizon",
+                "DBSCAN",
+                {
+                    "n_components": 19.0,
+                    "covariance type": 1.8000000000000003
+                },
+                1.161559016648333
             ]
         ]
     },
@@ -63,43 +67,48 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 38.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.9286660005658307
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.9238460403356785
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 47.0
-                },
-                0.8537443808121477
+                2.112148653125151
             ],
             [
                 "horizon",
-                "KMEANS",
+                "DBSCAN",
                 {
-                    "k": 45.0
+                    "n_components": 7.0,
+                    "covariance type": 1.85
                 },
-                0.8365616152214733
+                1.32561799418172
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 40.0
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
                 },
-                0.7980078145189877
+                1.3004177364286722
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 44.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.2045704532912878
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 11.0,
+                    "covariance type": "tied"
+                },
+                1.1700268126446207
             ]
         ]
     },
@@ -115,43 +124,46 @@
         "L": [
             [
                 "mode",
+                "GMM",
+                {
+                    "n_components": 34.0,
+                    "covariance type": "full"
+                },
+                1.3932929204657314
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 12.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.3352603900582944
+            ],
+            [
+                "horizon",
+                "DBSCAN",
+                {
+                    "n_components": 5.0,
+                    "covariance type": 1.6500000000000001
+                },
+                1.3191372766878837
+            ],
+            [
+                "mode",
+                "KMEANSNF",
+                {
+                    "k": 47.0
+                },
+                1.1527864713957618
+            ],
+            [
+                "mode",
                 "KMEANS",
                 {
                     "k": 48.0
                 },
-                1.402259539903609
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 45.0
-                },
-                0.8325210755804653
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
-            ],
-            [
-                "boostclean",
-                "KMEANS",
-                {
-                    "k": 35.0
-                },
-                0.7268644076486075
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 43.0
-                },
-                0.726490989669188
+                1.136752083663005
             ]
         ]
     },
@@ -166,44 +178,49 @@
         ],
         "L": [
             [
-                "Unified",
-                "KMEANS",
+                "scared",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.881566511179678
+                1.1778287121666138
             ],
             [
-                "holoclean",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7903845261673882
+                1.1765296623253556
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "boostclean",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7802475683640504
+                1.1765296623253556
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 47.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7384467263162353
+                1.125389354519267
             ],
             [
-                "scared",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 47.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.6845277686942259
+                1.0543171046325042
             ]
         ]
     },
@@ -219,43 +236,48 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 48.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.5549384468236207
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 45.0
-                },
-                0.8773134791975898
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
+                1.9781386615631726
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 40.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7622116362197487
+                1.7108392157871413
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "diag"
+                },
+                1.5551387402321852
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 36.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.669391599619938
+                1.5192254523567066
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 45.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.4350925735381637
             ]
         ]
     },
@@ -270,44 +292,49 @@
         ],
         "L": [
             [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
-            ],
-            [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 43.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7647568633081941
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 47.0
-                },
-                0.7555779915096614
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 47.0
-                },
-                0.7539685709843988
+                1.8623440279149641
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 41.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.7330879141647627
+                1.5701997190157369
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.5222936346231497
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.0625818934680265
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 43.0,
+                    "covariance type": "average-euclidean"
+                },
+                1.035514558355865
             ]
         ]
     },
@@ -322,44 +349,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 13.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.9669219863946588
+                1.820894754574945
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 46.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.8357956297813304
+                1.3674608654781601
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 21.0,
+                    "covariance type": "full"
+                },
+                1.3603680012983854
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.2475955554892066
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 23.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7903845261673882
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 42.0
-                },
-                0.6995355893258637
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 43.0
-                },
-                0.6970049002774399
+                1.0470355856835882
             ]
         ]
     },
@@ -375,43 +407,47 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 48.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.2503980015482736
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
+                2.976385271939598
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 43.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7115219340715682
+                1.6817635794263308
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 35.0,
+                    "covariance type": "tied"
+                },
+                1.3969796164318349
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 33.0
+                    "n_components": 11.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.6943060671628447
+                1.1581637416751807
             ],
             [
-                "baran",
+                "mode",
                 "KMEANS",
                 {
-                    "k": 47.0
+                    "k": 48.0
                 },
-                0.6939881886580532
+                1.07904866069264
             ]
         ]
     },
@@ -426,44 +462,49 @@
         ],
         "L": [
             [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 9.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.7612864688867464
+            ],
+            [
                 "mode",
-                "KMEANS",
+                "GMM",
                 {
-                    "k": 48.0
+                    "n_components": 32.0,
+                    "covariance type": "diag"
                 },
-                1.0133492823098822
+                1.2376356901194643
             ],
             [
-                "holoclean",
-                "KMEANS",
+                "boostclean",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7903845261673882
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 46.0
-                },
-                0.7522936405547935
+                1.1541969673791044
             ],
             [
                 "horizon",
-                "KMEANS",
+                "DBSCAN",
                 {
-                    "k": 43.0
+                    "n_components": 15.0,
+                    "covariance type": 2.0
                 },
-                0.7175154829023724
+                1.1507737167180203
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "Unified",
+                "HC",
                 {
-                    "k": 43.0
+                    "n_components": 5.0,
+                    "covariance type": "average-manhattan"
                 },
-                0.6831370531804549
+                1.0575769799494412
             ]
         ]
     },
@@ -478,44 +519,49 @@
         ],
         "L": [
             [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 41.0
-                },
-                0.726614860197133
-            ],
-            [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 47.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.711160493737245
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 47.0
-                },
-                0.7033076298494958
+                1.8289427899272437
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.6925276445953945
+                1.2894611530622277
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.2514178078002316
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.245442863423348
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.1236584345550304
             ]
         ]
     },
@@ -531,43 +577,48 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 43.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.8054721323255547
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 47.0
-                },
-                0.7867700578014126
+                2.197432457432809
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 45.0
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.7623773486541755
+                1.5493185510219227
             ],
             [
-                "baran",
-                "KMEANS",
+                "Unified",
+                "DBSCAN",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": 2.0
                 },
-                0.7388781361610808
+                1.4180316297305602
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "tied"
+                },
+                1.170749368457431
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.1400983197402625
             ]
         ]
     },
@@ -582,44 +633,49 @@
         ],
         "L": [
             [
-                "bigdansing",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.8974309242581268
+                1.541988533712075
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.0532919814101984
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "average-euclidean"
+                },
+                1.041325551080035
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-cosine"
+                },
+                1.0402956422903966
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 40.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.8831171204373961
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7901139259968759
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7718329421083041
+                1.0351797481290013
             ]
         ]
     },
@@ -635,43 +691,47 @@
         "L": [
             [
                 "mode",
+                "HC",
+                {
+                    "n_components": 46.0,
+                    "covariance type": "average-euclidean"
+                },
+                1.6527277325669014
+            ],
+            [
+                "horizon",
+                "DBSCAN",
+                {
+                    "n_components": 9.0,
+                    "covariance type": 2.0
+                },
+                1.6505479954584223
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.5977896953389772
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 47.0,
+                    "covariance type": "full"
+                },
+                1.5175334651895669
+            ],
+            [
+                "mode",
                 "KMEANS",
                 {
                     "k": 48.0
                 },
-                1.5818920494010835
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 46.0
-                },
-                0.8352499193665892
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.7903845261673882
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 39.0
-                },
-                0.7297937083509252
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 18.0
-                },
-                0.6683420848274141
+                1.3409568222151853
             ]
         ]
     },
@@ -686,44 +746,49 @@
         ],
         "L": [
             [
-                "Unified",
-                "KMEANS",
+                "baran",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.8574651120558229
+                1.5992245803065033
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "average-euclidean"
+                },
+                1.1158665699168904
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 47.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7903845261673882
+                1.0543171046325042
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "scared",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.7620043737806745
+                0.960834665083177
             ],
             [
-                "horizon",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.6959643108165332
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.6552299003462945
+                0.8998926127030813
             ]
         ]
     },
@@ -738,44 +803,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 7.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.5758937834445987
+                2.1849962479832614
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.9159150874082205
+            ],
+            [
+                "mode",
+                "GMM",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "full"
+                },
+                1.5468252681602683
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7903845261673882
+                1.541988533712075
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 44.0
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7051275060558098
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 40.0
-                },
-                0.7049186052503204
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 38.0
-                },
-                0.6971702770655525
+                1.2986717718800698
             ]
         ]
     },
@@ -791,43 +861,48 @@
         "L": [
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 27.0
+                    "n_components": 10.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.6531383568414281
+                1.873109516801073
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.305949396846021
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 20.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.6091675498989549
-            ],
-            [
-                "boostclean",
-                "KMEANS",
-                {
-                    "k": 12.0
-                },
-                0.4849785137966726
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 12.0
-                },
-                0.4601402091794614
+                1.2916816818636248
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 22.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.44530250036618374
+                1.0732055600393333
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.031563410261208
             ]
         ]
     },
@@ -843,43 +918,48 @@
         "L": [
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5608095151915177
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 31.0
-                },
-                0.41062882522004407
+                1.7546936537663538
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.354066454090855
+                1.3332046932271144
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.1462957290358269
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.3418749647975924
+                1.132558247367352
             ],
             [
-                "mode",
-                "KMEANS",
+                "Unified",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.3188469257081296
+                1.066665508309199
             ]
         ]
     },
@@ -895,43 +975,48 @@
         "L": [
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 28.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.4420948087795663
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 18.0
-                },
-                0.4274833471637872
+                1.689297579478484
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.3418749647975924
+                1.132558247367352
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 18.0
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.3075154368424575
+                1.09109432603936
             ],
             [
-                "boostclean",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 12.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.29596430224188724
+                0.994488071967809
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                0.9655414050828269
             ]
         ]
     },
@@ -946,44 +1031,49 @@
         ],
         "L": [
             [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 15.0
-                },
-                0.7010475419948092
-            ],
-            [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 26.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5799210196735706
+                2.00622737815115
             ],
             [
-                "Unified",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 6.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5207815629526641
+                1.3764476212902736
             ],
             [
-                "boostclean",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 6.0
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
                 },
-                0.46230373001598457
+                1.2315792697852
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 16.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.4275005865432576
+                1.1427561523336551
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.132558247367352
             ]
         ]
     },
@@ -999,43 +1089,48 @@
         "L": [
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 25.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.44192104661382087
+                1.8502634989287794
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 21.0
+                    "n_components": 12.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.4254329827884986
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 14.0
-                },
-                0.3719589973725695
+                1.162172215434797
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.3418749647975924
+                1.132558247367352
             ],
             [
                 "boostclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 7.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.33077032560133474
+                1.0128137186321036
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.0128137186321036
             ]
         ]
     },
@@ -1050,44 +1145,49 @@
         ],
         "L": [
             [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 14.0
-                },
-                0.5468397525106186
-            ],
-            [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 26.0
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5267422101898159
+                1.4201381144815022
             ],
             [
-                "boostclean",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 6.0
+                    "n_components": 5.0,
+                    "covariance type": "average-manhattan"
                 },
-                0.3464152954254667
+                1.1881921829739945
             ],
             [
-                "Unified",
-                "KMEANS",
+                "scared",
+                "HC",
                 {
-                    "k": 6.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.3464152954254667
+                1.132558247367352
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 28.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.34197911987910623
+                1.0841789753191213
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
+                },
+                1.0276396969387853
             ]
         ]
     },
@@ -1103,43 +1203,48 @@
         "L": [
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 27.0
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
                 },
-                0.5878589409771134
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 19.0
-                },
-                0.5221997139819052
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 29.0
-                },
-                0.5215234462849716
+                1.83525464822605
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 21.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.40110083975128463
+                1.5280850901854355
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 17.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.4627850952522814
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.3760819442547751
             ],
             [
                 "boostclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 12.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.3651341446531139
+                1.2271886455909842
             ]
         ]
     },
@@ -1155,43 +1260,48 @@
         "L": [
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 29.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5215234462849716
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 19.0
-                },
-                0.4653312992132271
+                1.6870955224738977
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 28.0
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.43813939987249767
+                1.494799355553361
             ],
             [
-                "boostclean",
-                "KMEANS",
+                "scared",
+                "HC",
                 {
-                    "k": 12.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.34632151722902704
+                1.132558247367352
             ],
             [
-                "Unified",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 12.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.34632151722902704
+                1.130086526751857
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.07618016639707
             ]
         ]
     },
@@ -1206,44 +1316,49 @@
         ],
         "L": [
             [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 15.0
-                },
-                0.5286348565171622
-            ],
-            [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 24.0
+                    "n_components": 9.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5049365896593773
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 7.0
-                },
-                0.47322839336390343
+                1.8570147854545362
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 28.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.46518145180091774
+                1.5198351726407815
             ],
             [
-                "boostclean",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 7.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.39776836304127716
+                1.3403197663175617
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.1093922351497492
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.0366592595735695
             ]
         ]
     },
@@ -1259,43 +1374,48 @@
         "L": [
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.521879656730463
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 31.0
-                },
-                0.4066584092067549
+                1.5000405873075109
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.34303744853329043
+                1.4541235044960312
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.340652765741229
+                1.2739300722687952
             ],
             [
-                "scared",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.32168725933811504
+                1.2323424943422872
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.1037418184365861
             ]
         ]
     },
@@ -1310,44 +1430,49 @@
         ],
         "L": [
             [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 29.0
-                },
-                0.5829810232764835
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 25.0
-                },
-                0.5522622249783783
-            ],
-            [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 30.0
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5224253510658209
+                1.6614757838673464
             ],
             [
-                "boostclean",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 20.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.46198454538841977
+                1.4901714048154695
             ],
             [
-                "Unified",
-                "KMEANS",
+                "baran",
+                "HC",
                 {
-                    "k": 20.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.46198454538841977
+                1.4263277992219767
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.2967748030554784
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.1317767138341948
             ]
         ]
     },
@@ -1363,43 +1488,48 @@
         "L": [
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 30.0
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5224253510658209
+                1.6614757838673464
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 29.0
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.47571730428533643
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 24.0
-                },
-                0.4125535068963788
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 15.0
-                },
-                0.3751317249784086
+                1.5502343963045482
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 26.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.3633020021764701
+                1.5124583968263623
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.1870997726838528
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.1087499929464597
             ]
         ]
     },
@@ -1414,44 +1544,49 @@
         ],
         "L": [
             [
-                "boostclean",
-                "KMEANS",
-                {
-                    "k": 19.0
-                },
-                0.6649634010213865
-            ],
-            [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 30.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.6585235890460988
+                2.000457570224895
             ],
             [
-                "horizon",
-                "KMEANS",
+                "boostclean",
+                "HC",
                 {
-                    "k": 25.0
+                    "n_components": 6.0,
+                    "covariance type": "average-manhattan"
                 },
-                0.6221242942739699
+                1.719588927125379
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 28.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.6135261639442142
+                1.6845673471148461
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 19.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.6134990430047123
+                1.6512836212952084
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.4888870065484345
             ]
         ]
     },
@@ -1466,44 +1601,49 @@
         ],
         "L": [
             [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 31.0
-                },
-                0.5587305460132217
-            ],
-            [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5535653049325704
+                1.8220110043381144
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5200700819134345
+                1.7450549544155507
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.6247879023901242
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.6106029131353736
             ],
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.512914508826009
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 31.0
-                },
-                0.512914508826009
+                1.3206996261481851
             ]
         ]
     },
@@ -1519,43 +1659,48 @@
         "L": [
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5200700819134345
+                1.7450549544155507
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 29.0
+                    "n_components": 18.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5035216588997343
+                1.396121924076474
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 24.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.4023668522063065
+                1.2320977466217868
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.0129328342641302
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 25.0
+                    "n_components": 10.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.32686289498081456
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 19.0
-                },
-                0.30444090761388815
+                0.9833083069987822
             ]
         ]
     },
@@ -1570,44 +1715,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
+                "scared",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.6303118424500564
+                2.234719085695454
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.2001254015343683
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 32.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5653140841864956
+                2.121847419849189
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5579593263939824
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 34.0
-                },
-                0.5564229271921993
+                2.0836043481827162
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 33.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5528325847887137
+                1.957154847403371
             ]
         ]
     },
@@ -1622,44 +1772,49 @@
         ],
         "L": [
             [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 37.0
-                },
-                0.6139484966018882
-            ],
-            [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 36.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5704419534395566
+                2.435167926885576
             ],
             [
-                "mode",
-                "KMEANS",
+                "baran",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5555239212152775
+                2.4234496413796665
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.159949381578498
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.153742737582111
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 37.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5374450539600006
-            ],
-            [
-                "holoclean",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                0.5345920919579814
+                2.0897818293980066
             ]
         ]
     },
@@ -1674,44 +1829,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
+                "boostclean",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.842469139703921
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 22.0
-                },
-                0.5743739129640856
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 22.0
-                },
-                0.5533407098900044
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 16.0
-                },
-                0.543626146836046
+                1.9043797982095292
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 19.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5133773653439705
+                1.8921051907210844
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.632239755669016
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.5614435434200549
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.5415197689991524
             ]
         ]
     },
@@ -1726,44 +1886,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 49.0
-                },
-                0.5782961140343954
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 37.0
-                },
-                0.5738950831431827
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 39.0
-                },
-                0.5488493850963053
-            ],
-            [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 37.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5453536292393752
+                2.290785049432409
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.0599654644341587
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 39.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5307946138674642
+                1.7899733209395556
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.7503064474574912
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.7212832390383699
             ]
         ]
     },
@@ -1778,44 +1943,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 49.0
-                },
-                0.7854821642113232
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 21.0
-                },
-                0.6571784222008703
-            ],
-            [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5942031222164624
+                2.232460330357379
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.8502062185713082
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.8072432038239385
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 28.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5525056752799726
+                1.5690230562827998
             ],
             [
-                "Unified",
-                "KMEANS",
+                "scared",
+                "HC",
                 {
-                    "k": 25.0
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5257309571892131
+                1.545903880346566
             ]
         ]
     },
@@ -1831,43 +2001,48 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.8826299060316827
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 23.0
-                },
-                0.6679974422250384
+                2.325249694531072
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 30.0
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.6355887290576681
+                1.9777503440671511
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.955387707352481
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.6680820919956303
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 16.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5795060690224958
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 22.0
-                },
-                0.5489461644664971
+                1.5768508895638587
             ]
         ]
     },
@@ -1882,44 +2057,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
+                "boostclean",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.8056397414164144
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 20.0
-                },
-                0.5680504474879583
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 27.0
-                },
-                0.520844176520562
+                1.5764358082809502
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 26.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5193983803499764
+                1.5319205798980278
             ],
             [
-                "boostclean",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 24.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5115537780135605
+                1.4544972039501
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.375095148420335
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.3697535657227236
             ]
         ]
     },
@@ -1935,43 +2115,48 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.6391118670973317
+                2.5378057841942696
             ],
             [
-                "Unified",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5808401827969055
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 30.0
-                },
-                0.5806442329747079
+                2.3247922366077094
             ],
             [
                 "boostclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5670092425308272
+                2.144333457479587
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 32.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5321041795016652
+                1.9879290106556642
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 12.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.944792536365724
             ]
         ]
     },
@@ -1986,44 +2171,49 @@
         ],
         "L": [
             [
-                "baran",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 37.0
+                    "n_components": 15.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.568667675260429
+                2.133389028125674
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.0395986416274443
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 38.0
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5637467049537569
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 49.0
-                },
-                0.5544215641593204
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 38.0
-                },
-                0.5327829636175146
+                2.032662133724454
             ],
             [
                 "holoclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5151864181734677
+                1.9456556838305004
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.9403824135901158
             ]
         ]
     },
@@ -2038,44 +2228,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 49.0
-                },
-                0.8078526097712667
-            ],
-            [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 13.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.709048721603798
+                2.601340511840618
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 22.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.655850843630216
+                2.4686429612139094
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 22.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.588078723114455
+                2.185320347324345
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 19.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5800150492856756
+                2.0791836856820556
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.060991161458938
             ]
         ]
     },
@@ -2090,44 +2285,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
+                "scared",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.6778470370259104
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 34.0
-                },
-                0.5725982007463685
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 33.0
-                },
-                0.5425517889074142
+                2.5060298042581906
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 32.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5327666644894008
+                2.5058825771428115
             ],
             [
-                "scared",
-                "KMEANS",
+                "baran",
+                "HC",
                 {
-                    "k": 31.0
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5241159980522644
+                2.391378574832603
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.350560067489625
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.954720982634195
             ]
         ]
     },
@@ -2142,44 +2342,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.8476095728243842
+                2.724365805039498
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 20.0
+                    "n_components": 5.0,
+                    "covariance type": "average-manhattan"
                 },
-                0.5899118038163478
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 17.0
-                },
-                0.5622330930156842
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 23.0
-                },
-                0.5610216627504419
+                1.9288277005971581
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 22.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5590353024027284
+                1.8061867060411148
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.7238483996856897
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 11.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.7188811353606097
             ]
         ]
     },
@@ -2194,44 +2399,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.7216204644351573
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 27.0
-                },
-                0.5700695563132834
+                2.724365805039498
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 34.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5558799366784124
+                2.062603728048983
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.6489979374232668
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 30.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5299947000269314
+                1.5841977484057188
             ],
             [
                 "boostclean",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 30.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.5116052825823967
+                1.5114706583459592
             ]
         ]
     },
@@ -2247,43 +2457,48 @@
         "L": [
             [
                 "mode",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 49.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.8175799345983887
+                2.876574639978726
             ],
             [
-                "scared",
-                "KMEANS",
+                "baran",
+                "HC",
                 {
-                    "k": 21.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.7135478866962729
+                2.6482420183731534
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.4198365197312293
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 27.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.6512869892056459
+                2.3409615487694735
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 27.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.62452509158012
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 25.0
-                },
-                0.5987882676362157
+                2.193648683443113
             ]
         ]
     },
@@ -2298,44 +2513,49 @@
         ],
         "L": [
             [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 49.0
-                },
-                0.7248902036338827
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 28.0
-                },
-                0.6781660504027188
-            ],
-            [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 33.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.6721903025312409
-            ],
-            [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 28.0
-                },
-                0.6201387565431272
+                2.6509407479995892
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 25.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.5839133671847005
+                2.2415056725768006
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.0877106803025747
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.073653101304948
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.0623343620107013
             ]
         ]
     },
@@ -2350,44 +2570,49 @@
         ],
         "L": [
             [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 8.0
-                },
-                1.9375108699826822
-            ],
-            [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 11.0
+                    "n_components": 5.0,
+                    "covariance type": "complete-manhattan"
                 },
-                1.8103911464926106
+                2.786618223337344
             ],
             [
-                "horizon",
-                "KMEANS",
+                "scared",
+                "HC",
                 {
-                    "k": 8.0
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.4899479552109551
+                2.4457011536789404
             ],
             [
-                "Unified",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 8.0
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.4526113327809207
+                2.438924996064692
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 10.0
+                    "n_components": 9.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.2151724417140264
+                2.3064513152633266
+            ],
+            [
+                "scared",
+                "GMM",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "spherical"
+                },
+                1.937510859739631
             ]
         ]
     },
@@ -2402,44 +2627,49 @@
         ],
         "L": [
             [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 21.0
-                },
-                1.4246422489974044
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 19.0
-                },
-                1.3138509225511337
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 31.0
-                },
-                1.265186713890018
-            ],
-            [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 20.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.12461110349784
+                2.9507479504970515
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 18.0
+                    "n_components": 10.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.0271495878073271
+                2.8388622441568394
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 19.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.5149801703985233
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "average-manhattan"
+                },
+                2.211957412492601
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 13.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.0317937981382963
             ]
         ]
     },
@@ -2455,43 +2685,48 @@
         "L": [
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 14.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                2.0302832667595787
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 12.0
-                },
-                1.4567191755959894
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 12.0
-                },
-                1.2911833439925418
+                2.9382750287940267
             ],
             [
                 "baran",
-                "KMEANS",
+                "GMM",
                 {
-                    "k": 13.0
+                    "n_components": 5.0,
+                    "covariance type": "full"
                 },
-                1.239890742304069
+                2.4001880428738334
             ],
             [
-                "scared",
-                "KMEANS",
+                "baran",
+                "HC",
                 {
-                    "k": 12.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.159278146980817
+                2.4001880428738334
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.2062742517764953
+            ],
+            [
+                "bigdansing",
+                "GMM",
+                {
+                    "n_components": 14.0,
+                    "covariance type": "full"
+                },
+                2.0302832573445
             ]
         ]
     },
@@ -2507,43 +2742,48 @@
         "L": [
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 13.0
+                    "n_components": 13.0,
+                    "covariance type": "ward-euclidean"
                 },
-                2.0826746701159577
+                2.971420979865294
             ],
             [
-                "horizon",
-                "KMEANS",
+                "bigdansing",
+                "GMM",
                 {
-                    "k": 11.0
+                    "n_components": 12.0,
+                    "covariance type": "tied"
                 },
-                1.4281222725259881
+                2.890587786283284
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 11.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.2751242316000413
+                2.7033102317657165
             ],
             [
-                "Unified",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 11.0
+                    "n_components": 5.0,
+                    "covariance type": "complete-euclidean"
                 },
-                1.2410692806420476
+                2.596766785171371
             ],
             [
-                "baran",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 12.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.0408404980855814
+                2.414621562702252
             ]
         ]
     },
@@ -2559,43 +2799,48 @@
         "L": [
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 13.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.7891811965612967
+                2.8384526048319056
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 11.0
+                    "n_components": 6.0,
+                    "covariance type": "average-manhattan"
                 },
-                1.6568012068715938
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 11.0
-                },
-                1.398785076398605
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 11.0
-                },
-                1.3890094822476171
+                2.7874150707205794
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 11.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.0154277779437626
+                2.749802906331889
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.0557682496528393
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 11.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.9654311808199219
             ]
         ]
     },
@@ -2610,44 +2855,49 @@
         ],
         "L": [
             [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 21.0
-                },
-                1.4770538169300258
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 20.0
-                },
-                1.3658260917147287
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 20.0
-                },
-                1.1872210775017642
-            ],
-            [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 19.0
+                    "n_components": 12.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.0873807962449085
+                2.71809660122852
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 9.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.6786977553657323
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 20.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.0659016869589153
+                2.3407618137800172
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 16.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.328183513518501
+            ],
+            [
+                "bigdansing",
+                "GMM",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "tied"
+                },
+                1.7320397073398879
             ]
         ]
     },
@@ -2662,44 +2912,49 @@
         ],
         "L": [
             [
-                "horizon",
-                "KMEANS",
+                "Unified",
+                "HC",
                 {
-                    "k": 8.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.4299896927136282
+                2.6835867859840667
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 10.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.4214621703215287
+                2.3434138743074917
             ],
             [
-                "scared",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 8.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.3469913730983587
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 8.0
-                },
-                1.2803940316441975
+                2.2815907960505015
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 9.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.9978802922258652
+                2.2623656289249543
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.094657058765467
             ]
         ]
     },
@@ -2714,44 +2969,48 @@
         ],
         "L": [
             [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 17.0
-                },
-                2.208414052735402
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 15.0
-                },
-                1.3699063965568374
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 15.0
-                },
-                1.1865411094186145
-            ],
-            [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 15.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.115481577556538
+                2.826510034313473
+            ],
+            [
+                "bigdansing",
+                "GMM",
+                {
+                    "n_components": 16.0,
+                    "covariance type": "full"
+                },
+                2.448814613410642
             ],
             [
                 "baran",
+                "GMM",
+                {
+                    "n_components": 3.0,
+                    "covariance type": "tied"
+                },
+                2.2393021275386524
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
+                },
+                2.235067925853381
+            ],
+            [
+                "bigdansing",
                 "KMEANS",
                 {
-                    "k": 15.0
+                    "k": 16.0
                 },
-                1.11095175978031
+                2.129417305657935
             ]
         ]
     },
@@ -2766,44 +3025,49 @@
         ],
         "L": [
             [
-                "horizon",
-                "KMEANS",
+                "bigdansing",
+                "HC",
                 {
-                    "k": 15.0
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.4149640993357506
+                2.7040994102468545
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 17.0
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.378782830463927
+                2.5640667931691112
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.518864417274303
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 15.0
+                    "n_components": 5.0,
+                    "covariance type": "complete-euclidean"
                 },
-                1.3566100639775995
+                2.5006665577954275
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 15.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.2594152228286104
-            ],
-            [
-                "baran",
-                "KMEANS",
-                {
-                    "k": 15.0
-                },
-                1.069872123788787
+                2.389767410324113
             ]
         ]
     },
@@ -2819,43 +3083,48 @@
         "L": [
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 22.0
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.3706496947087339
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 20.0
-                },
-                1.1708119922479516
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 31.0
-                },
-                1.0537299002864784
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 20.0
-                },
-                1.0235267265063064
+                2.729539879957991
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 19.0
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.9914458136956582
+                2.534492841853887
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 16.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.451290286188893
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.3581963545943143
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 17.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.3060158645498325
             ]
         ]
     },
@@ -2870,44 +3139,49 @@
         ],
         "L": [
             [
-                "bigdansing",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 17.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.5125120741733449
+                2.3375169747555735
             ],
             [
-                "horizon",
-                "KMEANS",
+                "bigdansing",
+                "HC",
                 {
-                    "k": 15.0
+                    "n_components": 11.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.113893644159337
+                2.3209649753834296
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 15.0
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.0501485484529673
+                2.1065774752825517
             ],
             [
-                "holoclean",
-                "KMEANS",
+                "horizon",
+                "HC",
                 {
-                    "k": 30.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                0.9988369872231817
+                2.020046667138069
             ],
             [
-                "scared",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 15.0
+                    "n_components": 9.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.9834561849140387
+                1.9893200136974094
             ]
         ]
     },
@@ -2922,44 +3196,49 @@
         ],
         "L": [
             [
+                "mode",
+                "HC",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.8271194557325807
+            ],
+            [
                 "bigdansing",
-                "KMEANS",
+                "GMM",
                 {
-                    "k": 14.0
+                    "n_components": 14.0,
+                    "covariance type": "tied"
                 },
-                1.9846269098686424
+                2.596832020803318
             ],
             [
-                "scared",
-                "KMEANS",
+                "bigdansing",
+                "HC",
                 {
-                    "k": 12.0
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.0097805392542207
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 12.0
-                },
-                0.9847785849581081
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 12.0
-                },
-                0.9790151123558506
+                2.241549371031153
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 12.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.9678171965847093
+                2.1485402664182622
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "average-manhattan"
+                },
+                2.1044983794421737
             ]
         ]
     },
@@ -2974,44 +3253,49 @@
         ],
         "L": [
             [
-                "scared",
-                "KMEANS",
+                "mode",
+                "HC",
                 {
-                    "k": 8.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.8136011483798216
+                2.8576767508610534
             ],
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 11.0
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.5291376069995455
+                2.5235244545834967
             ],
             [
                 "horizon",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 8.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.526036374940323
+                2.5208171716136367
             ],
             [
-                "baran",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 8.0
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.1283961473962274
+                2.1238238719670033
             ],
             [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 8.0
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.076554698267171
+                2.1044671919771294
             ]
         ]
     },
@@ -3027,43 +3311,48 @@
         "L": [
             [
                 "bigdansing",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 17.0
+                    "n_components": 16.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.667789179596983
+                2.591814031820036
             ],
             [
-                "horizon",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 16.0
+                    "n_components": 7.0,
+                    "covariance type": "average-manhattan"
                 },
-                1.4676229094492208
-            ],
-            [
-                "scared",
-                "KMEANS",
-                {
-                    "k": 16.0
-                },
-                1.178815769430974
-            ],
-            [
-                "Unified",
-                "KMEANS",
-                {
-                    "k": 16.0
-                },
-                1.169559598288437
+                2.5217729434333247
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 16.0
+                    "n_components": 15.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.1304386813671918
+                2.4916229259923157
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 12.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.4684875126037475
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 12.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.4291670880976617
             ]
         ]
     },
@@ -3078,44 +3367,49 @@
         ],
         "L": [
             [
-                "bigdansing",
-                "KMEANS",
-                {
-                    "k": 11.0
-                },
-                1.6656849974661319
-            ],
-            [
                 "Unified",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 9.0
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.2165718777471788
-            ],
-            [
-                "horizon",
-                "KMEANS",
-                {
-                    "k": 9.0
-                },
-                1.2140375942079384
+                2.555470213470925
             ],
             [
                 "scared",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 9.0
+                    "n_components": 5.0,
+                    "covariance type": "average-manhattan"
                 },
-                1.199051315835786
+                2.537212324878521
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.526025698854409
             ],
             [
                 "baran",
-                "KMEANS",
+                "HC",
                 {
-                    "k": 10.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.0448586858588267
+                2.4063730818547953
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.1028890990489235
             ]
         ]
     }

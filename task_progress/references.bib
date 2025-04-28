@@ -980,3 +980,35 @@ author = {Peter J. Rousseeuw},
 keywords = {Graphical display, cluster analysis, clustering validity, classification},
 abstract = {A new graphical display is proposed for partitioning techniques. Each cluster is represented by a so-called silhouette, which is based on the comparison of its tightness and separation. This silhouette shows which objects lie well within their cluster, and which ones are merely somewhere in between clusters. The entire clustering is displayed by combining the silhouettes into a single plot, allowing an appreciation of the relative quality of the clusters and an overview of the data configuration. The average silhouette width provides an evaluation of clustering validity, and might be used to select an ‘appropriate’ number of clusters.}
 }
+
+@inproceedings{10.5555/3016100.3016103,
+author = {Bachem, Olivier and Lucic, Mario and Hassani, S. Hamed and Krause, Andreas},
+title = {Approximate k-means++ in sublinear time},
+year = {2016},
+publisher = {AAAI Press},
+abstract = {The quality of K-Means clustering is extremely sensitive to proper initialization. The classic remedy is to apply k-means++ to obtain an initial set of centers that is provably competitive with the optimal solution. Unfortunately, k-means++ requires k full passes over the data which limits its applicability to massive datasets. We address this problem by proposing a simple and efficient seeding algorithm for K-Means clustering. The main idea is to replace the exact D2-sampling step in k-means++ with a substantially faster approximation based on Markov Chain Monte Carlo sampling. We prove that, under natural assumptions on the data, the proposed algorithm retains the full theoretical guarantees of k-means++ while its computational complexity is only sublinear in the number of data points. For such datasets, one can thus obtain a provably good clustering in sublinear time. Extensive experiments confirm that the proposed method is competitive with k-means++ on a variety of real-world, large-scale datasets while offering a reduction in runtime of several orders of magnitude.},
+booktitle = {Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence},
+pages = {1459–1467},
+numpages = {9},
+location = {Phoenix, Arizona},
+series = {AAAI'16}
+}
+
+@article{10.1109/TKDE.2022.3155450,
+author = {Nie, Feiping and Li, Ziheng and Wang, Rong and Li, Xuelong},
+title = {An Effective and Efficient Algorithm for K-Means Clustering With New Formulation},
+year = {2023},
+issue_date = {April 2023},
+publisher = {IEEE Educational Activities Department},
+address = {USA},
+volume = {35},
+number = {4},
+issn = {1041-4347},
+url = {https://doi.org/10.1109/TKDE.2022.3155450},
+doi = {10.1109/TKDE.2022.3155450},
+abstract = {K-means is one of the most simple and popular clustering algorithms, which implemented as a standard clustering method in most of machine learning researches. The goal of K-means clustering is finding a set of cluster centers and minimizing the sum of squared distances between each sample and its nearest clustering center. In this paper, we proposed a novel K-means clustering algorithm, which reformulate the classical K-Means objective function as a trace maximization problem and then replace it with a new formulation. The proposed algorithm does not need to calculate the cluster centers in each iteration and requires fewer additional intermediate variables during the optimization process. In addition, we proposed an efficient iterative re-weighted algorithm to solve the involved optimization problem and provided the corresponding convergence analysis. The proposed algorithm keeps a consistent computational complexity as Lloyd's algorithm, <inline-formula><tex-math notation="LaTeX">$mathcal {O}(ndk)$</tex-math><alternatives><mml:math><mml:mrow><mml:mi mathvariant="script">O</mml:mi><mml:mo>(</mml:mo><mml:mi>n</mml:mi><mml:mi>d</mml:mi><mml:mi>k</mml:mi><mml:mo>)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="li-ieq1-3155450.gif"/></alternatives></inline-formula>, but shows a faster convergence rate in experiments. Extensive experimental results on real world benchmark datasets show the effectiveness and efficiency of the proposed algorithm.},
+journal = {IEEE Trans. on Knowl. and Data Eng.},
+month = apr,
+pages = {3433–3443},
+numpages = {11}
+}
