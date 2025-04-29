@@ -474,7 +474,7 @@ ${\mathbf{x}}(D_{\text{test}})$ 得到
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.85\linewidth]{figures/autocluster_workflow.pdf}
+  \includegraphics[width=0.85\linewidth]{figures/4graph/autocluster_workflow.pdf}
   \caption{自动化聚类优化流程示意图}
   \label{fig:autocluster-workflow}
 \end{figure}
@@ -568,7 +568,7 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 % 第五章：实验与结果分析
 %---------------------------------
 
-\section{实验与结果分析}
+\section{策略对比实验与分析}
 \label{sec:chapter5}
 
 本章围绕第~\ref{sec:problem-and-model} 节所提出的问题和模型定义（特别是第~\ref{subsec:problem-statement} 节）展开实验与结果分析，通过对多种数据集和聚类算法的验证，定量评估“数据清洗与聚类协同优化”方案的有效性和适用性，重点回答问题\((Q_1)\)到\((Q_3)\)。
@@ -787,7 +787,7 @@ $\mathcal{O}(n^{2})$ \\
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\linewidth]{figures/exp_workflow.pdf}
+  \includegraphics[width=\linewidth]{figures/4graph/exp_workflow.pdf}
   \caption{本章批量实验的四阶段流水线}
   \label{fig:exp_flow}
 \end{figure}
@@ -878,7 +878,7 @@ $\mathcal{O}(n^{2})$ \\
 \paragraph{结果可视化}
 针对每个数据集（beers、flights、hospital、rayyan）各生成三幅图：
 
-\begin{enumerate}[label=\arabic*) ,leftmargin=2.2em]
+\begin{enumerate}[label=\arabic*) ,leftmargin=1.2em]
   \item \emph{相对平均分热力图}\\
         \(9\times6\) 单元；颜色 = \(\overline{S}_{\%\mathrm{GT}}\)，
         单元格右下角小灰字 = \(\sigma^{2}_{S}\)。
@@ -901,7 +901,7 @@ $\mathcal{O}(n^{2})$ \\
   \setlength{\belowcaptionskip}{0pt}
 
   % ---------- beers ----------
-  \begin{subfigure}{0.32\linewidth}
+  \begin{subfigure}{0.33\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/5.3.1graph/heatmap_rel_beers.pdf}
     \caption{Heat-map · beers}
@@ -911,7 +911,7 @@ $\mathcal{O}(n^{2})$ \\
     \includegraphics[width=\linewidth]{figures/5.3.1graph/mean_var_scatter_beers.pdf}
     \caption{Mean–Var · beers}
   \end{subfigure}\hfill
-  \begin{subfigure}{0.32\linewidth}
+  \begin{subfigure}{0.34\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/5.3.1graph/top10_bar_error_beers.pdf}
     \caption{Top-10 · beers}
@@ -919,7 +919,7 @@ $\mathcal{O}(n^{2})$ \\
 
   \vspace{0.6em}
   % ---------- flights ----------
-  \begin{subfigure}{0.32\linewidth}
+  \begin{subfigure}{0.33\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/5.3.1graph/heatmap_rel_flights.pdf}
     \caption{Heat-map · flights}
@@ -929,7 +929,7 @@ $\mathcal{O}(n^{2})$ \\
     \includegraphics[width=\linewidth]{figures/5.3.1graph/mean_var_scatter_flights.pdf}
     \caption{Mean–Var · flights}
   \end{subfigure}\hfill
-  \begin{subfigure}{0.32\linewidth}
+  \begin{subfigure}{0.34\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/5.3.1graph/top10_bar_error_flights.pdf}
     \caption{Top-10 · flights}
@@ -937,7 +937,7 @@ $\mathcal{O}(n^{2})$ \\
 
   \vspace{0.6em}
   % ---------- hospital ----------
-  \begin{subfigure}{0.32\linewidth}
+  \begin{subfigure}{0.33\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/5.3.1graph/heatmap_rel_hospital.pdf}
     \caption{Heat-map · hospital}
@@ -947,7 +947,7 @@ $\mathcal{O}(n^{2})$ \\
     \includegraphics[width=\linewidth]{figures/5.3.1graph/mean_var_scatter_hospital.pdf}
     \caption{Mean–Var · hospital}
   \end{subfigure}\hfill
-  \begin{subfigure}{0.32\linewidth}
+  \begin{subfigure}{0.34\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/5.3.1graph/top10_bar_error_hospital.pdf}
     \caption{Top-10 · hospital}
@@ -955,7 +955,7 @@ $\mathcal{O}(n^{2})$ \\
 
   \vspace{0.6em}
   % ---------- rayyan ----------
-  \begin{subfigure}{0.32\linewidth}
+  \begin{subfigure}{0.33\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/5.3.1graph/heatmap_rel_rayyan.pdf}
     \caption{Heat-map · rayyan}
@@ -965,7 +965,7 @@ $\mathcal{O}(n^{2})$ \\
     \includegraphics[width=\linewidth]{figures/5.3.1graph/mean_var_scatter_rayyan.pdf}
     \caption{Mean–Var · rayyan}
   \end{subfigure}\hfill
-  \begin{subfigure}{0.32\linewidth}
+  \begin{subfigure}{0.34\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/5.3.1graph/top10_bar_error_rayyan.pdf}
     \caption{Top-10 · rayyan}
@@ -1058,6 +1058,169 @@ $\mathcal{O}(n^{2})$ \\
 %--------------------------------------------------
 \subsubsection{错误敏感性实验}
 \label{sec:error_sense_exp}
+%--------------------------------------------------
+
+\paragraph{实验目的与统计指标}
+本实验从两条互补维度定量评估噪声对综合得分 \(S\) 的影响：
+\begin{itemize}[leftmargin=1.9em]
+  \item \textbf{总错误率梯度}\;(\texttt{error\_rate}) ——  
+        将观测错误率划分为七段
+        \(\![0,5),[5,10),\dots,\ge{}30)\,\%\)（记作 \texttt{error\_bin}），
+        并在每档仅保留同一清洗\;/\;聚类方法下的\emph{最高} \(S\)，
+        绘制各方法的“抗噪极限”曲线。
+  \item \textbf{错误类型比例}\;(\textit{Missing} vs.\ \textit{Anomaly}) ——  
+        在总错误率不超过 15 \% 时，枚举
+        \(4\times4\) 组 \(\mathrm{Missing}\times\mathrm{Anomaly}\) 配比，
+        取每格中\emph{非 GT} 组合的最大 \(S\) 作为色值，
+        左上 \((0,0)\) 以 \textit{Ground-Truth} 得分作参考。
+\end{itemize}
+
+\paragraph{结果可视化}
+图~\ref{fig:error_sense_all} 按“清洗曲线 → 聚类曲线 → 类型热力图”的顺序，
+将 \textbf{beers}、\textbf{flights}、\textbf{hospital} 与 \textbf{rayyan}
+四个数据集的结果并列排版，便于横向对比：
+\begin{enumerate}[label=\arabic*) ,leftmargin=1.2em]
+  \item \emph{清洗方法梯度曲线} \\
+        横轴为七段 \texttt{error\_bin}，
+        纵轴对应档内的最高 \(S\)，颜色与标记代表不同清洗策略。
+  \item \emph{聚类算法梯度曲线} \\
+        坐标系与左图一致，但曲线换为不同聚类算法，用于观察“优清洗 + 优聚类” 组合
+        在高噪声区间的稳定性。
+  \item \emph{错误类型比例热力图} \\
+        展示 Missing 与 Anomaly四档比例下的 \(4\times4\) 网格，色阶范围随本行数据集的 \(\min S\) 与 \(\max S\) 自适应，
+        直观揭示“哪种错误主导时性能下降最明显”。
+\end{enumerate}
+
+%--------------------------------------------------
+% 每行 3 张：cleaning-curve / cluster-curve / heat-map
+%--------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \footnotesize
+  \setlength{\abovecaptionskip}{4pt}
+  \setlength{\belowcaptionskip}{0pt}
+
+  % ---------- beers ----------
+  \begin{subfigure}{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/beers_combined_score_cleaning.pdf}
+    \caption{Cleaning-curve · beers}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/beers_combined_score_cluster.pdf}
+    \caption{Cluster-curve · beers}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.295\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/beers_heatmap.pdf}
+    \caption{Heat-map · beers}
+  \end{subfigure}
+
+  \vspace{0.6em}
+  % ---------- flights ----------
+  \begin{subfigure}{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/flights_combined_score_cleaning.pdf}
+    \caption{Cleaning-curve · flights}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/flights_combined_score_cluster.pdf}
+    \caption{Cluster-curve · flights}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.295\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/flights_heatmap.pdf}
+    \caption{Heat-map · flights}
+  \end{subfigure}
+
+  \vspace{0.6em}
+  % ---------- hospital ----------
+  \begin{subfigure}{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/hospital_combined_score_cleaning.pdf}
+    \caption{Cleaning-curve · hospital}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/hospital_combined_score_cluster.pdf}
+    \caption{Cluster-curve · hospital}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.295\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/hospital_heatmap.pdf}
+    \caption{Heat-map · hospital}
+  \end{subfigure}
+
+  \vspace{0.6em}
+  % ---------- rayyan ----------
+  \begin{subfigure}{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/rayyan_combined_score_cleaning.pdf}
+    \caption{Cleaning-curve · rayyan}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/rayyan_combined_score_cluster.pdf}
+    \caption{Cluster-curve · rayyan}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.295\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/5.3.2graph/rayyan_heatmap.pdf}
+    \caption{Heat-map · rayyan}
+  \end{subfigure}
+
+  \caption{错误敏感性可视化：每行对应一个数据集，
+           依次展示清洗策略曲线、聚类算法曲线与类型比例热力图。}
+  \label{fig:error_sense_all}
+\end{figure}
+
+\paragraph{结果分析}
+\label{sec:error_sense_synthesis}
+
+图 \ref{fig:error_sense_all}\,(a–l) 将 \emph{Cleaning-curve}、%
+\emph{Cluster-curve} 与 \emph{错误类型热力图} 并列排版，%
+系统呈现错误率递增与 \((\text{Missing},\text{Anomaly})\) 配比对综合得分 \(S\) 的联合作用。
+综合三条视角，可归纳出如下五点共性与差异。
+
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2.4em]
+
+  \item \textbf{15–25\,\% 总错误率是性能“峰值带”。}\\
+        在 28 个 error\_bin 中有 24 个峰值落在此区间。%
+        例如 \texttt{mode} 在 \emph{beers} 的 20–25\,\% 档将 \(S\) 提升至
+        \textbf{3.76}（\(+212\,\%\) 相对 GT），%
+        \emph{flights} 在 10–15\,\% 档达到 3.68（\(+248\,\%\)）。%
+        超过 25\,\% 后除 \emph{rayyan} 外曲线平均回落 30 – 42\,\%。%
+
+  \item \textbf{层次聚类 (HC) 搭配鲁棒清洗在高噪末端仍保持领先。}\\
+        HC 在全部 28 个档位均列前二；%
+        在最高噪声档 (\(\ge30\,\%\)) 仍维持
+        \(S=2.31\)（\emph{beers}）、2.04（\emph{flights}）、2.07（\emph{hospital}）与 4.12（\emph{rayyan}）。%
+        热力图 “Missing = 0\,\%” 列出现连续暖带，
+        证明多尺度 linkage 能缓冲 Missing 與 Anomaly 的叠加冲击。
+
+  \item \textbf{离群点对低维数值和文本表呈“双刃”效应。}\\
+        在 \emph{beers} 与 \emph{rayyan}，
+        \((\text{Anom}=5\%,\text{Miss}=0\%)\) 取得最高 \(S\)（3.76 与 4.74）；%
+        若两类错误均增至 15\,\%，%
+        \(S\) 分别降至 2.35 与 2.83，跌幅 37–40\,\%。%
+        轻度离群拉大簇间距；缺失同步增加时密度被稀释，增益消失。
+
+  \item \textbf{高维依赖数据对缺失最不敏感。}\\
+        \emph{hospital} 热图 16 格的色阶区间仅 1.42–2.01；%
+        Missing 从 0\% 升至 15\% 仅使 \(S\) 下降 0.18。%
+        Cluster-curve 方差 \(\sigma_S^2=0.018\) 为四数据集最低，%
+        表明层次结构天然兜底缺失扰动。
+
+  \item \textbf{Ground-Truth 清洗并非聚类最佳起点。}\\
+        四张热力图的 \((0,0)\) 参考分在所在行／列均不是极值；%
+        其中 \emph{flights} 刚好等于 1.00，%
+        被 \((10\%,0\%)\) 的 3.68 和 \((0\%,5\%)\) 的 2.94 远超。%
+        说明过度修复削弱簇间差异，%
+        清洗与聚类需要协同优化而非单端极致。
+\end{enumerate}
+
 %--------------------------------------------------
 
 \section{清洗对聚类影响的机理分析}

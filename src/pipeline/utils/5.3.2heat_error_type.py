@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-batch_error_type_heatmap_max.py  ·  (0,0) 参与色阶
+batch_error_type_heatmap_max.py   ·   (0,0) 参与色阶
 -----------------------------------------------------------------
 • (0,0) = GroundTruth 最大 Combined Score，并参与 vmin/vmax 计算
 • 其余 15 格 = 非 GroundTruth 清洗算法下的最大 Combined Score
 • CSV 中若数字带 %, 逗号, 中文字符, 科学计数等可自动解析
 • 打印 4×4 分数矩阵；保存 EPS + PDF
+• 更新要点：
+  1) 增大总标题、坐标标题、刻度标签、网格文字字体
+  2) 图像保存、显示均使用 tight 布局
+  3) 缩小画布尺寸以减小网格物理尺寸
 """
 
 from pathlib import Path
 import re
 import subprocess
-import warnings
 from typing import Optional
 
 import numpy as np
@@ -96,38 +99,60 @@ def draw_one(task: str):
 
     # 6) 绘图
     cmap = CMAP_BASE.copy(); cmap.set_bad("white")
-    fig, ax = plt.subplots(figsize=(4.2, 3.6), dpi=300)
+
+    # 缩小画布尺寸(宽×高)以减小格子，dpi保持高分辨率
+    fig = plt.figure(figsize=(6.5, 4.5), dpi=300)
+    ax = fig.add_subplot(111)
+
     im = ax.imshow(pivot, cmap=cmap, vmin=vmin, vmax=vmax, origin="lower")
 
     labels = [f"{x}%" for x in LEVELS]
-    ax.set_xticks(range(len(LEVELS)), labels, rotation=45)
+    ax.set_xticks(range(len(LEVELS)), labels)
     ax.set_yticks(range(len(LEVELS)), labels)
-    ax.set_xlabel("Missing Rate"); ax.set_ylabel("Anomaly Rate"); ax.set_title(task)
+
+    # 坐标标题 + 刻度字体
+    ax.set_xlabel("Missing Rate", fontsize=16)
+    ax.set_ylabel("Anomaly Rate", fontsize=16)
+    ax.tick_params(axis='both', which='major', labelsize=16)
+
+    # 总标题
+    ax.set_title(f"{task.capitalize()} – Error-Type Heatmap",
+                 fontsize=18, weight="bold", pad=10)
+
+    # 网格
     ax.set_xticks(np.arange(-.5, len(LEVELS), 1), minor=True)
     ax.set_yticks(np.arange(-.5, len(LEVELS), 1), minor=True)
     ax.grid(which="minor", color="w", linewidth=0.4)
 
-    # 文字标注
+    # 网格内数值字体进一步增大
     for i, a in enumerate(LEVELS):
         for j, m in enumerate(LEVELS):
             v = pivot.loc[a, m]
             if not np.isnan(v):
                 tc = "black" if (v - vmin) / (vmax - vmin) < 0.5 else "white"
                 ax.text(j, i, f"{v:.2f}", ha="center", va="center",
-                        fontsize=7, color=tc)
+                        fontsize=16, weight="bold", color=tc)
 
-    cbar = fig.colorbar(im, ax=ax, shrink=0.8); cbar.set_label("Combined Score")
-    plt.tight_layout()
+    # 颜色条
+    cbar = fig.colorbar(im, ax=ax, shrink=0.8)
+    cbar.set_label("Combined Score", fontsize=12)
+    cbar.ax.tick_params(labelsize=12)
 
-    # 7) 保存
+    # tight 布局
+    fig.tight_layout()
+
+    # 7) 保存（同样使用紧凑边界）
     eps = FIG_ROOT / f"{task}_heatmap.eps"
     pdf = FIG_ROOT / f"{task}_heatmap.pdf"
-    fig.savefig(eps, format="eps")
+    fig.savefig(eps, format="eps", bbox_inches="tight")
     try:
-        subprocess.run(["epstopdf", str(eps), "--outfile", str(pdf)],
-                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(
+            ["epstopdf", str(eps), "--outfile", str(pdf)],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
     except Exception:
-        fig.savefig(pdf, format="pdf")
+        fig.savefig(pdf, format="pdf", bbox_inches="tight")
+
     plt.close(fig)
     print(f"[OK] {task}: 图像保存为 {eps.name} / {pdf.name}")
 

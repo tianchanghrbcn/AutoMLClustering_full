@@ -5,6 +5,7 @@
 # 为 beers / flights / hospital / rayyan 分别绘制
 #  Top-10 组合的 (rel_mean ± SD) 条形图
 #  —— 柱子更窄、画布更窄，颜色深→好
+#  使用 Matplotlib “tight” 布局
 # -------------------------------------------------------------
 import pathlib, matplotlib.pyplot as plt
 import seaborn as sns
@@ -65,7 +66,9 @@ for task, grp in df_rel.groupby("task_name"):
     x = np.arange(len(top10))
     colors = sns.color_palette("tab10", len(top10))
 
-    plt.figure(figsize=(6, 5))
+    # ★ 使用 tight 布局：tight_layout=True
+    plt.figure(figsize=(6, 5), tight_layout=True)
+
     plt.bar(
         x,
         top10["rel_mean"],
@@ -77,19 +80,19 @@ for task, grp in df_rel.groupby("task_name"):
     )
     plt.axhline(100, ls="--", lw=1, c="black")
 
-    # ⬆️ 字号：刻度 & 标签
     plt.xticks(x, top10["label"], rotation=18, ha="right", fontsize=12)
     plt.yticks(fontsize=14)
     plt.ylabel("Relative mean score (% of GT)", fontsize=15)
     plt.title(f"Top-10 combinations on “{task}” (mean ± SD)", fontsize=16)
 
-    plt.tight_layout()
+    # tight_layout 已在 figure() 设置，不必再调用
 
     # --- 保存 ---
-    plt.savefig(f"../../../task_progress/figures/top10_bar_error_{task}.pdf",
+    FIG_DIR = pathlib.Path("../../../task_progress/figures")
+    FIG_DIR.mkdir(parents=True, exist_ok=True)
+    plt.savefig(FIG_DIR / f"top10_bar_error_{task}.pdf", bbox_inches="tight")
+    plt.savefig(FIG_DIR / f"top10_bar_error_{task}.eps", format="eps",
                 bbox_inches="tight")
-    plt.savefig(f"../../../task_progress/figures/top10_bar_error_{task}.eps",
-                format="eps", bbox_inches="tight")
     plt.close()
 
 print("Top-10 bar charts saved.")

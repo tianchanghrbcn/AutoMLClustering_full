@@ -5,8 +5,12 @@ Draw error-rate vs. combined-score line charts (lines = cluster_method).
 
 Input : ../../../results/analysis_results/{task}_cluster.csv
 Output: ../../../task_progress/figures/{task}_combined_score.svg + .pdf
-"""
 
+⚙️ 变动：启用 “tight” 绘图模式
+        • 全局设置 plt.rcParams['savefig.bbox'] = 'tight'
+        • 保存 SVG 时显式 bbox_inches='tight'
+其它逻辑保持不变。
+"""
 import subprocess, shutil, importlib
 from pathlib import Path
 
@@ -14,7 +18,10 @@ import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-# ------------ 1. constants ---------------------------------------------------
+# ---------- 全局 tight 模式 ------------------------------- ★
+plt.rcParams['savefig.bbox'] = 'tight'
+
+# ------------ 1. constants ---------------------------------
 TASK_NAMES = ["beers", "flights", "hospital", "rayyan"]
 CSV_ROOT   = Path("../../../results/analysis_results")
 FIG_ROOT   = Path("../../../task_progress/figures")
@@ -34,7 +41,7 @@ COLOR_LIST = (
 )
 MARKERS = ["o","s","D","^","v",">","<","h","p","X","8","*","P"]
 
-# ------------ 2. build global style map (cluster_method → style) -------------
+# ---------- 2. build style map ------------------------------
 clusterers = set()
 for t in TASK_NAMES:
     fp = CSV_ROOT / f"{t}_cluster.csv"
@@ -48,7 +55,7 @@ if len(clusterers) > len(COLOR_LIST):
 STYLE_MAP = {clu: (COLOR_LIST[i], MARKERS[i % len(MARKERS)])
              for i, clu in enumerate(sorted(clusterers))}
 
-# ------------ 3. helper：SVG → PDF -------------------------------------------
+# ---------- 3. helper：SVG → PDF ----------------------------
 def svg_to_pdf(svg_path: Path):
     pdf_path = svg_path.with_suffix(".pdf")
     # ① Inkscape CLI
@@ -73,7 +80,7 @@ def svg_to_pdf(svg_path: Path):
     print("[INFO] No SVG→PDF converter found – SVG kept only.")
     return None
 
-# ------------ 4. main loop ---------------------------------------------------
+# ---------- 4. main loop ------------------------------------
 for task in TASK_NAMES:
     csv = CSV_ROOT / f"{task}_cluster.csv"
     if not csv.exists():
@@ -88,12 +95,12 @@ for task in TASK_NAMES:
     df["error_bin"] = pd.cut(df["error_rate"], BIN_EDGES,
                              labels=BIN_LABELS, right=False, include_lowest=True)
 
-    # 对每个 cluster_method & error_bin，保留“在所有 cleaning_method 中得分最高”的记录
+    # 每个 cluster_method & error_bin 取最高 Combined Score
     best = (df.groupby(["cluster_method", "error_bin"])["Combined Score"]
               .max().reset_index())
 
-    # ---------- 绘图 ---------------------------------------------------------
-    plt.figure(figsize=(6.5,4.5))
+    # --------- 绘图 -----------------------------------------
+    plt.figure(figsize=(6.5, 4.5))
     for clu, sub in best.groupby("cluster_method"):
         y = (sub.set_index("error_bin")
                  .reindex(BIN_LABELS)["Combined Score"].values)
@@ -102,24 +109,22 @@ for task in TASK_NAMES:
                  color=color, marker=marker,
                  linewidth=1.8, markersize=6)
 
-    # 字体 & 标题
-    plt.title(f"{task.capitalize()} - Combined Score vs. Error Rate",
-              fontsize=16, pad=6)
-    plt.xlabel("Error-Rate Range (%)", fontsize=14)
-    plt.ylabel("Combined Score",      fontsize=14)
-    plt.xticks(fontsize=12); plt.yticks(fontsize=12)
+    plt.title(f"{task.capitalize()} – Combined Score vs. Error Rate",
+              fontsize=18, pad=6)
+    plt.xlabel("Error-Rate Range (%)", fontsize=16)
+    plt.ylabel("Combined Score",      fontsize=16)
+    plt.xticks(fontsize=16); plt.yticks(fontsize=16)
 
-    # 半透明图例，右上角，浅灰边框
     leg = plt.legend(title="Clustering Method",
-                     fontsize="small", loc="upper right", framealpha=0.4)
+                     fontsize=12, loc="upper right", framealpha=0.4)
     frame = leg.get_frame()
     frame.set_edgecolor("0.5"); frame.set_linewidth(0.8)
 
     plt.tight_layout()
 
-    # 保存 SVG（支持透明度）并尝试转 PDF
+    # 保存 SVG（tight bbox）
     svg_path = FIG_ROOT / f"{task}_combined_score_cluster.svg"
-    plt.savefig(svg_path, format="svg")
+    plt.savefig(svg_path, format="svg", bbox_inches='tight')     # ★
     plt.close()
 
     svg_to_pdf(svg_path)

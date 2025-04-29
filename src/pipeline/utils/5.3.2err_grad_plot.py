@@ -5,6 +5,11 @@ Draw error-rate vs. combined-score line charts (one per dataset).
 
 Input : ../../../results/analysis_results/{task}_cluster.csv
 Output: ../../../task_progress/figures/{task}_combined_score.svg + .pdf
+
+改动要点
+--------
+* 保存图像时使用 **bbox_inches="tight"**，确保真正的 tight 模式。
+* 其余逻辑完全保持不变。
 """
 
 import subprocess, shutil, itertools, importlib
@@ -100,23 +105,24 @@ for task in TASK_NAMES:
 
     # larger fonts
     plt.title(f"{task.capitalize()} - Combined Score vs. Error Rate",
-              fontsize=16, pad=6)
-    plt.xlabel("Error-Rate Range (%)", fontsize=14)
-    plt.ylabel("Combined Score",      fontsize=14)
-    plt.xticks(fontsize=12);  plt.yticks(fontsize=12)
+              fontsize=18, pad=6)
+    plt.xlabel("Error-Rate Range (%)", fontsize=16)
+    plt.ylabel("Combined Score",      fontsize=16)
+    plt.xticks(fontsize=16);  plt.yticks(fontsize=16)
 
-    # legend: upper-right, semi-transparent (alpha=0.4), light-grey border
+    # legend: upper-right, semi-transparent
     leg = plt.legend(title="Cleaning Method",
-                     fontsize="small",
+                     fontsize=11,
                      loc="upper right",
                      framealpha=0.4)
     frame = leg.get_frame()
     frame.set_edgecolor("0.5"); frame.set_linewidth(0.8)
 
-    plt.tight_layout()
+    plt.tight_layout()                         # layout 紧凑
 
     svg_path = FIG_ROOT / f"{task}_combined_score_cleaning.svg"
-    plt.savefig(svg_path, format="svg")   # SVG keeps transparency
+    # ★ tight 模式保存
+    plt.savefig(svg_path, format="svg", bbox_inches="tight")
     plt.close()
 
     svg_to_pdf(svg_path)

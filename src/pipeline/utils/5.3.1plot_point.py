@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# 生成各数据集的 mean–variance 散点图
+# 生成各数据集的 mean–variance 散点图（tight 布局）
 #
 import pathlib, subprocess, shutil, importlib
 import matplotlib.pyplot as plt
@@ -88,7 +88,8 @@ def svg_to_pdf(svg_path: pathlib.Path):
 
 # ---------- 5. 逐 task 绘制 ---------------------------------------------------
 for task, sub in stats.groupby("task_name"):
-    fig, ax = plt.subplots(figsize=(6, 5))
+    # ★ tight 布局：constrained_layout=True
+    fig, ax = plt.subplots(figsize=(6, 5), constrained_layout=True)
 
     # (1) 散点
     for _, row in sub.iterrows():
@@ -133,8 +134,6 @@ for task, sub in stats.groupby("task_name"):
                      borderpad=0.5, frameon=True, framealpha=0.4,
                      fontsize=12.5, title_fontsize=12)
     leg2.get_frame().set_edgecolor("0.5"); leg2.get_frame().set_linewidth(0.8)
-
-    fig.tight_layout()
 
     svg_path = SVG_DIR / f"mean_var_scatter_{task}.svg"
     fig.savefig(svg_path, format="svg")

@@ -79,7 +79,10 @@ def draw_heatmap(task, df_task):
     vmax      = vals.max()
 
     sns.set_theme(style="white")
-    fig, ax = plt.subplots(figsize=(6, 5))   # 宽高略大，读数更清晰
+    # ★ 使用 tight layout 直接在 Figure 创建时启用
+    fig, ax = plt.subplots(figsize=(6, 5), layout="tight")   # Matplotlib ≥3.6
+    # 若版本较老，可改为: fig, ax = plt.subplots(figsize=(6, 5), constrained_layout=True)
+
     sns.heatmap(
         heat, cmap=cmap, vmin=vmin_pos, vmax=vmax,
         annot=True, fmt=".2f",
@@ -95,7 +98,6 @@ def draw_heatmap(task, df_task):
     ax.set_xlabel(""); ax.set_ylabel("")
     ax.set_title(f"{task} — Relative Mean Score", fontsize=18, pad=10)
     ax.set_aspect("equal")
-    plt.tight_layout()
 
     for ext in ("eps", "pdf", "png"):
         plt.savefig(
