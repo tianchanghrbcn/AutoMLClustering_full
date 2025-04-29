@@ -13,11 +13,31 @@ import numpy as np
 
 UTIL_DIR = pathlib.Path(__file__).resolve().parent
 RES_DIR  = UTIL_DIR / ".." / ".." / ".." / "results" / "analysis_results"
-dfs = [pd.read_csv(p) for p in RES_DIR.glob("*.csv")]
+
+# ---------- ❶ 读取并健壮地将字符列转换为数值 ------------------------
+numeric_cols = ["Combined Score"]                       # 需要数值化的关键列
+dfs = []
+for p in RES_DIR.glob("*.csv"):
+    df = pd.read_csv(
+        p,
+        na_values=["", "NA", "N/A", "-", "null"],        # 常见缺失标记
+        keep_default_na=True
+    )
+    # 对每个待数值化的列进行逐项清洗 → 数值
+    for col in numeric_cols:
+        if col in df.columns:
+            df[col] = (
+                df[col]
+                .astype(str)                             # 统一成字符串
+                .str.replace(r"[^\d\.\-eE+]", "", regex=True)  # 去掉 %, 千位逗号、空格等
+                .pipe(pd.to_numeric, errors="coerce")    # 无法解析 → NaN
+            )
+    dfs.append(df)
+
 assert dfs, f"未找到聚合结果文件于 {RES_DIR}"
 df_all = pd.concat(dfs, ignore_index=True)
 
-# ---------- ❶ 计算相对得分（GT 作为分母） -------------------------
+# ---------- ❷ 计算相对得分（GT 作为分母） -------------------------
 gt = (
     df_all.query("cleaning_method == 'GroundTruth'")
           .groupby(["task_name", "cluster_method"])["Combined Score"]
@@ -30,7 +50,7 @@ df_rel = (
           .query("cleaning_method != 'GroundTruth'")
 )
 
-# ---------- ❷ 逐数据集绘制 Top-10 条形图 --------------------------
+# ---------- ❸ 逐数据集绘制 Top-10 条形图 --------------------------
 for task, grp in df_rel.groupby("task_name"):
     stats = (
         grp.groupby(["cleaning_method", "cluster_method"])
@@ -58,16 +78,18 @@ for task, grp in df_rel.groupby("task_name"):
     plt.axhline(100, ls="--", lw=1, c="black")
 
     # ⬆️ 字号：刻度 & 标签
-    plt.xticks(x, top10["label"], rotation=18, ha="right", fontsize=12)   # ⬆️ font
-    plt.yticks(fontsize=14)                                               # ⬆️ font
-    plt.ylabel("Relative mean score (% of GT)", fontsize=15)              # ⬆️ font
-    plt.title(f"Top-10 combinations on “{task}” (mean ± SD)", fontsize=16) # ⬆️ font
+    plt.xticks(x, top10["label"], rotation=18, ha="right", fontsize=12)
+    plt.yticks(fontsize=14)
+    plt.ylabel("Relative mean score (% of GT)", fontsize=15)
+    plt.title(f"Top-10 combinations on “{task}” (mean ± SD)", fontsize=16)
 
     plt.tight_layout()
 
     # --- 保存 ---
-    plt.savefig(f"../../../task_progress/figures/top10_bar_error_{task}.pdf", bbox_inches="tight")
-    plt.savefig(f"../../../task_progress/figures/top10_bar_error_{task}.eps", format="eps", bbox_inches="tight")
+    plt.savefig(f"../../../task_progress/figures/top10_bar_error_{task}.pdf",
+                bbox_inches="tight")
+    plt.savefig(f"../../../task_progress/figures/top10_bar_error_{task}.eps",
+                format="eps", bbox_inches="tight")
     plt.close()
 
 print("Top-10 bar charts saved.")

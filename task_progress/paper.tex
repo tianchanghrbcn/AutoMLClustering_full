@@ -813,8 +813,8 @@ $\mathcal{O}(n^{2})$ \\
 
 \noindent
 完成上述 4 步后，我们即将在第~\ref{sec:score_eval_exp} 节到
-第~\ref{sec:err_type_exp} 节
-分别开展“得分评估”“错误率梯度”与“错误类型对比”三组实验，
+第~\ref{sec:error_sense_exp} 节
+分别开展“得分评估”与“错误敏感性”三组实验，
 进而回答第~\ref{subsec:problem-statement} 节中的问题 \((Q_1)–(Q_3)\)。
 
 %--------------------------------------------------
@@ -832,13 +832,11 @@ $\mathcal{O}(n^{2})$ \\
   \item \textbf{得分评估实验}（\S\ref{sec:score_eval_exp}）  
         —— 横向比较 9\(\times\)6 种“清洗+聚类”组合在
         平均分、方差等维度的全局表现；
-  \item \textbf{错误率梯度实验}（\S\ref{sec:err_grad_exp}）  
-        —— 将 \(r_{\text{tot}}\) 每5\%分为一段，观察各组合的得分与运行耗时随错误率递增的折线趋势；
-  \item \textbf{错误类型对比实验}（\S\ref{sec:err_type_exp}）  
-        —— 在固定 \(r_{\text{tot}}\) 的前提下，改变
-        \(\bigl(r_{\text{miss}},r_{\text{anom}}\bigr)\) 二元分布，
-        比较三大错误类型（缺失、格式/语义错误、离群噪声）
-        被清洗程度与聚类指标之间的耦合关系。
+  \item \textbf{错误敏感性实验}（\S\ref{sec:error_sense_exp}）  
+        —— 将 \(r_{\text{tot}}\) 以 5 \% 为步长分档，  
+        同时在固定 \(r_{\text{tot}}\) 的前提下改变
+        \(\bigl(r_{\text{miss}},r_{\text{anom}}\bigr)\) 二元比例，  
+        统一考察错误率递增与错误类型差异对聚类指标的综合影响。
 \end{enumerate}
 
 下面首先给出 5.3.1 的详细结果。
@@ -1055,6 +1053,12 @@ $\mathcal{O}(n^{2})$ \\
         必须同时考虑清洗与聚类的耦合匹配。
 
 \end{enumerate}
+
+%--------------------------------------------------
+%--------------------------------------------------
+\subsubsection{错误敏感性实验}
+\label{sec:error_sense_exp}
+%--------------------------------------------------
 
 \section{清洗对聚类影响的机理分析}
 \label{sec:chapter6}

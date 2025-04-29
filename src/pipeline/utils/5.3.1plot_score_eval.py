@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+#
+# 生成各数据集的相对均值热图（横纵轴已对调）
+#
 import sys, pathlib
 import pandas as pd
 import seaborn as sns
@@ -17,13 +19,33 @@ elif tasks_cli[0] in ALL_TASKS:
 else:
     raise SystemExit(f"❌ 无效 task_name={tasks_cli[0]}，应为 {ALL_TASKS}")
 
-# ---------- 1. 读取聚合结果 ----------
+# ---------- 1. 读取聚合结果（显式数值化，健壮处理） ----------
 UTIL_DIR = pathlib.Path(__file__).resolve().parent
 RES_DIR  = UTIL_DIR / ".." / ".." / ".." / "results" / "analysis_results"
 csvs = sorted(RES_DIR.glob("*.csv"))
 if not csvs:
     raise SystemExit(f"❌ 找不到 csv 于 {RES_DIR}")
-df_all = pd.concat([pd.read_csv(p) for p in csvs], ignore_index=True)
+
+numeric_cols = ["Combined Score"]           # 后续计算依赖的数值列
+dfs = []
+for p in csvs:
+    df = pd.read_csv(
+        p,
+        na_values=["", "NA", "N/A", "-", "null"],        # 常见缺失标记
+        keep_default_na=True
+    )
+    # ---- 将关键列强制转为 float（去掉 %, 千位逗号等杂质） ----
+    for col in numeric_cols:
+        if col in df.columns:
+            df[col] = (
+                df[col]
+                .astype(str)
+                .str.replace(r"[^\d.\-eE+]", "", regex=True)  # 去杂质
+                .pipe(pd.to_numeric, errors="coerce")        # 失败→NaN
+            )
+    dfs.append(df)
+
+df_all = pd.concat(dfs, ignore_index=True)
 
 # ---------- 2. 共用的绘图函数（横纵轴已对调） ----------
 def draw_heatmap(task, df_task):
@@ -57,7 +79,7 @@ def draw_heatmap(task, df_task):
     vmax      = vals.max()
 
     sns.set_theme(style="white")
-    fig, ax = plt.subplots(figsize=(6, 5))   # 宽高稍微调大一点，读数更清晰
+    fig, ax = plt.subplots(figsize=(6, 5))   # 宽高略大，读数更清晰
     sns.heatmap(
         heat, cmap=cmap, vmin=vmin_pos, vmax=vmax,
         annot=True, fmt=".2f",
@@ -79,8 +101,8 @@ def draw_heatmap(task, df_task):
         plt.savefig(
             f"../../../task_progress/figures/heatmap_rel_{task}.{ext}",
             dpi=450 if ext == "png" else None,
-            bbox_inches="tight",  # ← 关键：裁掉周围空白
-            pad_inches=0          # ← 关键：不留 padding
+            bbox_inches="tight",
+            pad_inches=0
         )
     plt.close()
 
