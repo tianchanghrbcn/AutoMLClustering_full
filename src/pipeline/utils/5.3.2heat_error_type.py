@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 # ──────────── 配置 ────────────
 TASKS     = ["beers", "flights", "hospital", "rayyan"]
 CSV_ROOT  = Path("../../../results/analysis_results")
-FIG_ROOT  = Path("../../../task_progress/figures")
+FIG_ROOT  = Path("../../../task_progress/figures/5.3.2graph")
 FIG_ROOT.mkdir(parents=True, exist_ok=True)
 
 LEVELS    = [0, 5, 10, 15]                  # (%) 刻度
@@ -117,7 +117,7 @@ def draw_one(task: str):
 
     # 总标题
     ax.set_title(f"{task.capitalize()} – Error-Type Heatmap",
-                 fontsize=18, weight="bold", pad=10)
+                 fontsize=18, pad=10)
 
     # 网格
     ax.set_xticks(np.arange(-.5, len(LEVELS), 1), minor=True)
@@ -129,7 +129,7 @@ def draw_one(task: str):
         for j, m in enumerate(LEVELS):
             v = pivot.loc[a, m]
             if not np.isnan(v):
-                tc = "black" if (v - vmin) / (vmax - vmin) < 0.5 else "white"
+                tc = "black"  # ★ 固定为黑色
                 ax.text(j, i, f"{v:.2f}", ha="center", va="center",
                         fontsize=16, weight="bold", color=tc)
 

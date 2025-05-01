@@ -11,7 +11,7 @@ import pandas as pd
 # ---------- 0. 目录 ----------------------------------------------------------
 ROOT_DIR = pathlib.Path(__file__).resolve().parents[3]
 CSV_DIR  = ROOT_DIR / "results" / "analysis_results"
-SVG_DIR  = ROOT_DIR / "task_progress" / "figures"
+SVG_DIR  = ROOT_DIR / "task_progress" / "figures" / "5.3.1graph"
 SVG_DIR.mkdir(parents=True, exist_ok=True)
 
 # ---------- 1. 读取 + 聚合（显式数值化，健壮处理） ----------------------------

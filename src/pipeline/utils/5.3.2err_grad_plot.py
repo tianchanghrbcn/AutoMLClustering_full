@@ -12,7 +12,7 @@ Output: ../../../task_progress/figures/{task}_combined_score.svg + .pdf
 * 其余逻辑完全保持不变。
 """
 
-import subprocess, shutil, itertools, importlib
+import subprocess, shutil, importlib
 from pathlib import Path
 
 import pandas as pd
@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 # ------------ 1. constants ---------------------------------------------------
 TASK_NAMES = ["beers", "flights", "hospital", "rayyan"]
 CSV_ROOT   = Path("../../../results/analysis_results")
-FIG_ROOT   = Path("../../../task_progress/figures")
+FIG_ROOT   = Path("../../../task_progress/figures/5.3.2graph")
 FIG_ROOT.mkdir(parents=True, exist_ok=True)
 
 BIN_EDGES  = [0, 5, 10, 15, 20, 25, 30, float("inf")]
@@ -101,7 +101,7 @@ for task in TASK_NAMES:
         color, marker = STYLE_MAP[cln]
         plt.plot(BIN_LABELS, y, label=cln,
                  color=color, marker=marker,
-                 linewidth=1.8, markersize=6)
+                 linewidth=1.8, markersize=8)
 
     # larger fonts
     plt.title(f"{task.capitalize()} - Combined Score vs. Error Rate",

@@ -1012,3 +1012,67 @@ month = apr,
 pages = {3433–3443},
 numpages = {11}
 }
+
+@inproceedings{Khayyat2015BigDansing,
+  author    = {Zuhair Khayyat and Ihab F. Ilyas and Alekh Jindal and
+               Samuel Madden and Mourad Ouzzani and Paolo Papotti and
+               Jorge{-}Arnulfo Quian{\'e}-Ruiz and Nan Tang and Si Yin},
+  title     = {{BigDansing}: A System for Big Data Cleansing},
+  booktitle = {Proceedings of the 2015 ACM SIGMOD International Conference on
+               Management of Data},
+  address   = {Melbourne, Australia},
+  pages     = {1215--1230},
+  year      = {2015},
+  publisher = {ACM},
+  doi       = {10.1145/2723372.2747646},
+  url       = {https://doi.org/10.1145/2723372.2747646}
+}
+
+@article{Krishnan2017BoostClean,
+  author    = {Sanjay Krishnan and Michael J. Franklin and
+               Ken Goldberg and Eugene Wu},
+  title     = {{BoostClean}: Automated Error Detection and Repair for Machine Learning},
+  journal   = {CoRR},
+  volume    = {abs/1711.01299},
+  year      = {2017},
+  eprint    = {1711.01299},
+  eprinttype= {arXiv},
+  doi       = {10.48550/ARXIV.1711.01299},
+  url       = {https://arxiv.org/abs/1711.01299}
+}
+
+@article{10.14778/3476249.3476301,
+author = {Rezig, El Kindi and Ouzzani, Mourad and Aref, Walid G. and Elmagarmid, Ahmed K. and Mahmood, Ahmed R. and Stonebraker, Michael},
+title = {Horizon: scalable dependency-driven data cleaning},
+year = {2021},
+issue_date = {July 2021},
+publisher = {VLDB Endowment},
+volume = {14},
+number = {11},
+issn = {2150-8097},
+url = {https://doi.org/10.14778/3476249.3476301},
+doi = {10.14778/3476249.3476301},
+abstract = {A large class of data repair algorithms rely on integrity constraints to detect and repair errors. A well-studied class of constraints is Functional Dependencies (FDs, for short). Although there has been an increased interest in developing general data cleaning systems for a myriad of data errors, scalability has been left behind. This is because current systems assume data cleaning is performed offline and in one iteration. However, developing data science pipelines is highly iterative and requires efficient cleaning techniques to scale to millions of records in seconds/minutes, not days. In our efforts to re-think the data cleaning stack and bring it to the era of data science, we introduce Horizon, an end-to-end FD repair system to address two key challenges: (1) Accuracy: Most existing FD repair techniques aim to produce repairs that minimize changes to the data that may lead to incorrect combinations of attribute values (or patterns). Horizon leverages the interaction between the data patterns induced by the various FDs, and subsequently selects repairs that preserve the most frequent patterns found in the original data, and hence leading to a better repair accuracy. (2) Scalability: Existing data cleaning systems struggle when dealing with large-scale real-world datasets. Horizon features a linear-time repair algorithm that scales to millions of records, and is orders-of-magnitude faster than state-of-the-art cleaning algorithms. A benchmark of Horizon against state-of-the-art cleaning systems on multiple datasets and metrics shows that Horizon consistently outperforms existing techniques in repair quality and scalability.},
+journal = {Proc. VLDB Endow.},
+month = jul,
+pages = {2546–2554},
+numpages = {9}
+}
+
+@inproceedings{10.1145/2463676.2463706,
+author = {Yakout, Mohamed and Berti-\'{E}quille, Laure and Elmagarmid, Ahmed K.},
+title = {Don't be SCAREd: use SCalable Automatic REpairing with maximal likelihood and bounded changes},
+year = {2013},
+isbn = {9781450320375},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2463676.2463706},
+doi = {10.1145/2463676.2463706},
+abstract = {Various computational procedures or constraint-based methods for data repairing have been proposed over the last decades to identify errors and, when possible, correct them. However, these approaches have several limitations including the scalability and quality of the values to be used in replacement of the errors. In this paper, we propose a new data repairing approach that is based on maximizing the likelihood of replacement data given the data distribution, which can be modeled using statistical machine learning techniques. This is a novel approach combining machine learning and likelihood methods for cleaning dirty databases by value modification. We develop a quality measure of the repairing updates based on the likelihood benefit and the amount of changes applied to the database. We propose SCARE (SCalable Automatic REpairing), a systematic scalable framework that follows our approach. SCARE relies on a robust mechanism for horizontal data partitioning and a combination of machine learning techniques to predict the set of possible updates. Due to data partitioning, several updates can be predicted for a single record based on local views on each data partition. Therefore, we propose a mechanism to combine the local predictions and obtain accurate final predictions. Finally, we experimentally demonstrate the effectiveness, efficiency, and scalability of our approach on real-world datasets in comparison to recent data cleaning approaches.},
+booktitle = {Proceedings of the 2013 ACM SIGMOD International Conference on Management of Data},
+pages = {553–564},
+numpages = {12},
+keywords = {inconsistent data, data cleaning},
+location = {New York, New York, USA},
+series = {SIGMOD '13}
+}
