@@ -61,7 +61,7 @@ def process_record(record_idx, record, work_dir):
         cleaning_runtime = 0.0
 
         # 示例中只有 1 种聚类算法。如果有多种，修改此 range 或自行遍历
-        for cluster_method_id in range(6):
+        for cluster_method_id in range(1):
             cluster_output_dir, cluster_runtime = run_clustering(
                 dataset_id=dataset_id,
                 algorithm=algo_name,

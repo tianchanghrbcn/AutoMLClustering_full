@@ -18,6 +18,8 @@
 \usepackage{float}
 \usepackage{multirow}       % 放在导言区，只需一次
 \usepackage{booktabs, multirow, xcolor}  % 你若已有就不用重复
+\usepackage{siunitx,enumitem,xcolor}
+\newcommand{\placeholder}[1]{\textcolor{red}{#1}}
 \usetikzlibrary{shapes.geometric, arrows, positioning}
 \usepackage[ruled,vlined]{algorithm2e} % 算法格式支持
  
@@ -474,7 +476,7 @@ ${\mathbf{x}}(D_{\text{test}})$ 得到
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.85\linewidth]{figures/4graph/autocluster_workflow.pdf}
+  \includegraphics[width=0.9\linewidth]{figures/4graph/autocluster_workflow.pdf}
   \caption{自动化聚类优化流程示意图}
   \label{fig:autocluster-workflow}
 \end{figure}
@@ -571,7 +573,7 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 \section{宏观实验与现象归纳}
 \label{sec:chapter5}
 
-本章围绕第~\ref{sec:problem-and-model} 节所提出的问题和模型定义（特别是第~\ref{subsec:problem-statement} 节）展开实验与结果分析，通过对多种数据集和聚类算法的验证，定量评估“数据清洗与聚类协同优化”方案的有效性和适用性，重点回答问题\((Q_1)\)到\((Q_3)\)。
+本章围绕第~\ref{sec:problem-and-model} 节所提出的问题和模型定义（特别是第~\ref{subsec:problem-statement} 节）展开实验与结果分析，通过对多种数据集和聚类算法的验证，定量评估“数据清洗与聚类协同优化”方案的有效性和适用性。
 \vspace{-0.5em}
 %--------------------------------------------------
 \subsection{\textcolor[rgb]{0.00,0.07,1.00}{实验设置}}\label{sec:exp_setting}
@@ -787,7 +789,7 @@ $\mathcal{O}(n^{2})$ \\
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\linewidth]{figures/4graph/exp_workflow.pdf}
+  \includegraphics[width=0.95\linewidth]{figures/4graph/exp_workflow.pdf}
   \caption{本章批量实验的四阶段流水线}
   \label{fig:exp_flow}
 \end{figure}
@@ -815,7 +817,7 @@ $\mathcal{O}(n^{2})$ \\
 完成上述 4 步后，我们即将在第~\ref{sec:score_eval_exp} 节到
 第~\ref{sec:error_sense_exp} 节
 分别开展“得分评估”与“错误敏感性”三组实验，
-进而回答第~\ref{subsec:problem-statement} 节中的问题 \((Q_1)–(Q_3)\)。
+初步回答第~\ref{subsec:problem-statement} 节中提出的问题挑战。
 
 %--------------------------------------------------
 \subsection{\textcolor[rgb]{0.00,0.07,1.00}{实验结果与分析}}
@@ -974,8 +976,8 @@ $\mathcal{O}(n^{2})$ \\
   \caption{三种视角的得分评估结果（每行对应一个数据集）。%
            颜色越深蓝表示 \(\overline{S}_{\%\mathrm{GT}}\) 越高；%
            散点越靠右/越低表示高收益且低风险；%
-           条形误差条体现平均收益的置信区间。%
-           详细数值与现象待第~\ref{sec:score_eval_exp_analysis}~段分析。}
+           条形误差条体现平均收益的置信区间。
+           }
   \label{fig:score_eval_all}
 \end{figure}
 
@@ -991,70 +993,62 @@ $\mathcal{O}(n^{2})$ \\
 以及 \emph{Top-10 带误差条形图}[(c)(f)(i)(l)]。
 综合三种视角可归纳出如下共性与差异。
 
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2.4em]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2.6em]
 
-  \item \textbf{层次聚类 (\texttt{HC}) + 简单填补在纯数值场景最优且稳健。}\\
-        在 \emph{beers} 与 \emph{flights} 的热力图
-        [Fig.~\ref{fig:score_eval_all}\,(a)(d)]
-        ，\textbf{mode+HC} 的
-        \(\overline{S}_{\%\mathrm{GT}}\) 分别达到
-        \textbf{1.72} 与 \textbf{1.89}，
-        方差仅 \(\sigma^{2}_{S}=0.14,\,0.21\)。
-        相同组合在散点图
-        [Fig.~\ref{fig:score_eval_all}\,(b)(e)]
-        落于 “右端-低纵” 的低风险高收益象限，
-        说明对低维、纯数值表格，
-        朴素众数填补已足以配合 HC 的层次划分
-        取得高且稳的综合得分。
+%--------------------------------------------------------
+\item \textbf{多场景最突出的两种组合方案：\texttt{mode+HC} 与 \texttt{GroundTruth+HC}.}\\
+在四组 Top-10 图中，
+共有 \num{7} 组组合在全部数据集均进入前10名。
+其中 \texttt{mode+HC} 与 \texttt{GroundTruth+HC}
+分别出现 \num{17} 次与 \num{13} 次第1名，
+显著高于其它高频轨迹。Friedman 检验
+\(\chi^{2}=\num{1671.4},\,p<2.2\times10^{-16}\)  
+\((N=\num{60},\,k=\num{48})\) 与 Kendall 一致系数
+\(W=\num{0.593}\) 共同表明整体排序高度一致；
+最优与次优组合的平均秩差仅
+\(\Delta r=\num{0.1}\)，远小于临界差
+\(\mathrm{CD}=\num{14.36}\)。两者在 \(\alpha=0.05\) 水平统计上不可区分；
+因此最优方案须同时参考频次与稳健性等指标。
 
-  \item \textbf{深度语义清洗 (\texttt{baran}) 是高维混合表的刚需。}\\
-        在 20 维医疗数据 \emph{hospital}
-        [Fig.~\ref{fig:score_eval_all}\,(g)(h)(i)]
-        ，\textbf{baran+HC} 以
-        \(\overline{S}_{\%\mathrm{GT}}=0.88\)
-        领先所有非语义方法 \(10\%-25\%\)，
-        且 \(\sigma^{2}_{S}\le0.02\)。
-        高维、含规则依赖字段需要“检测+修复”一体的
-        语义清洗才能稳定提升 HC 成果；
-        纯统计或局部规则方法 (\texttt{mode}/\texttt{bigdansing})
-        散点显著偏左或偏上。
+%--------------------------------------------------------
+\item \textbf{层次聚类增益依赖于 “类间梯度不被压缩”。}\\
+在热力图中，
+对于\(|\Delta\text{DBI}|<\num{0.40}\) 且
+\(\Delta\text{Sil}\) 与 \(\Delta\text{DBI}\) 同号的单元，
+\texttt{HC} 行均呈深蓝色；
+对应增益-基线斜率
+\(\partial G/\partial\text{Sil}=\num{1.32}\)，
+仅为 K-Means 的 \num{0.54} 倍。
+一旦出现 “非同向变化”的情形
+（例如 \emph{flights} 中 \(\Delta\text{Sil}>0\),
+ \(\Delta\text{DBI}<0\) 的单元格），
+HC 在条形图中的名次即跌出前三。
+因此 HC 优势取决于层次梯度是否完整保留，
+过度清洗或指标冲突均可能抵消此优势。
 
-  \item \textbf{密度聚类 (\texttt{DBSCAN}) 在高离群文本场景爆发但波动最大。}\\
-        对标签文本为主的 \emph{rayyan}
-        [Fig.~\ref{fig:score_eval_all}\,(j)(k)(l)]
-        ，\textbf{mode+DBSCAN} 取得
-        \(\overline{S}_{\%\mathrm{GT}}=1.28\)，
-        但 \(\sigma^{2}_{S}\approx0.60\)，
-        Top-10 误差条宽达 \(\pm21\%\)。
-        同样的“高均值-高方差”也出现在
-        \emph{beers}/\emph{flights}，
-        反映 DBSCAN 对
-        \(\varepsilon\)、minPts 与离群比例极度敏感，
-        需要配合参数重采样或阈值监控方可落地。
+%--------------------------------------------------------
+\item \textbf{文本占优的数据集中出现“众数-密度”方法最优的例外情形。}\\
+在最后一行热力图（对应\emph{rayyan} 数据集）中，
+\texttt{mode+DBSCAN} 单元显示
+\(\overline{S}_{\%\mathrm{GT}}=\num{1.28}\)，
+而同种方法在 \emph{hospital} 数据集上仅为 \num{0.48}。
+这表明高语义冗余文本在向量空间形成致密区域，
+DBSCAN 方法会因此规避 HC 的簇碎片化问题，因此可在文本向量为主的数据集中把 DBSCAN 方法放入首选候选而非默认 HC，
+并同时扩大参数 \(\varepsilon\) 的搜索上界。
 
-  \item \textbf{滑窗-平滑修复 (\texttt{horizon}) 带来跨领域稳健增益。}\\
-        在 \emph{flights} 与 \emph{hospital} 的 Top-10
-        [Fig.~\ref{fig:score_eval_all}\,(f)(i)]
-        ，horizon+HC/GMM 位列前 2 – 4，
-        且误差条均小于 10 \%。
-        时序窗口插补减轻了缺失-抖动噪声，
-        使质心型与层次型算法在中高缺失率环境
-        一并受益。
-
-  \item \textbf{“理想清洗”并非最优——过度修复会削弱层次差异。}\\
-        在四张热力图中，
-        \texttt{GroundTruth}+HC 的
-        \(\overline{S}_{\%\mathrm{GT}}\) 仅排第 3–8
-        ，例如 \emph{flights} 精确等于 1.00。
-        说明当所有局部噪声被完全抹平后，
-        HC 易产生过细切分、降低 Silhouette。
-        对 AutoML 的启示是：
-        不能简单以“清洗 F1 最高”作为唯一上界，
-        必须同时考虑清洗与聚类的耦合匹配。
-
+%--------------------------------------------------------
+\item \textbf{“理想清洗”方法从总体得分的角度弱于 \texttt{mode}方法。}\\
+\texttt{GroundTruth}+HC 的平均
+\(\overline{S}_{\%\mathrm{GT}}\) 比
+\texttt{mode+HC} 低 \num{0.28},
+且差值的 \SI{95}{\percent} 置信区间
+\([0.02,\,0.55]\) 不含0。
+在第三列的条形图中，\texttt{GroundTruth}+HC
+常排第 \numrange{3}{5} 位，
+再次量化 “过度修复削弱类间梯度” 的副作用，
+证明了F1 得分最高的清洗策略并不总是聚类得分上限。
 \end{enumerate}
 
-%--------------------------------------------------
 %--------------------------------------------------
 \subsubsection{\textcolor[rgb]{0.00,0.07,1.00}{错误敏感性实验}}
 \label{sec:error_sense_exp}
@@ -1069,16 +1063,16 @@ $\mathcal{O}(n^{2})$ \\
         并在每档仅保留同一清洗\;/\;聚类方法下的\emph{最高} \(S\)，
         绘制各方法的“抗噪极限”曲线。
   \item \textbf{错误类型比例}\;(\textit{Missing} vs.\ \textit{Anomaly}) ——  
-        在总错误率不超过 15 \% 时，枚举
-        \(4\times4\) 组 \(\mathrm{Missing}\times\mathrm{Anomaly}\) 配比，
+        在每种类型错误率均不超过 15 \% 时，枚举
+        15组 \(\mathrm{Missing}\times\mathrm{Anomaly}\) 配比，
         取每格中\emph{非 GT} 组合的最大 \(S\) 作为色值，
-        左上 \((0,0)\) 以 \textit{Ground-Truth} 得分作参考。
+        左上 \((0,0)\) 以 \textit{Ground-Truth} 得分作为参考。
 \end{itemize}
 
 \paragraph{结果可视化}
 图~\ref{fig:error_sense_all} 按“清洗曲线 → 聚类曲线 → 类型热力图”的顺序，
 将 \textbf{beers}、\textbf{flights}、\textbf{hospital} 与 \textbf{rayyan}
-四个数据集的结果并列排版，便于横向对比：
+四个数据集的结果并列展示，便于横向对比：
 \begin{enumerate}[label=\arabic*) ,leftmargin=1.2em]
   \item \emph{清洗方法梯度曲线} \\
         横轴为七段 \texttt{error\_bin}，
@@ -1182,71 +1176,77 @@ $\mathcal{O}(n^{2})$ \\
 图 \ref{fig:error_sense_all}\,(a–l) 将 \emph{Cleaning-curve}、%
 \emph{Cluster-curve} 与 \emph{错误类型热力图} 并列排版，%
 系统呈现错误率递增与 \((\text{Missing},\text{Anomaly})\) 配比对综合得分 \(S\) 的联合作用。
-综合三条视角，可归纳出如下五点共性与差异。
+综合以上三个不同视角，可归纳出如下五点共性与差异。
 
 \begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2.4em]
 
-  \item \textbf{15–25\,\% 总错误率是性能“峰值带”。}\\
-        在 28 个 error\_bin 中有 24 个峰值落在此区间。%
-        例如 \texttt{mode} 在 \emph{beers} 的 20–25\,\% 档将 \(S\) 提升至
-        \textbf{3.76}（\(+212\,\%\) 相对 GT），%
-        \emph{flights} 在 10–15\,\% 档达到 3.68（\(+248\,\%\)）。%
-        超过 25\,\% 后除 \emph{rayyan} 外曲线平均回落 30 – 42\,\%。%
+%--------------------------------------------------------
+\item \textbf{峰值位置随数据特性而异，15–25\,\% 档并非通用最佳峰值区。}\\
+总错误率曲线显示，%
+\textit{beers} 与 \textit{rayyan} 的最佳得分出现在
+\SI{20}{\percent} 档，分别达到
+\(\overline{S}_{\%\mathrm{GT}}=\num{0.85}\) 与 \num{1.28}；
+而 \textit{flights} 与 \textit{hospital} 的峰值则提前至
+\SI{5}{\percent} 档（\num{0.82} 与 \num{0.67}）。
+这表明“最佳总错误率区间”高度依赖数据属性：
+低维数值表和文本表（\textit{beers}、\textit{rayyan}）
+可借助轻度离群拉大簇间距，进而提升综合得分；
+而高维或强列依赖数据（\textit{flights}、\textit{hospital}）
+在低噪声处即已达到饱和，额外噪声反而迅速稀释梯度。
 
-  \item \textbf{层次聚类 (HC) 搭配鲁棒清洗在高噪末端仍保持领先。}\\
-        HC 在全部 28 个档位均列前二；%
-        在最高噪声档 (\(\ge30\,\%\)) 仍维持
-        \(S=2.31\)（\emph{beers}）、2.04（\emph{flights}）、2.07（\emph{hospital}）与 4.12（\emph{rayyan}）。%
-        热力图 “Missing = 0\,\%” 列出现连续暖带，
-        证明多尺度 linkage 能缓冲 Missing 与 Anomaly 的叠加冲击。
 
-  \item \textbf{离群点对低维数值和文本表呈“双刃”效应。}\\
-        在 \emph{beers} 与 \emph{rayyan}，
-        \((\text{Anom}=5\%,\text{Miss}=0\%)\) 取得最高 \(S\)（3.76 与 4.74）；%
-        若两类错误均增至 15\,\%，%
-        \(S\) 分别降至 2.35 与 2.83，跌幅 37–40\,\%。%
-        轻度离群拉大簇间距；缺失同步增加时密度被稀释，增益消失。
+%--------------------------------------------------------
+\item \textbf{层次聚类 (HC) 在高噪声档仍维持前两名的平均秩。}\\
+在 \(\ge\!30\,\%\) 错误率档，  
+所有 \texttt{*+HC} 组合的平均秩
+\(\overline{r}_{\text{noise}}=\num{5.9}\)（48 个组合方案中位居第二），  
+显著优于 K-Means 系列 (\(\overline{r}=17.3\)) 及 DBSCAN 系列 (\(\overline{r}=21.6\))。  
+表明 linkage 的多尺度聚合在异常与缺失同时加剧时，
+仍能保持簇间梯度；这也是 \emph{rayyan} 图中
+“右上—低方差” 蓝点簇的主要成因。
 
-  \item \textbf{高维依赖数据对缺失最不敏感。}\\
-        \emph{hospital} 热图 16 格的色阶区间仅 1.42–2.01；%
-        Missing 从 0\% 升至 15\% 仅使 \(S\) 下降 0.18。%
-        Cluster-curve 方差 \(\sigma_S^2=0.018\) 为四数据集最低，%
-        表明层次结构天然兜底缺失扰动。
+%--------------------------------------------------------
+\item \textbf{异常率对 \texttt{mode} 风险的影响有限且无统计显著性。}\\
+结合错误类型热力图，\texttt{mode} 方案随异常率
+\(\alpha:5\%\!\to\!15\%\)时，
+其变异系数由 \num{0.77} 升至 \num{0.81}，
+IQR 由 \num{0.45} 略微降至 \num{0.43}；
+Mann–Whitney 检验 \(p=\num{0.255}\) 未达显著。
+同一区间内 \texttt{horizon} 的 IQR 也无显著升降。
+全局异常/缺失率的波动相关
+\(\rho=-\num{0.50}\)进一步说明对结果影响的方向并非简单同向，
+在 AutoML 错误类型分析中应拆分为独立特征。
 
-  \item \textbf{Ground-Truth 清洗并非聚类最佳起点。}\\
-        四张热力图的 \((0,0)\) 参考分在所在行／列均不是极值；%
-        其中 \emph{flights} 刚好等于 1.00，%
-        被 \((10\%,0\%)\) 的 3.68 和 \((0\%,5\%)\) 的 2.94 远超。%
-        说明过度修复削弱簇间差异，%
-        清洗与聚类需要协同优化而非单端极致。
+%--------------------------------------------------------
+\item \textbf{Ground-Truth 清洗并非聚类得分最优基线。}\\
+四幅热力图的 \((0,0)\) (GT) 参考分均非行／列极值：  
+\textit{flights} 仅 \num{1.13}，
+被 \((5\%,0\%)\) 档 \num{1.54} 与 \((0\%,5\%)\) 档 \num{2.11} 超越。  
+过度修复会抹平局部差异、降低类间梯度，
+再次证实“清洗 F1 最高并不一定得到最优聚类得分”；  
+AutoML 流水线应将清洗-聚类视作协同的超参搜索问题。
+
 \end{enumerate}
 
-%------------- 第五章小结（承上启下） -----------------
 \subsection{\textcolor[rgb]{0.00,0.07,1.00}{本章小结}}
 
-本章在 4 个基准数据集、15 种错误注入配置和
-\(9\times 6 = 54\) 条“清洗–聚类”管线上共计
-\(60\times54 = 3\,240\) 次批量实验，给出了三条核心洞察：
+\textcolor[rgb]{0.00,0.07,1.00}{%
+本章通过 \(3\,240\) 组批量实验系统刻画了 9 种清洗策略、6 类聚类算法在 4 个公开数据集上的宏观行为，
+归纳出以下结论：}
 
-\begin{itemize}[leftmargin=1.8em]
-  \item \textbf{全局最优模式——} 低维数值表以
-        \texttt{mode}+HC 取得 \(\overline{S}_{\%\text{GT}}\!\approx\!1.8\)，
-        高维依赖表须用语义清洗 (\texttt{baran}) 才能稳定提升 HC，
-        文本／时序场景中 DBSCAN 虽偶有爆分却方差最高。
-  \item \textbf{错误率与类型——} 15–25\,\% 是整体峰值区；
-        轻度 Anomaly 能放大簇间距，但一旦与 Missing 同步升到 15\,\%
-        则平均拉低 \(S\) 约 40\,\%。
-  \item \textbf{协同大于极致——} 多数情况下
-        Ground‐Truth 清洗并未给出最佳聚类，
-        适度保留结构性噪声反而利于层次划分。
-\end{itemize}
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2.4em]
+  \item \texttt{mode+HC} 与 \texttt{GroundTruth+HC} 在 Top–10 频次、平均秩与稳定性三维度领先，凸显\emph{清洗–聚类协同优化}的必要性。%
+  \item 最佳总错误率区间随数据属性而变：低维数值／文本表在 \(\sim\)20\,\% 出现峰值，而强依赖数据在 \(\le\)5\,\% 已趋于饱和。%
+  \item HC 依托 linkage 的多尺度聚合，在 \(\ge\)30\,\% 噪声档仍保持 \(\overline{r}_{\text{noise}}=\num{5.9}\) 的前列秩次，表现出显著的高噪稳健性。%
+  \item 异常率与缺失率对得分方差呈中度负相关（\(\rho=-0.50\)），两类噪声应作为\emph{独立特征}输入 AutoML 以避免互相抵消信息。%
+  \item “众数 + 密度”组合仅在高文本冗余场景（\textit{rayyan}）表现突出，说明算法选择需与向量空间密度形态相匹配。%
+\end{enumerate}
 
-这些规律不仅回答了 \((Q_1)\!\sim\!(Q_3)\)，
-也引出了下一步的研究问题：\emph{清洗究竟通过哪些“微观环节”影响聚类？}  
-第六章将顺势深入——逐层剖析清洗准确度、聚类收敛轨迹、
-评价指标和超参数选择之间的因果链条，
-为后续 AutoML 搜索空间压缩与动态适配提供理论支撑。
-%--------------------------------------------------
+\textcolor[rgb]{0.00,0.07,1.00}{%
+上述结论为第六章的机制剖析与 \emph{AutoCleanClust} 自适应搜索器设计提供了直接经验依据；
+后文将进一步利用算法原理与簇密度解释这些现象，
+并把错误特征向量 \(\mathbf{x}_{\text{exp}}\) 融入 AutoML 搜索空间，
+系统评估协同策略对搜索效率与聚类性能的提升。}
 
 \section{机理分析与 AutoML 改进}
 \label{sec:chapter6}
@@ -1258,7 +1258,7 @@ $\mathcal{O}(n^{2})$ \\
 
 \begin{itemize}
     \item \textbf{\((Q_1)\) 清洗准确度——\emph{错误类型视角}}\\
-          \textcolor[rgb]{0.00,0.07,1.00}{在单元格级真值标签的多错误类型维度上，分别计算每种清洗方法的检测率 \(\mathrm{EDR}_t\)、精确率 \(\mathrm{Precision}_t\)、召回率 \(\mathrm{Recall}_t\) 及综合指标 \(\mathrm{F1}_t\)（其中下标 \(t\) 标识具体错误类型）。这些指标用于量化各方法对不同错误类型的\emph{修复覆盖度、修复量及修复精度}，为后续机理分析奠定客观基础。}
+          \textcolor[rgb]{0.00,0.07,1.00}{在单元格级真值标签的多错误类型维度上，分别计算每种清洗方法的检测率 \(\mathrm{EDR}_t\)、精确率 \(\mathrm{Precision}_t\)、召回率 \(\mathrm{Recall}_t\) 及综合指标 \(\mathrm{F1}_t\)（其中下标 \(t\) 标识具体错误类型）。这些指标用于量化各修复方法对不同错误类型的\emph{修复覆盖度、修复量及修复精度}，为后续机理分析奠定客观基础。}
 
     \item \textbf{\((Q_2)\) 清洗干预——\emph{过程级视角}}\\
           \textcolor[rgb]{0.00,0.07,1.00}{为判定清洗是否实质改善聚类运行，本研究在三大算法族中各选取衡量\emph{收敛速度、噪声判定稳定性}与\emph{层次结构紧凑度}的代表性过程指标，并比较清洗前后的相对改变量。该比较旨在揭示修复率提升是否同步带来运行机理层面的正向变动。}
@@ -1282,7 +1282,7 @@ $\mathcal{O}(n^{2})$ \\
 %-------------------------------------------------
 下文按照“算法核心思想 $\rightarrow$ 覆盖错误类型
 $\rightarrow$ 对本章实验指标的预期干预链路”依次介绍8种清洗策略。
-定量幅度留待 \S\ref{subsec:internal_tracking} 实测，本节给出方向性假设。
+\S\ref{subsec:internal_tracking} 会实测这些算法的定量幅度，本节首先给出方向性假设。
 
 \paragraph{Mode Imputation.}
 该方法把“列内出现次数最多（或均值）即真值”作为唯一假设，  
@@ -1292,7 +1292,7 @@ $\rightarrow$ 对本章实验指标的预期干预链路”依次介绍8种清�
 并留意 DBSCAN 噪声阈值 $\varepsilon$ 是否向下微调。
 
 \paragraph{Raha--Baran\cite{10.14778/3407790.3407801}.}
-该方法通过大语言模型捕获上下文语义，再辅以轻量依赖约束与三路纠错器，
+该方法首先捕获上下文语义，再使用轻量依赖约束与三路纠错器，
 在极少标注条件下端到端修复 Typo 和数值异常。  
 \emph{实验锚点：}我们将观测噪声点被抑制后
 HC 合并层数与 K-Means 迭代是否同步下降，
@@ -1378,33 +1378,35 @@ $h_{\max}$ 均有中等幅度改善而超参几乎不变，
       具体定义及期望方向见表 \ref{tab:proc_indicators}。  % <-- 显式引用表格
 
       \begin{table}[t]
-      \centering\small
-      \renewcommand{\arraystretch}{1.1}
-      \setlength{\tabcolsep}{6pt}
-      \begin{tabular}{@{}lll@{}}
-      \toprule
-      \textbf{算法族} & \textbf{过程指标} & \textbf{方向}\\
-      \midrule
-      质心型（Baseline / PPS / NF K-Means） 
-        & 迭代步数 \(\Delta n_{\text{iter}}\)                 & \(\downarrow\)\\
-        & 质心位移曲线面积 \(\text{AUC}_{\Delta}\)           & \(\downarrow\)\\
-        & 终态 SSE                                           & \(\downarrow\)\\[2pt]
-      模型型（GMM） 
-        & EM 迭代数 \(\Delta n_{\text{EM}}\)                 & \(\downarrow\)\\
-        & 对数似然收敛 AUC                                  & \(\downarrow\)\\[2pt]
-      层次型（HC） 
-        & 合并层数 \(\Delta n_{\text{merge}}\)               & \(\downarrow\)\\
-        & 最大合并高度 \(\Delta h_{\max}\)                   & \(\downarrow\)\\
-        & \small 簇内／簇间距离比 \(\Delta R_{\text{intra/inter}}\) & \(\downarrow\)\\[2pt]
-      密度型（DBSCAN） 
-        & 核心点计数 \(\Delta n_{\text{core}}\)              & \(\uparrow\)\\
-        & 噪声率 \(\Delta\rho_{\text{noise}}\)               & \(\downarrow\)\\
-        & 邻域频次分布 EMD                                   & \(\downarrow\)\\
-      \bottomrule
-      \end{tabular}
-      \caption{四大算法族的过程级指标及其期望方向}
-      \label{tab:proc_indicators}
-      \end{table}
+  \centering\small
+  \renewcommand{\arraystretch}{1.1}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{@{}lll@{}}
+  \toprule
+  \textbf{算法族} & \textbf{过程指标} & \textbf{期望方向}\\
+  \midrule
+  质心型（Baseline / PPS / NF K-Means） 
+    & 几何衰减率 \(\text{GeoDecay}\)                     & \(\downarrow\)\\
+    & 质心位移曲线面积 \(\text{AUC}_{\Delta}\)           & \(\downarrow\)\\
+    & 终态 SSE                                           & \(\downarrow\)\\[2pt]
+  模型型（GMM） 
+    & 几何衰减率 \(\text{GeoDecay}\)                     & \(\downarrow\)\\
+    & 对数似然收敛面积（AUC）                            & \(\downarrow\)\\[2pt]
+  层次型（HC） 
+    & 合并层数 \(\Delta n_{\text{merge}}\)               & \(\downarrow\)\\
+    & 最大合并高度 \(\Delta h_{\max}\)                   & \(\downarrow\)\\
+    & \small 簇内／簇间距离比 \(\Delta R_{\text{intra/inter}}\) & \(\downarrow\)\\[2pt]
+  密度型（DBSCAN） 
+    & 核心点计数 \(\Delta n_{\text{core}}\)              & \(\uparrow\)\\
+    & 平均邻居数 \(\Delta n_{\text{avg}}\)               & \(\uparrow\)\\
+    & 噪声率 \(\Delta\rho_{\text{noise}}\)               & \(\downarrow\)\\
+    & CDF–Wasserstein 距离 \(\Delta W_{\text{cdf}}\)     & \(\downarrow\)\\
+  \bottomrule
+  \end{tabular}
+  \caption{四大算法族的过程级指标及其期望方向}
+  \label{tab:proc_indicators}
+\end{table}
+
 
       为便于横向比较，所有过程指标都转换为
       “相对 \textit{mode}（众数填补）清洗后的改变量”
@@ -1451,55 +1453,264 @@ $h_{\max}$ 均有中等幅度改善而超参几乎不变，
 \subsection{实验结果与分析}
 \label{sec:exp_results}
 
-\subsubsection{可视化概览：多角度观测清洗与聚类指标的关系}
-\label{subsec:viz_overview}
+%===========================================================
+\subsubsection{Q\textsubscript{1}: 清洗准确度 —— 错误类型视角}
+\label{sec:q1-accuracy}
+%===========================================================
+\textbf{目标与方法说明.}  
+在两类单元格错误  
+\(\mathcal{T}=\{\mathrm{Missing},\mathrm{Typo}\}\) 上，  
+对每个清洗方法 \(c\) 计算  
 
-为更直观地展示清洗准确度（如 EDR、F1）与聚类效果（Silhouette、DB、Combined）之间的潜在关联，以及比较不同清洗-聚类组合在各错误率情境下的多重表现，本节采用了以下四种可视化方法，分别从“多维度综合表现”（雷达图）、“任务内组合差异”（热力图）、“指标相关性强弱”（相关性散点）以及“错误率渐进趋势”（折线图）出发，对清洗与聚类的互作用进行多角度解析。
+\vspace{-1em}
+
+{
+\[
+\mathrm{EDR}_t=\frac{\#\text{ repaired}_t}{\#\text{ errors}_t},\qquad
+\mathrm{Precision}_t=\frac{\#\text{ correct}_t}{\#\text{ repaired}_t},\qquad
+\mathrm{Recall}_t=\frac{\#\text{ correct}_t}{\#\text{ errors}_t},\qquad
+\mathrm{F1}_t=\frac{2\,\mathrm{Prec}_t\,\mathrm{Rec}_t}{\mathrm{Prec}_t+\mathrm{Rec}_t}
+\]}
+
+\noindent
+其中下标 \(t\in\mathcal{T}\) 指定错误类型。
+上述四项分别衡量\emph{覆盖度}（EDR），
+\emph{修复精度}（Precision／Recall），
+以及\emph{综合效果}（F1），
+为后续机理与边际收益分析提供基准。
+
+% 必须已在导言区 \usepackage{subcaption}
+%------------------------------------------------------------
+\begin{table*}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
+
+%---------------------- Row 1 -------------------------------
+\begin{subtable}[t]{0.492\linewidth}
+\caption{Dataset: \textbf{beers}}
+\label{tab:q1-acc-beers}
+\centering
+\begin{tabular}{lcccccccc}
+\toprule
+\multirow{2}{*}{Method} &
+\multicolumn{4}{c}{Missing} &
+\multicolumn{4}{c}{Typo}\\
+\cmidrule(lr){2-5}\cmidrule(l){6-9}
+ & EDR & Prec. & Rec. & F1
+ & EDR & Prec. & Rec. & F1\\
+\midrule
+Mode & -0.008 & 0.000 & 0.611 & 0.661 & 0.009 & 0.000 & 0.018 & 0.000 \\
+Raha–Baran & 0.604 & 0.572 & 0.845 & 0.855 & 0.625 & 0.575 & 0.717 & 0.687 \\
+HoloClean & -0.960 & -1.215 & 0.252 & 0.254 & 0.033 & 0.002 & 0.056 & 0.004 \\
+BigDansing & 0.058 & 0.097 & 0.635 & 0.694 & 0.177 & 0.177 & 0.276 & 0.282 \\
+BoostClean & 0.045 & -0.179 & 0.631 & 0.601 & 0.098 & 0.109 & 0.170 & 0.185 \\
+Horizon & -0.037 & 0.011 & 0.600 & 0.666 & 0.062 & 0.039 & 0.111 & 0.074 \\
+SCARE & -0.099 & 0.062 & 0.575 & 0.682 & 0.103 & 0.117 & 0.175 & 0.200 \\
+Unified & 0.019 & -0.091 & 0.621 & 0.631 & 0.139 & 0.163 & 0.227 & 0.260 \\
+\bottomrule
+\end{tabular}
+\end{subtable}\hspace{0.01\linewidth}
+%
+\begin{subtable}[t]{0.492\linewidth}
+\caption{Dataset: \textbf{flights}}
+\label{tab:q1-acc-flights}
+\centering
+\begin{tabular}{lcccccccc}
+\toprule
+\multirow{2}{*}{Method} &
+\multicolumn{4}{c}{Missing} &
+\multicolumn{4}{c}{Typo}\\
+\cmidrule(lr){2-5}\cmidrule(l){6-9}
+ & EDR & Prec. & Rec. & F1
+ & EDR & Prec. & Rec. & F1\\
+\midrule
+Mode & 0.014 & 0.000 & 0.852 & 0.914 & 0.014 & 0.000 & 0.028 & 0.000 \\
+Raha–Baran & 0.676 & 0.631 & 0.953 & 0.972 & 0.683 & 0.651 & 0.793 & 0.775 \\
+HoloClean & -0.366 & -1.321 & 0.837 & 0.837 & 0.809 & 0.809 & 0.823 & 0.823 \\
+BigDansing & -0.284 & -0.265 & 0.814 & 0.897 & 0.525 & 0.590 & 0.638 & 0.712 \\
+BoostClean & 0.000 & 0.000 & 0.844 & 0.893 & 0.000 & 0.000 & 0.000 & 0.000 \\
+Horizon & -0.491 & -1.226 & 0.792 & 0.835 & 0.400 & 0.440 & 0.531 & 0.577 \\
+SCARE & -0.420 & 0.171 & 0.798 & 0.932 & 0.116 & 0.197 & 0.196 & 0.319 \\
+Unified & -0.031 & 0.758 & 0.861 & 0.979 & 0.245 & 0.760 & 0.347 & 0.855 \\
+\bottomrule
+\end{tabular}
+\end{subtable}
+
+\vspace{1.5em}
+
+%---------------------- Row 2 -------------------------------
+\begin{subtable}[t]{0.492\linewidth}
+\caption{Dataset: \textbf{hospital}}
+\label{tab:q1-acc-hospital}
+\centering
+\begin{tabular}{lcccccccc}
+\toprule
+\multirow{2}{*}{Method} &
+\multicolumn{4}{c}{Missing} &
+\multicolumn{4}{c}{Typo}\\
+\cmidrule(lr){2-5}\cmidrule(l){6-9}
+ & EDR & Prec. & Rec. & F1
+ & EDR & Prec. & Rec. & F1\\
+\midrule
+Mode & 0.103 & 0.000 & 0.740 & 0.770 & 0.103 & 0.000 & 0.179 & 0.000 \\
+Raha–Baran & 0.824 & 0.249 & 0.946 & 0.830 & 0.826 & 0.252 & 0.882 & 0.379 \\
+HoloClean & 0.241 & 0.101 & 0.781 & 0.793 & 0.241 & 0.101 & 0.363 & 0.178 \\
+BigDansing & -0.015 & 0.020 & 0.706 & 0.775 & 0.212 & 0.185 & 0.324 & 0.294 \\
+BoostClean & -0.000 & 0.000 & 0.699 & 0.770 & 0.000 & 0.000 & 0.000 & 0.000 \\
+Horizon & -0.043 & -0.004 & 0.697 & 0.769 & 0.187 & 0.153 & 0.292 & 0.252 \\
+SCARE & 0.003 & -0.128 & 0.721 & 0.740 & 0.285 & 0.031 & 0.365 & 0.060 \\
+Unified & 0.000 & 0.000 & 0.710 & 0.770 & 0.000 & 0.000 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{subtable}\hspace{0.01\linewidth}
+%
+\begin{subtable}[t]{0.492\linewidth}
+\caption{Dataset: \textbf{rayyan}}
+\label{tab:q1-acc-rayyan}
+\centering
+\begin{tabular}{lcccccccc}
+\toprule
+\multirow{2}{*}{Method} &
+\multicolumn{4}{c}{Missing} &
+\multicolumn{4}{c}{Typo}\\
+\cmidrule(lr){2-5}\cmidrule(l){6-9}
+ & EDR & Prec. & Rec. & F1
+ & EDR & Prec. & Rec. & F1\\
+\midrule
+Mode & 0.011 & 0.000 & 0.528 & 0.563 & 0.011 & 0.000 & 0.021 & 0.000 \\
+Raha–Baran & 0.683 & 0.298 & 0.845 & 0.693 & 0.686 & 0.303 & 0.757 & 0.422 \\
+HoloClean & -0.542 & -0.635 & 0.268 & 0.288 & 0.009 & 0.003 & 0.017 & 0.006 \\
+BigDansing & 0.058 & 0.048 & 0.551 & 0.585 & 0.173 & 0.169 & 0.263 & 0.263 \\
+BoostClean & -- & 0.045 & -- & 0.571 & -- & 0.259 & -- & 0.356 \\
+Horizon & 0.028 & 0.043 & 0.536 & 0.582 & 0.125 & 0.133 & 0.203 & 0.217 \\
+SCARE & 0.182 & 0.261 & 0.609 & 0.677 & 0.269 & 0.282 & 0.373 & 0.398 \\
+Unified & 0.262 & 0.275 & 0.647 & 0.683 & 0.263 & 0.276 & 0.374 & 0.392 \\
+\bottomrule
+\end{tabular}
+\end{subtable}
+
+\caption{各清洗方法在两类错误上的综合指标（四数据集并列展示）}
+\label{tab:q1-acc-all}
+\end{table*}
+
+\vspace{-1em}
+
+\paragraph{结果与分析}
+
+\subsubsection{Q\textsubscript{2}: 清洗干预 —— 过程级视角}
+\label{subsec:internal_tracking}
+%-------------------------------------------------
+
+本节聚焦“清洗 $\rightarrow$ 聚类”链条中的\emph{运行机理}。
+所有过程级指标均已在 §\ref{sec:exp_design} 的
+表~\ref{tab:proc_indicators} 中统一定义，并通过
+公式~\eqref{eq:delta_pct} 归一化为
+“相对 \textit{mode} 填补基线的 $\Delta\%$”。
+下文不再重复公式或符号，而是直接基于该归一化结果进行比较。
 
 \begin{enumerate}[label=(\alph*)]
-\item \textbf{雷达图}\\
-七条半径分别对应清洗准确度（Precision, Recall, F1, EDR）与聚类评价
-（Silhouette\textsubscript{rel}, DB\textsubscript{rel}, Comb\textsubscript{rel}）。
-对每个数据集先在 \emph{(cluster, cleaning)} 维度取中位数，再对同一
-\emph{cleaning} 汇总得到一条折线；数值经 0–1 归一化，仅比较相对形状。
-四个子图并列展示 \textit{beers}, \textit{flights}, \textit{hospital}, \textit{rayyan}，
-顶端公共图例给出 8 种清洗方法颜色。\vspace{3pt}
+%-------------------------------------------------
+\item \textbf{跨清洗策略整体分布}\\
+表~\ref{tab:clean_vs_metric} 汇总了
+\underline{除 \textit{mode} 外的七种清洗方法}在四张数据表上
+对各过程指标的平均 $\Delta\%$。
+行索引按照“算法族 $\times$ 过程指标”展开，
+列索引为具体清洗策略；正数代表改进、负数表示退化，
+色块将在最终版本中按同一蓝–红色阶渲染。
 
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}llccccccc@{}}
+\toprule
+\multirow{2}{*}{\textbf{算法族}} & \multirow{2}{*}{\textbf{指标}} &
+\multicolumn{7}{c}{\textbf{清洗策略}（$\Delta\%$，基线 = \textit{mode}）}\\
+\cmidrule(l){3-9}
+ & & \textbf{Baran} & \textbf{Holoclean} & \textbf{BigDansing} & \textbf{BoostClean} &
+   \textbf{Horizon} & \textbf{Scared} & \textbf{Unified}\\
+\midrule
+\multirow{3}{*}{质心型}
+ & $\text{AUC}_{\Delta}$         &  -19.0 &   -2.1 &  -17.8 &  -10.7 &  -23.2 &  -16.8 &  -24.7\\
+ & $\text{GeoDecay}$             &    0.4 &   12.0 &   -2.5 &    5.2 &   -3.4 &    0.1 &   -2.7\\
+ & $\Delta\text{SSE/NLL}$        &  -43.1 &  -13.0 &  -36.5 &   -2.8 &  -45.3 &  -27.8 &  -49.3\\
+\addlinespace[2pt]
+\multirow{4}{*}{密度型}
+ & $\Delta n_{\text{core}}$      &  -33.3 &   -1.8 &  -53.9 &  -59.5 &  -55.9 &  -65.9 &  -65.7\\
+ & $\Delta n_{\text{avg}}$       &    4.3 &   11.9 &   -1.5 &  -13.9 &    7.0 &   -7.6 &   -6.7\\
+ & $\Delta\rho_{\text{noise}}$   &  -24.9 &  -21.5 &   10.0 &   39.7 &  -17.3 &   16.9 &   19.1\\
+ & $\Delta W_{\text{cdf}}$       &  392.5 &  363.8 &  295.5 &  420.0 &  356.1 &  376.3 &  376.3\\
+\addlinespace[2pt]
+\multirow{3}{*}{层次型}
+ & $\Delta n_{\text{merge}}$     &  -40.4 &   -3.1 &  -53.4 &  -60.2 &  -58.3 &  -61.6 &  -63.5\\
+ & $\Delta h_{\max}$             &  -12.7 &   -6.0 &   -7.8 &  -27.0 &  -20.2 &  -31.4 &  -25.5\\
+ & $\Delta R_{\text{intra/inter}}$ &   13.9 &    6.5 &   20.0 &   46.4 &   13.9 &   33.8 &   24.2\\
+\bottomrule
+\end{tabular}
+\caption{清洗策略对过程级指标的相对改变量（$\Delta\%$）。数值由公式\eqref{eq:delta_pct}计算；正值表示改善，负值表示退化。}
+\label{tab:clean_vs_metric}
+\end{table}
+
+\vspace{0.4em}
+
+\item \textbf{算法族别解析}\\
+\begin{itemize}
+  \item \emph{质心型（K-Means / GMM）}：\quad \dots
+  \item \emph{密度型（DBSCAN）}：\quad \dots
+  \item \emph{层次型（HC）}：\quad \dots
+\end{itemize}
+%（以上小点留待填入各族的定量与定性讨论）
+
+%-------------------------------------------------
+\item \textbf{小结}\\
+将在§6.4.3把这些过程层面的发现与聚类结果指标联系起来，
+验证清洗收益的因果通路，并为后续 AutoML 特征工程提供依据。
+\end{enumerate}
+
+%-------------------------------------------------
+\subsubsection{Q\textsubscript{3}: 清洗收益 —— 聚类评价视角}
+\label{sec:q3-metric}
+%-------------------------------------------------
+本节按“三层视角”组织实验呈现——  
+\emph{综合形状}（雷达图）\,$\rightarrow$\,\emph{局部相关}（散点）%
+\,$\rightarrow$\,\emph{全局趋势}（CEGR 折线），  
+以回答 \(Q_3\)：清洗准确度能否、以及在何种程度上转化为聚类指标收益。
+
+%==================== (1) Radar ====================
+\paragraph{(1)~七维雷达图：同时观察“检测\,+\,聚类”两类指标}\par
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/6.4.3graph/radar_four_in_one.pdf}
-  \caption{四数据集的清洗–聚类综合雷达图  
-           （值已按各数据集内部最小–最大正规化）。  
-           每条折线对应一种清洗策略}
+  \caption{归一化七维雷达图——四数据集任务 × 八清洗方法}
   \label{fig:radar_four_in_one}
 \end{figure}
 
-    %-------------------------------------------------
-\item \textbf{相关性散点图（Correlation Scatter）}\\
+\begin{itemize}[leftmargin=1.6em,topsep=2pt,itemsep=2pt]
+  \item \emph{beers 与 flights.}  
+        Baran 在四条检测轴全部外扩，\textit{Comb\textsubscript{rel}} 升至  
+        1.35/1.10，并拉高 \emph{beers} 的 \textit{Sil\textsubscript{rel}} 至 1.60；  
+        BigDansing 仅 Typo 轴小幅提升，其余维度贴近众数填补基线。  
+
+  \item \emph{hospital 与 rayyan.}  
+        约束完备的\emph{hospital} 中，Holoclean 借助 FD/CF 使  
+        Missing／Rule 两轴最外扩，\(\textit{Comb\textsubscript{rel}}\approx1.0\)；  
+        在极高噪声\emph{rayyan}里，各方法轮廓趋同，
+        \textit{Comb\textsubscript{rel}} 上限仅 1.05——提升 EDR 已难再改善聚类。  
+\end{itemize}
+
+\noindent\textbf{小结.}  
+Baran 在中低噪声任务展现“检测精度 + 聚类得分”双高外扩；  
+Holoclean 仅在具备完备约束的 \emph{hospital} 发挥优势；  
+当错误率 \(>\!30\,\%\)（\emph{rayyan}），所有方法雷达面积趋同，%
+修复收益步入饱和区。
+
+%=================== (2) Scatter ===================
+\paragraph{(2)~相关散点图：EDR\(\rightarrow\)Comb\(_{\text{rel}}\) 与 F1\(\rightarrow\)Sil\(_{\text{rel}}\)}\par
 %-------------------------------------------------
-为考察清洗准确度对聚类质量的直接影响，这里保留两组最具代表性的指标配对：  
-(i) EDR $\rightarrow$ Comb\textsubscript{rel}\;——检测\,+\,修复率对整体质量的拉动；  
-(ii) F1 $\rightarrow$ Sil\textsubscript{rel}\;——修复“精准度”对簇分离度的作用及离群例外。
-
-每一个 $(\text{dataset},\;\text{cluster\_method})$ 组合用一个圆点表示，
-颜色为相关系数符号（\textcolor{blue}{蓝}=正、\textcolor{red}{红}=负），
-面积 $\propto |r|$；灰虚线分隔不同数据集内部的子编号。
-
-\item \textbf{错误率分档收益曲线（CEGR Line Plot）}\\
-
-在 5\% 步长的错误率区间中，对每个 $(\text{dataset},\;\text{cluster\_method})$
-计算 “清洗收益比”  
-\[
-  \text{CEGR}\;=\;
-  \dfrac{\mathrm{Comb}(\mathrm{EDR}_{\max})-\mathrm{Comb}(\mathrm{EDR}_{\min})}
-        {\mathrm{EDR}_{\max}-\mathrm{EDR}_{\min}},
-\]
-再取跨 dataset\_id 的中位数。折线图展示 CEGR 随噪声增大的演化，
-判断在何种错误率段内“再提高 EDR”已经收益递减。
-
-
-%-------------------------------------------------
-\begin{figure}[H]  % ← 由 figure* 改为 figure
+\begin{figure}[htbp]  % ← 由 figure* 改为 figure
   \centering
   %========== 1 ─ beers =====================================================
   \begin{subfigure}[b]{0.33\linewidth}
@@ -1574,139 +1785,98 @@ $h_{\max}$ 均有中等幅度改善而超参几乎不变，
   \label{fig:scatter_line_grid}
 \end{figure}
 
+\begin{itemize}[leftmargin=1.6em,topsep=2pt,itemsep=2pt]
+  \item \emph{beers 与 flights.}  
+        F1\(\!\rightarrow\!\)Sil\(_{\text{rel}}\) 与 EDR\(\!\rightarrow\!\)Comb\(_{\text{rel}}\)  
+        在低–中噪声段保持显著正相关：\emph{beers} \(r\approx0.72/0.65\)，%
+        \emph{flights} 稍弱（\(r\approx0.55\)），仅 DBSCAN 出现零星浅红点。  
 
-我们采用\textbf{分档折线图}来考察当错误率不断上升时，清洗在EDR 维度的改变对聚类综合评分 (\textit{Comb\_relative}) 能否保持稳定收益。该收益用 CEGR（Clean-Enhanced Gain Ratio）定义：
-\[
-  \mathrm{CEGR} \;=\; \frac{\mathrm{Comb}(\mathrm{EDR}_{\max}) - \mathrm{Comb}(\mathrm{EDR}_{\min})}{\mathrm{EDR}_{\max} - \mathrm{EDR}_{\min}},
-\]
-其中 \(\mathrm{EDR}_{\max}\) 与 \(\mathrm{EDR}_{\min}\) 分别代表同一场景（数据集 + 错误率分档 + 聚类算法）内最高与最低的错误修复率，\(\mathrm{Comb}\) 则表示相应的综合评分。图~\ref{fig:cegr_lineplots} 分别针对 \textit{beers}、\textit{flights}、\textit{hospital}、\textit{rayyan} 四个任务，将错误率按 5\% 区间分割于横轴上，并绘制了各聚类方法的 CEGR 中位数随错误率提升的演变趋势。结合前文数据集特征可做如下归纳：
-
-\textbf{beers}：
-    \begin{itemize}
-        \item 当错误率介于 0--15\% 时，CEGR 整体呈中等或偏高水平，说明不同清洗方法之间的 EDR 差异在该区间能较明显拉动综合评分提升。
-        \item 当错误率超过 20\%，\textbf{部分聚类方法}（如 DBSCAN、HC）仍能维持相对可观的 CEGR 值，暗示对啤酒数据（\texttt{m=11, n=2410}）而言，若清洗能显著拉开 EDR 高低差距，就可带来较强的收益。
-    \end{itemize}
-
-\textbf{flights}：
-    \begin{itemize}
-        \item 在错误率 5--10\% 附近时，多数聚类方法的 CEGR 曲线较为平稳，无明显爬升或陡降。
-        \item 当错误率逼近 25\%--30\%，某些方法（如 K-Means、DBSCAN）出现 CEGR 值下滑，表示当噪声占比较大时，即便 EDR 出现较大上下限差异，也难以显著推高 \textit{Comb\_relative}；这与 \textit{flights} 数据本身对特征精准度的依赖较强有关。
-    \end{itemize}
-
-\textbf{hospital}：
-    \begin{itemize}
-        \item hospital 数据（\texttt{m=20, n=1000}）噪声率最高达 0.15--0.17，并且缺失值也较多，导致在高错误率档 (\(\geq\)25\%) 下，多数聚类方法的 CEGR 曲线出现显著回落。
-        \item 在中低错误率时（如 0--15\%），若清洗方法能取得较高 EDR，高 EDR 对综合分提升仍保持正面作用，但幅度不及 beers 或 flights；可能因为医疗数据特征更复杂，需要更多定制化修复策略来放大收益。
-    \end{itemize}
-
-\textbf{rayyan}：
-    \begin{itemize}
-        \item rayyan 数据最高错误率可达 40\%，折线图中部分聚类方法在 \(\mathrm{error\_rate\_bin} = \) \texttt{>=30} 区间的 CEGR 值趋近或低于 0，表明在极端错误条件下，EDR 上下限差距对综合评分并未带来明显的线性增益。
-        \item 同时，在 15--25\% 区间内若清洗能将 EDR 拉高，部分算法（如 HC、GMM）依然能保持一定正收益，说明“高 EDR”在中度噪声情景下对 rayyan 数据尚具价值。
-    \end{itemize}
-
-\noindent
-\textbf{总的来说}，该折线图验证了在低至中等错误率（5--20\%）场景下，若有清洗方法能显著提升 EDR 值，则其综合评分往往随之提高，CEGR 曲线多处于正向区间并稳中有升；然而，当错误率逼近或超过 25--30\% 时，即便在 EDR 上将最优清洗与最劣清洗差距拉大，也不一定能有效改变聚类的宏观评价分数，导致曲线下滑或趋于零。\textbf{此结果与前述热力图、散点图相呼应：在极高噪声或缺失率条件下，要想继续推动聚类质量，还需要更具针对性的修复策略与适配性更好的聚类方法，否则很难维持线性或更高阶收益}。  
-    \item \textbf{清洗对聚类指标影响结果结论总结}\\[-0.4em]
-\begin{itemize}
-    \item \emph{符合直觉的规律}\\[-0.2em]
-    \begin{itemize}
-        \item \textbf{清洗准确度越高，综合聚类质量普遍越好：}在4个任务，8种清洗方法，6种聚类算法的总体统计中，EDR／F1 与\textit{Comb\_relative} 的皮尔森相关系数中位数为$+0.46$，超过 70\% 的组合落在“显著正相关”区间。雷达图也显示，当曲线在Recall与F1轴外扩时，\textit{Sil\_relative} 与 \textit{DB\_relative}$^{-1}$ 轴往往同步外扩。  
-        \item \textbf{噪声越低，清洗对聚类的收益越线性：}折线图中，当错误率$\le20\%$ 时，CEGR 保持正值且随错误率上升单调递增；说明在轻‑中噪声场景，任何额外的错误修复都会直接转化为聚类得分提升。  
-        \item \textbf{不同聚类算法对清洗精度的要求不同：}HC／DBSCAN 对“强修复”依赖度最高，热力图显示 baran\,+\,HC、baran\,+\,DBSCAN 在3个数据集内都给出了最深绿色块；迭代型算法 (K‑Means/GMM) 则对清洗精度的弹性更大——即便使用 mode 等中等方案仍可获得可接受的 \textit{Comb\_relative}\,。  
-    \end{itemize}
-
-    \vspace{0.2em}
-    \item \emph{反直觉或例外现象}\\[-0.2em]
-    \begin{itemize}
-        \item \textbf{清洗过程的高F1分数并不必然带来高聚类质量，需要结合具体数据特征：}在 \texttt{hospital} 和 \texttt{rayyan} 的高噪声段（$\ge30\%$）中，约15\% 的点呈现F1高但 \textit{Sil\_relative}低的“红色散点”——过度修复抹平了关键离群结构，反而降低簇分离度。  
-        \item \textbf{极端错误率下，部分数据集上清洗对聚类的收益存在理论上限：}当总体错误率超过25–30\%，CEGR 曲线快速跌至0附近；再提升EDR也难再改善 \textit{Comb\_relative}——说明聚类算法此时已无法从残存信号中获益。   
-    \end{itemize}
+  \item \emph{hospital 与 rayyan.}  
+        \emph{hospital} 呈两极化——K-Means 保持 \(r\ge0.6\)，%
+        HC／DBSCAN 出现大红圈（负相关），%
+        说明规则驱动修复易削弱层次/密度分离度；  
+        在噪声最高的 \emph{rayyan}，15\% 点深红，%
+        F1 与 Sil\(_{\text{rel}}\) 可达 \(r<-0.3\)。  
 \end{itemize}
+
+\noindent\textbf{小结.}  
+当错误率\(<20\,\%\) 时，清洗准确度与聚类质量整体同涨同跌；%
+噪声攀升或约束失配后，规则型（HC）与密度型（DBSCAN）最先出现负相关，%
+AutoML 应相应下调其权重或收窄搜索空间。
+
+%=================== (3) CEGR ======================
+\paragraph{(3)~CEGR 折线图：收益随错误率递增的边际变化}\par
+CEGR（Clean-Enhanced Gain Ratio）定义为
+\begin{equation}
+  \mathrm{CEGR}
+  \;=\;
+  \frac{\text{Comb}(\mathrm{EDR}_{\max})-\text{Comb}(\mathrm{EDR}_{\min})}
+       {\mathrm{EDR}_{\max}-\mathrm{EDR}_{\min}},
+  \label{eq:cegr-def}
+\end{equation}
+并以 5\,\% 错误率为步长绘制折线。
+
+\begin{itemize}[leftmargin=1.6em,topsep=2pt,itemsep=2pt]
+  \item \emph{beers 与 flights.}  
+        15–25\,\% 噪声段 CEGR 始终为正：%
+        \emph{beers} 的 KMEANS-PPS \& KMEANS-NF 曲线 %
+        由 0.08 升至 0.23（\ref{fig:be_cegr}），%
+        GMM 最终达 0.30；%
+        \emph{flights} 多数曲线围绕 0.15–0.20 轻微波动 %
+        （\ref{fig:fl_cegr}）。  
+        说明在“低脏度+结构清晰”数据中，只要拉开 EDR，上游收益可线性吸收。  
+
+  \item \emph{hospital 与 rayyan.}  
+        \emph{hospital} 在 20–25\,\% 档出现拐点：%
+        K-Means 系列由 ≈\,0.22 回落至 0.12，%
+        HC／DBSCAN 一度跌破 0（\ref{fig:ho_cegr}）。  
+        \emph{rayyan} 更严峻——除 GMM 外各算法在 ``\(\ge30\)'' 档 %
+        几乎贴近 0，DBSCAN 长期为负 %
+        （\ref{fig:ra_cegr}）。  
+\end{itemize}
+
+\noindent\textbf{小结.}  
+CEGR 曲线揭示“清洗投入 → 聚类收益”的边际规律：%
+总体错误率低于约 20\,\% 时，大多数聚类算法仍能把 EDR 增量转化为正收益；%
+一旦跨过数据依赖阈值（25\,\% for \emph{hospital}, 30\,\% for \emph{rayyan}），%
+曲线触顶甚至翻负——此时继续堆叠修复规则性价比低，%
+应转向更鲁棒的聚类策略或先行降维。
+
+%-------------------------------------------------
+\paragraph{直觉一致的发现}
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.6em,itemsep=3pt]
+  \item \textbf{检测–修复越精准，聚类得分越高（低–中噪声段） \\}  
+        在 \emph{beers} 与 \emph{flights}（总体错误率 $\le 20\,\%$）中，%
+        Baran 等高–F1 方法不仅在四条检测轴全部外扩，%
+        也同步推高 Silhouette 与 Comb\textsubscript{rel}；%
+        对应散点的 Pearson 系数约 $r\!\approx\!0.7$。%
+        说明当脏度可控时，额外的 EDR/F1 增量几乎线性映射到聚类质量提升。
+        
+  \item \textbf{错误率越高，清洗收益越快触顶 \\}  
+        CEGR 折线上，当总体错误率突破 $\sim25\,\%$（\emph{hospital}）或
+        $30\,\%$（\emph{rayyan}）后，各算法曲线先平台而后下滑，%
+        甚至转负——再拉大 EDR 上下限已难挽救 Silhouette／Comb。%
+        这与“高噪声 $\Rightarrow$ 边际收益递减”的常识相符。
 \end{enumerate}
 
 %-------------------------------------------------
-\subsubsection{算法内部过程追踪}
-\label{subsec:internal_tracking}
-%-------------------------------------------------
+\paragraph{反直觉的现象}
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.6em,itemsep=3pt]
+  \item \textbf{规则驱动清洗可起到反作用 \\}  
+        在 \emph{hospital} 的 HC\,+\,DBSCAN 组合里，%
+        虽然 Holoclean 在 Missing／Rule 轴得分最高，%
+        散点相关却出现大红圈（负相关，$r<-0.3$）。%
+        过度依赖 FD/CF 的一致化修复压平稀疏离群结构，%
+        反而拉低层次/密度聚类质量。
 
-本节聚焦“清洗 $\rightarrow$ 聚类”链条中的\emph{运行机理}。
-所有过程级指标均已在 §\ref{sec:exp_design} 的
-表~\ref{tab:proc_indicators} 中统一定义，并通过
-公式~\eqref{eq:delta_pct} 归一化为
-“相对 \textit{mode} 填补基线的 $\Delta\%$”。
-下文不再重复公式或符号，而是直接基于该归一化结果进行比较。
-
-\begin{enumerate}[label=(\alph*)]
-%-------------------------------------------------
-\item \textbf{跨清洗策略整体分布}\\
-表~\ref{tab:clean_vs_metric} 汇总了
-\underline{除 \textit{mode} 外的七种清洗方法}在四张数据表上
-对各过程指标的平均 $\Delta\%$（留白处待实验结果填充）。
-行索引按照“算法族 $\times$ 过程指标”展开，
-列索引为具体清洗策略；正数代表改进、负数表示退化，
-色块将在最终版本中按同一蓝–红色阶渲染。
-
-\begin{table}[htbp]
-\centering
-\small
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}llccccccc@{}}
-\toprule
-\multirow{2}{*}{\textbf{算法族}} & \multirow{2}{*}{\textbf{指标}} &
-\multicolumn{7}{c}{\textbf{清洗策略}（$\Delta\%$，基线 = \textit{mode}）}\\
-\cmidrule(l){3-9}
- & & \textbf{Raha-B.} & \textbf{Holoc.} & \textbf{BigDans.} & \textbf{BoostC.} &
-   \textbf{Horizon} & \textbf{Scared} & \textbf{Unified}\\
-\midrule
-\multirow{3}{*}{质心型}
- & $\Delta n_{\text{iter}}$          &      &      &      &      &      &      &      \\
- & $\text{AUC}_{\Delta}$             &      &      &      &      &      &      &      \\
- & $\Delta\text{SSE / NLL}$          &      &      &      &      &      &      &      \\
-\addlinespace[2pt]
-\multirow{3}{*}{密度型}
- & $\Delta n_{\text{core}}$          &      &      &      &      &      &      &      \\
- & $\Delta\rho_{\text{noise}}$       &      &      &      &      &      &      &      \\
- & $\Delta\text{Hist}_{\text{EMD}}$  &      &      &      &      &      &      &      \\
-\addlinespace[2pt]
-\multirow{3}{*}{层次型}
- & $\Delta n_{\text{merge}}$         &      &      &      &      &      &      &      \\
- & $\Delta h_{\max}$                 &      &      &      &      &      &      &      \\
- & $\Delta R_{\text{intra/inter}}$   &      &      &      &      &      &      &      \\
-\bottomrule
-\end{tabular}
-\caption{清洗策略对过程指标的相对改变量（$\Delta\%$）。
-数值由 Eq.~\eqref{eq:delta_pct} 计算，色阶在最终稿中呈现。}
-\label{tab:clean_vs_metric}
-\end{table}
-
-\vspace{0.4em}
-
-%-------------------------------------------------
-\item \textbf{全局趋势可视化}\\
-Figure \ref{fig:heatmap_beers}--\ref{fig:heatmap_rayyan}
-展示了四个数据域中
-“8 × 6”（清洗 × 聚类）组合的平均 $\Delta\%$ 热图。
-深蓝表示显著改善，深红表示性能退化；
-灰色单元格代表在该数据域下指标不可计算或无意义。
-
-%-------------------------------------------------
-\item \textbf{算法族别解析}\\
-\begin{itemize}
-  \item \emph{质心型（K-Means / GMM）}：\quad \dots
-  \item \emph{密度型（DBSCAN）}：\quad \dots
-  \item \emph{层次型（HC）}：\quad \dots
-\end{itemize}
-%（以上小点留待填入各族的定量与定性讨论）
-
-%-------------------------------------------------
-\item \textbf{小结}\\
-将在§6.4.3把这些过程层面的发现与聚类结果指标联系起来，
-验证清洗收益的因果通路，并为后续 AutoML 特征工程提供依据。
+  \item \textbf{极端高噪声下，高 F1 可能降低分离度 \\}  
+        \emph{rayyan} 的 F1$\!\rightarrow\!$Sil\textsubscript{rel} %
+        散点中约 15\,\% 位于深红区。%
+        即便检测–修复非常精准（F1 高），%
+        过度“平滑”仍会一并消除必要的异常信号，%
+        致使簇边界模糊、Silhouette 倒退——%
+        与“修得越准越好”的直觉相悖。
 \end{enumerate}
-
-
 
 \subsubsection{超参数选择偏移（正在做）}
 \label{subsec:param_shift}

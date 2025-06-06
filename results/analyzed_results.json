@@ -3,48 +3,49 @@
         "dataset_id": 0,
         "top_k": [
             [
-                "mode",
-                "HC",
-                {
-                    "n_components": 48.0,
-                    "covariance type": "single-manhattan"
-                },
-                1.8437137307838045
-            ],
-            [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.8358437865164712
+                1.8358437865321315
             ],
             [
                 "mode",
-                "GMM",
+                "HC",
                 {
-                    "n_components": 40.0,
-                    "covariance type": "diag"
+                    "n_components": 48.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.3906968475270143
+                1.7574371932943804
             ],
             [
-                "mode",
-                "KMEANS",
+                "boostclean",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.3229982018639674
+                1.091868994943155
             ],
             [
-                "horizon",
-                "DBSCAN",
+                "holoclean",
+                "HC",
                 {
-                    "n_components": 19.0,
-                    "covariance type": 1.8000000000000003
+                    "n_components": 47.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.161559016648333
+                1.0543171057518996
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.0404451679233917
             ]
         ]
     },
@@ -58,25 +59,25 @@
                     "n_components": 38.0,
                     "covariance type": "single-manhattan"
                 },
-                2.112148653125151
+                2.112148653125586
             ],
             [
                 "horizon",
-                "DBSCAN",
+                "HC",
                 {
-                    "n_components": 7.0,
-                    "covariance type": 1.85
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.32561799418172
+                1.3406655870562478
             ],
             [
                 "scared",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-euclidean"
                 },
-                1.3004177364286722
+                1.30041773643485
             ],
             [
                 "baran",
@@ -85,16 +86,16 @@
                     "n_components": 44.0,
                     "covariance type": "single-euclidean"
                 },
-                1.2045704532912878
+                1.2045704649953586
             ],
             [
-                "mode",
-                "GMM",
+                "Unified",
+                "HC",
                 {
-                    "n_components": 11.0,
-                    "covariance type": "tied"
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.1700268126446207
+                1.0950836205079373
             ]
         ]
     },
@@ -102,13 +103,13 @@
         "dataset_id": 2,
         "top_k": [
             [
-                "mode",
-                "GMM",
+                "holoclean",
+                "HC",
                 {
-                    "n_components": 34.0,
-                    "covariance type": "full"
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.3932929204657314
+                1.5419885337122343
             ],
             [
                 "horizon",
@@ -117,32 +118,34 @@
                     "n_components": 12.0,
                     "covariance type": "single-euclidean"
                 },
-                1.3352603900582944
+                1.3352603957555793
             ],
             [
-                "horizon",
-                "DBSCAN",
+                "Unified",
+                "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": 1.6500000000000001
+                    "covariance type": "single-euclidean"
                 },
-                1.3191372766878837
+                0.9877382281433739
             ],
             [
-                "mode",
-                "KMEANSNF",
+                "baran",
+                "HC",
                 {
-                    "k": 47.0
+                    "n_components": 45.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.1527864713957618
+                0.9603036038766277
             ],
             [
-                "mode",
-                "KMEANS",
+                "boostclean",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 35.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.136752083663005
+                0.8568155874022828
             ]
         ]
     },
@@ -156,7 +159,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1778287121666138
+                1.177828735672265
             ],
             [
                 "mode",
@@ -165,7 +168,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1765296623253556
+                1.1765296534172245
             ],
             [
                 "boostclean",
@@ -174,7 +177,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1765296623253556
+                1.1765296534172245
             ],
             [
                 "baran",
@@ -183,16 +186,16 @@
                     "n_components": 47.0,
                     "covariance type": "single-euclidean"
                 },
-                1.125389354519267
+                1.1253893610732368
             ],
             [
-                "holoclean",
+                "Unified",
                 "HC",
                 {
-                    "n_components": 47.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 43.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.0543171046325042
+                1.0895308100939813
             ]
         ]
     },
@@ -204,27 +207,27 @@
                 "HC",
                 {
                     "n_components": 48.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                1.9781386615631726
+                1.750586686908575
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "average-euclidean"
                 },
-                1.7108392157871413
+                1.710839215787489
             ],
             [
-                "mode",
-                "GMM",
+                "holoclean",
+                "HC",
                 {
-                    "n_components": 48.0,
-                    "covariance type": "diag"
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.5551387402321852
+                1.5419885337122343
             ],
             [
                 "bigdansing",
@@ -233,16 +236,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.5192254523567066
+                1.519225442806508
             ],
             [
                 "baran",
                 "HC",
                 {
-                    "n_components": 45.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 44.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.4350925735381637
+                1.418099453254397
             ]
         ]
     },
@@ -256,34 +259,34 @@
                     "n_components": 43.0,
                     "covariance type": "single-euclidean"
                 },
-                1.8623440279149641
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                1.5701997190157369
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.5222936346231497
+                1.8623440409086351
             ],
             [
                 "holoclean",
                 "HC",
                 {
                     "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.5419885337122343
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                1.0625818934680265
+                1.52229363462321
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "average-manhattan"
+                },
+                1.1376826162614466
             ],
             [
                 "baran",
@@ -292,7 +295,7 @@
                     "n_components": 43.0,
                     "covariance type": "average-euclidean"
                 },
-                1.035514558355865
+                1.0355145592929982
             ]
         ]
     },
@@ -300,31 +303,22 @@
         "dataset_id": 6,
         "top_k": [
             [
+                "mode",
+                "HC",
+                {
+                    "n_components": 44.0,
+                    "covariance type": "complete-euclidean"
+                },
+                2.9584597063228926
+            ],
+            [
                 "horizon",
                 "HC",
                 {
                     "n_components": 13.0,
                     "covariance type": "single-euclidean"
                 },
-                1.820894754574945
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.3674608654781601
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "n_components": 21.0,
-                    "covariance type": "full"
-                },
-                1.3603680012983854
+                1.8208947829484268
             ],
             [
                 "Unified",
@@ -333,16 +327,25 @@
                     "n_components": 10.0,
                     "covariance type": "single-euclidean"
                 },
-                1.2475955554892066
+                1.2475955601088689
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 45.0,
+                    "covariance type": "average-euclidean"
+                },
+                1.088859018544483
             ],
             [
                 "holoclean",
                 "HC",
                 {
-                    "n_components": 23.0,
+                    "n_components": 47.0,
                     "covariance type": "single-euclidean"
                 },
-                1.0470355856835882
+                1.0543171057518996
             ]
         ]
     },
@@ -354,27 +357,18 @@
                 "HC",
                 {
                     "n_components": 48.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-cosine"
                 },
-                2.976385271939598
+                2.976385279857473
             ],
             [
                 "horizon",
                 "HC",
                 {
-                    "n_components": 6.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 5.0,
+                    "covariance type": "average-euclidean"
                 },
-                1.6817635794263308
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "n_components": 35.0,
-                    "covariance type": "tied"
-                },
-                1.3969796164318349
+                1.6508246591219722
             ],
             [
                 "scared",
@@ -383,15 +377,25 @@
                     "n_components": 11.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1581637416751807
+                1.1581637487571081
             ],
             [
-                "mode",
-                "KMEANS",
+                "boostclean",
+                "HC",
                 {
-                    "k": 48.0
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.07904866069264
+                1.128846667059689
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 47.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.0543171057518996
             ]
         ]
     },
@@ -405,16 +409,16 @@
                     "n_components": 9.0,
                     "covariance type": "single-manhattan"
                 },
-                1.7612864688867464
+                1.761286468886802
             ],
             [
-                "mode",
-                "GMM",
+                "baran",
+                "HC",
                 {
-                    "n_components": 32.0,
-                    "covariance type": "diag"
+                    "n_components": 9.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.2376356901194643
+                1.479590365576828
             ],
             [
                 "boostclean",
@@ -423,25 +427,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1541969673791044
+                1.1541969673792236
             ],
             [
-                "horizon",
-                "DBSCAN",
+                "holoclean",
+                "HC",
                 {
-                    "n_components": 15.0,
-                    "covariance type": 2.0
+                    "n_components": 23.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.1507737167180203
+                1.047035588082222
             ],
             [
-                "Unified",
+                "bigdansing",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-manhattan"
+                    "covariance type": "single-manhattan"
                 },
-                1.0575769799494412
+                0.9628755130339477
             ]
         ]
     },
@@ -455,7 +459,7 @@
                     "n_components": 47.0,
                     "covariance type": "single-euclidean"
                 },
-                1.8289427899272437
+                1.8289427976531467
             ],
             [
                 "baran",
@@ -464,7 +468,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.2894611530622277
+                1.289461131919386
             ],
             [
                 "bigdansing",
@@ -473,7 +477,7 @@
                     "n_components": 6.0,
                     "covariance type": "single-manhattan"
                 },
-                1.2514178078002316
+                1.2514178078003269
             ],
             [
                 "horizon",
@@ -482,16 +486,16 @@
                     "n_components": 8.0,
                     "covariance type": "single-euclidean"
                 },
-                1.245442863423348
+                1.245442863428113
             ],
             [
-                "Unified",
+                "scared",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1236584345550304
+                1.1436203721729228
             ]
         ]
     },
@@ -502,10 +506,10 @@
                 "mode",
                 "HC",
                 {
-                    "n_components": 43.0,
+                    "n_components": 42.0,
                     "covariance type": "single-euclidean"
                 },
-                2.197432457432809
+                2.1814422945368555
             ],
             [
                 "horizon",
@@ -514,34 +518,34 @@
                     "n_components": 8.0,
                     "covariance type": "single-manhattan"
                 },
-                1.5493185510219227
-            ],
-            [
-                "Unified",
-                "DBSCAN",
-                {
-                    "n_components": 5.0,
-                    "covariance type": 2.0
-                },
-                1.4180316297305602
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "n_components": 10.0,
-                    "covariance type": "tied"
-                },
-                1.170749368457431
+                1.5493185510220178
             ],
             [
                 "boostclean",
                 "HC",
                 {
-                    "n_components": 6.0,
+                    "n_components": 11.0,
                     "covariance type": "single-manhattan"
                 },
-                1.1400983197402625
+                1.0971536438557312
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 12.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.0512722598018942
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 48.0,
+                    "covariance type": "average-euclidean"
+                },
+                1.0449730850884573
             ]
         ]
     },
@@ -555,7 +559,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.541988533712075
+                1.5419885337122343
             ],
             [
                 "scared",
@@ -564,7 +568,7 @@
                     "n_components": 7.0,
                     "covariance type": "single-euclidean"
                 },
-                1.0532919814101984
+                1.0532919854657172
             ],
             [
                 "bigdansing",
@@ -573,16 +577,7 @@
                     "n_components": 48.0,
                     "covariance type": "average-euclidean"
                 },
-                1.041325551080035
-            ],
-            [
-                "mode",
-                "HC",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "single-cosine"
-                },
-                1.0402956422903966
+                1.041325552020109
             ],
             [
                 "Unified",
@@ -591,7 +586,16 @@
                     "n_components": 40.0,
                     "covariance type": "single-euclidean"
                 },
-                1.0351797481290013
+                1.035179742313398
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.0188819538949294
             ]
         ]
     },
@@ -602,45 +606,46 @@
                 "mode",
                 "HC",
                 {
-                    "n_components": 46.0,
-                    "covariance type": "average-euclidean"
+                    "n_components": 48.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.6527277325669014
-            ],
-            [
-                "horizon",
-                "DBSCAN",
-                {
-                    "n_components": 9.0,
-                    "covariance type": 2.0
-                },
-                1.6505479954584223
+                1.7839974135864933
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
+                    "covariance type": "average-manhattan"
+                },
+                1.5977896953399136
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 46.0,
+                    "covariance type": "average-euclidean"
+                },
+                1.097790940707774
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 11.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.0547520559936092
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 26.0,
                     "covariance type": "single-manhattan"
                 },
-                1.5977896953389772
-            ],
-            [
-                "mode",
-                "GMM",
-                {
-                    "n_components": 47.0,
-                    "covariance type": "full"
-                },
-                1.5175334651895669
-            ],
-            [
-                "mode",
-                "KMEANS",
-                {
-                    "k": 48.0
-                },
-                1.3409568222151853
+                1.0502261585935495
             ]
         ]
     },
@@ -654,7 +659,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.5992245803065033
+                1.5992245616092664
             ],
             [
                 "Unified",
@@ -663,7 +668,7 @@
                     "n_components": 48.0,
                     "covariance type": "average-euclidean"
                 },
-                1.1158665699168904
+                1.1158665706186315
             ],
             [
                 "holoclean",
@@ -672,7 +677,7 @@
                     "n_components": 47.0,
                     "covariance type": "single-euclidean"
                 },
-                1.0543171046325042
+                1.0543171057518996
             ],
             [
                 "scared",
@@ -681,16 +686,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                0.960834665083177
+                0.9608346535549674
             ],
             [
-                "mode",
+                "horizon",
                 "HC",
                 {
-                    "n_components": 7.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 11.0,
+                    "covariance type": "single-manhattan"
                 },
-                0.8998926127030813
+                0.9122002958493513
             ]
         ]
     },
@@ -702,45 +707,45 @@
                 "HC",
                 {
                     "n_components": 7.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.1849962479832614
+                2.184996247983239
             ],
             [
                 "mode",
                 "HC",
                 {
                     "n_components": 48.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "average-cosine"
                 },
-                1.9159150874082205
+                1.7931015817957612
             ],
             [
-                "mode",
-                "GMM",
+                "boostclean",
+                "HC",
                 {
-                    "n_components": 48.0,
-                    "covariance type": "full"
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.5468252681602683
+                1.204821908813279
             ],
             [
-                "holoclean",
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.1408546076243404
+            ],
+            [
+                "scared",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.541988533712075
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.2986717718800698
+                1.1363877899754635
             ]
         ]
     },
@@ -754,43 +759,43 @@
                     "n_components": 10.0,
                     "covariance type": "single-manhattan"
                 },
-                1.873109516801073
+                1.8731095090402128
             ],
             [
                 "mode",
                 "HC",
                 {
-                    "n_components": 6.0,
-                    "covariance type": "single-manhattan"
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.305949396846021
+                1.2994015129306937
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-cosine"
                 },
-                1.2916816818636248
+                1.2916816818636252
             ],
             [
                 "bigdansing",
                 "HC",
                 {
-                    "n_components": 6.0,
+                    "n_components": 11.0,
                     "covariance type": "single-euclidean"
                 },
-                1.0732055600393333
+                1.038107776947768
             ],
             [
-                "holoclean",
+                "Unified",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                1.031563410261208
+                0.9690218042392068
             ]
         ]
     },
@@ -804,7 +809,7 @@
                     "n_components": 6.0,
                     "covariance type": "single-manhattan"
                 },
-                1.7546936537663538
+                1.7546936685115666
             ],
             [
                 "bigdansing",
@@ -813,7 +818,7 @@
                     "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                1.3332046932271144
+                1.3332047036400656
             ],
             [
                 "horizon",
@@ -822,7 +827,7 @@
                     "n_components": 10.0,
                     "covariance type": "single-manhattan"
                 },
-                1.1462957290358269
+                1.1462957330059869
             ],
             [
                 "scared",
@@ -831,16 +836,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.132558247367352
+                1.1325582538398058
             ],
             [
-                "Unified",
+                "boostclean",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.066665508309199
+                1.0666655197609565
             ]
         ]
     },
@@ -854,16 +859,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.689297579478484
-            ],
-            [
-                "scared",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.132558247367352
+                1.6892975957212581
             ],
             [
                 "mode",
@@ -875,22 +871,31 @@
                 1.09109432603936
             ],
             [
-                "horizon",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                0.994488071967809
-            ],
-            [
-                "holoclean",
+                "scared",
                 "HC",
                 {
                     "n_components": 7.0,
                     "covariance type": "single-euclidean"
                 },
-                0.9655414050828269
+                1.054864807300189
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.031563410261208
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                0.8614091333325337
             ]
         ]
     },
@@ -904,23 +909,23 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                2.00622737815115
+                2.0062273781511437
             ],
             [
                 "mode",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                1.3764476212902736
+                1.3764476412325761
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-euclidean"
                 },
                 1.2315792697852
             ],
@@ -928,10 +933,10 @@
                 "holoclean",
                 "HC",
                 {
-                    "n_components": 5.0,
+                    "n_components": 12.0,
                     "covariance type": "single-manhattan"
                 },
-                1.1427561523336551
+                1.1621722169937363
             ],
             [
                 "scared",
@@ -940,7 +945,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.132558247367352
+                1.1325582538398058
             ]
         ]
     },
@@ -954,7 +959,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.8502634989287794
+                1.8502634989287767
             ],
             [
                 "holoclean",
@@ -963,7 +968,7 @@
                     "n_components": 12.0,
                     "covariance type": "single-manhattan"
                 },
-                1.162172215434797
+                1.1621722169937363
             ],
             [
                 "scared",
@@ -972,25 +977,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.132558247367352
+                1.1325582538398058
             ],
             [
                 "boostclean",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "average-euclidean"
                 },
-                1.0128137186321036
+                1.0128137186321038
             ],
             [
                 "Unified",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "average-euclidean"
                 },
-                1.0128137186321036
+                1.0128137186321038
             ]
         ]
     },
@@ -1004,16 +1009,16 @@
                     "n_components": 7.0,
                     "covariance type": "single-euclidean"
                 },
-                1.4201381144815022
+                1.4201381144815421
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-manhattan"
+                    "covariance type": "average-euclidean"
                 },
-                1.1881921829739945
+                1.1881921755813938
             ],
             [
                 "scared",
@@ -1022,25 +1027,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.132558247367352
+                1.1325582538398058
             ],
             [
                 "holoclean",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                1.0841789753191213
+                1.0910397008777213
             ],
             [
-                "boostclean",
+                "bigdansing",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-euclidean"
                 },
-                1.0276396969387853
+                1.0293253042821773
             ]
         ]
     },
@@ -1048,13 +1053,22 @@
         "dataset_id": 21,
         "top_k": [
             [
-                "baran",
+                "holoclean",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-euclidean"
                 },
-                1.83525464822605
+                1.6870955675483572
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 15.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.6041308345020158
             ],
             [
                 "bigdansing",
@@ -1063,34 +1077,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.5280850901854355
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "n_components": 17.0,
-                    "covariance type": "single-manhattan"
-                },
-                1.4627850952522814
+                1.5280850785520068
             ],
             [
                 "mode",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                1.3760819442547751
+                1.376081973234288
             ],
             [
-                "boostclean",
+                "Unified",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.2271886455909842
+                1.2271886600631976
             ]
         ]
     },
@@ -1102,9 +1107,9 @@
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                1.6870955224738977
+                1.6179321519569447
             ],
             [
                 "baran",
@@ -1113,7 +1118,7 @@
                     "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                1.494799355553361
+                1.4947993555533599
             ],
             [
                 "scared",
@@ -1122,7 +1127,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.132558247367352
+                1.1325582538398058
             ],
             [
                 "horizon",
@@ -1131,7 +1136,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.130086526751857
+                1.1300865330864407
             ],
             [
                 "mode",
@@ -1140,7 +1145,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.07618016639707
+                1.0761801665951234
             ]
         ]
     },
@@ -1154,16 +1159,16 @@
                     "n_components": 9.0,
                     "covariance type": "single-euclidean"
                 },
-                1.8570147854545362
+                1.8570147963114976
             ],
             [
                 "holoclean",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                1.5198351726407815
+                1.3699936517628604
             ],
             [
                 "mode",
@@ -1172,7 +1177,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.3403197663175617
+                1.340319759441456
             ],
             [
                 "Unified",
@@ -1181,16 +1186,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.1093922351497492
+                1.109392236100212
             ],
             [
-                "horizon",
+                "bigdansing",
                 "HC",
                 {
-                    "n_components": 6.0,
-                    "covariance type": "single-manhattan"
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.0366592595735695
+                1.0439120200417147
             ]
         ]
     },
@@ -1198,22 +1203,22 @@
         "dataset_id": 24,
         "top_k": [
             [
-                "baran",
-                "HC",
-                {
-                    "n_components": 6.0,
-                    "covariance type": "single-manhattan"
-                },
-                1.5000405873075109
-            ],
-            [
                 "holoclean",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.4541235044960312
+                1.4541235243597748
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.4135027250943977
             ],
             [
                 "bigdansing",
@@ -1231,7 +1236,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.2323424943422872
+                1.2323425174872684
             ],
             [
                 "mode",
@@ -1240,7 +1245,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1037418184365861
+                1.1037418254844924
             ]
         ]
     },
@@ -1254,7 +1259,7 @@
                     "n_components": 8.0,
                     "covariance type": "single-manhattan"
                 },
-                1.6614757838673464
+                1.6614757838673473
             ],
             [
                 "mode",
@@ -1263,16 +1268,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.4901714048154695
+                1.4901714174350942
             ],
             [
                 "baran",
                 "HC",
                 {
-                    "n_components": 5.0,
+                    "n_components": 11.0,
                     "covariance type": "single-manhattan"
                 },
-                1.4263277992219767
+                1.360620232053259
             ],
             [
                 "bigdansing",
@@ -1281,16 +1286,16 @@
                     "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                1.2967748030554784
+                1.2967748030554789
             ],
             [
-                "scared",
+                "boostclean",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1317767138341948
+                1.2282043314221252
             ]
         ]
     },
@@ -1304,7 +1309,7 @@
                     "n_components": 8.0,
                     "covariance type": "single-manhattan"
                 },
-                1.6614757838673464
+                1.6614757838673473
             ],
             [
                 "baran",
@@ -1313,7 +1318,7 @@
                     "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                1.5502343963045482
+                1.5502344108971302
             ],
             [
                 "bigdansing",
@@ -1322,7 +1327,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.5124583968263623
+                1.5124584089983641
             ],
             [
                 "mode",
@@ -1331,7 +1336,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1870997726838528
+                1.187099774158149
             ],
             [
                 "horizon",
@@ -1340,7 +1345,7 @@
                     "n_components": 7.0,
                     "covariance type": "single-euclidean"
                 },
-                1.1087499929464597
+                1.1087499860008765
             ]
         ]
     },
@@ -1354,16 +1359,16 @@
                     "n_components": 6.0,
                     "covariance type": "single-euclidean"
                 },
-                2.000457570224895
+                2.000457570233972
             ],
             [
                 "boostclean",
                 "HC",
                 {
-                    "n_components": 6.0,
-                    "covariance type": "average-manhattan"
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.719588927125379
+                1.9368410544241348
             ],
             [
                 "baran",
@@ -1372,7 +1377,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.6845673471148461
+                1.6845673471226517
             ],
             [
                 "Unified",
@@ -1381,16 +1386,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.6512836212952084
+                1.6512836212952107
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "average-euclidean"
                 },
-                1.4888870065484345
+                1.4888870065484827
             ]
         ]
     },
@@ -1404,7 +1409,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.8220110043381144
+                1.8220110043381166
             ],
             [
                 "holoclean",
@@ -1413,7 +1418,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.7450549544155507
+                1.7450549544155434
             ],
             [
                 "bigdansing",
@@ -1422,25 +1427,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.6247879023901242
+                1.624787915167572
             ],
             [
                 "baran",
                 "HC",
                 {
-                    "n_components": 8.0,
+                    "n_components": 12.0,
                     "covariance type": "single-manhattan"
                 },
-                1.6106029131353736
+                1.5601412629943898
             ],
             [
-                "mode",
+                "scared",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.3206996261481851
+                1.3669389401284537
             ]
         ]
     },
@@ -1454,7 +1459,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.7450549544155507
+                1.7450549544155434
             ],
             [
                 "baran",
@@ -1463,7 +1468,7 @@
                     "n_components": 18.0,
                     "covariance type": "single-manhattan"
                 },
-                1.396121924076474
+                1.3961219215528735
             ],
             [
                 "horizon",
@@ -1472,7 +1477,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.2320977466217868
+                1.2320977466217866
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.1210254081596163
             ],
             [
                 "mode",
@@ -1481,16 +1495,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.0129328342641302
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "n_components": 10.0,
-                    "covariance type": "single-manhattan"
-                },
-                0.9833083069987822
+                1.012932851591102
             ]
         ]
     },
@@ -1504,7 +1509,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.234719085695454
+                2.234719061036851
             ],
             [
                 "boostclean",
@@ -1513,7 +1518,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                2.2001254015343683
+                2.2001254015343936
             ],
             [
                 "horizon",
@@ -1522,25 +1527,25 @@
                     "n_components": 6.0,
                     "covariance type": "single-euclidean"
                 },
-                2.121847419849189
+                2.1218474390855087
             ],
             [
                 "Unified",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.0836043481827162
+                2.083604348182761
             ],
             [
                 "bigdansing",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                1.957154847403371
+                1.957154847403423
             ]
         ]
     },
@@ -1554,16 +1559,16 @@
                     "n_components": 6.0,
                     "covariance type": "single-manhattan"
                 },
-                2.435167926885576
+                2.4351679506468367
             ],
             [
                 "baran",
                 "HC",
                 {
-                    "n_components": 8.0,
-                    "covariance type": "single-manhattan"
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
                 },
-                2.4234496413796665
+                2.290687316589407
             ],
             [
                 "bigdansing",
@@ -1572,7 +1577,7 @@
                     "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                2.159949381578498
+                2.159949432433516
             ],
             [
                 "boostclean",
@@ -1581,16 +1586,16 @@
                     "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                2.153742737582111
+                2.1537427697503815
             ],
             [
-                "Unified",
+                "horizon",
                 "HC",
                 {
-                    "n_components": 6.0,
+                    "n_components": 14.0,
                     "covariance type": "single-manhattan"
                 },
-                2.0897818293980066
+                2.1140714621887158
             ]
         ]
     },
@@ -1604,7 +1609,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.9043797982095292
+                1.904379798209607
             ],
             [
                 "Unified",
@@ -1613,34 +1618,34 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.8921051907210844
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "single-manhattan"
-                },
-                1.632239755669016
+                1.8921052139897923
             ],
             [
                 "bigdansing",
                 "HC",
                 {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.5614435434200549
+                1.5741086758298304
             ],
             [
                 "mode",
                 "HC",
                 {
                     "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.5415197689991629
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 8.0,
                     "covariance type": "single-euclidean"
                 },
-                1.5415197689991524
+                1.3609295133057489
             ]
         ]
     },
@@ -1652,9 +1657,9 @@
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                2.290785049432409
+                2.2907850789588116
             ],
             [
                 "mode",
@@ -1663,7 +1668,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.0599654644341587
+                2.0599654644341623
             ],
             [
                 "horizon",
@@ -1672,16 +1677,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.7899733209395556
-            ],
-            [
-                "boostclean",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                1.7503064474574912
+                1.7899733388130803
             ],
             [
                 "bigdansing",
@@ -1690,7 +1686,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.7212832390383699
+                1.7212832384548291
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.7193040760464517
             ]
         ]
     },
@@ -1701,10 +1706,10 @@
                 "baran",
                 "HC",
                 {
-                    "n_components": 5.0,
+                    "n_components": 9.0,
                     "covariance type": "single-manhattan"
                 },
-                2.232460330357379
+                2.1780931748960866
             ],
             [
                 "horizon",
@@ -1713,7 +1718,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.8502062185713082
+                1.8502062185944421
             ],
             [
                 "boostclean",
@@ -1722,30 +1727,80 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.8072432038239385
+                1.807243203823962
             ],
             [
                 "bigdansing",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                1.5690230562827998
+                1.7714631444643842
             ],
             [
-                "scared",
+                "Unified",
                 "HC",
                 {
-                    "n_components": 8.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                1.545903880346566
+                1.670260799350553
             ]
         ]
     },
     {
         "dataset_id": 35,
+        "top_k": [
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.7070806327583585
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.3252497244670787
+            ],
+            [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.955387694355359
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.6680821044048122
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                1.5768509033219762
+            ]
+        ]
+    },
+    {
+        "dataset_id": 36,
         "top_k": [
             [
                 "mode",
@@ -1754,25 +1809,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.325249694531072
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.9777503440671511
-            ],
-            [
-                "horizon",
-                "HC",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.955387707352481
+                1.766336169923926
             ],
             [
                 "boostclean",
@@ -1781,30 +1818,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.6680820919956303
-            ],
-            [
-                "scared",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.5768508895638587
-            ]
-        ]
-    },
-    {
-        "dataset_id": 36,
-        "top_k": [
-            [
-                "boostclean",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.5764358082809502
+                1.5764358167079138
             ],
             [
                 "horizon",
@@ -1813,34 +1827,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.5319205798980278
+                1.5319205798980922
             ],
             [
-                "holoclean",
+                "scared",
                 "HC",
                 {
                     "n_components": 6.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                1.4544972039501
-            ],
-            [
-                "scared",
-                "HC",
-                {
-                    "n_components": 8.0,
-                    "covariance type": "single-manhattan"
-                },
-                1.375095148420335
+                1.5098701212055483
             ],
             [
                 "bigdansing",
                 "HC",
                 {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.3697535657227236
+                1.4864976047558633
             ]
         ]
     },
@@ -1854,7 +1859,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.5378057841942696
+                2.537805784194328
             ],
             [
                 "holoclean",
@@ -1863,7 +1868,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.3247922366077094
+                2.324792236607725
             ],
             [
                 "boostclean",
@@ -1872,7 +1877,7 @@
                     "n_components": 6.0,
                     "covariance type": "single-manhattan"
                 },
-                2.144333457479587
+                2.144333420475686
             ],
             [
                 "horizon",
@@ -1881,7 +1886,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.9879290106556642
+                1.9879290106556902
             ],
             [
                 "baran",
@@ -1890,7 +1895,7 @@
                     "n_components": 12.0,
                     "covariance type": "single-manhattan"
                 },
-                1.944792536365724
+                1.9447925363657985
             ]
         ]
     },
@@ -1898,13 +1903,22 @@
         "dataset_id": 38,
         "top_k": [
             [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.324792236607725
+            ],
+            [
                 "mode",
                 "HC",
                 {
                     "n_components": 15.0,
                     "covariance type": "single-euclidean"
                 },
-                2.133389028125674
+                2.133389027724724
             ],
             [
                 "baran",
@@ -1913,7 +1927,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.0395986416274443
+                2.0395986416275074
             ],
             [
                 "Unified",
@@ -1922,16 +1936,7 @@
                     "n_components": 8.0,
                     "covariance type": "single-euclidean"
                 },
-                2.032662133724454
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.9456556838305004
+                2.0326621472622723
             ],
             [
                 "scared",
@@ -1940,7 +1945,7 @@
                     "n_components": 6.0,
                     "covariance type": "single-euclidean"
                 },
-                1.9403824135901158
+                1.9403824135901437
             ]
         ]
     },
@@ -1948,22 +1953,40 @@
         "dataset_id": 39,
         "top_k": [
             [
-                "scared",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
-                },
-                2.601340511840618
-            ],
-            [
                 "horizon",
                 "HC",
                 {
                     "n_components": 6.0,
                     "covariance type": "single-euclidean"
                 },
-                2.4686429612139094
+                2.468642961213933
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.3978446619975613
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.395031801710174
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.211025039388802
             ],
             [
                 "bigdansing",
@@ -1972,25 +1995,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.185320347324345
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.0791836856820556
-            ],
-            [
-                "mode",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
-                },
-                2.060991161458938
+                2.1853204019311554
             ]
         ]
     },
@@ -1998,81 +2003,22 @@
         "dataset_id": 40,
         "top_k": [
             [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.5058826087609902
+            ],
+            [
                 "scared",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.5060298042581906
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.5058825771428115
-            ],
-            [
-                "baran",
-                "HC",
-                {
-                    "n_components": 7.0,
                     "covariance type": "single-euclidean"
                 },
-                2.391378574832603
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.350560067489625
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.954720982634195
-            ]
-        ]
-    },
-    {
-        "dataset_id": 41,
-        "top_k": [
-            [
-                "holoclean",
-                "HC",
-                {
-                    "n_components": 8.0,
-                    "covariance type": "single-euclidean"
-                },
-                2.724365805039498
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "average-manhattan"
-                },
-                1.9288277005971581
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "n_components": 6.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.8061867060411148
+                2.423832159113397
             ],
             [
                 "boostclean",
@@ -2081,16 +2027,75 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                1.7238483996856897
+                2.4182835627205805
             ],
             [
                 "baran",
                 "HC",
                 {
-                    "n_components": 11.0,
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.3913785748326575
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                1.7188811353606097
+                1.9575436257814356
+            ]
+        ]
+    },
+    {
+        "dataset_id": 41,
+        "top_k": [
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.9216624695435174
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.7243655490812193
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "average-manhattan"
+                },
+                1.928827701714846
+            ],
+            [
+                "bigdansing",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.910174515127914
+            ],
+            [
+                "boostclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.7238484151910356
             ]
         ]
     },
@@ -2104,16 +2109,16 @@
                     "n_components": 8.0,
                     "covariance type": "single-euclidean"
                 },
-                2.724365805039498
+                2.7243655490812193
             ],
             [
-                "baran",
+                "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                2.062603728048983
+                1.731231354787836
             ],
             [
                 "bigdansing",
@@ -2122,16 +2127,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.6489979374232668
+                1.6489979092131597
             ],
             [
                 "Unified",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                1.5841977484057188
+                1.5841977484336673
             ],
             [
                 "boostclean",
@@ -2140,7 +2145,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                1.5114706583459592
+                1.5114706560155953
             ]
         ]
     },
@@ -2154,7 +2159,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.876574639978726
+                2.8765746399787306
             ],
             [
                 "baran",
@@ -2163,7 +2168,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.6482420183731534
+                2.648242058264333
             ],
             [
                 "holoclean",
@@ -2172,7 +2177,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.4198365197312293
+                2.419836547469428
             ],
             [
                 "horizon",
@@ -2181,16 +2186,16 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.3409615487694735
+                2.3409615508004986
             ],
             [
-                "bigdansing",
+                "boostclean",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.193648683443113
+                2.199422287278338
             ]
         ]
     },
@@ -2204,25 +2209,25 @@
                     "n_components": 6.0,
                     "covariance type": "single-manhattan"
                 },
-                2.6509407479995892
+                2.650940747999604
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.419836547469428
             ],
             [
                 "Unified",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                2.2415056725768006
-            ],
-            [
-                "holoclean",
-                "HC",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.0877106803025747
+                2.2415057608493534
             ],
             [
                 "scared",
@@ -2252,9 +2257,9 @@
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "complete-manhattan"
+                    "covariance type": "single-manhattan"
                 },
-                2.786618223337344
+                2.7866181824917895
             ],
             [
                 "scared",
@@ -2263,7 +2268,7 @@
                     "n_components": 8.0,
                     "covariance type": "single-manhattan"
                 },
-                2.4457011536789404
+                2.4457011751441025
             ],
             [
                 "holoclean",
@@ -2272,7 +2277,7 @@
                     "n_components": 8.0,
                     "covariance type": "single-manhattan"
                 },
-                2.438924996064692
+                2.438925005810505
             ],
             [
                 "mode",
@@ -2281,16 +2286,16 @@
                     "n_components": 9.0,
                     "covariance type": "single-manhattan"
                 },
-                2.3064513152633266
+                2.3064513299747254
             ],
             [
-                "scared",
-                "GMM",
+                "Unified",
+                "HC",
                 {
-                    "n_components": 8.0,
-                    "covariance type": "spherical"
+                    "n_components": 7.0,
+                    "covariance type": "single-euclidean"
                 },
-                1.937510859739631
+                1.8565059303022167
             ]
         ]
     },
@@ -2298,31 +2303,22 @@
         "dataset_id": 46,
         "top_k": [
             [
-                "scared",
-                "HC",
-                {
-                    "n_components": 6.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.9507479504970515
-            ],
-            [
                 "baran",
                 "HC",
                 {
                     "n_components": 10.0,
                     "covariance type": "single-manhattan"
                 },
-                2.8388622441568394
+                2.8388622676732873
             ],
             [
                 "bigdansing",
                 "HC",
                 {
                     "n_components": 19.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.5149801703985233
+                2.602739225317932
             ],
             [
                 "horizon",
@@ -2331,7 +2327,16 @@
                     "n_components": 6.0,
                     "covariance type": "average-manhattan"
                 },
-                2.211957412492601
+                2.2119574296895417
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 13.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.039509659255174
             ],
             [
                 "Unified",
@@ -2340,7 +2345,7 @@
                     "n_components": 13.0,
                     "covariance type": "single-manhattan"
                 },
-                2.0317937981382963
+                2.031793807197473
             ]
         ]
     },
@@ -2358,39 +2363,30 @@
             ],
             [
                 "baran",
-                "GMM",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "full"
-                },
-                2.4001880428738334
-            ],
-            [
-                "baran",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "average-manhattan"
                 },
-                2.4001880428738334
+                2.400188083476731
             ],
             [
                 "holoclean",
                 "HC",
                 {
                     "n_components": 6.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.2062742517764953
+                2.2062742756357148
             ],
             [
-                "bigdansing",
-                "GMM",
+                "mode",
+                "HC",
                 {
-                    "n_components": 14.0,
-                    "covariance type": "full"
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                2.0302832573445
+                1.466340565714337
             ]
         ]
     },
@@ -2404,43 +2400,43 @@
                     "n_components": 13.0,
                     "covariance type": "ward-euclidean"
                 },
-                2.971420979865294
-            ],
-            [
-                "bigdansing",
-                "GMM",
-                {
-                    "n_components": 12.0,
-                    "covariance type": "tied"
-                },
-                2.890587786283284
+                2.9714210355055437
             ],
             [
                 "scared",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "average-manhattan"
                 },
-                2.7033102317657165
+                2.70331018609608
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "complete-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.596766785171371
+                2.5967667432194967
             ],
             [
-                "holoclean",
+                "baran",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "average-manhattan"
+                },
+                2.3898107219087104
+            ],
+            [
+                "mode",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.414621562702252
+                2.1248313493045674
             ]
         ]
     },
@@ -2454,16 +2450,16 @@
                     "n_components": 6.0,
                     "covariance type": "single-manhattan"
                 },
-                2.8384526048319056
+                2.838452636786238
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 6.0,
-                    "covariance type": "average-manhattan"
+                    "covariance type": "single-manhattan"
                 },
-                2.7874150707205794
+                2.787415147640855
             ],
             [
                 "scared",
@@ -2475,22 +2471,22 @@
                 2.749802906331889
             ],
             [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 6.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.66482416976341
+            ],
+            [
                 "baran",
                 "HC",
                 {
                     "n_components": 8.0,
                     "covariance type": "single-manhattan"
                 },
-                2.0557682496528393
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "n_components": 11.0,
-                    "covariance type": "single-euclidean"
-                },
-                1.9654311808199219
+                2.055768265677849
             ]
         ]
     },
@@ -2504,7 +2500,7 @@
                     "n_components": 12.0,
                     "covariance type": "single-manhattan"
                 },
-                2.71809660122852
+                2.7180966180188246
             ],
             [
                 "mode",
@@ -2513,58 +2509,31 @@
                     "n_components": 9.0,
                     "covariance type": "single-manhattan"
                 },
-                2.6786977553657323
+                2.6786979221740093
             ],
             [
                 "Unified",
                 "HC",
                 {
-                    "n_components": 6.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 11.0,
+                    "covariance type": "single-manhattan"
                 },
-                2.3407618137800172
+                2.3721508719210087
             ],
             [
                 "scared",
                 "HC",
                 {
-                    "n_components": 16.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 11.0,
+                    "covariance type": "single-manhattan"
                 },
-                2.328183513518501
-            ],
-            [
-                "bigdansing",
-                "GMM",
-                {
-                    "n_components": 10.0,
-                    "covariance type": "tied"
-                },
-                1.7320397073398879
+                2.2803265873335326
             ]
         ]
     },
     {
         "dataset_id": 51,
         "top_k": [
-            [
-                "Unified",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.6835867859840667
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.3434138743074917
-            ],
             [
                 "horizon",
                 "HC",
@@ -2581,16 +2550,34 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.2623656289249543
+                2.2623656524585383
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 8.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.087854786366809
+            ],
+            [
+                "mode",
+                "HC",
+                {
+                    "n_components": 10.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.9906195036220211
             ],
             [
                 "scared",
                 "HC",
                 {
-                    "n_components": 7.0,
-                    "covariance type": "single-euclidean"
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                2.094657058765467
+                1.9645269869848452
             ]
         ]
     },
@@ -2607,39 +2594,22 @@
                 2.826510034313473
             ],
             [
-                "bigdansing",
-                "GMM",
-                {
-                    "n_components": 16.0,
-                    "covariance type": "full"
-                },
-                2.448814613410642
-            ],
-            [
-                "baran",
-                "GMM",
-                {
-                    "n_components": 3.0,
-                    "covariance type": "tied"
-                },
-                2.2393021275386524
-            ],
-            [
                 "scared",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.235067925853381
+                2.235067925853373
             ],
             [
-                "bigdansing",
-                "KMEANS",
+                "holoclean",
+                "HC",
                 {
-                    "k": 16.0
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
                 },
-                2.129417305657935
+                1.6937669701521303
             ]
         ]
     },
@@ -2651,18 +2621,18 @@
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.7040994102468545
+                2.7040994102473266
             ],
             [
                 "horizon",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.5640667931691112
+                2.5640667931691095
             ],
             [
                 "holoclean",
@@ -2671,25 +2641,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.518864417274303
-            ],
-            [
-                "Unified",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "complete-euclidean"
-                },
-                2.5006665577954275
+                2.5188644172743286
             ],
             [
                 "scared",
                 "HC",
                 {
-                    "n_components": 5.0,
+                    "n_components": 14.0,
                     "covariance type": "single-manhattan"
                 },
-                2.389767410324113
+                2.188123940876251
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 15.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.0165083694121875
             ]
         ]
     },
@@ -2700,10 +2670,10 @@
                 "bigdansing",
                 "HC",
                 {
-                    "n_components": 8.0,
+                    "n_components": 13.0,
                     "covariance type": "single-manhattan"
                 },
-                2.729539879957991
+                2.6467108626220934
             ],
             [
                 "baran",
@@ -2712,7 +2682,7 @@
                     "n_components": 7.0,
                     "covariance type": "single-manhattan"
                 },
-                2.534492841853887
+                2.5344929594722347
             ],
             [
                 "horizon",
@@ -2721,25 +2691,25 @@
                     "n_components": 16.0,
                     "covariance type": "single-euclidean"
                 },
-                2.451290286188893
-            ],
-            [
-                "scared",
-                "HC",
-                {
-                    "n_components": 10.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.3581963545943143
+                2.4512904477020734
             ],
             [
                 "Unified",
                 "HC",
                 {
-                    "n_components": 17.0,
+                    "n_components": 10.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.3274769633499583
+            ],
+            [
+                "scared",
+                "HC",
+                {
+                    "n_components": 18.0,
                     "covariance type": "single-euclidean"
                 },
-                2.3060158645498325
+                2.2875422897196467
             ]
         ]
     },
@@ -2747,49 +2717,49 @@
         "dataset_id": 55,
         "top_k": [
             [
+                "horizon",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.7913422638532515
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 9.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.661368579098841
+            ],
+            [
                 "holoclean",
                 "HC",
                 {
                     "n_components": 6.0,
                     "covariance type": "single-manhattan"
                 },
-                2.3375169747555735
-            ],
-            [
-                "bigdansing",
-                "HC",
-                {
-                    "n_components": 11.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.3209649753834296
+                2.337517023534073
             ],
             [
                 "Unified",
                 "HC",
                 {
                     "n_components": 6.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                2.1065774752825517
+                2.1065774753570494
             ],
             [
-                "horizon",
+                "scared",
                 "HC",
                 {
                     "n_components": 6.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "average-euclidean"
                 },
-                2.020046667138069
-            ],
-            [
-                "mode",
-                "HC",
-                {
-                    "n_components": 9.0,
-                    "covariance type": "single-manhattan"
-                },
-                1.9893200136974094
+                1.90734807267054
             ]
         ]
     },
@@ -2803,16 +2773,7 @@
                     "n_components": 8.0,
                     "covariance type": "single-manhattan"
                 },
-                2.8271194557325807
-            ],
-            [
-                "bigdansing",
-                "GMM",
-                {
-                    "n_components": 14.0,
-                    "covariance type": "tied"
-                },
-                2.596832020803318
+                2.8271195388285633
             ],
             [
                 "bigdansing",
@@ -2821,7 +2782,7 @@
                     "n_components": 8.0,
                     "covariance type": "single-manhattan"
                 },
-                2.241549371031153
+                2.2415493554852968
             ],
             [
                 "baran",
@@ -2830,16 +2791,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.1485402664182622
+                2.148540289031982
             ],
             [
                 "horizon",
                 "HC",
                 {
-                    "n_components": 5.0,
-                    "covariance type": "average-manhattan"
+                    "n_components": 12.0,
+                    "covariance type": "single-euclidean"
                 },
-                2.1044983794421737
+                2.124085643964029
+            ],
+            [
+                "holoclean",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.123823839094865
             ]
         ]
     },
@@ -2851,16 +2821,16 @@
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-euclidean"
+                    "covariance type": "single-manhattan"
                 },
-                2.8576767508610534
+                2.85767692852896
             ],
             [
                 "bigdansing",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "average-euclidean"
+                    "covariance type": "average-manhattan"
                 },
                 2.5235244545834967
             ],
@@ -2871,25 +2841,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                2.5208171716136367
+                2.520817171613631
             ],
             [
-                "holoclean",
-                "HC",
-                {
-                    "n_components": 7.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.1238238719670033
-            ],
-            [
-                "Unified",
+                "scared",
                 "HC",
                 {
                     "n_components": 6.0,
                     "covariance type": "single-euclidean"
                 },
-                2.1044671919771294
+                2.0589862596666606
+            ],
+            [
+                "baran",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-manhattan"
+                },
+                1.9685085902341588
             ]
         ]
     },
@@ -2900,19 +2870,28 @@
                 "bigdansing",
                 "HC",
                 {
-                    "n_components": 16.0,
+                    "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.591814031820036
+                2.752656014928844
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 5.0,
+                    "covariance type": "single-euclidean"
+                },
+                2.599854027338694
             ],
             [
                 "holoclean",
                 "HC",
                 {
-                    "n_components": 7.0,
-                    "covariance type": "average-manhattan"
+                    "n_components": 10.0,
+                    "covariance type": "single-euclidean"
                 },
-                2.5217729434333247
+                2.534477712873301
             ],
             [
                 "baran",
@@ -2921,25 +2900,16 @@
                     "n_components": 15.0,
                     "covariance type": "single-manhattan"
                 },
-                2.4916229259923157
+                2.491622926297037
             ],
             [
-                "Unified",
+                "horizon",
                 "HC",
                 {
-                    "n_components": 12.0,
+                    "n_components": 10.0,
                     "covariance type": "single-manhattan"
                 },
-                2.4684875126037475
-            ],
-            [
-                "scared",
-                "HC",
-                {
-                    "n_components": 12.0,
-                    "covariance type": "single-manhattan"
-                },
-                2.4291670880976617
+                2.3541568249437668
             ]
         ]
     },
@@ -2947,22 +2917,13 @@
         "dataset_id": 59,
         "top_k": [
             [
-                "Unified",
-                "HC",
-                {
-                    "n_components": 5.0,
-                    "covariance type": "average-euclidean"
-                },
-                2.555470213470925
-            ],
-            [
                 "scared",
                 "HC",
                 {
                     "n_components": 5.0,
                     "covariance type": "average-manhattan"
                 },
-                2.537212324878521
+                2.5372123583417063
             ],
             [
                 "holoclean",
@@ -2971,7 +2932,7 @@
                     "n_components": 5.0,
                     "covariance type": "single-manhattan"
                 },
-                2.526025698854409
+                2.526025669509753
             ],
             [
                 "baran",
@@ -2980,16 +2941,25 @@
                     "n_components": 5.0,
                     "covariance type": "single-euclidean"
                 },
-                2.4063730818547953
+                2.406373110220009
+            ],
+            [
+                "Unified",
+                "HC",
+                {
+                    "n_components": 7.0,
+                    "covariance type": "single-manhattan"
+                },
+                2.323661631212059
             ],
             [
                 "bigdansing",
                 "HC",
                 {
                     "n_components": 5.0,
-                    "covariance type": "single-manhattan"
+                    "covariance type": "single-euclidean"
                 },
-                2.1028890990489235
+                2.1028891259085567
             ]
         ]
     }

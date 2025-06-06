@@ -1,7 +1,7 @@
 {
     "clean_state": "raw",
     "best_k": 5,
-    "linkage": "average",
+    "linkage": "single",
     "metric": "euclidean",
     "combined": 1.0276396969387853,
     "silhouette": 0.21913288728488123,
@@ -10,5 +10,6 @@
     "inter_dist_mean": 7.936135832887073,
     "ratio_intra_inter": 0.6807684299703534,
     "n_merge_steps": 41,
-    "total_runtime_sec": 0.7851958274841309
+    "h_max": 6.842127605150423,
+    "total_runtime_sec": 0.3010835647583008
 }
