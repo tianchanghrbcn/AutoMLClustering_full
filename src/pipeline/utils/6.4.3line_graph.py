@@ -84,6 +84,13 @@ def main():
         agg = agg.sort_values(["error_rate_bin", "cluster_method"])
 
         #----------------------------------------------------------------
+        # E) 保存图像对应的数据表格  ← 新增
+        #----------------------------------------------------------------
+        table_path = os.path.join(out_dir, f"CEGR_5pct_{task}.xlsx")
+        agg.to_excel(table_path, index=False)
+        print(f"[INFO] saved {table_path}")
+
+        #----------------------------------------------------------------
         # D) 绘图
         #----------------------------------------------------------------
         plt.figure(figsize=(6.5, 4.5))
@@ -117,7 +124,7 @@ def main():
         plt.close()
         print(f"[INFO] saved {out_pdf}")
 
-    print("[INFO] Done. Each task_name ⇒ one PDF chart.")
+    print("[INFO] Done. Each task_name ⇒ one PDF chart and one data table.")
 
 if __name__ == "__main__":
     main()

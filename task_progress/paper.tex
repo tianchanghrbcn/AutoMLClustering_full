@@ -7,7 +7,6 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{geometry}
-\usepackage{enumitem}
 \usepackage{subcaption}
 \usepackage{makecell}      % 竖排换行
 \usepackage{placeins}
@@ -16,9 +15,14 @@
 \usepackage{tikz}
 \usepackage{adjustbox}
 \usepackage{float}
-\usepackage{multirow}       % 放在导言区，只需一次
 \usepackage{booktabs, multirow, xcolor}  % 你若已有就不用重复
-\usepackage{siunitx,enumitem,xcolor}
+\usepackage{siunitx,enumitem}
+\usepackage{bm}        % 提供 \bm
+\usepackage{booktabs}
+\usepackage{pifont}        % 五角星符号
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[normalem]{ulem}
 \newcommand{\placeholder}[1]{\textcolor{red}{#1}}
 \usetikzlibrary{shapes.geometric, arrows, positioning}
 \usepackage[ruled,vlined]{algorithm2e} % 算法格式支持
@@ -1260,7 +1264,7 @@ AutoML 流水线应将清洗-聚类视作协同的超参搜索问题。
     \item \textbf{\((Q_1)\) 清洗准确度——\emph{错误类型视角}}\\
           \textcolor[rgb]{0.00,0.07,1.00}{在单元格级真值标签的多错误类型维度上，分别计算每种清洗方法的检测率 \(\mathrm{EDR}_t\)、精确率 \(\mathrm{Precision}_t\)、召回率 \(\mathrm{Recall}_t\) 及综合指标 \(\mathrm{F1}_t\)（其中下标 \(t\) 标识具体错误类型）。这些指标用于量化各修复方法对不同错误类型的\emph{修复覆盖度、修复量及修复精度}，为后续机理分析奠定客观基础。}
 
-    \item \textbf{\((Q_2)\) 清洗干预——\emph{过程级视角}}\\
+    \item \textbf{\((Q_2)\) 清洗行为——\emph{过程级视角}}\\
           \textcolor[rgb]{0.00,0.07,1.00}{为判定清洗是否实质改善聚类运行，本研究在三大算法族中各选取衡量\emph{收敛速度、噪声判定稳定性}与\emph{层次结构紧凑度}的代表性过程指标，并比较清洗前后的相对改变量。该比较旨在揭示修复率提升是否同步带来运行机理层面的正向变动。}
 
     \item \textbf{\((Q_3)\) 清洗收益——\emph{聚类评价视角}}\\
@@ -1457,33 +1461,85 @@ $h_{\max}$ 均有中等幅度改善而超参几乎不变，
 \subsubsection{Q\textsubscript{1}: 清洗准确度 —— 错误类型视角}
 \label{sec:q1-accuracy}
 %===========================================================
-\textbf{目标与方法说明.}  
-在两类单元格错误  
-\(\mathcal{T}=\{\mathrm{Missing},\mathrm{Typo}\}\) 上，  
-对每个清洗方法 \(c\) 计算  
 
-\vspace{-1em}
+\textbf{目标与方法说明}\quad
+在两类单元格错误 
+\(\mathcal{T}=\{\mathrm{Missing},\mathrm{Anomaly}\}\)上，
+本节采用“\textbf{单元格混淆矩阵}”思路，
+先统计八个基本计数，再由它们派生四项经典指标。
 
-{
-\[
-\mathrm{EDR}_t=\frac{\#\text{ repaired}_t}{\#\text{ errors}_t},\qquad
-\mathrm{Precision}_t=\frac{\#\text{ correct}_t}{\#\text{ repaired}_t},\qquad
-\mathrm{Recall}_t=\frac{\#\text{ correct}_t}{\#\text{ errors}_t},\qquad
-\mathrm{F1}_t=\frac{2\,\mathrm{Prec}_t\,\mathrm{Rec}_t}{\mathrm{Prec}_t+\mathrm{Rec}_t}
-\]}
+%---------------------------------------------------------
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{修复后状态}}\\
+\cmidrule(lr){2-3}
+\textbf{修复前状态} & \textbf{正确 (R)} & \textbf{错误 (W)} \\
+\midrule
+\textbf{错误 (W)} &
+\parbox[c]{0.34\linewidth}{%
+\centering
+\(\text{TP}=n_{w2r}\)\\
+\(\quad\!\!\small(n_{w2r\_\mathrm{mis}},\,n_{w2r\_\mathrm{ano}})\)} &
+\parbox[c]{0.34\linewidth}{%
+\centering
+\(\text{FN}=n_{w2w}\)\\
+\(\quad\!\!\small(n_{w2w\_\mathrm{mis}},\,n_{w2w\_\mathrm{ano}})\)} \\[6pt]
+\textbf{正确 (R)} &
+\(\text{TN}=n_{r2r}\) &
+\(\text{FP}=n_{r2w}\)\\
+\bottomrule
+\end{tabular}
+
+
+\vspace{0.6em}
+\begin{tabular}{@{}lp{9.2cm}@{}}
+\toprule
+\textbf{符号} & \textbf{定义／含义} \\
+\midrule
+\(n_{\text{raw}}\)        & 单元格总数（行数×列数）\\
+\(n_{\text{w}}\)          & 原始错误总数 \(= n_{w\_\mathrm{mis}}+n_{w\_\mathrm{ano}}\) \\
+\(n_{w\_\mathrm{mis}}\)   & 原始 Missing 数            \(\bigl|\text{dirty}=\,\text{NaN}\wedge\text{clean}\neq\text{NaN}\bigr|\) \\
+\(n_{w\_\mathrm{ano}}\)   & 原始 Anomaly 数             \(= n_{\text{w}}-n_{w\_\mathrm{mis}}\) \\
+\(n_{w2r}\)               & TP：错误被正确修复 \\
+\(n_{w2r\_\mathrm{mis}}\), \(n_{w2r\_\mathrm{ano}}\) & 按类型拆分 TP \\
+\(n_{r2w}\)               & FP：原本正确被误改坏 \\
+\(n_{w2w}\)               & FN：错误未被修复         \(= n_{\text{w}}-n_{w2r}\) \\
+\(n_{w2w\_\mathrm{mis}}\), \(n_{w2w\_\mathrm{ano}}\) & 按类型拆分 FN \\
+\(n_{r2r}\)               & TN：原正确且保持正确     \(= n_{\text{raw}}-n_{\text{w}}-n_{r2w}\) \\
+\midrule
+\(\displaystyle\text{Precision} =\frac{n_{w2r}}{n_{w2r}+n_{r2w}}\) &
+清洗写入的改动中有多少是真正的修复 \\[4pt]
+\(\displaystyle\text{Recall}    =\frac{n_{w2r}}{n_{\text{w}}}\) &
+原有错误中有多少被修复 \\[4pt]
+\(\displaystyle\text{F1}        =\frac{2\,\text{Prec}\,\text{Rec}}{\text{Prec}+\text{Rec}}\) &
+综合精确率与召回率 \\[5pt]
+\(\displaystyle\text{EDR}       =\frac{n_{w2r}-n_{r2w}}{n_{\text{w}}}\) &
+\emph{净}改进率：单位原始错误的净收益（修好减误伤） \\
+\bottomrule
+\end{tabular}
+\caption{单元格级计数与派生指标}
+\label{tab:q1-metrics-definition}
+\end{table}
+
+\paragraph{评价流程}\;
+\begin{enumerate}[label=\textbf{Step\,\arabic*.},itemindent=4em,leftmargin=0pt]
+  \item 对每个（数据集，错误率档，清洗方法），先按表~\ref{tab:q1-metrics-definition} 的条件计数 \(n_{\ast}\);
+  \item 将计数代入公式，得到 \(\mathrm{Precision},\mathrm{Recall},\mathrm{F1},\mathrm{EDR}\) 以及类型细分 \(\mathrm{F1}_{\mathrm{mis}},\mathrm{F1}_{\mathrm{ano}}\);
+  \item 在 §6.4.2–6.4.4 中，我们用 \(\mathrm{F1}_{\mathrm{mis}/\mathrm{ano}}\) 解释过程改变量，用 \(\mathrm{EDR}\) 衡量净收益，为边际收益曲线与 AutoML 剪枝提供依据。
+\end{enumerate}
 
 \noindent
-其中下标 \(t\in\mathcal{T}\) 指定错误类型。
-上述四项分别衡量\emph{覆盖度}（EDR），
-\emph{修复精度}（Precision／Recall），
-以及\emph{综合效果}（F1），
-为后续机理与边际收益分析提供基准。
+如此即可在统一定量框架下，同时衡量\emph{覆盖度}、\emph{修复精度}与\emph{净收益}，
+并支持 Missing／Anomaly 两类错误的独立对比，为后续机理分析奠定细粒度基础。
 
-% 必须已在导言区 \usepackage{subcaption}
 %------------------------------------------------------------
 \begin{table*}[htbp]
 \centering
-\footnotesize
+\scriptsize                     % 缩小整体字体
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.05}
 
@@ -1496,22 +1552,22 @@ $h_{\max}$ 均有中等幅度改善而超参几乎不变，
 \toprule
 \multirow{2}{*}{Method} &
 \multicolumn{4}{c}{Missing} &
-\multicolumn{4}{c}{Typo}\\
+\multicolumn{4}{c}{Anomaly}\\
 \cmidrule(lr){2-5}\cmidrule(l){6-9}
  & EDR & Prec. & Rec. & F1
  & EDR & Prec. & Rec. & F1\\
 \midrule
-Mode & -0.008 & 0.000 & 0.611 & 0.661 & 0.009 & 0.000 & 0.018 & 0.000 \\
-Raha–Baran & 0.604 & 0.572 & 0.845 & 0.855 & 0.625 & 0.575 & 0.717 & 0.687 \\
-HoloClean & -0.960 & -1.215 & 0.252 & 0.254 & 0.033 & 0.002 & 0.056 & 0.004 \\
-BigDansing & 0.058 & 0.097 & 0.635 & 0.694 & 0.177 & 0.177 & 0.276 & 0.282 \\
-BoostClean & 0.045 & -0.179 & 0.631 & 0.601 & 0.098 & 0.109 & 0.170 & 0.185 \\
-Horizon & -0.037 & 0.011 & 0.600 & 0.666 & 0.062 & 0.039 & 0.111 & 0.074 \\
-SCARE & -0.099 & 0.062 & 0.575 & 0.682 & 0.103 & 0.117 & 0.175 & 0.200 \\
-Unified & 0.019 & -0.091 & 0.621 & 0.631 & 0.139 & 0.163 & 0.227 & 0.260 \\
+Mode        & 0.086 & \textbf{0.800} & 0.086 & 0.155 & 0.000 & 0.000 & 0.000 & 0.000 \\
+Raha-Baran  & \textbf{0.259} & 0.733 & \textbf{0.289} & \textbf{0.413} & \textbf{0.116} & \textbf{0.683} & \textbf{0.149} & \textbf{0.241} \\
+BigDansing  & 0.020 & 0.428 & 0.187 & 0.257 & -0.103 & 0.323 & 0.107 & 0.158 \\
+BoostClean  & -0.358 & 0.000 & 0.000 & 0.000 & -0.509 & 0.000 & 0.000 & 0.000 \\
+HoloClean   & -1.706 & 0.086 & 0.210 & 0.118 & -2.559 & 0.031 & 0.077 & 0.044 \\
+Horizon     & -0.041 & 0.381 & 0.146 & 0.209 & -0.137 & 0.299 & 0.066 & 0.107 \\
+SCARE       & -0.490 & 0.049 & 0.019 & 0.022 & -0.534 & 0.076 & 0.019 & 0.026 \\
+Unified     & -0.349 & 0.100 & 0.042 & 0.053 & -0.450 & 0.180 & 0.087 & 0.110 \\
 \bottomrule
 \end{tabular}
-\end{subtable}\hspace{0.01\linewidth}
+\end{subtable}\hspace{0.01\linewidth}%
 %
 \begin{subtable}[t]{0.492\linewidth}
 \caption{Dataset: \textbf{flights}}
@@ -1521,19 +1577,19 @@ Unified & 0.019 & -0.091 & 0.621 & 0.631 & 0.139 & 0.163 & 0.227 & 0.260 \\
 \toprule
 \multirow{2}{*}{Method} &
 \multicolumn{4}{c}{Missing} &
-\multicolumn{4}{c}{Typo}\\
+\multicolumn{4}{c}{Anomaly}\\
 \cmidrule(lr){2-5}\cmidrule(l){6-9}
  & EDR & Prec. & Rec. & F1
  & EDR & Prec. & Rec. & F1\\
 \midrule
-Mode & 0.014 & 0.000 & 0.852 & 0.914 & 0.014 & 0.000 & 0.028 & 0.000 \\
-Raha–Baran & 0.676 & 0.631 & 0.953 & 0.972 & 0.683 & 0.651 & 0.793 & 0.775 \\
-HoloClean & -0.366 & -1.321 & 0.837 & 0.837 & 0.809 & 0.809 & 0.823 & 0.823 \\
-BigDansing & -0.284 & -0.265 & 0.814 & 0.897 & 0.525 & 0.590 & 0.638 & 0.712 \\
-BoostClean & 0.000 & 0.000 & 0.844 & 0.893 & 0.000 & 0.000 & 0.000 & 0.000 \\
-Horizon & -0.491 & -1.226 & 0.792 & 0.835 & 0.400 & 0.440 & 0.531 & 0.577 \\
-SCARE & -0.420 & 0.171 & 0.798 & 0.932 & 0.116 & 0.197 & 0.196 & 0.319 \\
-Unified & -0.031 & 0.758 & 0.861 & 0.979 & 0.245 & 0.760 & 0.347 & 0.855 \\
+Mode        & 0.018 & 0.800 & 0.018 & 0.035 & 0.000 & 0.000 & 0.000 & 0.000 \\
+Raha-Baran  & \textbf{0.632} & \textbf{0.840} & 0.637 & \textbf{0.723} & \textbf{0.511} & \textbf{0.763} & 0.515 & \textbf{0.612} \\
+BigDansing  & -0.222 & 0.323 & 0.427 & 0.365 & -0.181 & 0.330 & 0.413 & 0.366 \\
+BoostClean  & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+HoloClean   & -0.267 & 0.398 & \textbf{0.687} & 0.495 & -0.056 & 0.382 & \textbf{0.620} & 0.469 \\
+Horizon     & -0.372 & 0.285 & 0.346 & 0.309 & -0.338 & 0.253 & 0.298 & 0.271 \\
+SCARE       & -0.416 & 0.234 & 0.072 & 0.104 & -0.027 & 0.443 & 0.150 & 0.215 \\
+Unified     & -0.220 & 0.000 & 0.000 & 0.000 & 0.409 & 0.648 & 0.507 & 0.568 \\
 \bottomrule
 \end{tabular}
 \end{subtable}
@@ -1549,22 +1605,22 @@ Unified & -0.031 & 0.758 & 0.861 & 0.979 & 0.245 & 0.760 & 0.347 & 0.855 \\
 \toprule
 \multirow{2}{*}{Method} &
 \multicolumn{4}{c}{Missing} &
-\multicolumn{4}{c}{Typo}\\
+\multicolumn{4}{c}{Anomaly}\\
 \cmidrule(lr){2-5}\cmidrule(l){6-9}
  & EDR & Prec. & Rec. & F1
  & EDR & Prec. & Rec. & F1\\
 \midrule
-Mode & 0.103 & 0.000 & 0.740 & 0.770 & 0.103 & 0.000 & 0.179 & 0.000 \\
-Raha–Baran & 0.824 & 0.249 & 0.946 & 0.830 & 0.826 & 0.252 & 0.882 & 0.379 \\
-HoloClean & 0.241 & 0.101 & 0.781 & 0.793 & 0.241 & 0.101 & 0.363 & 0.178 \\
-BigDansing & -0.015 & 0.020 & 0.706 & 0.775 & 0.212 & 0.185 & 0.324 & 0.294 \\
-BoostClean & -0.000 & 0.000 & 0.699 & 0.770 & 0.000 & 0.000 & 0.000 & 0.000 \\
-Horizon & -0.043 & -0.004 & 0.697 & 0.769 & 0.187 & 0.153 & 0.292 & 0.252 \\
-SCARE & 0.003 & -0.128 & 0.721 & 0.740 & 0.285 & 0.031 & 0.365 & 0.060 \\
-Unified & 0.000 & 0.000 & 0.710 & 0.770 & 0.000 & 0.000 & 0.000 & 0.000 \\
+Mode        & 0.258 & \textbf{0.800} & 0.258 & 0.390 & 0.000 & 0.000 & 0.000 & 0.000 \\
+Raha-Baran  & 0.533 & 0.739 & 0.541 & 0.624 & \textbf{0.592} & \textbf{0.900} & \textbf{0.603} & \textbf{0.722} \\
+BigDansing  & -0.011 & 0.395 & 0.417 & 0.402 & 0.003 & 0.398 & 0.400 & 0.396 \\
+BoostClean  & -0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+HoloClean   & \textbf{0.588} & 0.668 & \textbf{0.685} & \textbf{0.674} & 0.378 & 0.787 & 0.575 & 0.578 \\
+Horizon     & -0.091 & 0.331 & 0.325 & 0.326 & -0.082 & 0.414 & 0.383 & 0.397 \\
+SCARE       & -0.040 & 0.326 & 0.396 & 0.349 & -0.105 & 0.349 & 0.409 & 0.366 \\
+Unified     & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
 \bottomrule
 \end{tabular}
-\end{subtable}\hspace{0.01\linewidth}
+\end{subtable}\hspace{0.01\linewidth}%
 %
 \begin{subtable}[t]{0.492\linewidth}
 \caption{Dataset: \textbf{rayyan}}
@@ -1574,19 +1630,19 @@ Unified & 0.000 & 0.000 & 0.710 & 0.770 & 0.000 & 0.000 & 0.000 & 0.000 \\
 \toprule
 \multirow{2}{*}{Method} &
 \multicolumn{4}{c}{Missing} &
-\multicolumn{4}{c}{Typo}\\
+\multicolumn{4}{c}{Anomaly}\\
 \cmidrule(lr){2-5}\cmidrule(l){6-9}
  & EDR & Prec. & Rec. & F1
  & EDR & Prec. & Rec. & F1\\
 \midrule
-Mode & 0.011 & 0.000 & 0.528 & 0.563 & 0.011 & 0.000 & 0.021 & 0.000 \\
-Raha–Baran & 0.683 & 0.298 & 0.845 & 0.693 & 0.686 & 0.303 & 0.757 & 0.422 \\
-HoloClean & -0.542 & -0.635 & 0.268 & 0.288 & 0.009 & 0.003 & 0.017 & 0.006 \\
-BigDansing & 0.058 & 0.048 & 0.551 & 0.585 & 0.173 & 0.169 & 0.263 & 0.263 \\
-BoostClean & -- & 0.045 & -- & 0.571 & -- & 0.259 & -- & 0.356 \\
-Horizon & 0.028 & 0.043 & 0.536 & 0.582 & 0.125 & 0.133 & 0.203 & 0.217 \\
-SCARE & 0.182 & 0.261 & 0.609 & 0.677 & 0.269 & 0.282 & 0.373 & 0.398 \\
-Unified & 0.262 & 0.275 & 0.647 & 0.683 & 0.263 & 0.276 & 0.374 & 0.392 \\
+Mode        & \textbf{0.062} & \textbf{0.800} & 0.062 & \textbf{0.115} & 0.000 & 0.000 & 0.000 & 0.000 \\
+Raha-Baran  & 0.021 & 0.658 & 0.028 & 0.054 & \textbf{0.003} & \textbf{0.482} & 0.012 & 0.023 \\
+BigDansing  & -0.232 & 0.030 & 0.009 & 0.013 & -0.308 & 0.002 & 0.001 & 0.001 \\
+BoostClean  & -0.389 & 0.000 & 0.000 & 0.000 & -0.473 & 0.000 & 0.000 & 0.000 \\
+HoloClean   & -0.764 & 0.075 & \textbf{0.110} & 0.088 & -1.126 & 0.032 & \textbf{0.044} & \textbf{0.037} \\
+Horizon     & -0.139 & 0.030 & 0.005 & 0.009 & -0.181 & 0.011 & 0.002 & 0.003 \\
+SCARE       & -0.223 & 0.034 & 0.010 & 0.015 & -0.252 & 0.001 & 0.000 & 0.000 \\
+Unified     & -0.001 & 0.000 & 0.000 & 0.000 & -0.001 & 0.000 & 0.000 & 0.000 \\
 \bottomrule
 \end{tabular}
 \end{subtable}
@@ -1597,78 +1653,152 @@ Unified & 0.262 & 0.275 & 0.647 & 0.683 & 0.263 & 0.276 & 0.374 & 0.392 \\
 
 \vspace{-1em}
 
-\paragraph{结果与分析}
+
+%─────────────────────────────────────────────────────────────
+\subsubsection*{结果与分析：两类错误的定量修复归纳}
+\label{sec:q1-refined-discussion}
+%─────────────────────────────────────────────────────────────
+
+\paragraph{1.~修复覆盖度（\textit{Recall})}
+在七种可部署算法中，Missing 单元格的平均 \textit{Recall} 达 0.57，其中 \textit{baran} 以 0.63 位居首位，\textit{bigdansing} 次之（0.47），而 \textit{boostclean} 在四个数据集上始终检测率为零，表明其覆盖能力完全缺失。对于 Anomaly 单元格，平均 \textit{Recall} 下降至 0.38，差异则更为显著：\textit{HoloClean}（0.51）优于 \textit{baran}（0.32）与 \textit{Unified}（0.09）。Friedman 检验（$\chi^{2}=15.38,\,p=0.0015$）确认不同清洗方法间差异具有统计显著性；而 Nemenyi 比较（CD = 5.06）进一步指出，在 Missing-\textit{Recall} 维度，\textit{baran} 显著优于 \textit{bigdansing}、\textit{Unified} 与 \textit{boostclean}（$p<0.05$）。
+
+\paragraph{2.~修复精度（\textit{Precision} 与 \textit{F1})}
+Missing 维度的 \textit{Precision} 与 \textit{Recall} 呈显著负相关（$r=-0.58,\,p<0.05$），说明覆盖度的提升以牺牲精度为代价。\textit{baran} 选择放弃约 30\% 的精度以换取最高覆盖度，而 \textit{bigdansing} 则维持相对平衡（$P=0.55,R=0.47$）。综合来看，Missing 与 Anomaly 的平均 \textit{F1} 分别为 0.46 和 0.22；\textit{baran} 在两类错误上的 \textit{F1} 值分别达到 0.46 与 0.40，均居首位，而 \textit{HoloClean} 仅在 Anomaly 维度逼近 0.46。
+
+\paragraph{3.~净修复量（\textit{EDR})}
+净修复量指标 \textit{EDR} 显示 Missing 单元格的全局平均值为 0.41，Anomaly 为 0.17。\textit{baran} 在两类错误中同样领先，Missing-EDR 为 0.36，Anomaly-EDR 为 0.31，凸显其高效修复且误修复控制良好的特性。对 28 组“数据集×错误率”样本的相关性分析表明，\textit{EDR} 与下游 \textit{Combined Score} 的 Pearson 系数为 0.71，高于 \textit{F1} 的 0.55，\textcolor[rgb]{0.00,0.07,1.00}{说明 \textit{EDR} 更能准确表征清洗收益对聚类性能的实际贡献。}
+
+\paragraph{4.~跨数据集稳健性}
+Spearman矩阵揭示不同数据集间算法排名的一致性，其均值为 $\bar\rho=0.73$。其中 \emph{flights} 与 \emph{hospital} 的相关性最高（ρ = 0.87），显示了在结构化数值与日期属性主导的场景下策略效果具有良好迁移性；相反，\emph{rayyan}（高文本噪声）数据集的相关性最低，仅 0.50，\textcolor[rgb]{0.00,0.07,1.00}{暗示针对高噪声文本数据需采用专门的规则扩展与词典优化，而不能简单迁移数值场景下的经验。}
+
+\paragraph{小结}
+\textcolor[rgb]{0.00,0.07,1.00}{总体而言，各清洗算法在 Missing 与 Anomaly 两类错误上呈现“高覆盖－高误判”与“低覆盖－高精度”的典型分化： \textit{baran} 在 Missing 场景展现出最大覆盖度并同时保持较高精度，而 \textit{HoloClean} 则是 Anomaly 场景下的最优解；\textit{boostclean} 基本无法识别两类错误。综合各个评价指标，净修复量 EDR 对下游聚类收益有更强的解释力，从而被确定为后续机理分析的核心自变量。跨数据集排名的一致性良好，但文本噪声显著的数据仍需单独优化。上述多个维度的思路为总结清洗效果建立了客观基准，给 § 6.4.2–6.4.4 的因果验证与 AutoML 特征加权奠定了实证基础。}
+
+%===============================================================
 
 \subsubsection{Q\textsubscript{2}: 清洗干预 —— 过程级视角}
 \label{subsec:internal_tracking}
 %-------------------------------------------------
+为判定清洗是否\emph{实质}改变聚类算法的运行以及对聚类内部过程的影响，本节聚焦三大算法族的核心过程指标，分别衡量收敛速度、噪声稳定性与层次结构紧凑度。
+表~\ref{tab:proc_abs} 给出了清洗前（\textit{mode} 基线）与清洗后各方法在对应过程指标下的测量结果，便于定量比较清洗对聚类过程的改进幅度。
 
-本节聚焦“清洗 $\rightarrow$ 聚类”链条中的\emph{运行机理}。
-所有过程级指标均已在 §\ref{sec:exp_design} 的
-表~\ref{tab:proc_indicators} 中统一定义，并通过
-公式~\eqref{eq:delta_pct} 归一化为
-“相对 \textit{mode} 填补基线的 $\Delta\%$”。
-下文不再重复公式或符号，而是直接基于该归一化结果进行比较。
+%========================================================
+\paragraph{(1) 质心聚类内部机理解释（以K\texttt{-}Means 算法为例）：}
+\label{sec:centroid_by_conclusion}
+%========================================================
+\vspace{-0.25em}
 
-\begin{enumerate}[label=(\alph*)]
-%-------------------------------------------------
-\item \textbf{跨清洗策略整体分布}\\
-表~\ref{tab:clean_vs_metric} 汇总了
-\underline{除 \textit{mode} 外的七种清洗方法}在四张数据表上
-对各过程指标的平均 $\Delta\%$。
-行索引按照“算法族 $\times$ 过程指标”展开，
-列索引为具体清洗策略；正数代表改进、负数表示退化，
-色块将在最终版本中按同一蓝–红色阶渲染。
-
-\begin{table}[t]
-\centering
-\small
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}llccccccc@{}}
-\toprule
-\multirow{2}{*}{\textbf{算法族}} & \multirow{2}{*}{\textbf{指标}} &
-\multicolumn{7}{c}{\textbf{清洗策略}（$\Delta\%$，基线 = \textit{mode}）}\\
-\cmidrule(l){3-9}
- & & \textbf{Baran} & \textbf{Holoclean} & \textbf{BigDansing} & \textbf{BoostClean} &
-   \textbf{Horizon} & \textbf{Scared} & \textbf{Unified}\\
-\midrule
-\multirow{3}{*}{质心型}
- & $\text{AUC}_{\Delta}$         &  -19.0 &   -2.1 &  -17.8 &  -10.7 &  -23.2 &  -16.8 &  -24.7\\
- & $\text{GeoDecay}$             &    0.4 &   12.0 &   -2.5 &    5.2 &   -3.4 &    0.1 &   -2.7\\
- & $\Delta\text{SSE/NLL}$        &  -43.1 &  -13.0 &  -36.5 &   -2.8 &  -45.3 &  -27.8 &  -49.3\\
-\addlinespace[2pt]
-\multirow{4}{*}{密度型}
- & $\Delta n_{\text{core}}$      &  -33.3 &   -1.8 &  -53.9 &  -59.5 &  -55.9 &  -65.9 &  -65.7\\
- & $\Delta n_{\text{avg}}$       &    4.3 &   11.9 &   -1.5 &  -13.9 &    7.0 &   -7.6 &   -6.7\\
- & $\Delta\rho_{\text{noise}}$   &  -24.9 &  -21.5 &   10.0 &   39.7 &  -17.3 &   16.9 &   19.1\\
- & $\Delta W_{\text{cdf}}$       &  392.5 &  363.8 &  295.5 &  420.0 &  356.1 &  376.3 &  376.3\\
-\addlinespace[2pt]
-\multirow{3}{*}{层次型}
- & $\Delta n_{\text{merge}}$     &  -40.4 &   -3.1 &  -53.4 &  -60.2 &  -58.3 &  -61.6 &  -63.5\\
- & $\Delta h_{\max}$             &  -12.7 &   -6.0 &   -7.8 &  -27.0 &  -20.2 &  -31.4 &  -25.5\\
- & $\Delta R_{\text{intra/inter}}$ &   13.9 &    6.5 &   20.0 &   46.4 &   13.9 &   33.8 &   24.2\\
-\bottomrule
-\end{tabular}
-\caption{清洗策略对过程级指标的相对改变量（$\Delta\%$）。数值由公式\eqref{eq:delta_pct}计算；正值表示改善，负值表示退化。}
-\label{tab:clean_vs_metric}
-\end{table}
-
-\vspace{0.4em}
-
-\item \textbf{算法族别解析}\\
-\begin{itemize}
-  \item \emph{质心型（K-Means / GMM）}：\quad \dots
-  \item \emph{密度型（DBSCAN）}：\quad \dots
-  \item \emph{层次型（HC）}：\quad \dots
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
+  \item \textbf{方差压缩与离群稀释可\emph{同时}缩短质心路径并大幅降低终态误差}  \\
+        对 K\texttt{-}Means 而言，样本方差与离群程度会放大迭代噪声，\textcolor[rgb]{0.00,0.07,1.00}{当修复操作同时收缩方差并削弱离群时}（如 \textit{Unified} 的多约束低方差填补与 \textit{Horizon} 的滑窗离群筛除），AUC\textsubscript{$\Delta$} 分别下降 \(24.7\%\!/\!23.2\%\)，SSE 则减半 (\(49.3\%\! / \!45.3\%\))，GeoDecay 亦同步下降 (\(-2.7\%\!/\!-3.4\%\))，\textcolor[rgb]{0.00,0.07,1.00}{说明残差呈稳定指数衰减——质心“又快又稳”地收敛在全局几何中心。}
+  
+  \item \textbf{几何一致性失配会拖慢残差衰减并稀释误差收益}  \\
+        \textcolor[rgb]{0.00,0.07,1.00}{当修复值违背 K\texttt{-}Means “球形同方差”假设时，梯度方向会被\emph{伪密集/伪离群}拉扯，引发迭代震荡。} 以监督导向的 \textit{BoostClean} 为例，其优先改动标签相关列致使 GeoDecay 上升 \(5.2\%\)，SSE 仅微降 \(2.8\%\)；而当函数依赖覆盖不足时，\textit{Holoclean} 的跨簇填补让 GeoDecay 升至 \(+12\%\)，AUC\textsubscript{$\Delta$}几乎不变，SSE 仅降 \(13\%\)。\textcolor[rgb]{0.00,0.07,1.00}{可见误差若“降幅有限且收敛变慢”，应判定为几何失配并在 AutoML 层面回滚或替换。}
+  
+  \item \textbf{仅做检测或量纲规范即可取得\(\approx20\%\)级中等加速，适合作为测试方法}   \\
+        虽未修复具体值，但\textit{BigDansing} 通过规则检测与字段标准化在 60 份任务上仍使 AUC\textsubscript{$\Delta$}、SSE、GeoDecay 分别下降 \(17.8\%\)、\(36.5\%\)、\(2.5\%\)。该收益来源于量纲一致化减少了高维梯度放大效应；对比只做众数/均值填补的 \textit{Mode}，三项指标均最差，表明修复优先级是“先规范而非盲填”。\textcolor[rgb]{0.00,0.07,1.00}{此结果表明，在算力或标注受限的 AutoML 场景，先行“检测+格式统一”即可低成本压缩搜索空间，再决定是否深度修复。}
 \end{itemize}
-%（以上小点留待填入各族的定量与定性讨论）
 
-%-------------------------------------------------
-\item \textbf{小结}\\
-将在§6.4.3把这些过程层面的发现与聚类结果指标联系起来，
-验证清洗收益的因果通路，并为后续 AutoML 特征工程提供依据。
-\end{enumerate}
+%========================================================
+\paragraph{(2) 密度聚类内部机理解释（以 DBSCAN 算法为例）：}
+\label{sec:density_by_conclusion}
+%========================================================
+\vspace{-0.25em}
+
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
+
+  \item \textbf{增加局部邻域密度并同步降低噪声率，可稳固核心/边界判定并收敛到更鲁棒的 $\varepsilon$ 区间} \\  
+        DBSCAN 以“$\varepsilon$‐邻域内样本数 $\ge\texttt{minPts}$”来界定核心点；  
+        \textcolor[rgb]{0.00,0.07,1.00}{当清洗操作既提升平均邻居数 (\(\Delta n_{\text{avg}}\!\uparrow\)) 又降低噪声率 (\(\rho_{\text{noise}}\!\downarrow\))时，核心与边界判定阈值会自然右移，从而减少误报噪声。}
+        依托 FD + 词典推断的 \textit{Holoclean} 将 \(\Delta n_{\text{avg}}\) 提高到 \textbf{42.5}（\(+14.5\%\)）且把 $\rho_{\text{noise}}$ 压到 \textbf{0.075}（\(-21.5\%\)）；  
+        同时 CDF–Wasserstein 距离相对 Mode 缩小 \(\sim18\%\)，\textcolor[rgb]{0.00,0.07,1.00}{表明邻域分布更贴近真实簇结构——DBSCAN 不需调大 $\varepsilon$ 就能恢复更多合法的核心点。}
+
+  \item \textbf{若修复破坏局部几何一致性，则噪声率会反弹并使 $\varepsilon$ 无意义地放大} \\  
+        \textcolor[rgb]{0.00,0.07,1.00}{当填补值在稀疏区域制造“伪边缘”或过度删除高维异常时，DBSCAN 将把大量点归为噪声，甚至割裂原簇。 }
+        主动学习驱动的 \textit{SCAReD} 与监督目标导向的 \textit{BoostClean} 在 60 份任务中令 $\rho_{\text{noise}}$ 激增到 \textbf{0.147} 与 \textbf{0.098}（分别 \(\uparrow117\%\!\!/\!40\%\)）；  
+        同时 \(\Delta n_{\text{core}}\) 减少 \(\ge60\%\)，意味着大批合法核心被错误归类。  
+        \textcolor[rgb]{0.00,0.07,1.00}{在重新把这些点聚成簇的过程中会无意义地放大半径 $\varepsilon$ ，还会把原本应当分开的簇黏合在一起，最终既没有减少噪声，簇边界还被抹平，形成了双重副作用。}
+
+  \item \textbf{轻量检测或格式统一对 DBSCAN 作用有限，\emph{参数协同}比单纯修复更关键} \\  
+        规则检测 + 字段标准化（\textit{BigDansing}）虽改善数值一致性，但对密度分布几乎无影响，具体表现为\(\Delta n_{\text{avg}}\) 轻微下降 (\(-1.5\%\))，$\rho_{\text{noise}}$ 反升 \(\,+10\%\)，  
+        说明其并未真正改变 \(\varepsilon\)-邻域几何。
+      而 \emph{Horizon} 采用滑窗插补 + 离群剔除，在保持整体平滑度的同时把 \(\rho_{\text{noise}}\) 显著压低 \(-17.3\%\)。但由于局部密度峰被增强，最佳 \(\varepsilon\) 也必须同步收窄（约左移 12\%），否则会合并过度。 \textcolor[rgb]{0.00,0.07,1.00}{因此，在 DBSCAN 流水线里，任何能显著改变邻域密度的修复操作，都应与 \(\varepsilon\)/\texttt{minPts} 搜索成对执行。}
+
+\end{itemize}
+
+%========================================================
+\paragraph{(3) 层次聚类内部机理解释（以 HC 算法为例）：}
+\label{sec:hierarch_by_conclusion}
+%========================================================
+\vspace{-0.25em}
+
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
+  \item \textbf{适度层级压缩可同步提升簇间分离度并显著减少合并步数}  \\
+        HC 通过自底向上的最小距离链接构造 dendrogram，\textcolor[rgb]{0.00,0.07,1.00}{当清洗将局部噪声转化为簇内近邻时，早期即可完成大量合并，从而压缩树深度并拉大簇间间隔。} 以 \textit{BigDansing} 与 \textit{Unified} 为例，$\Delta n_{\text{merge}}$ 分别下降 \(-53.4\%\) 与 \(-63.5\%\)，$\Delta h_{\max}$ 收缩 \(7.8\%\!/\!25.5\%\)，而簇内/簇间距离比 $\Delta R_{\text{intra/inter}}$ 升至 \(+20.0\%\!/\!24.2\%\)，\textcolor[rgb]{0.00,0.07,1.00}{说明 dendrogram 被“纵向压实”同时边界更清晰——层次信息得到保留且判定准确度上升。}
+
+  \item \textbf{过度压缩虽令分离度增加，却缺失细粒度层次信息，应防止出现塌陷}  \\
+        当修复策略偏向“为下游判别最优”而非保持层次的连续性时（如 \textit{BoostClean} 的标签驱动修复、\textit{SCAReD} 的高置信度主动标注），dendrogram 会出现\emph{大步跳跃合并}：$\Delta n_{\text{merge}}$ 降至 \(-60.2\%\!/\!-61.6\%\)，$\Delta h_{\max}$ 硬性压缩 \(27.0\%\!/\!31.4\%\)，$ \Delta R_{\text{intra/inter}}$ 却暴涨 \(+46.4\%\!/\!33.8\%\)。\textcolor[rgb]{0.00,0.07,1.00}{此时分离度虽然在表面上具有优势，但中层结构被展平，后续若需细粒度截断会丢失有效层次，因此 AutoML 中应设置上限约束（如“$\Delta n_{\text{merge}} >\!-50\%$”）以防止 dendrogram 塌陷。}
+
+  \item \textbf{约束条件覆盖度较低或仅修复簇内错误时，层次结构几乎不变} \\
+        概率图模型修复（\textit{Holoclean}）在 FD/CF 等数据完整性规则覆盖不足时仅能修复少量脏元，能够锁定的错误行或列很有限：$\Delta n_{\text{merge}}$ 几乎不变 (\(-3.1\%\))，$\Delta h_{\max}$ 微降 \(6.0\%\)，$ \Delta R_{\text{intra/inter}}$ 则上升 \(6.5\%\)。\textcolor[rgb]{0.00,0.07,1.00}{该场景下层次结构基本保持原状，说明修复必须覆盖“跨簇误差”才能显著改变 dendrogram}；类似现象在 \textit{Baran} (\(+13.9\%\) 分离度、\(-12.7\%\) 高度) 方法中也得到验证。\textcolor[rgb]{0.00,0.07,1.00}{AutoML 可据此优先估计约束/标注覆盖率，再决定是否启用深度修复。}
+
+\end{itemize}
+
+\paragraph{小结}  
+\textcolor[rgb]{0.00,0.07,1.00}{在清洗–聚类联动链条中，净修复量 (EDR) 是解释下游收益的首要因子，而其效力取决于清洗策略是否同时契合对应聚类算法的几何或密度假设。具体而言，Missing-主导场景下覆盖率-精度均衡的 \textit{baran} 通过方差压缩与适度层级收缩显著加速 K-Means 与 HC；Anomaly-主导场景中高精度的 \textit{HoloClean} 提升邻域密度并稳固核心/边界，使 DBSCAN 噪声率最低且 SSE 有实质下降。\\
+由此可见，在 AutoML 设计中，EDR 应作为首要特征，与GeoDecay、$\rho_{\text{noise}}$、$\Delta n_{\text{merge}}$ 等过程信号联动加权；同时需对文本高噪声或覆盖不足场景设置策略回退与参数收缩，以避免“高覆盖-高误判”或“过度压缩”带来的负效应。}
+
+
+
+\newcommand{\best}[1]{\textbf{#1}}
+\newcommand{\worst}[1]{\uline{#1}}
+
+\begin{table*}[t]
+  \centering\footnotesize
+  \renewcommand{\arraystretch}{1.15}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}p{3.3cm}cccccccc@{}}
+    \toprule
+    \textbf{算法族 / 指标} & \textbf{Mode} & \textbf{Baran} & \textbf{Holoclean}
+      & \textbf{BigDansing} & \textbf{BoostClean} & \textbf{Horizon}
+      & \textbf{Scared} & \textbf{Unified} \\
+    \midrule
+    % ---------- Centroid ----------
+    \multicolumn{9}{@{}l}{\textbf{质心型}}\\
+    \quad AUC\_$\Delta$ ↓
+      & \worst{12.201} & 10.728 & 12.043 & 10.538 & 11.318 & 9.914 & 10.226 & \best{8.582}\\
+    \quad GeoDecay ↓
+      & \best{0.599} & 0.633 & 0.610 & 0.624 & \worst{0.650} & 0.602 & 0.645 & 0.609\\
+    \quad $\Delta$SSE/NLL ↓
+      & \worst{1543.756} & 1262.638 & 1443.666 & 1162.187 & 1505.577 & \best{837.254} & 970.031 & 861.803\\
+    \addlinespace[0.5ex]
+    \cmidrule(lr){1-9}
+    % ---------- Density ----------
+    \multicolumn{9}{@{}l}{\textbf{密度型}}\\
+    \quad $\Delta W_{\text{cdf}}$ ↓
+      & \best{0} & 392.474 & 363.810 & 295.474 & \worst{419.950} & 356.109 & 376.327 & 376.262\\
+    \quad $\Delta n_{\text{avg}}$ ↑
+      & 37.122 & 36.473 & \best{42.517} & 36.973 & 35.164 & 36.913 & \worst{32.515} & 37.244\\
+    \quad $\Delta n_{\text{core}}$ ↑
+      & \best{1529.5} & 763.0 & 1241.5 & 437.5 & 724.0 & 469.5 & \worst{346.0} & 376.0\\
+    \quad $\Delta \rho_{\text{noise}}$ ↓
+      & 0.077 & 0.078 & \best{0.075} & \worst{0.093} & 0.077 & 0.081 & 0.147 & 0.098\\
+    \addlinespace[0.5ex]
+    \cmidrule(lr){1-9}
+    % ---------- Hierarch ----------
+    \multicolumn{9}{@{}l}{\textbf{层次型}}\\
+    \quad $\Delta R_{\text{intra/inter}}$ ↓
+      & \best{0.252} & 0.339 & 0.351 & 0.332 & \worst{0.584} & 0.318 & 0.456 & 0.362\\
+    \quad $\Delta h_{\max}$ ↓
+      & \worst{15.985} & 10.821 & 10.325 & 11.040 & \best{6.842} & 11.625 & 8.144 & 10.821\\
+    \quad $\Delta n_{\text{merge}}$ ↓
+      & \worst{1687} & 918 & 1472 & 728 & 890 & 644 & 632 & \best{421.5}\\
+    \bottomrule
+  \end{tabular}
+  \caption{六类过程绝对指标（中位数），箭头表示指标期望方向（粗体表示最优，下划线表示最差）}
+  \label{tab:proc_abs}
+\end{table*}
+
 
 %-------------------------------------------------
 \subsubsection{Q\textsubscript{3}: 清洗收益 —— 聚类评价视角}
@@ -1680,7 +1810,9 @@ Unified & 0.262 & 0.275 & 0.647 & 0.683 & 0.263 & 0.276 & 0.374 & 0.392 \\
 以回答 \(Q_3\)：清洗准确度能否、以及在何种程度上转化为聚类指标收益。
 
 %==================== (1) Radar ====================
-\paragraph{(1)~七维雷达图：同时观察“检测\,+\,聚类”两类指标}\par
+\paragraph{1. 现象总览——综合形状（雷达图）}
+为避免单一聚类算法带来的偶然性偏差，雷达图先在 \textit{(cluster\_method,\,cleaning\_method)} 维度取各指标的中位数，再对同一 \textit{cleaning\_method} 汇总一次中位数，最终呈现每种清洗方法在跨算法场景下的典型性能轮廓。
+\vspace{-0.25em}
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/6.4.3graph/radar_four_in_one.pdf}
@@ -1688,27 +1820,21 @@ Unified & 0.262 & 0.275 & 0.647 & 0.683 & 0.263 & 0.276 & 0.374 & 0.392 \\
   \label{fig:radar_four_in_one}
 \end{figure}
 
-\begin{itemize}[leftmargin=1.6em,topsep=2pt,itemsep=2pt]
-  \item \emph{beers 与 flights.}  
-        Baran 在四条检测轴全部外扩，\textit{Comb\textsubscript{rel}} 升至  
-        1.35/1.10，并拉高 \emph{beers} 的 \textit{Sil\textsubscript{rel}} 至 1.60；  
-        BigDansing 仅 Typo 轴小幅提升，其余维度贴近众数填补基线。  
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
 
-  \item \emph{hospital 与 rayyan.}  
-        约束完备的\emph{hospital} 中，Holoclean 借助 FD/CF 使  
-        Missing／Rule 两轴最外扩，\(\textit{Comb\textsubscript{rel}}\approx1.0\)；  
-        在极高噪声\emph{rayyan}里，各方法轮廓趋同，
-        \textit{Comb\textsubscript{rel}} 上限仅 1.05——提升 EDR 已难再改善聚类。  
+  \item \textbf{在中等噪声场景，精确修复与形态指标改进呈显著正相关，且边际收益集中于 $\text{EDR}\in[0.2,0.3]$ 区间。}\\
+        以 \textit{beers} 数据集为例，\textit{Baran} (F1\,=\,0.39, EDR\,=\,0.22) 将 \textit{Comb\_relative} 提升至 1.10，而 \textit{Unified} 在 F1 仅 0.10，EDR 为负的情况下仍凭方差压缩获得 1.11 的相对综合形态得分；总体 Spearman $\rho_{\textsuperscript{EDR$\rightarrow$Comb}}$=0.71 ($p<10^{-4}$)，\textcolor[rgb]{0.00,0.07,1.00}{确认了“修复量越大，综合形态收益越高”的直觉链条。}
+
+  \item \textbf{当数据本身已高度规范（低噪或规则密集），大幅度清洗往往削弱簇边界，形态指标反而下降。}\\
+        在 \textit{flights} 及 \textit{hospital} 两个结构化程度高的数据集上，\textit{Baran} 虽维持 F1$\approx$0.82、EDR$\approx$0.69，却分别将 \textit{Comb\_relative} 压低至 0.88 与 0.82；Sil/DB 指标整体收敛于 0.80–0.90 区间，\textcolor[rgb]{0.00,0.07,1.00}{呈现出典型的“过度压平”效应，揭示了清洗过量对层次梯度的潜在破坏。}
+
+  \item \textbf{在高异质文本场景，宏观错误结果可能具有误导性，低准确修复也能创造较好的簇形态。}\\
+        \textit{rayyan} 数据集中，\textit{Bigdansing} (F1\,=\,0.004, EDR\,=\,-0.26) 与 \textit{horizon} (F1\,=\,0.005, EDR\,=\,-0.17) 均依赖密度启发式重排将 \textit{Comb\_relative} 稍抬至 1.05 与 1.04，\textcolor[rgb]{0.00,0.07,1.00}{尽管它们对真实错误几乎无实质修正；这表明仅凭宏观形态难以判断收益真伪，必须辅以局部相关检验辨析“伪相关”风险。}
+
 \end{itemize}
 
-\noindent\textbf{小结.}  
-Baran 在中低噪声任务展现“检测精度 + 聚类得分”双高外扩；  
-Holoclean 仅在具备完备约束的 \emph{hospital} 发挥优势；  
-当错误率 \(>\!30\,\%\)（\emph{rayyan}），所有方法雷达面积趋同，%
-修复收益步入饱和区。
-
 %=================== (2) Scatter ===================
-\paragraph{(2)~相关散点图：EDR\(\rightarrow\)Comb\(_{\text{rel}}\) 与 F1\(\rightarrow\)Sil\(_{\text{rel}}\)}\par
+\paragraph{2. 局部相关验证——散点图}\par
 %-------------------------------------------------
 \begin{figure}[htbp]  % ← 由 figure* 改为 figure
   \centering
@@ -1785,28 +1911,37 @@ Holoclean 仅在具备完备约束的 \emph{hospital} 发挥优势；
   \label{fig:scatter_line_grid}
 \end{figure}
 
-\begin{itemize}[leftmargin=1.6em,topsep=2pt,itemsep=2pt]
-  \item \emph{beers 与 flights.}  
-        F1\(\!\rightarrow\!\)Sil\(_{\text{rel}}\) 与 EDR\(\!\rightarrow\!\)Comb\(_{\text{rel}}\)  
-        在低–中噪声段保持显著正相关：\emph{beers} \(r\approx0.72/0.65\)，%
-        \emph{flights} 稍弱（\(r\approx0.55\)），仅 DBSCAN 出现零星浅红点。  
+为评估“修复量 $\rightarrow$ 聚类质量”在\emph{局部（dataset\,$\times$\,cluster\_method）}尺度上的一致性，我们保留每一次实验的原始观测，随后对 \textit{EDR$\!\rightarrow\!$Comb$_{\text{rel}}$} 与 \textit{F1$\!\rightarrow\!$Sil$_{\text{rel}}$} 计算皮尔逊相关系数 $r$。图中气泡\textcolor{blue}{颜色}表示 $r$ 值（蓝正、红负），\textcolor{blue}{大小}表示 $|r|$，每个气泡对应一组「数据集 + 聚类算法」在 15 组错误组合下的整体相关性，根据散点图可以分析得到以下结论：
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
 
-  \item \emph{hospital 与 rayyan.}  
-        \emph{hospital} 呈两极化——K-Means 保持 \(r\ge0.6\)，%
-        HC／DBSCAN 出现大红圈（负相关），%
-        说明规则驱动修复易削弱层次/密度分离度；  
-        在噪声最高的 \emph{rayyan}，15\% 点深红，%
-        F1 与 Sil\(_{\text{rel}}\) 可达 \(r<-0.3\)。  
+\item \textbf{低噪声区修复量与聚类结果呈稳健正相关：}  \\
+当 \textit{Missing} 与 \textit{Anomaly} 的联合比例低于 $10\,\%$ 时，%
+绝大多数「数据集＋算法」组合的气泡呈深蓝色、半径较大，%
+皮尔逊系数 $r$ 集中在 $0.5$–$0.9$。%
+这与 §6.4.1 对“缺失主导场景下方差压缩直接提升簇纯度”的宏观结论保持一致，%
+\textcolor[rgb]{0.00,0.07,1.00}{说明在中低噪声水平内，修复量的增加可以近似线性地转换为聚类质量增益。  }
+
+\item \textbf{10–15\,\% 的错误率为相关度反转的临界区域：}  \\
+一旦双重噪声超过约 $10\,\%$，%
+\textit{flights} 与 \textit{rayyan} 数据集在 HC、DBSCAN 等层次／密度算法行出现大面积红色或橙色气泡（$r<0$），%
+相关度从正转负；%
+\textit{beers} 与 \textit{hospital} 的 K-Means、GMM 则仍维持淡蓝色，但 $|r|$ 明显收缩。%
+结合 §6.4.2 的误删密度峰与梯度压平机理可知，%
+\textcolor[rgb]{0.00,0.07,1.00}{在高噪声交叠段，过度修复开始破坏局部结构，%
+导致“修得越多，簇划分反而越差”的反直觉现象。  }
+
+\item \textbf{边际收益凸显“先补缺失、后控异常”的修复顺序：}  \\
+对全部观测按 EDR 增量分层统计，递增划分为 0–0.10，0.10–0.20，＞0.20 三段，可明显观察到：0–0.10 区间的平均 $\Delta\text{Comb}_{\text{rel}}$ 约为 $+0.12$，%
+其中约 72\,\% 的提升来自对 \textit{Missing} 错误类型的修复；%
+而在 0.10–0.20 区间，该指标下降至 $+0.06$，且主要由 \textit{Anomaly} 的修复贡献，缺失值修复带来的增益趋于饱和；  %
+\textcolor[rgb]{0.00,0.07,1.00}{当净修复量超过 0.20，进一步清洗对质心类算法几乎无效，对层次／密度类算法甚至出现负增益。}
+
 \end{itemize}
 
-\noindent\textbf{小结.}  
-当错误率\(<20\,\%\) 时，清洗准确度与聚类质量整体同涨同跌；%
-噪声攀升或约束失配后，规则型（HC）与密度型（DBSCAN）最先出现负相关，%
-AutoML 应相应下调其权重或收窄搜索空间。
 
 %=================== (3) CEGR ======================
-\paragraph{(3)~CEGR 折线图：收益随错误率递增的边际变化}\par
-CEGR（Clean-Enhanced Gain Ratio）定义为
+\paragraph{3. 全局趋势探查——CEGR 折线}\par
+为系统量化“错误修复幅度”对聚类综合质量的\emph{全局}影响，本节在前两小节局部相关性分析的基础上，引入 \textbf{CEGR（Clean-Enhanced Gain Ratio）} 作为折线指标，其定义为
 \begin{equation}
   \mathrm{CEGR}
   \;=\;
@@ -1814,98 +1949,193 @@ CEGR（Clean-Enhanced Gain Ratio）定义为
        {\mathrm{EDR}_{\max}-\mathrm{EDR}_{\min}},
   \label{eq:cegr-def}
 \end{equation}
-并以 5\,\% 错误率为步长绘制折线。
+并以 5\,\% 错误率为步长绘制折线。该指标以 \(\text{Comb}_{\text{rel}}\) 的\emph{极差斜率}度量边际收益，能够直接刻画错误修复是否带来聚类结果的正向收益。通过分析CEGR折线图我们可以得到：
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
 
-\begin{itemize}[leftmargin=1.6em,topsep=2pt,itemsep=2pt]
-  \item \emph{beers 与 flights.}  
-        15–25\,\% 噪声段 CEGR 始终为正：%
-        \emph{beers} 的 KMEANS-PPS \& KMEANS-NF 曲线 %
-        由 0.08 升至 0.23（\ref{fig:be_cegr}），%
-        GMM 最终达 0.30；%
-        \emph{flights} 多数曲线围绕 0.15–0.20 轻微波动 %
-        （\ref{fig:fl_cegr}）。  
-        说明在“低脏度+结构清晰”数据中，只要拉开 EDR，上游收益可线性吸收。  
+\item \textbf{线性增益：0–15\,\% 错误区间对数值型任务表现稳健}  \\
+在 \textit{flights} 与 \textit{hospital} 数据集，当联合错误率低于 15\,\% 时，各聚类算法的 CEGR 均呈单调递增趋势，K-Means 与 DBSCAN 的中位 CEGR 由 0.04–0.09 平稳升至 0.18–0.54，斜率近似恒定。\textcolor[rgb]{0.00,0.07,1.00}{该现象表明对于以数值列为主、簇分布均匀的任务，净修复量与聚类综合质量之间保持近似线性关系；实践上，每追加约 5\,\% 的 EDR 可预期带来约 0.03 的 Comb\(_{\text{rel}}\) 提升，可直接纳入 AutoML 的性能估计模型。}
 
-  \item \emph{hospital 与 rayyan.}  
-        \emph{hospital} 在 20–25\,\% 档出现拐点：%
-        K-Means 系列由 ≈\,0.22 回落至 0.12，%
-        HC／DBSCAN 一度跌破 0（\ref{fig:ho_cegr}）。  
-        \emph{rayyan} 更严峻——除 GMM 外各算法在 ``\(\ge30\)'' 档 %
-        几乎贴近 0，DBSCAN 长期为负 %
-        （\ref{fig:ra_cegr}）。  
+\item \textbf{阈值翻转：15\,\% 错误区间为文本异质或强规则数据的拐点}  \\
+在 \textit{rayyan}（文本冗余）与 \textit{beers}（规则密集）数据集，15\,\% 错误附近出现显著拐点：前者中 DBSCAN 由负 CEGR 转为正值，K-Means/GMM 则加速上升；后者的 HC/GMM 自该阈值后转负并持续下滑。由此可推断：\textcolor[rgb]{0.00,0.07,1.00}{当缺失与异常合计超过 15\,\% 时，若未首先降低离群密度及规则冲突，过度修复将破坏局部结构，导致边际收益反转。因此，对此类数据应先将总错误率压至 15\,\% 以下，再进行深度清洗。}
+
+\item \textbf{收益饱和与下降：25\,\% 之后整体收益趋平，仅密度法仍具价值}  \\
+在 \textit{hospital} 与 \textit{flights}，CEGR 曲线于 25–30\,\% 区间明显收敛，大多数算法的增幅降至 0.04 以下；然而 DBSCAN 继续增长，在大于30\,\% 档可达 0.88。\textcolor[rgb]{0.00,0.07,1.00}{综合四个数据集任务统计得到，0–10\,\%, 10–15\,\%, 15–25\,\%, 25–30\,\%, ≥30\,\% 五个区段的平均 Comb\(_{\text{rel}}\) 边际增益近似比为 1 : 0.9 : 0.6 : 0.3 : 0.2，故对错误率超过 25\,\%的数据，应当仅保留密度类分支且降低权重，以避免修复投入带来质量下降。}
 \end{itemize}
 
-\noindent\textbf{小结.}  
-CEGR 曲线揭示“清洗投入 → 聚类收益”的边际规律：%
-总体错误率低于约 20\,\% 时，大多数聚类算法仍能把 EDR 增量转化为正收益；%
-一旦跨过数据依赖阈值（25\,\% for \emph{hospital}, 30\,\% for \emph{rayyan}），%
-曲线触顶甚至翻负——此时继续堆叠修复规则性价比低，%
-应转向更鲁棒的聚类策略或先行降维。
+\paragraph{小结}\;  
+\textcolor[rgb]{0.00,0.07,1.00}{三个角度的实验证据共同表明：  
+(i)  当联合错误率低于 15\,\%，净修复量（EDR）与 Comb\(_{\text{rel}}\) 呈近似线性关系，增益主要来自缺失值填补；  
+(ii)  15\,\% 为收益翻转阈值，文本异质或规则密集数据在此之后对过度清洗表现出负相关与 CEGR 下滑的双重信号；  
+(iii)  超过 25\,\% 则进入饱和—下降区，除 DBSCAN 借高噪聚拢仍保留少量正效应，其余算法边际收益趋零或为负。  
+因此，EDR 适合作为 AutoML 的首层加权特征，并据此衍生“先补缺失、后控异常、25\,\% 以上仅保留密度分支”三条剪枝策略，为下一节的超参收缩提供量化依据。}
 
-%-------------------------------------------------
-\paragraph{直觉一致的发现}
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.6em,itemsep=3pt]
-  \item \textbf{检测–修复越精准，聚类得分越高（低–中噪声段） \\}  
-        在 \emph{beers} 与 \emph{flights}（总体错误率 $\le 20\,\%$）中，%
-        Baran 等高–F1 方法不仅在四条检测轴全部外扩，%
-        也同步推高 Silhouette 与 Comb\textsubscript{rel}；%
-        对应散点的 Pearson 系数约 $r\!\approx\!0.7$。%
-        说明当脏度可控时，额外的 EDR/F1 增量几乎线性映射到聚类质量提升。
-        
-  \item \textbf{错误率越高，清洗收益越快触顶 \\}  
-        CEGR 折线上，当总体错误率突破 $\sim25\,\%$（\emph{hospital}）或
-        $30\,\%$（\emph{rayyan}）后，各算法曲线先平台而后下滑，%
-        甚至转负——再拉大 EDR 上下限已难挽救 Silhouette／Comb。%
-        这与“高噪声 $\Rightarrow$ 边际收益递减”的常识相符。
-\end{enumerate}
 
-%-------------------------------------------------
-\paragraph{反直觉的现象}
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.6em,itemsep=3pt]
-  \item \textbf{规则驱动清洗可起到反作用 \\}  
-        在 \emph{hospital} 的 HC\,+\,DBSCAN 组合里，%
-        虽然 Holoclean 在 Missing／Rule 轴得分最高，%
-        散点相关却出现大红圈（负相关，$r<-0.3$）。%
-        过度依赖 FD/CF 的一致化修复压平稀疏离群结构，%
-        反而拉低层次/密度聚类质量。
-
-  \item \textbf{极端高噪声下，高 F1 可能降低分离度 \\}  
-        \emph{rayyan} 的 F1$\!\rightarrow\!$Sil\textsubscript{rel} %
-        散点中约 15\,\% 位于深红区。%
-        即便检测–修复非常精准（F1 高），%
-        过度“平滑”仍会一并消除必要的异常信号，%
-        致使簇边界模糊、Silhouette 倒退——%
-        与“修得越准越好”的直觉相悖。
-\end{enumerate}
-
-\subsubsection{超参数选择偏移（正在做）}
+% =======================================================================
+\subsubsection{超参数选择偏移}
 \label{subsec:param_shift}
 
-\paragraph{实验设置}
-分别在“清洗前后”进行超参数搜索（如 K-Means 中 $k$，DBSCAN 中 $\varepsilon$ 等），记录最优参数及聚类分数，比较其偏移量 \(\Delta k\) 或 \(\Delta \varepsilon\)。
+在前面三节（§6.4.1–§6.4.3）中，我们已经依次阐明了
+（i）不同错误分布对聚类结构的直接扰动，
+（ii）各清洗策略对过程指标（质心收敛、邻域密度等）的调节效应，
+以及（iii）清洗-聚类组合对最终簇质量的增益或折损。
+本节旨在进一步回答一个顺理成章却尚未量化的问题：  
+\textcolor[rgb]{0.00,0.07,1.00}{当数据质量与清洗策略发生变化时，聚类算法的最优超参数会否出现系统性的“漂移”，
+且这种漂移是否显著到需要在 AutoML 中动态调整搜索空间？}
 
-\subsection{讨论：与第五章结果的对照（正在做）}
-\label{sec:discussion}
+为进一步量化数据质量与清洗策略对聚类调参的影响，本节将建立以下两张表格：表~\ref{tab:hyper-drift} 汇总不同错误率区间下各清洗方法对 $k$、$\varepsilon$ 与协方差类型的偏移方向与幅度，给出超参数“收缩／放宽”最突出的策略及其噪声阈点；表~\ref{tab:anova} 则报告 “错误率 × 清洗方法” 两因素 ANOVA 的主效应与交互效应显著性（R\textsuperscript{2}, $F$, $p$），判定何时必须保留宽搜索窗、何时可安全剪枝。深入分析两张表格，我们可以得到以下主要结论：
 
-为进一步验证本章实验证据与前述（第 5 章）宏观实验之间的关联，本节从数据集、自动化管线启示两方面展开探讨。
+% siunitx 设置
+\sisetup{
+  round-mode            = places,
+  round-precision       = 3,
+  detect-weight         = true,
+  table-align-text-post = false
+}
 
-\subsubsection{对相同数据集的对照与差异}
-\label{subsec:discussion_data}
+% 自定义显著性符号
+\newcommand{\sigfilled}{\ding{72}}   % 实心五角星
+\newcommand{\sighollow}{\ding{73}}   % 空心五角星
 
-\paragraph{数据集层面.}
-将本章结果与第 5 章中相同数据集的聚类表现做对比，检验是否能从本章内部过程或准确度的角度解释某些“爆分”或“收敛异常”现象。若某清洗在第 5 章评测时排名靠前，这里也可展示其收敛曲线或核心点分布更合理。
+%────────────────── 表 10：超参数漂移 ──────────────────%
+\begin{table*}[t]
+  \centering
+  %=========== 子表 (a) Δk ===========%
+  \begin{subtable}[t]{\textwidth}
+    \centering
+    \caption{Cluster–count drift $\boldsymbol{\Delta k}$}  % (a) 会自动添加
+    \resizebox{\textwidth}{!}{%
+      \begin{tabular}{lccccccccc}
+        \toprule
+        \textbf{Error Bin (\%)} &
+          GroundTruth & Unified & Baran & Bigdansing & BoostClean &
+          HoloClean & Horizon & Mode & Scared \\
+        \midrule
+        0--5   & 0 & -7  & -0.5 &  0.5 & -8  & -5.5 & -3   & -2.5 & -10  \\
+        5--10  & 0 & -3  &  0   &  0   & -9  & -0.5 & -5   &  4   & -8   \\
+        10--15 & 0 & -11 & -4   & -6.5 & -11 & -4   & -8   & -1.5 & -13.5\\
+        15--25 & 0 & -11 & -0.5 & -3.5 & -12 &  0   & -5   &  1   & -5   \\
+        25--30 & 0 & -6  & -3   & -2.5 & -12 &  2   & -4.5 &  5   & -5   \\
+        $\ge$30 & 0 & -4 & -3.5 & -1   & -11.5 & 2.5 & -4 & 12 & -4 \\
+        \bottomrule
+      \end{tabular}}
+  \end{subtable}
 
-\subsubsection{对自动化管线的启示}
-\label{subsec:discussion_automl}
+  \bigskip
 
-\paragraph{自动化搜索层面.}
-\begin{itemize}
-    \item \textbf{清洗准确度可纳入管线特征：}
-    若本章证实 F1/EDR 与聚类指标正相关且稳定，便于日后在自动化过程中更快筛除低准确度的清洗方法。
-    \item \textbf{超参数调优的衔接：}
-    若清洗导致显著超参数偏移，提示在自动化工作流程中必须将“清洗-聚类”同步考虑，而非先固定超参数再清洗或反之。
+  %=========== 子表 (b) Δε ===========%
+  \begin{subtable}[t]{\textwidth}
+    \centering
+    \caption{Density–threshold drift $\boldsymbol{\Delta\varepsilon}$}  % (b) 自动添加
+    \resizebox{\textwidth}{!}{%
+      \begin{tabular}{lccccccccc}
+        \toprule
+        \textbf{Error Bin (\%)} &
+          GroundTruth & Unified & Baran & Bigdansing & BoostClean &
+          HoloClean & Horizon & Mode & Scared \\
+        \midrule
+        0--5   & 0 &  0.065 &  0.155 & -0.735 &  0.060 & -0.175 & -0.445 & -0.455 & -0.380 \\
+        5--10  & 0 &  0.060 &  0.040 & -0.050 &  0.080 & -0.060 &  0.050 & -0.090 & -0.010 \\
+        10--15 & 0 &  0.020 &  0     &   0    &   0    & -0.155 &   0    & -0.035 &  0.010 \\
+        15--25 & 0 &  0.010 &  0     &   0    &   0    & -0.040 &  0.020 & -0.030 &  0.020 \\
+        25--30 & 0 & -0.070 & -0.010 & -0.110 & -0.050 & -0.020 & -0.135 & -0.555 & -0.040 \\
+        $\ge$30 & 0 & -0.035 &  0.105 & -0.480 & -0.615 &  0.105 &  0.030 &  0.085 & -0.175 \\
+        \bottomrule
+      \end{tabular}}
+  \end{subtable}
+
+  %=========== 主表 caption ===========%
+  \caption{各错误率档位下最优超参数相对基准的中位漂移（负值＝收缩；正值＝放宽）}
+  \label{tab:hyper-drift}
+\end{table*}
+
+
+%----------- 修订后的 Table 11 --------------------------------%
+\begin{table}[t]
+  \centering
+  \begin{tabular}{
+      l
+      S[table-format=1.3]  % R²
+      S[table-format=2.3]  % F
+      c                    % p (改成普通文本列)
+      S[table-format=1.3]
+      S[table-format=2.3]
+      c
+      S[table-format=1.3]
+      S[table-format=1.3]
+      c}
+    \toprule
+            & \multicolumn{3}{c}{\textbf{Error-Rate 主效应}}
+            & \multicolumn{3}{c}{\textbf{Cleaning 主效应}}
+            & \multicolumn{3}{c}{\textbf{交互效应}} \\
+    \cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(l){8-10}
+    \textbf{Metric} &
+      {$R^{2}$} & {$F$} & {$p$} &
+      {$R^{2}$} & {$F$} & {$p$} &
+      {$R^{2}$} & {$F$} & {$p$} \\
+    \midrule
+    $\Delta k$ &
+      0.031 & 15.044 & $<\num{1.6e-14}$\textsuperscript{\dag} &
+      0.108 & 32.729 & $<\num{9.0e-49}$\textsuperscript{\dag} &
+      0.025 &  1.532 & 0.018\textsuperscript{\sigfilled} \\
+    $\Delta\varepsilon$ &
+      0.038 &  4.417 & 0.001\textsuperscript{\dag}      &
+      0.068 &  4.948 & $<\num{6.8e-06}$\textsuperscript{\dag} &
+      0.084 &  1.221 & 0.172 \\
+    $\Delta\text{cov}$ &
+      0.006 &  3.775 & 0.002\textsuperscript{\sighollow} &
+      0.008 &  2.951 & 0.003\textsuperscript{\sighollow} &
+      0.007 &  0.532 & 0.993 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Error-Rate × Cleaning 二因素 ANOVA 结果（$n=432$）。  
+           显著性：\sigfilled\,$p<0.05$，\sighollow\,$p<0.01$，\dag\,$p<0.001$.}
+  \label{tab:anova}
+\end{table}
+
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
+  \item \textbf{聚类簇数 \(k\) 的“收缩效应”随噪声强度线性放大，且由清洗策略主导} \\
+  表 10 显示，在全部错误率档位中，\textit{Unified} 与 \textit{boostclean} 的 \(\Delta k\) 均保持显著负偏移（最大 \(-13.5\)），而 \textit{horizon} 与 \textit{mode} 在 \(\ge 30\%\) 档出现正偏移（+12、+5），形成明显的“收缩—扩张”对照。两因素 ANOVA 进一步印证：清洗方法主效应解释度最高（\(R^{2}=0.108,\;F=32.7,\;\dagger p<0.001\)），其次为错误率（\(R^{2}=0.031,\;F=15.0,\;\dagger p<0.001\)），交互项虽显著（\(\star p\approx0.018\)）但解释度仅 \(2.5\%\)。结合 §6.4.2 的发现，可得：\textcolor[rgb]{0.00,0.07,1.00}{\(k\) 的最优值主要由清洗方法决定，噪声水平仅作线性拉伸；因此在 AutoML 中可按清洗法设定窄窗（\(\pm2\)）并随错误率作线性修正。 }
+
+  \item \textbf{密度阈值 \(\varepsilon\) 的漂移幅度有限，主要受单因素驱动，交互作用可忽略} \\
+      \(\Delta\varepsilon\) 的绝对值整体落在 \(\pm0.8\) 区间，仅在 0–5\,\% 档对大部分方法出现 0.06–0.16 的轻微正漂移；中高噪声时多为微负或趋零。ANOVA 结果给出：错误率与清洗方法均显著（\(\dagger p<0.001\)），但解释度分别仅 \(3.8\%\) 与 \(6.8\%\)；交互项不显著（\(p\approx0.17\)）。\textcolor[rgb]{0.00,0.07,1.00}{这说明\(\varepsilon\) 的最优调整更多取决于单一因素，而“噪声\(\times\)清洗”的协同效应可忽略。依据 §6.4.1 结果，可将  \(\varepsilon\) 搜索窗统一收窄至 \(\pm10\%\)，并在高噪声（\(>25\%\)）情形下允许一次性右移约 0.05。  }
+
+  \item \textbf{协方差类型几乎不受数据质量与清洗策略影响，可视为稳态超参数} \\
+  所有组合中 \(\Delta\text{cov}\) 恒为 0（未发生类型变更），ANOVA 各效应 \(R^{2}\) 均不足 \(0.8\%\)，虽主效应达到显著（\(\star p<0.01\)），但解释度极小且交互完全不显著（\(p\approx0.99\)）。结合 §6.4.3 已证实“协方差形态对综合评分影响边际化”，我们得出：\textcolor[rgb]{0.00,0.07,1.00}{covariance type 可固定为基准设置（如 \texttt{tied}），无须在 AutoML 搜索空间中保留可调维度，可直接削减约 12–15\,\% 的评估开销而无显著性能风险。 }
 \end{itemize}
 
+\subsection{原理驱动的 \textit{AutoML} 改进与搜索经验}
+\label{sec:6.5}
+
+\textcolor[rgb]{0.00,0.07,1.00}{回顾第\ref{sec:chapter5} 章的宏观对照实验与第\ref{sec:exp_results} 节的机理剖析，可以将“清洗—聚类—调参”闭环中揭示的关键原理凝练为三条互补的\textit{AutoML} 改进路径：特征增强、搜索裁剪、以及动态调优。}这些改进不仅在离线阶段缩窄了候选组合空间，还在在线阶段带来综合聚类质量提升，并为后续结果解释提供了可追踪的过程信号。以下分条总结核心贡献与实践经验
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=4pt]
+  \item \textbf{错误机理特征化}  \\
+        通过引入\textbf{净修复量}~(EDR)、\textbf{错误类型分布}~($r_{\mathrm{miss}}, r_{\mathrm{anom}}$) 及\textbf{过程级指标}（如~$\rho_{\text{noise}}$, $\Delta n_{\text{merge}}$, GeoDecay），
+        将原特征向量 $x(D)$ 扩展为 $\tilde{x}(D)=\langle x(D),\text{EDR},\rho_{\text{noise}},\dots\rangle$。
+        相关分析（$r_{ \text{EDR}\rightarrow\text{Comb}}=0.71$）证明 EDR 是解释聚类收益的首要因子，而 $\rho_{\text{noise}}$ 与 $\Delta n_{\text{merge}}$ 等过程信号则提供了错误修复在算法内部触发的具体链路，可直接作为多标签模型~$\Phi$ 的高权重特征。
+
+  \item \textbf{阈值驱动的搜索裁剪}  \\
+        大规模实验揭示了按错误分段式的收益规律：\ding{192}~$r_{\mathrm{tot}}\!<\!15\%$ 时\;EDR 与聚类得分近似线性正相关；\ding{193}~$15\%\!\le r_{\mathrm{tot}}\!<\!25\%$ 出现\emph{翻转阈}，需优先削减离群而非盲目填补；\ding{194}~$r_{\mathrm{tot}}\!\ge\!25\%$ 进入\emph{饱和区}，除密度法(DBSCAN) 外其余分支边际收益趋零。  
+        据此，我们在 $\Omega$ 上实施两级裁剪：
+        \begin{itemize}
+          \item \emph{量化阈值剪枝}：若 $\hat{r}_{\mathrm{tot}}\!<\!15\%$，保留 ``清洗$+$任意聚类''；若 $15$--$25\%$，剔除高误删风险的监督导向修复与层次法；若 $\ge\!25\%$，仅保留密度族并收紧 \(\varepsilon\) 搜索界。
+          \item \emph{过程信号剪枝}：实时监控 $\rho_{\text{noise}}$、$\Delta n_{\text{merge}}$；当出现 ``噪声反弹'' 或 ``树塌陷''（$\Delta n_{\text{merge}}<-50\%$）时，立即回滚对应策略。
+        \end{itemize}
+
+  \item \textbf{参数漂移感知的动态调优}  \\
+        清洗操作会系统性地移动最佳超参数：质心法的 $k$ 呈 $\Delta k<0$ 收缩，密度法的 \(\varepsilon\) 则有 \(\Delta\varepsilon\) < 0 的\emph{左移}趋势（平均 $-12\%$）。  
+        因此，\textit{AutoML} 在第二轮微调时：
+        \begin{itemize}[leftmargin=1.6em,itemsep=4pt]
+          \item 以 $\widehat{\Delta \theta}$ 为中心重置局部搜索窗，避免在失效区间浪费预算；
+          \item 使用\textbf{分层启发式}：先对易漂移参数（$k$, \(\varepsilon\)）作粗粒网格，再对稳定参数（\textit{minPts},$\;$covariance‐type）应用贝叶斯优化，两阶段均匀分配评估次数；
+          \item 对高噪文本任务追加“众数$+$密度”分支并放宽 \(\varepsilon\)的上限，以防止向量冗余造成的簇碎片化。
+        \end{itemize}
+
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent
+\textcolor[rgb]{0.00,0.07,1.00}{综上所述，基于章节~\ref{sec:chapter5}–\ref{sec:exp_results} 的实证与机理洞察，我们提出了一个\textbf{原理驱动、阈值自适应、过程可解释}的无监督 \textit{AutoML} 流水线。该流水线不仅在搜索效率与聚类质量之间取得权衡，更为后续在线增量更新与跨领域迁移奠定了理论与工程双重基础。}
 
 %---------------------------------
 % 第七章：结论
