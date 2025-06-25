@@ -1,0 +1,36 @@
+阶段	目标	主要工作	预期交付物
+P0 环境与基线	准备实验脚手架	- 完成 4 个公开数据集的错误注入脚本（Missing/Anomaly 四级×四档）
+- 复现 9 种清洗器 + 6 类聚类器的 原始评估流水线（第 5 章 Fig 2 框图）
+datasets/dirty_*
+results/baseline.csv
+P1 特征增强 & 预测器 Φ	离线学会“质量→性能”映射	1. 特征工程：实现 build_feature(q_vec, a_vec)，含交互项 ⊗ (Algorithm 1 行 3–5)
+
+2. 训练 Φ：LightGBM-Ranker → 点估计 f̂；残差 → Quantile-RF σ (Alg. 1 行 7–9)
+
+3. 保存模型、标准化器，打包 Phi.predict()	models/phi.pkl
+notebook/phi_report.ipynb
+P2 置信上界剪枝搜索 (Confidence-UCB)	把 Φ 嵌入搜索器，加速管线评估	1. 实现 开放列表 open / best / σ 逻辑（Alg. 2 行 1–9）
+
+2. 引入参数 c, k,* ε* 并验证理论 O(k log n) 评估上界 (第 4.2 节)
+
+3. 小数据集 sanity-check：确认评估次数 ≪ 全网格	src/search_ucb.py
+results/ucb_vs_grid.csv
+P3 动态调优模块	线上监控 + 局部微调	1. 实现窗口监控 (Sil 斜率、DB 指数漂移) 触发条件 (Alg. 3 行 5–8)
+
+2. 邻域采样 Θ_local + 阈值 η 更新管线 (行 8–14)
+
+3. 日志格式统一（便于第 6 章机制分析使用）	src/online_tuner.py
+logs/runtime_*.jsonl
+P4 超参漂移 & 剪枝策略固化	把机理洞察写进 AutoML 策略	1. 统计 ∆k/∆ε 漂移表（表 10 & 表 11）
+；在搜索器中加入 k 窄窗＋ε 线性修正
+2. 实现错误率阈值 15 % / 25 % 的 策略切换（第 6.5 节“三条剪枝”）
+src/space_pruner.py
+更新后的 search_ucb.py
+P5 实验执行 & 可视化	生成第 5 章全部图表	- 批量跑 60 × 9 × 6 实验
+- 产出 Fig 3/4/6 等统计与 CEGR 折线；统一 plot_utils.py	figures/*.pdf
+tables/*.csv
+P6 论文撰写同步	边跑实验边落稿	1. 5.1–5.4：实验设置、数据集、算法表格（已在 v1.7 初稿定稿）
+2. 5.5–5.8：将 P5 图表直接插入 & 写每节讨论
+3. 5.9 小结 + 6.1–6.5：引用 P2–P4 的过程指标与阈值分析	v1.8 草稿
+P7 附录 & 复现包	发布可复现代码	- 整理 requirements.txt、运行脚本
+- 上传开源仓库 & 在附录加链接（第 7 章）	clean_cluster_AutoML.zip
