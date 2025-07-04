@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-GMM clustering with full EM‑iteration tracking
+GMM clustering with full EM-iteration tracking
 * 保持原有输入/输出格式
-* 额外记录: n_iter, lower_bound 曲线, log‑likelihood AUC, 迭代衰减率、参数偏移
+* 目标函数改为: α·Sil + β·DB^{-1} + γ·(1-SSE/SSE_max) ，α+β+γ=1
+* 额外记录: n_iter, lower_bound 曲线, log-likelihood AUC, 迭代衰减率、参数偏移
 """
 
 import numpy as np
@@ -49,17 +50,38 @@ for col in X.columns:
 X = X.dropna()
 X_scaled = StandardScaler().fit_transform(X)
 
-alpha, beta = 0.5, 0.5   # Combined score 权重
+# --------------------------------------------------
+# 2. 目标函数权重 (α+β+γ=1)
+# --------------------------------------------------
+alpha = 0.35
+beta  = 0.65
+gamma = 1.0 - alpha - beta   # 自动补足和为 1
+
+# 预计算全局 SSE_max（所有样本当作一个簇时的 SSE）
+global_centroid = X_scaled.mean(axis=0)
+SSE_max = float(np.sum((X_scaled - global_centroid) ** 2))
 
 # --------------------------------------------------
-# 2. 辅助函数
+# 3. 辅助函数
 # --------------------------------------------------
-def combined_score(db, sil):
-    return alpha * (1 / db) + beta * sil
+def _sse(labels: np.ndarray) -> float:
+    """计算聚类方案的总 SSE（忽略噪声标签 -1, 虽然 GMM 不会产生 -1）。"""
+    sse = 0.0
+    for lbl in np.unique(labels):
+        pts = X_scaled[labels == lbl]
+        if pts.size == 0:
+            continue
+        centroid = pts.mean(axis=0)
+        sse += np.sum((pts - centroid) ** 2)
+    return float(sse)
+
+def combined_score(db, sil, sse):
+    """综合得分: α·Sil + β·DB^{-1} + γ·(1 - SSE/SSE_max)."""
+    db = max(db, 1e-6)                       # 防止除零
+    return alpha * sil + beta * (1.0 / db) + gamma * (1.0 - sse / SSE_max)
 
 def gmm_with_tracking(n_components, cov_type):
-    """返回 (labels, n_iter, lower_bounds list)"""
-    # scikit‑learn 无原生回调，这里使用 warm_start 手动跟踪
+    """返回 (labels, n_iter, lower_bounds list, gmm_model)"""
     gmm = GaussianMixture(
         n_components=n_components,
         covariance_type=cov_type,
@@ -79,7 +101,8 @@ def gmm_with_tracking(n_components, cov_type):
 def make_trial_record(trial_no, k, cov_type, labels, n_iter, lb_curve):
     db  = davies_bouldin_score(X_scaled, labels)
     sil = silhouette_score(X_scaled, labels)
-    combo = combined_score(db, sil)
+    sse = _sse(labels)
+    combo = combined_score(db, sil, sse)
     # 计算 EM 收敛 “面积”(AUC) 与衰减率
     if len(lb_curve) > 1:
         auc_ll = float(np.trapz(lb_curve))
@@ -94,6 +117,7 @@ def make_trial_record(trial_no, k, cov_type, labels, n_iter, lb_curve):
         "combined_score": combo,
         "silhouette": sil,
         "davies_bouldin": db,
+        "sse": sse,
         "n_iter": n_iter,
         "ll_start": lb_curve[0],
         "ll_end": lb_curve[-1],
@@ -103,7 +127,7 @@ def make_trial_record(trial_no, k, cov_type, labels, n_iter, lb_curve):
     }
 
 # --------------------------------------------------
-# 3. 第一轮 Optuna 搜索
+# 4. 第一轮 Optuna 搜索
 # --------------------------------------------------
 optuna_trials = []
 
@@ -124,7 +148,7 @@ best_rec = max(optuna_trials, key=lambda d: d["combined_score"])
 k_optuna, best_cov_type = best_rec["n_components"], best_rec["covariance_type"]
 
 # --------------------------------------------------
-# 4. Kneedle (基于负对数似然 ≈ SSE)
+# 5. Kneedle (基于负对数似然 ≈ SSE)
 # --------------------------------------------------
 cluster_range = range(2, max(3, math.isqrt(X.shape[0])) + 1)
 sse_curve = []
@@ -164,14 +188,15 @@ best_rec = max(optuna_trials, key=lambda d: d["combined_score"])
 final_best_k = best_rec["n_components"]
 
 # --------------------------------------------------
-# 5. 最终模型 + 输出
+# 6. 最终模型 + 输出
 # --------------------------------------------------
 labels_final, n_iter_final, lb_curve_final, gmm_final = gmm_with_tracking(
     final_best_k, best_cov_type)
 
 final_db   = davies_bouldin_score(X_scaled, labels_final)
 final_sil  = silhouette_score(X_scaled, labels_final)
-final_comb = combined_score(final_db, final_sil)
+final_sse  = _sse(labels_final)
+final_comb = combined_score(final_db, final_sil, final_sse)
 
 # 文本输出（保持原有 4 行）
 base   = os.path.splitext(os.path.basename(csv_file_path))[0]
@@ -189,7 +214,7 @@ with open(txt_fp, "w", encoding="utf-8") as fh:
     ]))
 
 # JSON:  trial 级历史 + 版本 summary
-hist_path  = os.path.join(root, f"{base}_{clean_state}_gmm_history.json")
+hist_path   = os.path.join(root, f"{base}_{clean_state}_gmm_history.json")
 summary_path = os.path.join(root, f"{base}_{clean_state}_summary.json")
 with open(hist_path, "w", encoding="utf-8") as fp:
     json.dump(optuna_trials, fp, indent=4)
@@ -201,6 +226,8 @@ summary = {
     "best_combined": final_comb,
     "best_silhouette": final_sil,
     "best_db": final_db,
+    "best_sse": final_sse,
+    "weights": {"alpha": alpha, "beta": beta, "gamma": gamma},
     "n_iter_final": n_iter_final,
     "ll_curve_final": lb_curve_final,
     "total_runtime_sec": time.time() - start_time

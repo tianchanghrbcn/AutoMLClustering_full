@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Improved K‑Means (new formulation) —
+Improved K-Means (new formulation) — 目标函数升级版
 ★ 与基准脚本保持完全一致的输入、日志与文件输出格式 ★
 """
 
-import os, time, math, json, numpy as np, pandas as pd, optuna
+import os, time, math, json
+import numpy as np, pandas as pd, optuna
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (
     silhouette_score, davies_bouldin_score, calinski_harabasz_score)
@@ -13,8 +14,8 @@ from sklearn.metrics import (
 # --------------------------------------------------
 # 0. 环境参数与数据读取
 # --------------------------------------------------
-csv_file_path = os.getenv("CSV_FILE_PATH")
-dataset_id    = os.getenv("DATASET_ID")
+csv_file_path  = os.getenv("CSV_FILE_PATH")
+dataset_id     = os.getenv("DATASET_ID")
 algorithm_name = os.getenv("ALGO")
 if not csv_file_path:
     raise SystemExit("Error: CSV_FILE_PATH env not set.")
@@ -27,7 +28,11 @@ except FileNotFoundError:
     raise SystemExit(f"File '{csv_file_path}' not found.")
 
 start_time = time.time()
-alpha, beta = 0.5, 0.5          # combined‑score 权重
+
+# ---------------------- 目标函数权重 (α+β+γ=1) ----------------------
+alpha = 0.35
+beta  = 0.65
+gamma = 1.0 - alpha - beta     # 自动补足
 
 # --------------------------------------------------
 # 1. 预处理（与基准一致）
@@ -37,10 +42,14 @@ X = df[df.columns.difference(excluded_cols)].copy()
 for col in X.select_dtypes(['object', 'category']):
     X[col] = X[col].map(X[col].value_counts(normalize=True))
 X = X.dropna()
-X_scaled = StandardScaler().fit_transform(X)     # shape: (n_samples, n_features)
+X_scaled = StandardScaler().fit_transform(X)     # (n_samples, n_features)
+
+# 预计算 SSE_max（把全部样本当作一个簇）
+global_centroid = X_scaled.mean(axis=0)
+SSE_max = float(np.sum((X_scaled - global_centroid) ** 2))
 
 # --------------------------------------------------
-# 2. 改进 K‑means (new formulation) with history
+# 2. 改进 K-means (new formulation) with history
 # --------------------------------------------------
 def _init_labels(n, k, rng):
     return rng.integers(0, k, size=n)
@@ -67,12 +76,12 @@ def kmeans_nf_history(Xt, k, max_iter=1000, inner_max_iter=100,
 
     history, prev_centers = [], None
     for t in range(1, max_iter + 1):
-        # —— 更新 s_i ——
+        # —— 更新 s_i —— #
         for i in range(k):
             f = F[:, i]
             s[i] = np.sqrt(f.T @ A @ f) / (f.T @ f + 1e-10)
 
-        # —— 内层标签更新 ——
+        # —— 内层标签更新 —— #
         for _ in range(inner_max_iter):
             for j in range(k):
                 f = F[:, j]
@@ -86,7 +95,7 @@ def kmeans_nf_history(Xt, k, max_iter=1000, inner_max_iter=100,
             labels = labels_new
             F = _indicator(labels, k, n)
 
-        # —— 计算中心及位移 ——
+        # —— 计算中心及位移 —— #
         centers = (Xt @ F) / (np.sum(F, axis=0, keepdims=True) + 1e-10)  # d×k
         if prev_centers is not None:
             delta = float(np.linalg.norm(centers - prev_centers))
@@ -119,14 +128,19 @@ def _add_conv_stats(rec):
         rec["auc_delta"] = 0.0
         rec["geo_decay"] = 0.0
 
+def combined_score(db, sil, sse):
+    db = max(db, 1e-6)
+    return alpha * sil + beta * (1.0 / db) + gamma * (1.0 - sse / SSE_max)
+
 def objective(trial):
-    k = trial.suggest_int("n_clusters", 5, max(2, int(math.isqrt(X_scaled.shape[0]))))
+    k = trial.suggest_int("n_clusters", 5,
+                          max(2, int(math.isqrt(X_scaled.shape[0]))))
     labels, hist, iters, sse = kmeans_nf_history(X_scaled.T, k)
 
-    db  = max(davies_bouldin_score(X_scaled, labels), 1e-7)
+    db  = davies_bouldin_score(X_scaled, labels)
     sil = silhouette_score(X_scaled, labels)
     ch  = calinski_harabasz_score(X_scaled, labels)
-    combo = alpha * (1/db) + beta * sil
+    combo = combined_score(db, sil, sse)
 
     rec = {"trial_number": trial.number,
            "n_clusters":   k,
@@ -139,11 +153,11 @@ def objective(trial):
            "history":      hist}
     _add_conv_stats(rec)
     optuna_trials.append(rec)
-    return sse
+    return combo                        # 最大化综合得分
 
-optuna.create_study(direction="minimize").optimize(objective, n_trials=30)
+optuna.create_study(direction="maximize").optimize(objective, n_trials=30)
 
-best_trial = min(optuna_trials, key=lambda d: d["sse"])
+best_trial = max(optuna_trials, key=lambda d: d["combined_score"])
 k_opt      = best_trial["n_clusters"]
 print(f"Optimal k (Optuna): {k_opt}")
 
@@ -154,9 +168,9 @@ labels_final, hist_final, final_iters, final_sse = kmeans_nf_history(X_scaled.T,
 final_db  = davies_bouldin_score(X_scaled, labels_final)
 final_sil = silhouette_score(X_scaled, labels_final)
 final_ch  = calinski_harabasz_score(X_scaled, labels_final)
-final_combo = alpha * (1/final_db) + beta * final_sil
+final_combo = combined_score(final_db, final_sil, final_sse)
 
-# —— 把最终一次运行也追加到历史，以保持和基准“centroid_history”一致 ——
+# —— 把最终一次运行也追加到历史，以保持和基准“centroid_history”一致 —— #
 best_trial_final = best_trial.copy()
 best_trial_final.update({"history": hist_final,
                          "iterations": final_iters,
@@ -171,7 +185,7 @@ optuna_trials.append(best_trial_final)
 # 5. 目录结构 & 文件输出（完全对齐基准）
 # --------------------------------------------------
 root_out = os.path.join(os.getcwd(), "..", "..", "..", "results",
-                        "clustered_data", "KMEANS",  # ==== CHANGE ====
+                        "clustered_data", "KMEANSNF",
                         algorithm_name,
                         f"clustered_{dataset_id}")
 os.makedirs(root_out, exist_ok=True)
@@ -193,7 +207,7 @@ with open(os.path.join(root_out, f"{base}.txt"), "w", encoding="utf-8") as f:
 
 # ---- JSON ----
 with open(os.path.join(root_out, f"{base}_centroid_history.json"),
-          "w", encoding="utf-8") as fp:                      # ==== CHANGE ====
+          "w", encoding="utf-8") as fp:
     json.dump(optuna_trials, fp, indent=4)
 
 summary = {
@@ -205,6 +219,7 @@ summary = {
     "best_k":            k_opt,
     "best_combined_score": final_combo,
     "best_sse":          final_sse,
+    "weights":           {"alpha": alpha, "beta": beta, "gamma": gamma},
     "total_runtime_sec": time.time() - start_time
 }
 
