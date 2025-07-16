@@ -1,0 +1,65 @@
+from graphviz import Digraph
+
+# Horizontal layout for balanced aspect ratio
+g = Digraph(name="framework_balanced2", format="svg")
+g.attr(rankdir="LR", fontsize="11")
+
+# ---------- Feature Enhancement Cluster ----------
+with g.subgraph(name="cluster_feat") as c:
+    c.attr(label="Feature Enhancement (Offline)", color="#007acc", style="rounded,filled", fillcolor="#e6f2ff")
+    c.node("hist", "Historical\n⟨q,a,f⟩", shape="folder", style="filled", fillcolor="#ffffff")
+    c.node("extract", "Feature\nExtraction z", shape="box", style="filled", fillcolor="#c6e2ff")
+    c.node("ranker", "LightGBM‑Ranker", shape="box", style="filled", fillcolor="#c6e2ff")
+    c.node("qrf", "Quantile RF", shape="box", style="filled", fillcolor="#c6e2ff")
+    c.node("phi", "Predictor Φ", shape="component", style="filled", fillcolor="#ffffff")
+    c.edge("hist", "extract")
+    c.edge("extract", "ranker")
+    c.edge("ranker", "qrf", label="residuals", fontsize="9")
+    c.edge("ranker", "phi")
+    c.edge("qrf", "phi")
+
+# ---------- Confidence‑UCB Search Cluster ----------
+with g.subgraph(name="cluster_search") as s:
+    s.attr(label="Confidence‑UCB Search", color="#3ab54a", style="rounded,filled", fillcolor="#e8ffe8")
+    s.node("space", "Full Space Π", shape="cylinder", style="filled", fillcolor="#ffffff")
+    s.node("ucb", "UCB select\nπ⋆", shape="box", style="filled", fillcolor="#cdf1d1")
+    s.node("prune", "Prune\n(UCB < best‑ε)", shape="box", style="filled", fillcolor="#cdf1d1")
+    s.node("eval", "Evaluate\nf(π⋆)", shape="box", style="filled", fillcolor="#cdf1d1")
+    s.node("expand", "Expand &\nTop‑k", shape="box", style="filled", fillcolor="#cdf1d1")
+    s.node("cand", "Candidate Set S", shape="folder", style="filled", fillcolor="#ffffff")
+    # rank same to flatten vertical height
+    s.attr(rank="same")
+    s.edge("space", "ucb")
+    s.edge("ucb", "prune", label="fail", fontsize="9")
+    s.edge("ucb", "eval", label="pass", fontsize="9")
+    s.edge("eval", "expand")
+    s.edge("expand", "space", style="dotted")
+    s.edge("eval", "cand")
+
+# ---------- Dynamic Tuning Cluster ----------
+with g.subgraph(name="cluster_tune") as t:
+    t.attr(label="Dynamic Tuning (Online)", color="#d87a00", style="rounded,filled", fillcolor="#fff2e6")
+    t.node("monitor", "Monitor\n{Sil, DB}", shape="box", style="filled", fillcolor="#ffe5cc")
+    t.node("trigger", "Trigger?", shape="diamond", style="filled", fillcolor="#ffe5cc")
+    t.node("local", "Local Θ", shape="box", style="filled", fillcolor="#ffe5cc")
+    t.node("probe", "Probe 10%", shape="box", style="filled", fillcolor="#ffe5cc")
+    t.node("update", "Update π̂", shape="box", style="filled", fillcolor="#ffe5cc")
+    t.edge("monitor", "trigger")
+    t.edge("trigger", "local", label="yes", fontsize="9")
+    t.edge("local", "probe")
+    t.edge("probe", "update")
+    t.edge("update", "monitor", style="dashed")
+
+# ---------- Cross‑block connections ----------
+g.node("data", "Dataset D⋆", shape="cylinder", style="filled", fillcolor="#ffffff")
+
+g.edge("data", "extract", style="dashed", label="q")
+g.edge("phi", "ucb", label="Φ", color="#007acc")
+g.edge("data", "ucb", style="dashed", label="q,a_mask")
+g.edge("cand", "monitor", label="π̂", color="#3ab54a")
+g.edge("update", "ucb", style="dashed", label="ΔΦ", color="#d87a00")
+
+# Render
+path = "/mnt/data/method_framework_balanced2"
+g.render(path, cleanup=True)
+path + ".svg"

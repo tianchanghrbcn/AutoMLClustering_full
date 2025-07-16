@@ -6,7 +6,6 @@ from src.pipeline.train.cluster_methods import ClusterMethod
 from src.pipeline.train.error_correction import run_error_correction
 from src.pipeline.train.cluster_methods import run_clustering
 from src.pipeline.train.clustered_analysis import save_analyzed_results
-from src.pipeline.train.classifier_preparation import generate_training_data
 
 def process_record(record_idx, record, work_dir):
     cleaned_results = []
@@ -142,22 +141,6 @@ def main():
         json.dump(clustered_results, f, ensure_ascii=False, indent=4)
 
     print(f"聚类结果已保存到 {clustered_results_path}")
-
-    print("[INFO] 开始分析聚类结果")
-    save_analyzed_results(
-        preprocessing_file_path=preprocessing_file_path,
-        eigenvectors_path=eigenvectors_path,
-        clustered_results_path=clustered_results_path,
-        output_path=analyzed_results_path
-    )
-    print(f"[INFO] 分析结果已保存到 {analyzed_results_path}")
-
-    print("[INFO] 开始生成训练数据")
-    try:
-        generate_training_data()
-        print("[INFO] 训练数据已成功生成并保存")
-    except Exception as e:
-        print(f"[ERROR] 生成训练数据时发生错误: {e}")
 
 if __name__ == "__main__":
     main()

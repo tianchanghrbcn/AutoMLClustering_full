@@ -1,91 +1,92 @@
-import os
+"""
+merge_to_summary.py
+-------------------
+把 <dataset>_cleaning.csv 与 <dataset>_cluster.csv 合并为 <dataset>_summary.xlsx。
+
+依赖:
+    pandas>=1.3
+    openpyxl   # 由 pandas.to_excel 自动调用
+
+用法:
+    python merge_to_summary.py      # 一次性处理四个数据集
+    python merge_to_summary.py beers  # 只处理指定数据集
+"""
+from pathlib import Path
+import sys
 import pandas as pd
-import numpy as np
+
+BASE_DIR   = Path("../../../results/analysis_results")
+DATASETS   = ["beers", "hospital", "flights", "rayyan"]
+
+# 用于左右表连接的公共字段
+KEY_COLS = [
+    "task_name", "num", "dataset_id", "error_rate",
+    "m", "n", "anomaly", "missing", "cleaning_method"
+]
+
+# summary 中严格的列顺序
+FINAL_COL_ORDER = [
+    "task_name", "num", "dataset_id", "error_rate", "m", "n",
+    "anomaly", "missing", "cleaning_method",
+    "precision", "recall", "F1", "EDR",
+    "cluster_method", "parameters",
+    "Silhouette Score", "Davies-Bouldin Score", "Combined Score",
+    "Sil_relative", "DB_relative", "Comb_relative",
+]
+
+def build_summary(ds: str) -> pd.DataFrame:
+    """生成单个数据集的 summary DataFrame 并保存为 xlsx。"""
+    cleaning_path = BASE_DIR / f"{ds}_cleaning.csv"
+    cluster_path  = BASE_DIR / f"{ds}_cluster.csv"
+    out_path      = BASE_DIR / f"{ds}_summary.xlsx"
+
+    # 读取两张表
+    clean_df   = pd.read_csv(cleaning_path)
+    cluster_df = pd.read_csv(cluster_path)
+
+    # 1️⃣ 内连接得到主表
+    merged = pd.merge(clean_df, cluster_df, on=KEY_COLS, how="inner")
+
+    # 2️⃣ 提取 GroundTruth 作为基线
+    gt = (
+        merged[merged["cleaning_method"] == "GroundTruth"]
+        .loc[:, ["task_name", "num", "dataset_id", "cluster_method",
+                 "Silhouette Score", "Davies-Bouldin Score", "Combined Score"]]
+        .rename(columns={
+            "Silhouette Score":      "Sil_gt",
+            "Davies-Bouldin Score":  "DB_gt",
+            "Combined Score":        "Comb_gt",
+        })
+    )
+
+    # 3️⃣ 把基线指标并回主表
+    merged = merged.merge(
+        gt,
+        on=["task_name", "num", "dataset_id", "cluster_method"],
+        how="left",
+    )
+
+    # 4️⃣ 计算相对指标（GroundTruth 本身会自然得到 1）
+    merged["Sil_relative"]  = merged["Silhouette Score"]       / merged["Sil_gt"]
+    merged["DB_relative"]   = merged["DB_gt"]                  / merged["Davies-Bouldin Score"]
+    merged["Comb_relative"] = merged["Combined Score"]         / merged["Comb_gt"]
+
+    # 5️⃣ 只保留指定列并保持顺序
+    summary = merged[FINAL_COL_ORDER].copy()
+
+    # 6️⃣ 保存为 xlsx（Sheet 名与默认一致）
+    summary.to_excel(out_path, index=False)
+    print(f"[✓] {ds}: 生成 {out_path.relative_to(BASE_DIR.parent.parent)}")
+
+    return summary
 
 def main():
-    # 要处理的数据集列表
-    datasets = ["beers","flights","hospital","rayyan"]
-
-    for ds in datasets:
-        # 1) 构建文件路径
-        cleaning_file = f"../../../results/analysis_results/{ds}_cleaning.xlsx"
-        cluster_file  = f"../../../results/analysis_results/{ds}_cluster.xlsx"
-        if not os.path.isfile(cleaning_file) or not os.path.isfile(cluster_file):
-            print(f"[WARN] Missing either {cleaning_file} or {cluster_file}, skip {ds}.")
+    targets = DATASETS if len(sys.argv) == 1 else [sys.argv[1]]
+    for ds in targets:
+        if ds not in DATASETS:
+            print(f"[!] 未识别的数据集名称: {ds}")
             continue
+        build_summary(ds)
 
-        # 2) 读取
-        df_cleaning = pd.read_excel(cleaning_file)
-        df_cluster  = pd.read_excel(cluster_file)
-
-        # 3) 合并 => df_merged
-        #    假设有以下键字段
-        merge_keys = ["task_name","num","dataset_id","error_rate","cleaning_method"]
-        df_merged = pd.merge(df_cleaning, df_cluster, how='inner', on=merge_keys)
-
-        print(f"[INFO] Merged {ds}: df_merged rows={len(df_merged)}")
-
-        # 4) 找GroundTruth行, 并重命名 Sil, DB, Combined -> sil_gt, db_gt, comb_gt
-        df_gt = df_merged.loc[df_merged["cleaning_method"]=="GroundTruth"].copy()
-        if df_gt.empty:
-            print(f"[WARN] No GroundTruth row in {ds}, skip relative calc.")
-            # 不妨把df_merged直接输出?
-            out_nogt = f"../../../results/analysis_results/{ds}_summary_rel.xlsx"
-            df_merged.to_excel(out_nogt, index=False)
-            continue
-
-        # 重命名
-        df_gt = df_gt.rename(columns={
-            "Silhouette Score":"sil_gt",
-            "Davies-Bouldin Score":"db_gt",
-            "Combined Score":"comb_gt"
-        })
-
-        # 5) 指定要匹配的列(除了 cleaning_method, parameters)
-        #    仅当这些都一致才认为“同一行” => 用 GT 行做对比
-        group_cols = [
-            "task_name","num","dataset_id","error_rate",
-            "m_x","n_x","anomaly_x","missing_x","cluster_method"
-        ]
-        # 如果df里没有m_x等列，可根据实际文件调整
-
-        # 只保留 group_cols + [sil_gt, db_gt, comb_gt]
-        keep_cols = group_cols + ["sil_gt","db_gt","comb_gt"]
-        df_gt = df_gt[keep_cols].copy()
-
-        # 6) 与 df_merged做 left join => df_joined
-        #    => 用 group_cols 匹配 => 这样即便 parameters不同也能找到同一组
-        df_joined = pd.merge(
-            df_merged, df_gt,
-            how="left",
-            on=group_cols,
-            suffixes=("","_g")
-        )
-
-        # 7) 计算相对值(若 ground=0 => NaN)
-        #    Sil_relative = row["Silhouette Score"]/row["sil_gt"]
-        #    DB_relative  = row["db_gt"]/row["Davies-Bouldin Score"]
-        #    Comb_relative= row["Combined Score"]/row["comb_gt"]
-        df_joined["Sil_relative"] = np.where(
-            df_joined["sil_gt"].notnull() & (df_joined["sil_gt"]!=0),
-            df_joined["Silhouette Score"] / df_joined["sil_gt"],
-            np.nan
-        )
-        df_joined["DB_relative"] = np.where(
-            df_joined["db_gt"].notnull() & (df_joined["db_gt"]!=0),
-            df_joined["db_gt"] / df_joined["Davies-Bouldin Score"],
-            np.nan
-        )
-        df_joined["Comb_relative"] = np.where(
-            df_joined["comb_gt"].notnull() & (df_joined["comb_gt"]!=0),
-            df_joined["Combined Score"] / df_joined["comb_gt"],
-            np.nan
-        )
-
-        # 8) 输出
-        out_file = f"../../../results/analysis_results/{ds}_summary_rel.xlsx"
-        df_joined.to_excel(out_file, index=False)
-        print(f"[INFO] => Wrote {out_file} with relative columns.")
-
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

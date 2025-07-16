@@ -1,0 +1,6722 @@
+{
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_1.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 6,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111281,
+        "sigma": 0.009145,
+        "ucb": 0.129206
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.11677,
+        "sigma": 0.005721,
+        "ucb": 0.127983
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.11677,
+        "sigma": 0.005721,
+        "ucb": 0.127983
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.834488
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_2.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 6,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.112573,
+        "sigma": 0.008693,
+        "ucb": 0.129611
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.115066,
+        "sigma": 0.00739,
+        "ucb": 0.12955
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.847908
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_3.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.846895
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_4.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108508,
+        "sigma": 0.004544,
+        "ucb": 0.117414
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099497,
+        "sigma": 0.008838,
+        "ucb": 0.11682
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.783999
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_5.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105266,
+        "sigma": 0.007789,
+        "ucb": 0.120533
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099709,
+        "sigma": 0.010529,
+        "ucb": 0.120346
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.774174
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_6.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 9,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105516,
+        "sigma": 0.006856,
+        "ucb": 0.118954
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 9,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105516,
+        "sigma": 0.006856,
+        "ucb": 0.118954
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.795474
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_7.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.774634
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_8.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095265,
+        "sigma": 0.008247,
+        "ucb": 0.111428
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095265,
+        "sigma": 0.008247,
+        "ucb": 0.111428
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "HC",
+      "k": 42,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.703507
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_9.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 3,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.678657
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_10.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.723567
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_11.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 8,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.097563,
+        "sigma": 0.007638,
+        "ucb": 0.112534
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 8,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.097563,
+        "sigma": 0.007638,
+        "ucb": 0.112534
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.725534
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_12.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088401,
+        "sigma": 0.008065,
+        "ucb": 0.104208
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088401,
+        "sigma": 0.008065,
+        "ucb": 0.104208
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "HC",
+      "k": 42,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.66475
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_13.csv": {
+    "top10": [
+      {
+        "cleaner": "bigdansing",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 3,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.654602
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_14.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.084387,
+        "sigma": 0.009262,
+        "ucb": 0.10254
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.084387,
+        "sigma": 0.009262,
+        "ucb": 0.10254
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 47,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.660736
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/beers/beers_15.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088328,
+        "sigma": 0.008138,
+        "ucb": 0.104279
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088328,
+        "sigma": 0.008138,
+        "ucb": 0.104279
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 47,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.688455
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_1.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 6,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111281,
+        "sigma": 0.009145,
+        "ucb": 0.129206
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.11677,
+        "sigma": 0.005721,
+        "ucb": 0.127983
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.11677,
+        "sigma": 0.005721,
+        "ucb": 0.127983
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.834488
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_2.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 6,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.112573,
+        "sigma": 0.008693,
+        "ucb": 0.129611
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.115066,
+        "sigma": 0.00739,
+        "ucb": 0.12955
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.847908
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_3.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.846895
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_4.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108508,
+        "sigma": 0.004544,
+        "ucb": 0.117414
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099497,
+        "sigma": 0.008838,
+        "ucb": 0.11682
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.783999
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_5.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105266,
+        "sigma": 0.007789,
+        "ucb": 0.120533
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099709,
+        "sigma": 0.010529,
+        "ucb": 0.120346
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.774174
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_6.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 9,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105516,
+        "sigma": 0.006856,
+        "ucb": 0.118954
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 9,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105516,
+        "sigma": 0.006856,
+        "ucb": 0.118954
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.795474
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_7.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.774634
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_8.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095265,
+        "sigma": 0.008247,
+        "ucb": 0.111428
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095265,
+        "sigma": 0.008247,
+        "ucb": 0.111428
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "HC",
+      "k": 42,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.703507
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_9.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 3,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.678657
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_10.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.723567
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_11.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 8,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.097563,
+        "sigma": 0.007638,
+        "ucb": 0.112534
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 8,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.097563,
+        "sigma": 0.007638,
+        "ucb": 0.112534
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.725534
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_12.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088401,
+        "sigma": 0.008065,
+        "ucb": 0.104208
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088401,
+        "sigma": 0.008065,
+        "ucb": 0.104208
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "HC",
+      "k": 42,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.66475
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_13.csv": {
+    "top10": [
+      {
+        "cleaner": "bigdansing",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 3,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.654602
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_14.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.084387,
+        "sigma": 0.009262,
+        "ucb": 0.10254
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.084387,
+        "sigma": 0.009262,
+        "ucb": 0.10254
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 47,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.660736
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/flights/flights_15.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088328,
+        "sigma": 0.008138,
+        "ucb": 0.104279
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088328,
+        "sigma": 0.008138,
+        "ucb": 0.104279
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 47,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.688455
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_1.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 6,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111281,
+        "sigma": 0.009145,
+        "ucb": 0.129206
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.11677,
+        "sigma": 0.005721,
+        "ucb": 0.127983
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.11677,
+        "sigma": 0.005721,
+        "ucb": 0.127983
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.834488
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_2.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 6,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.112573,
+        "sigma": 0.008693,
+        "ucb": 0.129611
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.115066,
+        "sigma": 0.00739,
+        "ucb": 0.12955
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.847908
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_3.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.846895
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_4.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108508,
+        "sigma": 0.004544,
+        "ucb": 0.117414
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099497,
+        "sigma": 0.008838,
+        "ucb": 0.11682
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.783999
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_5.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105266,
+        "sigma": 0.007789,
+        "ucb": 0.120533
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099709,
+        "sigma": 0.010529,
+        "ucb": 0.120346
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.774174
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_6.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 9,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105516,
+        "sigma": 0.006856,
+        "ucb": 0.118954
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 9,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105516,
+        "sigma": 0.006856,
+        "ucb": 0.118954
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.795474
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_7.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.774634
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_8.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095265,
+        "sigma": 0.008247,
+        "ucb": 0.111428
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095265,
+        "sigma": 0.008247,
+        "ucb": 0.111428
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "HC",
+      "k": 42,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.703507
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_9.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 3,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.678657
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_10.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.723567
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_11.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 8,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.097563,
+        "sigma": 0.007638,
+        "ucb": 0.112534
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 8,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.097563,
+        "sigma": 0.007638,
+        "ucb": 0.112534
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.725534
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_12.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088401,
+        "sigma": 0.008065,
+        "ucb": 0.104208
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088401,
+        "sigma": 0.008065,
+        "ucb": 0.104208
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "HC",
+      "k": 42,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.66475
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_13.csv": {
+    "top10": [
+      {
+        "cleaner": "bigdansing",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 3,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.654602
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_14.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.084387,
+        "sigma": 0.009262,
+        "ucb": 0.10254
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.084387,
+        "sigma": 0.009262,
+        "ucb": 0.10254
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 47,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.660736
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/hospital/hospital_15.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088328,
+        "sigma": 0.008138,
+        "ucb": 0.104279
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088328,
+        "sigma": 0.008138,
+        "ucb": 0.104279
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 47,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.688455
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_1.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.118626,
+        "sigma": 0.007119,
+        "ucb": 0.132579
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 6,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111281,
+        "sigma": 0.009145,
+        "ucb": 0.129206
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.11677,
+        "sigma": 0.005721,
+        "ucb": 0.127983
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.11677,
+        "sigma": 0.005721,
+        "ucb": 0.127983
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.117329,
+        "sigma": 0.005419,
+        "ucb": 0.127951
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.834488
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_2.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 10,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.119663,
+        "sigma": 0.00803,
+        "ucb": 0.135401
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120954,
+        "sigma": 0.007146,
+        "ucb": 0.134959
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 6,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.112573,
+        "sigma": 0.008693,
+        "ucb": 0.129611
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.115066,
+        "sigma": 0.00739,
+        "ucb": 0.12955
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.847908
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_3.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.120778,
+        "sigma": 0.009231,
+        "ucb": 0.138871
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.116654,
+        "sigma": 0.00889,
+        "ucb": 0.134079
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.846895
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_4.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.109867,
+        "sigma": 0.008277,
+        "ucb": 0.126089
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105245,
+        "sigma": 0.007575,
+        "ucb": 0.120092
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108508,
+        "sigma": 0.004544,
+        "ucb": 0.117414
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099497,
+        "sigma": 0.008838,
+        "ucb": 0.11682
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.783999
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_5.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108162,
+        "sigma": 0.009673,
+        "ucb": 0.127121
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105487,
+        "sigma": 0.007755,
+        "ucb": 0.120687
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "HC",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105266,
+        "sigma": 0.007789,
+        "ucb": 0.120533
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099709,
+        "sigma": 0.010529,
+        "ucb": 0.120346
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.774174
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_6.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.111857,
+        "sigma": 0.006476,
+        "ucb": 0.124549
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.106969,
+        "sigma": 0.00639,
+        "ucb": 0.119493
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 9,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105516,
+        "sigma": 0.006856,
+        "ucb": 0.118954
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 9,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.105516,
+        "sigma": 0.006856,
+        "ucb": 0.118954
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.795474
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_7.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.108242,
+        "sigma": 0.005101,
+        "ucb": 0.11824
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.101016,
+        "sigma": 0.007905,
+        "ucb": 0.116509
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.774634
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_8.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.089651,
+        "sigma": 0.011428,
+        "ucb": 0.11205
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095265,
+        "sigma": 0.008247,
+        "ucb": 0.111428
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095265,
+        "sigma": 0.008247,
+        "ucb": 0.111428
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.095707,
+        "sigma": 0.00767,
+        "ucb": 0.11074
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "HC",
+      "k": 42,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.703507
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_9.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.091288,
+        "sigma": 0.011761,
+        "ucb": 0.114339
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08547,
+        "sigma": 0.012346,
+        "ucb": 0.109668
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 3,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.678657
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_10.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099383,
+        "sigma": 0.009597,
+        "ucb": 0.118193
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.092766,
+        "sigma": 0.008809,
+        "ucb": 0.110031
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.723567
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_11.csv": {
+    "top10": [
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 11,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.099724,
+        "sigma": 0.009018,
+        "ucb": 0.117399
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSNF",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANSPPS",
+        "k": 7,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.09755,
+        "sigma": 0.008234,
+        "ucb": 0.113689
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "GMM",
+        "k": 8,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.097563,
+        "sigma": 0.007638,
+        "ucb": 0.112534
+      },
+      {
+        "cleaner": "horizon",
+        "cluster": "KMEANS",
+        "k": 8,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.097563,
+        "sigma": 0.007638,
+        "ucb": 0.112534
+      }
+    ],
+    "best": {
+      "cleaner": "horizon",
+      "cluster": "GMM",
+      "k": 11,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.725534
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_12.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.086861,
+        "sigma": 0.009205,
+        "ucb": 0.104904
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088401,
+        "sigma": 0.008065,
+        "ucb": 0.104208
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088401,
+        "sigma": 0.008065,
+        "ucb": 0.104208
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "HC",
+      "k": 42,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.66475
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_13.csv": {
+    "top10": [
+      {
+        "cleaner": "bigdansing",
+        "cluster": "GMM",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANSNF",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "bigdansing",
+        "cluster": "KMEANSPPS",
+        "k": 12,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.083559,
+        "sigma": 0.014784,
+        "ucb": 0.112536
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "GMM",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANS",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      },
+      {
+        "cleaner": "holoclean",
+        "cluster": "KMEANSNF",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.08335,
+        "sigma": 0.012568,
+        "ucb": 0.107983
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 3,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.654602
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_14.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.084387,
+        "sigma": 0.009262,
+        "ucb": 0.10254
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.084387,
+        "sigma": 0.009262,
+        "ucb": 0.10254
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088483,
+        "sigma": 0.006122,
+        "ucb": 0.100483
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.085611,
+        "sigma": 0.006646,
+        "ucb": 0.098638
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 47,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.660736
+    }
+  },
+  "/root/AutoMLClustering/src/pipeline/train/../../../datasets/train/rayyan/rayyan_15.csv": {
+    "top10": [
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 3,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088328,
+        "sigma": 0.008138,
+        "ucb": 0.104279
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "HC",
+        "k": 5,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.088328,
+        "sigma": 0.008138,
+        "ucb": 0.104279
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 47,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.093291,
+        "sigma": 0.004483,
+        "ucb": 0.102078
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "GMM",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSNF",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      },
+      {
+        "cleaner": "baran",
+        "cluster": "KMEANSPPS",
+        "k": 46,
+        "eps": null,
+        "minPts": null,
+        "mu": 0.090324,
+        "sigma": 0.005228,
+        "ucb": 0.100571
+      }
+    ],
+    "best": {
+      "cleaner": "baran",
+      "cluster": "GMM",
+      "k": 47,
+      "eps": null,
+      "minPts": null,
+      "pred_score": 0.688455
+    }
+  }
+}

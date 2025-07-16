@@ -87,13 +87,12 @@
 
     通过对损失率、加速比等指标的度量，我们量化了自动化管线在平衡质量与效率方面的潜力，为工业领域部署该思路奠定了实践基础，也为研究者进一步探索清洗与聚类协同优化的动态适配、在线更新等提供了方向。
 
-    \item \textbf{\textcolor[rgb]{0.00,0.07,1.00}{按错误类型细粒度量化清洗对聚类的收益，并将该洞察用于改进 AutoML 搜索策略}}
+    \item \textbf{按错误类型细粒度量化清洗对聚类的收益，并将该洞察用于改进 AutoML 搜索策略}
 
-    \textcolor[rgb]{0.00,0.07,1.00}{本文首次在大规模实验中，将缺失、格式错误、离群值等不同错误类型对聚类流程的影响拆解分析；并把这些类型-级指标注入多标签学习模型，以动态收缩搜索空间，从而进一步提升 AutoML 推荐的精度与效率。}
+    本文首次在大规模实验中，将缺失、格式错误、离群值等不同错误类型对聚类流程的影响拆解分析；并把这些类型-级指标注入多标签学习模型，以动态收缩搜索空间，从而进一步提升 AutoML 推荐的精度与效率。
 \end{enumerate}
 
-\textcolor[rgb]{0.00,0.07,1.00}{
-我们的工作不仅加深了无监督场景下 “数据清洗—聚类” 协同机理的理解，也为自动化机器学习（AutoML）在脏数据环境中的落地探索了新路径。全文结构如下：第 2 章回顾相关工作；第 3 章形式化地定义问题与符号；第 4 章给出清洗与聚类协同的实现框架；第 5 章以 40 个数据集的大规模实验归纳宏观现象；第 6 章则进一步结合各清洗算法原理，对过程指标与错误类型做细粒度机理分析，并将结论嵌入 AutoML 搜索空间以完成强化验证。}
+我们的工作不仅加深了无监督场景下 “数据清洗—聚类” 协同机理的理解，也为自动化机器学习（AutoML）在脏数据环境中的落地探索了新路径。全文结构如下：第 2 章回顾相关工作；第 3 章形式化地定义问题与符号；第 4 章给出清洗与聚类协同的实现框架；第 5 章以 40 个数据集的大规模实验归纳宏观现象；第 6 章则进一步结合各清洗算法原理，对过程指标与错误类型做细粒度机理分析，并将结论嵌入 AutoML 搜索空间以完成强化验证。
 
 
 %---------------------------------
@@ -140,30 +139,29 @@ TPE-AutoClust\cite{10031132}     & $\triangle$ 部分（初步聚类） & $\tria
 \label{tab:aml_clustering_summary}
 \end{table}
 
-\textcolor[rgb]{0.00,0.07,1.00}{然而，现有研究在“清洗-聚类-AutoML”闭环上仍\textbf{缺少系统化建模与量化}：
+然而，现有研究在“清洗-聚类-AutoML”闭环上仍\textbf{缺少系统化建模与量化}：
 \begin{itemize}[nosep,leftmargin=*]
     \item 多聚焦于聚类算法推荐 + 超参数搜索，而数据特征如何驱动最优清洗-聚类组合缺乏定量分析；  
     \item 评估侧重最终 Silhouette／DB 等结果指标，而忽略“清洗 $\rightarrow$ 聚类内部过程”（质心收敛、核心/边界判定等）的干预链路；  
     \item 尚无完整的端到端整合清洗、聚类与调参的无监督 AutoML 框架，难以应对高噪声、多特征、错误类型交叠的数据场景。  
-\end{itemize}}
+\end{itemize}
 
 \subsection{小结与差异}
 \label{subsec:summary-related}
 
-\textcolor[rgb]{0.00,0.07,1.00}{数据质量管理与聚类算法各自已形成成熟体系，AutoML 在有监督学习中也愈趋完善；\textbf{但在无监督情形仍存在以下不足：}
+数据质量管理与聚类算法各自已形成成熟体系，AutoML 在有监督学习中也愈趋完善；\textbf{但在无监督情形仍存在以下不足：}
 (i) 缺乏可端到端联动“清洗 + 聚类 + 超参数”的自动化框架；
 (ii) 现有无监督 AutoML 未将\emph{清洗准确度及错误类型特征}纳入搜索维度；
-(iii) 清洗-聚类在多错误类型叠加场景下的协同机理尚无系统量化。}
+(iii) 清洗-聚类在多错误类型叠加场景下的协同机理尚无系统量化。
 
 \medskip
-\textcolor[rgb]{0.00,0.07,1.00}{
 为了改进上述不足，本文提出\emph{基于多标签学习的管线化 AutoML 框架}，核心思路如下：  
 \begin{enumerate}[nosep,leftmargin=*]
   \item \textbf{统一搜索空间}——将“数据清洗策略 $\times$ 聚类算法 $\times$ 超参数”整体建模，通过离线多标签学习，学习“数据特征 $\rightarrow$ 优选组合”映射，显著裁剪候选子空间；  
   \item \textbf{过程级记录}——在线阶段细粒度追踪错误类型级清洗准确度（缺失、离群、格式错误等）与聚类运行轨迹（迭代步数、质心位移、核心点变化等），实现清洗收益的因果量化；  
   \item \textbf{原理驱动反馈}——结合各清洗算法原理，分析其在不同错误模式下对聚类的优势与局限，并将所得启示动态反馈至 AutoML 搜索策略，从而持续优化搜索效率与聚类质量。  
 \end{enumerate}
-该框架为回答“清洗何时、如何、在多大程度上提升下游聚类”提供了系统化解决方案，也为无监督 AutoML 的落地实践给出可复制的改进路径。}
+该框架为回答“清洗何时、如何、在多大程度上提升下游聚类”提供了系统化解决方案，也为无监督 AutoML 的落地实践给出可复制的改进路径。
 
 %---------------------------------
 % 第三章：问题定义与挑战
@@ -181,16 +179,15 @@ TPE-AutoClust\cite{10031132}     & $\triangle$ 部分（初步聚类） & $\tria
 \subsubsection{核心概念与变量定义}
 \label{subsec:core-def}
 %--------------------------------------------------
-\textcolor[rgb]{0.00,0.07,1.00}{
 设待处理数据集记为 \(D\)。  
 其单元格可能同时含有多种脏污类型；本文用  
 \(\mathcal{T}\!=\!\{\text{Missing},\text{Anomaly},\text{Typo},\dots\}\)  
 表示完整的“错误类型”集合，其中的约束条件是：  
-\emph{缺失值（Missing）与其他类型互斥}——因为一旦某个单元格为空值，就不会再出现其他错误信息。}
+\emph{缺失值（Missing）与其他类型互斥}——因为一旦某个单元格为空值，就不会再出现其他错误信息。
 
 \vspace{0.3em}
-\paragraph{\textcolor[rgb]{0.00,0.07,1.00}{理论特征向量}}
-\textcolor[rgb]{0.00,0.07,1.00}{对任意 \(t\!\in\!\mathcal{T}\) 记
+\paragraph{理论特征向量}
+对任意 \(t\!\in\!\mathcal{T}\) 记
 \(r_t(D)\in[0,1]\) 为该类型在 \(D\) 中的\emph{边际比例}；  
 再用对称矩阵 \(\mathbf{C}(D)\in\mathbb{R}^{|\mathcal{T}|\times|\mathcal{T}|}\)  
 描述不同类型在同一单元格中“共现”的二阶比例，
@@ -212,8 +209,7 @@ TPE-AutoClust\cite{10031132}     & $\triangle$ 部分（初步聚类） & $\tria
 \end{equation}
 其中 \(m,n\) 分别为特征维度与样本规模。该向量既统一刻画了\textbf{规模}
 又保留了\textbf{错误异质性}，是后续多标签自动化模型
-\(\Phi:\mathbf{x}(D)\mapsto\Omega'(D)\) 的输入。}
-
+\(\Phi:\mathbf{x}(D)\mapsto\Omega'(D)\) 的输入。
 
 记 \(\mathcal{C}\) 为数据清洗方法的集合（如缺失值插补、异常值剔除、错误值纠正等），\(\mathcal{H}\) 为聚类算法集合（如 K-Means、DBSCAN、层次聚类等），\(\mathcal{P}\) 为聚类算法的超参数空间。将一个具体的清洗方法 \(c\)、聚类算法 \(h\) 及其超参数 \(\boldsymbol{\theta}\) 组合成\textbf{清洗-聚类策略}：
 \begin{equation}\label{eq:omega}
@@ -301,17 +297,17 @@ TPE-AutoClust\cite{10031132}     & $\triangle$ 部分（初步聚类） & $\tria
 
     本研究将系统考察给定数据集 \(D\) 与清洗–聚类策略 \(\omega\) 时，哪些“有效纠正”决定了聚类得分 \(S\) 的形成，并探讨修正更多错误是否必然带来更优聚类表现。此外，还将评估清洗操作对最优超参数选择是否产生系统性偏移，从而为自动化管线的配置和调优提供深入的理论依据。
 
-    \item \textbf{\textcolor[rgb]{0.00,0.07,1.00}{利用清洗–聚类机理知识改写 AutoML 的搜索空间与特征工程}}
+    \item \textbf{利用清洗–聚类机理知识改写 AutoML 的搜索空间与特征工程}
 
-          \textcolor[rgb]{0.00,0.07,1.00}{在掌握错误类型对聚类过程与指标的细粒度影响后，如何把这些机理信息反馈到 AutoML：  
+          在掌握错误类型对聚类过程与指标的细粒度影响后，如何把这些机理信息反馈到 AutoML：  
           \begin{itemize}[nosep,leftmargin=*,topsep=2pt]
               \item \emph{搜索空间收缩}——按错误类型显著受益的清洗–聚类组合优先保留，其余策略降权或剔除；  
               \item \emph{特征工程增强}——将“错误类型分布、修复难度、过程指标”等高阶特征注入多标签模型，提升优选子空间预测的精度与解释性。  
           \end{itemize}
-          该挑战要求把机理洞察真正融入 AutoML 流程，而非仅作为事后分析，从而进一步降低评估成本并提升推荐质量。}
+          该挑战要求把机理洞察真正融入 AutoML 流程，而非仅作为事后分析，从而进一步降低评估成本并提升推荐质量。
 \end{enumerate}
 
-\textcolor[rgb]{0.00,0.07,1.00}{围绕上述五个子问题，后续章节将逐一阐述自动化搜索与映射模型的设计思路，并通过大规模实验证明其在多场景下的可行性与性能优势。特别在 \((Q_4)\) 与 \((Q_5)\) 中，我们将结合清洗准确度指标、聚类算法内部过程的跟踪与错误类型的细粒度分析，深入探讨清洗策略如何从数据集、算法过程、评价指标、超参数，以及 AutoML 搜索空间与特征工程等角度共同影响聚类结果，为自动化管线的优化提供可靠的机理支撑。}  
+围绕上述五个子问题，后续章节将逐一阐述自动化搜索与映射模型的设计思路，并通过大规模实验证明其在多场景下的可行性与性能优势。特别在 \((Q_4)\) 与 \((Q_5)\) 中，我们将结合清洗准确度指标、聚类算法内部过程的跟踪与错误类型的细粒度分析，深入探讨清洗策略如何从数据集、算法过程、评价指标、超参数，以及 AutoML 搜索空间与特征工程等角度共同影响聚类结果，为自动化管线的优化提供可靠的机理支撑。
 
 %---------------------------------
 % 第四章：自动化聚类方法
@@ -570,107 +566,94 @@ $\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\tex
 本节系统介绍了自动化聚类方法的整体框架，从离线阶段的多标签训练与清洗准确度/过程数据记录，到在线阶段通过优选子空间快速搜索最优策略。在此基础上，我们不仅能在\textbf{大规模搜索空间}中高效获得近优清洗-聚类组合，还能借助\textbf{记录下的清洗精度与算法过程}信息，对清洗操作对聚类结果的影响机理进行更深入的剖析。下一章我们将结合具体实验展示该方法在多场景下的适用性与可解释性。
 
 
-%---------------------------------
-% 第五章：实验与结果分析
-%---------------------------------
+%====================  第 5 章标题  ====================
+\section{实验设计与实施框架}
 
-\section{宏观实验与现象归纳}
-\label{sec:chapter5}
+%==================== 5.1 数据集与噪声注入 =============
+\subsection{数据集与噪声注入}
+\label{sec:datasets}
 
-本章围绕第~\ref{sec:problem-and-model} 节所提出的问题和模型定义（特别是第~\ref{subsec:problem-statement} 节）展开实验与结果分析，通过对多种数据集和聚类算法的验证，定量评估“数据清洗与聚类协同优化”方案的有效性和适用性。
-\vspace{-0.5em}
-%--------------------------------------------------
-\subsection{\textcolor[rgb]{0.00,0.07,1.00}{实验设置}}\label{sec:exp_setting}
-%--------------------------------------------------
-
-\textcolor[rgb]{0.00,0.07,1.00}{本章实验紧扣第~\ref{sec:problem-and-model} 节提出的“多错误特征向量”理论。
-理论模型允许单元格同时出现多种脏污，但在实验阶段我们做出如下\textbf{可控退化}：}
-
-\begin{enumerate}[label=\arabic*), leftmargin=2em]
-\item \textcolor[rgb]{0.00,0.07,1.00}{仅保留两种最基本的错误类型：\textbf{缺失值 (Missing)} 与
-      \textbf{异常值 (Anomaly)}；}  
-
-\item \textcolor[rgb]{0.00,0.07,1.00}{同一单元格至多含一种错误，
-      因此在实验中
-      \[
-          r_{\text{tot}}(D)\;=\;
-          r_{\text{miss}}(D)+r_{\text{anom}}(D).
-      \]}
-\vspace{-2em}
-\item \textcolor[rgb]{0.00,0.07,1.00}{\textbf{异常值难以在真实数据中精确计数}，
-      故我们将“注入错误比例”当作
-      $r_{\text{anom}}(D)$；  
-      缺失值则在运行时精确统计，
-      得到 $r_{\text{miss}}(D)$。}  
-\end{enumerate}
-
-\textcolor[rgb]{0.00,0.07,1.00}{于是本章用于多标签学习及 AutoML 的实验特征向量为  
-\[
-  \mathbf{x}_{\text{exp}}(D)=
-  \bigl(
-      r_{\text{tot}},\,
-      r_{\text{miss}},\,
-      r_{\text{anom}},\,
-      m,\,n
-  \bigr),\qquad
-  r_{\text{tot}}=r_{\text{miss}}+r_{\text{anom}}.
-\]}
-
-\vspace{-3em}
-
-%--------------------------------------------------
-\subsubsection{数据集准备}\label{sec:dataset_prep}
-%--------------------------------------------------
-
-\textcolor[rgb]{0.00,0.07,1.00}{本研究选用 4 个在数据清洗文献中被广泛引用的公开数据集
-\emph{beers}, \emph{flights}, \emph{hospital}, \emph{rayyan}。
-对于每个数据集的\textbf{干净副本}，在除主键列外的所有单元格独立注入
-\((\text{AnomalyRate},\text{MissingRate})\in\{0,5,10,15\}\%\times\{0,5,10,15\}\%\)，
-共产生 \(4\times4-1=15\) 份含错文件（排除 \(0\%–0\%\) 组合）。
-表 \ref{tab:dataset_overview} 给出了四个数据集的规模 \((n,m)\)，
-理论注入搜索网格（两类错误的参数均为 0–15\%），
-以及 15 份带错文件\textbf{观测}总错误率
-\(r_{\text{tot}}=r_{\text{anom}}+r_{\text{miss}}\) 的最小–最大区间。}
-
+\textcolor[rgb]{0.00,0.07,1.00}{本研究选择了数据清洗领域最常用且在属性类型与规模上具有互补性的四个公开数据集：\emph{beers}、\emph{flights}、\emph{hospital} 与 \emph{rayyan}，它们的行列规模\((n,m)\)，约束数量及列类型分布见表 \ref{tab:dataset_overview}。为了在可复现的条件下系统评估“清洗–聚类”管线的稳健性，我们注入两类最基础且工业场景最常见的错误：缺失值 (Missing) 与异常值 (Anomaly)。具体做法是对每个数据集的干净基线版本，在除主键列外的所有单元格上独立采样\((\text{AnomalyRate},
+\text{MissingRate})\in\{0,5,10,15\}\%\times\{0,5,10,15\}\%\)，
+共构造 \(4\times4-1=15\) 份含错文件（剔除 \(0\%–0\%\) 组合），并以表 \ref{tab:error_def} 所列规则生成脏值。注入后得到的观测总错误率定义为\(r_{\text{tot}}=r_{\text{anom}}+r_{\text{miss}}\)，
+其区间分布将作为后续实验分档与特征提取的依据。}
 \begin{table}[htbp]
   \centering
   \setlength{\tabcolsep}{5pt}
   %\begin{adjustbox}{width=\linewidth}
-  \begin{tabular}{lcccc}
+  \begin{tabular}{lcccccc}
     \toprule
-    \textbf{数据集} & $n$ & $m$ & \textbf{理论注入(\%)} & $r_{\text{tot}}^{\min}$--$r_{\text{tot}}^{\max}$ (\%)\\
+    \textbf{Dataset} & $\boldsymbol{n}$ & $\boldsymbol{m}$ & \textbf{数值列} & \textbf{文本列} & \textbf{混合列} & \textbf{约束数量}\\
     \midrule
-    beers    & 2\,410 & 11 & 0--15 (Anom./Miss.) & 9.23--33.10 \\
-    flights  & 2\,376 & 7  & 0--15 (Anom./Miss.) & 4.99--29.99 \\
-    hospital & 1\,000 & 20 & 0--15 (Anom./Miss.) & 5.00--30.00 \\
-    rayyan   & 1\,000 & 12 & 0--15 (Anom./Miss.) & 18.74--39.85 \\
+    beers    & 2\,410 & 11 & 6 & 4 & 1 & 5 \\
+    flights  & 2\,376 & 7  & 1 & 1 & 4 & 6 \\
+    hospital & 1\,000 & 20 & 5 & 11 & 4 & 15 \\
+    rayyan   & 1\,000 & 12 & 5 & 5 & 2 & 10 \\
     \bottomrule
   \end{tabular}
   %\end{adjustbox}
-  \caption{四个数据集的规模、理论注入区间与观测总错误率范围}
+  \caption{四个数据集的规模、列类型统计及约束数量（数值、文本、混合）}
   \label{tab:dataset_overview}
 \end{table}
 
-\noindent
-\textcolor[rgb]{0.00,0.07,1.00}{表中所有任务均满足 \(r_{\text{tot}} = r_{\text{anom}} + r_{\text{miss}}\)
-后续的多标签学习与 AutoML 管线直接采用
-\[
-  \mathbf{x}_{\text{exp}}
-  = \bigl(r_{\text{tot}},\,r_{\text{miss}},\,r_{\text{anom}},\,m,\,n\bigr)
-\]
-作为数据特征输入。}
+\begin{table}[htbp]
+  \centering
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{llllll} % ← 列数由 5 ➜ 6
+    \toprule
+    \textbf{错误类型定义} & \textbf{原值（干净）} & \textbf{脏值} &
+    \textbf{错误率定义} & \textbf{规则 \& 生成方法} & \textbf{与其他错误重叠}\\
+    \midrule
+    异常值 (A) &
+      非空 &
+      非空且 $\neq$ 原值 &
+      $\displaystyle r_{\text{anom}}
+        =\frac{|A|}{N_{\text{non--NaN}}}$ &
+      \begin{tabular}[c]{@{}l@{}}
+        \textbf{数值列}: $x \leftarrow x \times U(3,6)$\\[-2pt]
+        \textbf{文本列}: 随机在字符串中\\[-2pt]
+        \hspace*{1em}插入 $1$--$2$ 个符号片段\\[-2pt]
+      \end{tabular} &
+      不与缺失重叠 \\
+    \addlinespace[2pt]
+    缺失值 (M) &
+      非空 &
+      空值 (\texttt{NaN}) &
+      $\displaystyle r_{\text{miss}}
+        =\frac{|M|}{N_{\text{non--NaN}}}$ &
+      从剩余非空候选中随机采样 &
+      不与异常值重叠 \\
+    \addlinespace[2pt]
+    非错误 &
+      非空值 &
+      非空且 = 原值 &
+      -- &
+      保持原本为非空的数据不变 &
+      -- \\
+    \addlinespace[2pt]
+           &
+      空值 &
+      空值 &
+      -- &
+      保持原本为空的数据不变 &
+      -- \\
+    \bottomrule
+  \end{tabular}
+  \caption{错误类型定义、注入规则与对应错误率}
+  \label{tab:error_def}
+\end{table}
 
 
-\subsubsection{算法准备}
+\subsection{数据清洗模块：算法库与评价指标}
 \label{sec:algo_prep}
 
-本研究关注两方面算法：
-(1) \textbf{数据清洗策略}；(2) \textbf{聚类算法及对应参数}。
+\subsubsection{算法目录}
+\label{sec:algo_cat}
 
-\paragraph{数据清洗策略}   
-\textcolor[rgb]{0.00,0.07,1.00}{为便于后续实验复现与比较，表 \ref{tab:clean_algo_overview} 初步汇总了本研究选取的 9 种清洗方法的关键信息。读者可据此快速了解各算法在本章实验中的角色与设置；其具体原理及对聚类过程的影响分析将在第 6 章展开。}
+\textcolor[rgb]{0.00,0.07,1.00}{为便于后续实验复现与横向比较，表 \ref{tab:clean_algo_overview} 初步汇总了本研究选取的 9 种清洗方法的关键信息，覆盖统计、规则与机器学习三大范式。}
 
-\begin{table}[htbp]
+\begin{table}[t]
 \centering
 \small
 \renewcommand{\arraystretch}{1.15}
@@ -717,111 +700,235 @@ GroundTruth & — & — &
 MV: Missing Value；FI: Format Inconsistency；Dup: Duplicate；Rule~viol.: 约束违规。}
 \end{tabular}
 %\end{adjustbox}
-\caption{实验用 9 种数据清洗方法总览（本章仅作简述，机理详见第 6 章）}
+\caption{本实验选取的 9 种数据清洗方法总览}
 \label{tab:clean_algo_overview}
 \end{table}
 
 \vspace{-1em}
+\subsubsection{单元格级评估指标}\label{sec:metrics}
+\textcolor[rgb]{0.00,0.07,1.00}{本小节旨在说明\textbf{如何对9种清洗算法的单元格级表现进行系统量化}，
+从而为第 6 章的结果比较和机理分析奠定统一度量基础。
+与前小节的算法库（表 \ref{tab:clean_algo_overview}）相对应，
+我们首先给出基于 \emph{Before/After} 状态的 $2\times2$ 混淆矩阵，
+随后从该矩阵派生 Precision、Recall、F1 及
+\emph{Error‑Drop Rate (EDR)} 等公式。所有指标均对
+\{\textit{Anomaly},\,\textit{Missing}\} 两类错误求和，
+具体符号定义见表 \ref{tab:cell-metrics-def}。}
 
-\paragraph{聚类算法}
-\textcolor[rgb]{0.0,0.07,1.0}{%
-表 \ref{tab:algo_overview_ch5} 简要列出了本章所使用的 6 类定制化聚类脚本在初始化、超参搜索、过程追踪及复杂度方面相较于 \texttt{scikit-learn} 标准实现的主要调整。其设计动机在于为第 5 章实验提供统一且可追踪的运行记录；更深入的原理剖析与过程指标解读将在第 6 章展开。}
-
-\begin{table}[t]
-\centering
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.05}
-%\begin{adjustbox}{width=\linewidth}
-\begin{tabular}{@{}lccccc@{}}
+\begin{table}[ht]
+\small\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{c|cc}
 \toprule
-\textbf{算法名称} &
-\textbf{初始化策略} &
-\textbf{参数调优} &
-\makecell[c]{\textbf{过程指标}\\(方向)} &
-\makecell[c]{\textbf{复杂度}\\变化} \\ 
-\midrule
-K-Means\textsubscript{base} &
-k-means++ &
-Optuna($k$) &
-$\Delta n_{\text{iter}}\!\downarrow$, AUC$_\Delta\!\downarrow$ &
-$\uparrow$ $\mathcal{O}(nkT)$ \\
-
-K-Means\textsubscript{PPS}\cite{10.5555/3016100.3016103} &
-K-MC$^{2}$ 采样 &
-Optuna($k$) &
-同上 &
-$\downarrow$ $\mathcal{O}(n)$ init \\
-
-K-Means\textsubscript{NF}\cite{10.1109/TKDE.2022.3155450} &
-随机标签$\!\to\!F$ &
-Optuna($k$) &
-同上 &
-$\uparrow$ (Gram) \\
-
-GMM-EM (tracking) &
-k-means++ &
-Optuna+Kneedle($k$) &
-$\Delta n_{\text{iter}}\!\downarrow$, AUC$_{\text{LL}}\!\downarrow$ &
-$\uparrow$ (warm start 循环) \\
-
-DBSCAN (noise-aware) &
-— &
-Optuna($\varepsilon$, minPts) &
-$\Delta n_\text{core}\!\uparrow$, $\Delta\rho_\text{noise}\!\downarrow$ &
-$\approx\mathcal{O}(n\log n)$ \\
-
-HC (merge-tree) &
-— &
-Optuna($k$)+linkage+metric &
-$\Delta n_\text{merge}\!\downarrow$, $\Delta h_{\max}\!\downarrow$ &
-$\mathcal{O}(n^{2})$ \\
+ & \multicolumn{2}{c}{\textbf{After repair}}\\\cline{2-3}
+\textbf{Before repair} & Correct (R) & Wrong (W)\\\hline
+Wrong (W) & TP & FN\\
+Correct (R) & FP & TN\\
 \bottomrule
 \end{tabular}
-%\end{adjustbox}
 
-\caption{6种定制化聚类脚本的初始化策略、调参方式、过程指标及复杂度概览}
-\label{tab:algo_overview_ch5}
+\vspace{0.6em}
+\begin{tabular}{@{}lp{9.5cm}@{}}
+\toprule
+\textbf{符号} & \textbf{定义／含义} \\
+\midrule
+$TP$ & 错误单元格被正确修复（True Positive）\\
+$FP$ & 正确单元格被误改坏（False Positive）\\
+$FN$ & 错误单元格未被修复（False Negative）\\
+$TN$ & 正确单元格保持正确（True Negative）\\
+\midrule
+$\displaystyle\text{Precision}=\frac{TP}{TP+FP}$ &
+改动中有多少是真正修复 \\[4pt]
+$\displaystyle\text{Recall}=\frac{TP}{TP+FN}$ &
+原有错误中有多少被修复 \\[4pt]
+$\displaystyle\text{F1}=\frac{2\,\text{Prec}\,\text{Rec}}{\text{Prec}+\text{Rec}}$ &
+综合精确率与召回率 \\[6pt]
+$\displaystyle\text{EDR}=\frac{TP-FP}{TP+FN}$ &
+\emph{净}改进率：单位原始错误的净收益 \\
+\bottomrule
+\end{tabular}
+\caption{单元格级混淆矩阵及派生指标 Precision, Recall, F1, EDR}
+\label{tab:cell-metrics-def}
 \end{table}
 
-%--------------------------------------------------
-\subsection{实验流程}
-\label{sec:exp_flow}
-%--------------------------------------------------
+\subsection{聚类算法及超参数}\label{sec:clu_algo}
 
-本节给出大规模统计实验的标准流水线（图~\ref{fig:exp_flow}），覆盖本章后续所有结果所需的输入与输出。整个链条将做数据与指标采集，但并不在此阶段训练或调用 AutoML；步骤 4 产生的中间文件将在第~\ref{sec:chapter6} 章用作 AutoML 特征与标签。
+\textcolor[rgb]{0.00,0.07,1.00}{为支撑后续因果验证，本节统一说明6类定制化聚类脚本在初始化策略、超参搜索维度、过程级指标（含期望方向）及复杂度变化四个维度上的设定，相关符号与缩写沿用前文。表~\ref{tab:algo_full} 汇总了全部信息，所有超参数均通过 \texttt{Optuna} 网格枚举，并在第\,6\,章结合过程曲线进行机理解析。}
 
-\begin{figure}[htbp]
+\begin{table}[t]
   \centering
-  \includegraphics[width=0.95\linewidth]{figures/4graph/exp_workflow.pdf}
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.07}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{算法脚本} &
+    \textbf{初始化／采样} &
+    \textbf{调优维度} &
+    \makecell[c]{\textbf{过程指标}\\(期望方向)} &
+    \makecell[c]{\textbf{复杂度}\\(相对变化)} \\ 
+    \midrule
+    \multicolumn{5}{@{}l}{\textit{质心型}}\\
+    K-Means\textsubscript{base} &
+      k-means++ &
+      $k$ &
+      \(\Delta n_{\text{iter}}\!\downarrow,\;\text{GeoDecay}\!\downarrow,\;\text{AUC}_\Delta\!\downarrow\) &
+      \(\mathcal{O}(nkT)\) \\[2pt]
+    K-Means\textsubscript{PPS}\cite{10.5555/3016100.3016103} &
+      K-MC$^{2}$ &
+      $k$ &
+      同上 &
+      \(\mathcal{O}(n)\) 初始化$\;\!\downarrow$ \\[2pt]
+    K-Means\textsubscript{NF}\cite{10.1109/TKDE.2022.3155450} &
+      随机标签$\!\to\!F$ &
+      $k$ &
+      同上 &
+      Gram 计算$\;\uparrow$ \\[4pt]
+    \multicolumn{5}{@{}l}{\textit{模型型}}\\
+    GMM--EM\,(tracking) &
+      k-means++ &
+      $k$（Kneedle） &
+      \(\Delta n_{\text{iter}}\!\downarrow,\;\text{AUC}_{\text{LL}}\!\downarrow\) &
+      warm--start 循环$\;\uparrow$ \\[4pt]
+    \multicolumn{5}{@{}l}{\textit{密度型}}\\
+    DBSCAN\,(noise--aware) &
+      — &
+      \(\varepsilon,\; \text{minPts}\) &
+      \(\Delta n_{\text{core}}\!\uparrow,\;\Delta\rho_{\text{noise}}\!\downarrow,\;\Delta W_{\text{cdf}}\!\downarrow\) &
+      \(\mathcal{O}(n\log n)\) \\[4pt]
+    \multicolumn{5}{@{}l}{\textit{层次型}}\\
+    HC\,(merge--tree) &
+      — &
+      $k$、linkage、metric &
+      \(\Delta n_{\text{merge}}\!\downarrow,\;\Delta h_{\max}\!\downarrow,\;\Delta R_{\text{intra/inter}}\!\downarrow\) &
+      \(\mathcal{O}(n^{2})\) \\
+    \bottomrule
+  \end{tabular}
+  \caption{6类聚类脚本的主要概览（\(\downarrow/\uparrow\) 表示指标的期望改善方向）。}
+  \label{tab:algo_full}
+\end{table}
+
+\textcolor[rgb]{0.00,0.07,1.00}{为使后续大规模对比实验中的评价既无监督又可跨数据集或算法直接比较，
+我们首先将
+\[
+\text{Sil}\in[-1,1],\qquad 
+\text{DB}\in(0,\infty)
+\]
+统一映射到同向同尺度区间
+\[
+S=\frac{\text{Sil}+1}{2}\in[0,1],\qquad 
+D=\frac{1}{1+\text{DB}}\in(0,1],
+\]
+并采用\emph{加权调和平均}
+\[
+\text{CI}_{\mathrm{harm}}(\alpha)=
+\frac{1}{\dfrac{\alpha}{S}+\dfrac{1-\alpha}{D}},\qquad 
+\alpha\in[0,1]
+\]
+作为总评价指标，令 $\alpha$ 决定两项度量的相对权重。}
+
+\textcolor[rgb]{0.00,0.07,1.00}{为确定 $\alpha$ 的最优取值，我们设计了一个权重网格预实验；
+Algorithm \ref{alg:grid} 给出了完全自动化的流程：外层遍历
+$\alpha$ 网格，内层对所有\emph{数据集--算法}组合调用
+\textsc{Optuna} 最大化 $\text{CI}_{\mathrm{harm}}(\alpha)$，
+随后统计每个 $\alpha$ 的
+\emph{最大方差} $v_{\max}(\alpha)$ 与 \emph{中位均值} $m_{\mathrm{avg}}(\alpha)$，
+并借助 \texttt{kneed.KneeLocator} 函数在
+$\bigl\{(\alpha,\,m_{\mathrm{avg}}(\alpha))\bigr\}$ 轨迹上寻找经典肘部
+$\alpha_{\text{elbow}}$。}
+
+\begin{algorithm}[t]
+\caption{\textcolor[rgb]{0.00,0.07,1.00}{预实验阶段：权重网格搜索与肘部检测}}
+\label{alg:grid}
+\KwIn{
+  数据集集合 $\mathcal{D}$（大小 $|\mathcal{D}|$）；
+  算法集合 $\mathcal{A}$（大小 $|\mathcal{A}|$）；\\
+  $\alpha$ 网格 $\mathcal{G}=\{\alpha_1,\dots,\alpha_{n_\alpha}\}$；
+  \textsc{Optuna} trial 数 $N$
+}
+\KwOut{
+  结果表 $\bigl[\alpha_i,\,v_{\max}(\alpha_i),\,m_{\mathrm{avg}}(\alpha_i)\bigr]_{i=1}^{n_\alpha}$；
+  肘部权重 $\alpha_{\text{elbow}}$
+}
+
+\ForEach{$\alpha_i\in\mathcal{G}$}{
+  \ForEach{$(d,a)\in\mathcal{D}\times\mathcal{A}$ \textbf{并行}}{
+    在算法 $a$ 的超参数空间用 \textsc{Optuna} 进行 $N$ 次贝叶斯优化，\\
+    得到最优得分 $s_{d,a}^{(\alpha_i)}$\;
+  }
+  计算数据集内方差
+  $\text{Var}_d(\alpha_i)=
+  \operatorname{Var}\{s_{d,a}^{(\alpha_i)}\}_{a\in\mathcal{A}}$\;
+  以及中位数
+  $\widetilde m_d(\alpha_i)=
+  \operatorname{median}\{s_{d,a}^{(\alpha_i)}\}_{a\in\mathcal{A}}$\;
+  \[
+  v_{\max}(\alpha_i)=\max_{d}\text{Var}_d(\alpha_i),\qquad
+  m_{\mathrm{avg}}(\alpha_i)=
+  \frac{1}{|\mathcal{D}|}\sum_{d}\widetilde m_d(\alpha_i)
+  \]
+}
+用 \texttt{kneed.KneeLocator}$\bigl(\{\alpha_i\},\{m_{\mathrm{avg}}(\alpha_i)\}\bigr)$\\
+检测肘部并返回 $\alpha_{\text{elbow}}$\;
+\KwRet 结果表及 $\alpha_{\text{elbow}}$
+\end{algorithm}
+
+\textcolor[rgb]{0.00,0.07,1.00}{在实际预实验中，我们取 $|\mathcal{D}|=4$、$|\mathcal{A}|=6$，
+$\mathcal{G}$ 设为 $20$ 等分的线性网格，内层
+\textsc{Optuna} trial 数 $N=20$。
+统计得到的
+$m_{\mathrm{avg}}(\alpha)$ 随 $\alpha$ 单调上升，
+而 $v_{\max}(\alpha)$ 单调下降；
+对 $m_{\mathrm{avg}}$ 曲线作二阶差分并再次调用
+\texttt{kneed}，肘部出现在
+\[
+\boxed{\alpha_{\text{elbow}}\approx0.47}.
+\]
+图~\ref{fig:alpha-vs-median} 与图~\ref{fig:alpha-vs-var}
+分别给出了 $\alpha$ 对应的 $m_{\mathrm{avg}}$ 与 $v_{\max}$ 折线以及二阶导曲线。
+后续正式实验固定
+$\alpha^\star=\alpha_{\text{elbow}}$
+以兼顾较高的平均得分与显著降低的跨算法方差。}
+
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/4graph/alpha_vs_median.eps}
+    \caption{$\alpha$–$m_{\mathrm{avg}}$ 折线及二阶导}
+    \label{fig:alpha-vs-median}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/4graph/alpha_vs_variance.eps}
+    \caption{$\alpha$–$v_{\max}$ 折线及二阶导（取相反数）}
+    \label{fig:alpha-vs-var}
+  \end{subfigure}
+  \caption{权重网格预实验：平均得分与最大方差随 $\alpha$ 变化曲线}
+\end{figure}
+
+%--------------------------------------------------
+\subsection{实验流程}\label{sec:exp_pipeline}
+
+为验证前文提出的“清洗\;--\;聚类协同优化”假设，本节在图~\ref{fig:exp_flow} 所示的统一流水线上组织全部实验。该流水线由离线测评、元学习训练和在线评估三段首尾衔接：其核心思想是先在可控环境下暴露现象，再循迹探寻机理，继而抽取可泛化的规律，最终以模型化形式回馈真实业务场景。
+
+首先，在离线阶段对四张公开数据表按 \(\langle r_{\text{miss}},r_{\text{anom}}\rangle\) 网格注入多档噪声并逐一应用九种清洗方法与六类聚类脚本。流水线自左而右依次完成错误注入、清洗批处理、聚类及过程跟踪、指标计算与分档，直至持久化全部原始记录。该批量运行产生的 \textit{Raw Results} 既包含不同错误形态下的修复标签，也囊括聚类过程曲线、终态得分与最优超参，为后续分析提供经验证且互相可比的实验现象。定性而言，初步观察显示清洗量与聚类质量并非单调对应、某些算法族对噪声呈现非线性敏感度，而最优 \(k\)、\(\varepsilon\) 亦随错误比例发生可检测的系统性漂移。
+
+继而对 Raw Results 进行逐层剖析：其一，回到过程日志，以迭代轮次、几何衰减率、核心点计数等指标衡量清洗对收敛动力学与噪声判定稳定性的影响；其二，将过程改变量映射到 Silhouette、Davies–Bouldin 及综合得分，厘清过程信号在评价层面的放大或衰减效应；其三，追踪参数寻优轨迹，定量刻画清洗前后搜索空间的收缩、漂移与重采样需求。上述三重透视串成一条由行为到结果再到超参的因果链，使不同视角下的证据相互印证。
+
+在因果链尾端，实验进一步捕捉到清洗策略与聚类脚本之间呈现可迁移的结构化关联：特定错误分布与数据规模下，若修复偏向缺失补全，则层次类算法往往收获更高稳定收益；反之，当异常值主导时，密度类算法更易受益。为将此“模式—策略—得分”三元关系转化为可自动调度的知识，流水线将数据特征、最佳管线及其得分三位一体标注，训练多标签回归器 \(\varPhi\) 并伴随置信剪枝规则，以在搜索伊始便裁剪无效子空间，从而显著缩减探索规模。
+
+最后，在在线评估阶段，一旦新数据抵达，只需重复特征抽取，调 \(\varPhi\) 预测候选优选子空间，随后在该子空间内局部搜索最优清洗\;--\;聚类组合，并与不依赖先验的完全搜索基线做对照。运行日志完整记录搜索时间、算力利用率与质量损失，为后章报告的速度加速比与质量保持度提供原始证据。
+
+通过上述环环相扣的设计，单条流水线即可同时产出回答各子问题所需的全量指标，而所得模型又反哺线上场景形成闭环，确保第~\ref{sec:chapter6} 章能够在不重复实验的前提下，专注于结果解析与机理论证。
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{figures/4graph/flowchart1.pdf}
   \caption{本章批量实验的四阶段流水线}
   \label{fig:exp_flow}
 \end{figure}
-
-\begin{enumerate}[label=\textbf{Step\,\arabic*.}, itemindent=4em, leftmargin=0pt]
-
-\item \textbf{可控错误注入 \& 特征统计}  \\
-\textcolor[rgb]{0.00,0.07,1.00}{对每个干净数据集依照 \((\text{AnomalyRate},\text{MissingRate}) \in \{0,5,10,15\}\,\%\) 的网格注入错误，生成 15 份含错版本。运行时即时统计 \(\{r_{\text{tot}},\,r_{\text{miss}},\,r_{\text{anom}},\,m,\,n\}\)，形成特征向量 \(\mathbf{x}_{\text{exp}}(D)\)。}
-
-\item \textbf{清洗 $\rightarrow$ 聚类批处理}  \\
-\textcolor[rgb]{0.00,0.07,1.00}{对每个含错文件分别执行 9种清洗算法（表 \ref{tab:clean_algo_overview}）并采集结果；随后用 6 种定制化聚类脚本（表 \ref{tab:algo_overview_ch5}）进行聚类与超参搜索，同时记录过程指标（迭代步数、质心位移、核心点等）。}
-
-\item \textbf{指标计算与分档}  \\
-\textcolor[rgb]{0.00,0.07,1.00}{对聚类输出计算 Silhouette、Davies–Bouldin 与 Combined Score，并把全部原始指标汇总为三类实验：  
-(i) 得分评估 —— 跨多种清洗-聚类组合的结果求均值/方差；  
-(ii) 错误率梯度 —— 按 \(r_{\text{tot}}\) 分档绘制曲线；  
-(iii) 错误类型对比 —— 固定 \(r_{\text{tot}}\) 比较 \(r_{\text{miss}}\) 与 \(r_{\text{anom}}\) 的影响。}
-
-\item \textbf{结果持久化}  \\
-\textcolor[rgb]{0.00,0.07,1.00}{将每个错误数据集的清洗标签、聚类历史、超参数与评估指标统一记录，同时导出 \(\bigl(\mathbf{x}_{\text{exp}},\,\Omega^{\star},\,S^{\star}\bigr)\) 三元组作为 AutoML 训练样本。}
-
-\end{enumerate}
-
-\noindent
-完成上述 4 步后，我们即将在第~\ref{sec:score_eval_exp} 节到
-第~\ref{sec:error_sense_exp} 节
-分别开展“得分评估”与“错误敏感性”三组实验，
-初步回答第~\ref{subsec:problem-statement} 节中提出的问题挑战。
 
 %--------------------------------------------------
 \subsection{\textcolor[rgb]{0.00,0.07,1.00}{实验结果与分析}}
@@ -1232,26 +1339,6 @@ AutoML 流水线应将清洗-聚类视作协同的超参搜索问题。
 
 \end{enumerate}
 
-\subsection{\textcolor[rgb]{0.00,0.07,1.00}{本章小结}}
-
-\textcolor[rgb]{0.00,0.07,1.00}{%
-本章通过 \(3\,240\) 组批量实验系统刻画了 9 种清洗策略、6 类聚类算法在 4 个公开数据集上的宏观行为，
-归纳出以下结论：}
-
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2.4em]
-  \item \texttt{mode+HC} 与 \texttt{GroundTruth+HC} 在 Top–10 频次、平均秩与稳定性三维度领先，凸显\emph{清洗–聚类协同优化}的必要性。%
-  \item 最佳总错误率区间随数据属性而变：低维数值／文本表在 \(\sim\)20\,\% 出现峰值，而强依赖数据在 \(\le\)5\,\% 已趋于饱和。%
-  \item HC 依托 linkage 的多尺度聚合，在 \(\ge\)30\,\% 噪声档仍保持 \(\overline{r}_{\text{noise}}=\num{5.9}\) 的前列秩次，表现出显著的高噪稳健性。%
-  \item 异常率与缺失率对得分方差呈中度负相关（\(\rho=-0.50\)），两类噪声应作为\emph{独立特征}输入 AutoML 以避免互相抵消信息。%
-  \item “众数 + 密度”组合仅在高文本冗余场景（\textit{rayyan}）表现突出，说明算法选择需与向量空间密度形态相匹配。%
-\end{enumerate}
-
-\textcolor[rgb]{0.00,0.07,1.00}{%
-上述结论为第六章的机制剖析与 \emph{AutoCleanClust} 自适应搜索器设计提供了直接经验依据；
-后文将进一步利用算法原理与簇密度解释这些现象，
-并把错误特征向量 \(\mathbf{x}_{\text{exp}}\) 融入 AutoML 搜索空间，
-系统评估协同策略对搜索效率与聚类性能的提升。}
-
 \section{机理分析与 AutoML 改进}
 \label{sec:chapter6}
 
@@ -1280,180 +1367,6 @@ AutoML 流水线应将清洗-聚类视作协同的超参搜索问题。
 \noindent
 以下内容将给出统一的实验设计与数据采集方案，通过一次性的实验流程来获取涵盖上述四个问题所需的信息，后续小节将基于这些采集结果，对四大问题做深入分析与讨论。
 
-%-------------------------------------------------
-\subsection{清洗算法原理与机理假设}
-\label{sec:clean-principle}
-%-------------------------------------------------
-下文按照“算法核心思想 $\rightarrow$ 覆盖错误类型
-$\rightarrow$ 对本章实验指标的预期干预链路”依次介绍8种清洗策略。
-\S\ref{subsec:internal_tracking} 会实测这些算法的定量幅度，本节首先给出方向性假设。
-
-\paragraph{Mode Imputation.}
-该方法把“列内出现次数最多（或均值）即真值”作为唯一假设，  
-一次性用该众数／均值回填全部缺失单元，并顺带纠正极少数单字符 \textit{Typo}。  
-\emph{实验锚点：}我们将在质心类算法的迭代曲线
-（AUC\textsubscript{$\Delta$}）上验证方差是否显著收缩，
-并留意 DBSCAN 噪声阈值 $\varepsilon$ 是否向下微调。
-
-\paragraph{Raha--Baran\cite{10.14778/3407790.3407801}.}
-该方法首先捕获上下文语义，再使用轻量依赖约束与三路纠错器，
-在极少标注条件下端到端修复 Typo 和数值异常。  
-\emph{实验锚点：}我们将观测噪声点被抑制后
-HC 合并层数与 K-Means 迭代是否同步下降，
-以及 DBSCAN 最优 $\varepsilon$ 是否整体偏左。
-
-\paragraph{HoloClean\cite{Rekatsinas2017}.}
-该方法将函数依赖、否定约束和外部词典统一表示为概率图模型，
-对 Missing 和 Rule‐Violation 进行高精度推断与修复，Recall 取决于约束覆盖。  
-\emph{实验锚点：}核心关注 DBSCAN 噪声率
-$\rho_{\text{noise}}$ 的下降幅度及 Silhouette 方差，
-以评估误报对簇结构的冲击。
-
-\paragraph{BigDansing\cite{Khayyat2015BigDansing}.}
-该方法采用大规模并行规则挖掘与匹配来检测 Schema 违规和格式 Typo，
-但默认不执行修复，也忽略 Missing 与 Anomaly。  
-\emph{实验锚点：}我们可以把它当作“检测基线”，
-主要检查 K-Means 质心摆幅是否因格式统一而轻度缩小，
-其余过程／超参预计保持原状。
-
-\paragraph{BoostClean\cite{Krishnan2017BoostClean}.}
-该方法把下游监督模型的预测误差当作目标，
-用 Boosting 迭代优先修复对任务最有利的脏元。  
-\emph{实验锚点：}若标签边界与簇结构一致，
-Combined Score 可能随 Precision 提升；若不一致，
-则 $\mathrm{Comb}$ 波动和参数漂移可能增大。
-
-\paragraph{Horizon\cite{10.14778/3476249.3476301}.}
-该方法针对时序数据的 FD 违规，先用滑窗插补缺失，
-再通过频繁模式选择修复离群点。  
-\emph{实验锚点：}我们关注 K-Means SSE 与 HC $h_{\max}$ 是否收缩，
-以及在 FD 不完备时 Silhouette 方差是否反向上升。
-
-\paragraph{SCARE\cite{10.1145/2463676.2463706}.}
-该方法通过主动学习把有限标注预算聚焦于高不确定元组，
-实现高 Precision、受 $\delta$ 约束的 Recall。  
-\emph{实验锚点：}中等 Missing 场景应看到
-DBSCAN 噪声率下降和 K-Means 轻度提速；
-高缺失时增益预计趋于平坦。
-
-\paragraph{Unified\cite{5767833}.}
-该方法在统一代价模型下同时考虑“修改数据”与“松弛约束”，
-以获得低方差、稳健的整体修复效果。  
-\emph{实验锚点：}我们预期 SSE、$\rho_{\text{noise}}$、
-$h_{\max}$ 均有中等幅度改善而超参几乎不变，
-从而作为 AutoML 搜索的“安全默认”分支。
-
-%====================================================================
-\subsection{实验设计}
-\label{sec:exp_design}
-%====================================================================
-
-本节在第 5 章的整体框架上做有限增补，使同一条流水线即可回答
-\(\mathrm{Q_1}\)--\(\mathrm{Q_4}\)。
-除特别说明外，数据集、评价指标与硬件配置均沿用上一章。
-
-\begin{enumerate}[label=\textbf{Step\,\arabic*.},itemindent=4em,leftmargin=0pt]
-
-%------------------------------------------------------------------
-\item \textbf{数据与错误注入}\label{step:data}\\
-      选用 \textit{beers}、\textit{flights}、\textit{hospital}、
-      \textit{rayyan} 共四张公开表；
-      在单元格级别对
-      \textbf{Missing Value (MV)} 与
-      \textbf{Anomaly (Ano)} 分别注入
-      \(0\%,5\%,10\%,15\%\) 四档比例。
-      干净副本保留为真值，用于后续计算
-      \(\mathrm{EDR}_{\{MV,Ano\}}\)、\(\mathrm{Precision}\)、
-      \(\mathrm{Recall}\)、\(\mathrm{F1}\)。
-
-%------------------------------------------------------------------
-\item \textbf{清洗执行——回答 \(\mathrm{Q_1}\)}\\
-      第 6.2 节列出的8种清洗策略
-      逐一作用于 \ref{step:data} 生成的所有
-      \((\text{数据集},\text{错误率})\) 组合。
-      运行结束后按错误类型记录修复量与修复准确度，得到
-      \(\{\mathrm{F1}_{MV},\mathrm{F1}_{Ano}\}\)。
-
-%------------------------------------------------------------------
-\item \textbf{聚类与过程跟踪——回答 \(\mathrm{Q_2}\)}\\
-      清洗前后分别运行四类聚类算法
-      （三变体 K-Means、GMM、HC、DBSCAN），
-      并实时记录其关键过程指标，
-      具体定义及期望方向见表 \ref{tab:proc_indicators}。  % <-- 显式引用表格
-
-      \begin{table}[t]
-  \centering\small
-  \renewcommand{\arraystretch}{1.1}
-  \setlength{\tabcolsep}{6pt}
-  \begin{tabular}{@{}lll@{}}
-  \toprule
-  \textbf{算法族} & \textbf{过程指标} & \textbf{期望方向}\\
-  \midrule
-  质心型（Baseline / PPS / NF K-Means） 
-    & 几何衰减率 \(\text{GeoDecay}\)                     & \(\downarrow\)\\
-    & 质心位移曲线面积 \(\text{AUC}_{\Delta}\)           & \(\downarrow\)\\
-    & 终态 SSE                                           & \(\downarrow\)\\[2pt]
-  模型型（GMM） 
-    & 几何衰减率 \(\text{GeoDecay}\)                     & \(\downarrow\)\\
-    & 对数似然收敛面积（AUC）                            & \(\downarrow\)\\[2pt]
-  层次型（HC） 
-    & 合并层数 \(\Delta n_{\text{merge}}\)               & \(\downarrow\)\\
-    & 最大合并高度 \(\Delta h_{\max}\)                   & \(\downarrow\)\\
-    & \small 簇内／簇间距离比 \(\Delta R_{\text{intra/inter}}\) & \(\downarrow\)\\[2pt]
-  密度型（DBSCAN） 
-    & 核心点计数 \(\Delta n_{\text{core}}\)              & \(\uparrow\)\\
-    & 平均邻居数 \(\Delta n_{\text{avg}}\)               & \(\uparrow\)\\
-    & 噪声率 \(\Delta\rho_{\text{noise}}\)               & \(\downarrow\)\\
-    & CDF–Wasserstein 距离 \(\Delta W_{\text{cdf}}\)     & \(\downarrow\)\\
-  \bottomrule
-  \end{tabular}
-  \caption{四大算法族的过程级指标及其期望方向}
-  \label{tab:proc_indicators}
-\end{table}
-
-
-      为便于横向比较，所有过程指标都转换为
-      “相对 \textit{mode}（众数填补）清洗后的改变量”
-      \begin{equation}
-        \label{eq:delta_pct}
-        \Delta\% \;=\;
-        \frac{\text{metric}_{\textsc{clean}} - \text{metric}_{\textsc{mode}}}
-             {\lvert\text{metric}_{\textsc{mode}}\rvert + 10^{-8}}\times100\% .
-      \end{equation}
-      后续热力图均以 \(\Delta\%\) 为色阶，红色表示退化，蓝色代表改善。
-
-\item \textbf{聚类结果评估——回答 \(\mathrm{Q_3}\)}\\
-      对每份（清洗×聚类）结果计算
-      \(\mathrm{Silhouette}\) 与 \(\mathrm{Davies\text{-}Bouldin}\)，
-      并给出加权组合
-      \(\mathrm{Combined}=0.5\,(1/\mathrm{DB}) + 0.5\,\mathrm{Sil}\)。
-      再将这些分数与
-      \(\{\mathrm{F1}_{MV},\mathrm{F1}_{Ano}\}\) 做相关及边际收益分析，
-      用于判定优先修复的错误类型。
-
-%------------------------------------------------------------------
-\item \textbf{超参数搜索与漂移——回答 \(\mathrm{Q_4}\)}\\
-      分别在清洗前后运行 Optuna／KneeLocator，
-      搜索最优 \(k\)、\(\varepsilon\)、\textit{covariance type} 等参数；
-      对比 \(\Delta k\)、\(\Delta\varepsilon\) 与
-      \(\Delta\mathrm{Combined}\) 以量化清洗引起的搜索空间漂移。
-
-%------------------------------------------------------------------
-\item \textbf{汇总输出}\\
-      单条实验流水线最终同时产出  
-      \[
-        \underbrace{\bigl\{\mathrm{F1}_{MV},\mathrm{F1}_{Ano}\bigr\}}_{\mathrm{Q_1}}
-        \cup
-        \underbrace{\bigl\{\Delta\%\_{\text{process}}\bigr\}}_{\mathrm{Q_2}}
-        \cup
-        \underbrace{\bigl\{\mathrm{Sil},\mathrm{DB},\mathrm{Combined}\bigr\}}_{\mathrm{Q_3}}
-        \cup
-        \underbrace{\bigl\{\Delta k,\Delta\varepsilon\bigr\}}_{\mathrm{Q_4}},
-      \]
-      为 § 6.4 的机理验证与 § 6.5 的 AutoML 动态裁剪奠定数据基础。
-
-\end{enumerate}
-
 \subsection{实验结果与分析}
 \label{sec:exp_results}
 
@@ -1467,63 +1380,6 @@ $h_{\max}$ 均有中等幅度改善而超参几乎不变，
 \(\mathcal{T}=\{\mathrm{Missing},\mathrm{Anomaly}\}\)上，
 本节采用“\textbf{单元格混淆矩阵}”思路，
 先统计八个基本计数，再由它们派生四项经典指标。
-
-%---------------------------------------------------------
-\begin{table}[t]
-\centering\small
-\setlength{\tabcolsep}{8pt}
-\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{@{}lcc@{}}
-\toprule
- & \multicolumn{2}{c}{\textbf{修复后状态}}\\
-\cmidrule(lr){2-3}
-\textbf{修复前状态} & \textbf{正确 (R)} & \textbf{错误 (W)} \\
-\midrule
-\textbf{错误 (W)} &
-\parbox[c]{0.34\linewidth}{%
-\centering
-\(\text{TP}=n_{w2r}\)\\
-\(\quad\!\!\small(n_{w2r\_\mathrm{mis}},\,n_{w2r\_\mathrm{ano}})\)} &
-\parbox[c]{0.34\linewidth}{%
-\centering
-\(\text{FN}=n_{w2w}\)\\
-\(\quad\!\!\small(n_{w2w\_\mathrm{mis}},\,n_{w2w\_\mathrm{ano}})\)} \\[6pt]
-\textbf{正确 (R)} &
-\(\text{TN}=n_{r2r}\) &
-\(\text{FP}=n_{r2w}\)\\
-\bottomrule
-\end{tabular}
-
-
-\vspace{0.6em}
-\begin{tabular}{@{}lp{9.2cm}@{}}
-\toprule
-\textbf{符号} & \textbf{定义／含义} \\
-\midrule
-\(n_{\text{raw}}\)        & 单元格总数（行数×列数）\\
-\(n_{\text{w}}\)          & 原始错误总数 \(= n_{w\_\mathrm{mis}}+n_{w\_\mathrm{ano}}\) \\
-\(n_{w\_\mathrm{mis}}\)   & 原始 Missing 数            \(\bigl|\text{dirty}=\,\text{NaN}\wedge\text{clean}\neq\text{NaN}\bigr|\) \\
-\(n_{w\_\mathrm{ano}}\)   & 原始 Anomaly 数             \(= n_{\text{w}}-n_{w\_\mathrm{mis}}\) \\
-\(n_{w2r}\)               & TP：错误被正确修复 \\
-\(n_{w2r\_\mathrm{mis}}\), \(n_{w2r\_\mathrm{ano}}\) & 按类型拆分 TP \\
-\(n_{r2w}\)               & FP：原本正确被误改坏 \\
-\(n_{w2w}\)               & FN：错误未被修复         \(= n_{\text{w}}-n_{w2r}\) \\
-\(n_{w2w\_\mathrm{mis}}\), \(n_{w2w\_\mathrm{ano}}\) & 按类型拆分 FN \\
-\(n_{r2r}\)               & TN：原正确且保持正确     \(= n_{\text{raw}}-n_{\text{w}}-n_{r2w}\) \\
-\midrule
-\(\displaystyle\text{Precision} =\frac{n_{w2r}}{n_{w2r}+n_{r2w}}\) &
-清洗写入的改动中有多少是真正的修复 \\[4pt]
-\(\displaystyle\text{Recall}    =\frac{n_{w2r}}{n_{\text{w}}}\) &
-原有错误中有多少被修复 \\[4pt]
-\(\displaystyle\text{F1}        =\frac{2\,\text{Prec}\,\text{Rec}}{\text{Prec}+\text{Rec}}\) &
-综合精确率与召回率 \\[5pt]
-\(\displaystyle\text{EDR}       =\frac{n_{w2r}-n_{r2w}}{n_{\text{w}}}\) &
-\emph{净}改进率：单位原始错误的净收益（修好减误伤） \\
-\bottomrule
-\end{tabular}
-\caption{单元格级计数与派生指标}
-\label{tab:q1-metrics-definition}
-\end{table}
 
 \paragraph{评价流程}\;
 \begin{enumerate}[label=\textbf{Step\,\arabic*.},itemindent=4em,leftmargin=0pt]

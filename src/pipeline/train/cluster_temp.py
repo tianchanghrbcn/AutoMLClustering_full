@@ -146,15 +146,5 @@ def main():
     )
     print(f"[INFO] 分析结果已保存到 {analyzed_results_path}")
 
-    # 如果后续需要生成训练数据
-    from src.pipeline.train.classifier_preparation import generate_training_data
-    print("[INFO] 开始生成训练数据")
-    try:
-        generate_training_data()
-        print("[INFO] 训练数据已成功生成并保存")
-    except Exception as e:
-        print(f"[ERROR] 生成训练数据时发生错误: {e}")
-
-
 if __name__ == "__main__":
     main()
