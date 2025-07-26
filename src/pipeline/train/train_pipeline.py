@@ -34,14 +34,14 @@ def process_record(record_idx, record, work_dir):
     # 将 strategies 修改为一个 dict: {算法编号: "算法名称"}
     strategies = {
         1: "mode",
-        2: "raha_baran",
+        2: "baran",
         3: "holoclean",
         4: "bigdansing",
         5: "boostclean",
         6: "horizon",
         7: "scared",
         8: "Unified",
-        9: "google_gemini"
+        #9: "google_gemini"
     }
 
     # 遍历字典的键和值
@@ -68,7 +68,7 @@ def process_record(record_idx, record, work_dir):
                 "runtime": runtime
             })
 
-            for cluster_method_id in range(4):
+            for cluster_method_id in range(6):
                 cluster_output_dir, cluster_runtime = run_clustering(
                     dataset_id=dataset_id,
                     algorithm=algo_name,
@@ -113,7 +113,7 @@ def main():
         return
 
     # 或者测试第一个数据集：
-    # all_records = all_records[:1]
+    all_records = all_records[:1]
 
     cleaned_results = []
     clustered_results = []
@@ -141,6 +141,15 @@ def main():
         json.dump(clustered_results, f, ensure_ascii=False, indent=4)
 
     print(f"聚类结果已保存到 {clustered_results_path}")
+
+    print("[INFO] 开始分析聚类结果")
+    save_analyzed_results(
+        preprocessing_file_path=preprocessing_file_path,
+        eigenvectors_path=eigenvectors_path,
+        clustered_results_path=clustered_results_path,
+        output_path=analyzed_results_path
+    )
+    print(f"[INFO] 分析结果已保存到 {analyzed_results_path}")
 
 if __name__ == "__main__":
     main()
