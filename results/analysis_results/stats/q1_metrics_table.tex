@@ -1,0 +1,54 @@
+\begin{table*}[t]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\setlength{\tabcolsep}{4pt}
+\caption{各清洗方法在两类错误上的综合指标（中位数，排除无错记录）}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{ll*{8}{S}}
+\toprule
+\multicolumn{2}{l}{} &
+\multicolumn{4}{c}{\bfseries 缺失值错误} &
+\multicolumn{4}{c}{\bfseries 异常值错误}\\
+\cmidrule(lr){3-6}\cmidrule(l){7-10}
+数据集 & 方法 &{EDR} & {Prec.} & {Rec.} & {$F_1$} &{EDR} & {Prec.} & {Rec.} & {$F_1$}\\
+\midrule
+\multirow{8}{*}{\textbf{beers}} & Mode \bfseries 0.428 & \bfseries 0.664 & \bfseries 0.804 & \bfseries 0.727 &  -0.356 &  0.410 & \bfseries 0.777 &  0.546 \\
+ & BigDansing  0.192 &  0.570 &  0.778 &  0.657 &  -0.205 &  0.443 &  0.750 &  0.566 \\
+ & BoostClean  -0.094 &  0.469 &  0.714 &  0.566 &  -0.684 &  0.325 &  0.685 &  0.437 \\
+ & HoloClean  -0.008 &  0.496 &  0.391 &  0.437 &  -3.952 &  0.078 &  0.382 &  0.130 \\
+ & Horizon  0.192 &  0.571 &  0.782 &  0.654 &  -0.119 &  0.466 &  0.766 &  0.591 \\
+ & SCARE  -0.738 &  0.327 &  0.661 &  0.440 & \bfseries -0.024 & \bfseries 0.489 &  0.743 & \bfseries 0.592 \\
+ & Raha\textminus Baran  0.259 &  0.601 &  0.780 &  0.680 &  -0.053 &  0.483 &  0.741 &  0.585 \\
+ & Unified  -0.113 &  0.463 &  0.725 &  0.567 &  -0.649 &  0.339 &  0.693 &  0.461 \\
+\midrule
+\multirow{8}{*}{\textbf{flights}} & Mode \bfseries 0.825 & \bfseries 1.000 &  0.825 & \bfseries 0.904 &  -0.588 &  0.359 &  0.828 &  0.497 \\
+ & BigDansing  0.508 &  0.731 &  0.806 &  0.766 &  -0.560 &  0.359 &  0.781 &  0.471 \\
+ & BoostClean  -0.002 &  0.500 &  0.822 &  0.621 &  0.001 &  0.500 &  0.827 &  0.624 \\
+ & HoloClean  0.821 &  0.998 &  0.822 &  0.902 &  -0.697 &  0.350 &  0.822 &  0.489 \\
+ & Horizon  0.409 &  0.694 &  0.754 &  0.723 &  -1.124 &  0.281 &  0.750 &  0.405 \\
+ & SCARE  -0.443 &  0.394 &  0.802 &  0.531 &  0.170 &  0.560 &  0.806 &  0.655 \\
+ & Raha\textminus Baran  0.770 &  0.854 & \bfseries 0.934 &  0.890 & \bfseries 0.500 & \bfseries 0.673 & \bfseries 0.934 & \bfseries 0.795 \\
+ & Unified  -0.018 &  0.494 &  0.846 &  0.626 &  0.336 &  0.634 &  0.886 &  0.717 \\
+\midrule
+\multirow{8}{*}{\textbf{hospital}} & Mode  0.857 & \bfseries 1.000 &  0.857 &  0.923 &  -0.367 &  0.403 &  0.849 &  0.538 \\
+ & BigDansing  0.456 &  0.689 &  0.829 &  0.753 &  -0.368 &  0.403 &  0.826 &  0.542 \\
+ & BoostClean  0.000 &  0.500 &  0.801 &  0.618 &  0.000 &  0.500 &  0.825 &  0.624 \\
+ & HoloClean  0.837 &  0.948 &  0.886 &  0.914 &  0.219 &  0.570 &  0.893 &  0.696 \\
+ & Horizon  0.338 &  0.638 &  0.766 &  0.698 &  -0.252 &  0.428 &  0.775 &  0.544 \\
+ & SCARE  -0.284 &  0.417 &  0.711 &  0.519 &  0.005 &  0.502 &  0.742 &  0.580 \\
+ & Raha\textminus Baran \bfseries 0.927 &  0.959 & \bfseries 0.957 & \bfseries 0.964 & \bfseries 0.739 & \bfseries 0.815 & \bfseries 0.956 & \bfseries 0.880 \\
+ & Unified  -0.002 &  0.499 &  0.769 &  0.604 &  0.000 &  0.500 &  0.785 &  0.612 \\
+\midrule
+\multirow{8}{*}{\textbf{rayyan}} & Mode  -0.749 &  0.345 & \bfseries 0.840 &  0.489 &  -0.470 &  0.364 & \bfseries 0.715 &  0.473 \\
+ & BigDansing  -0.820 &  0.323 &  0.737 &  0.444 &  -0.677 &  0.328 &  0.630 &  0.426 \\
+ & BoostClean  -1.398 &  0.244 &  0.666 &  0.366 &  -0.013 &  0.495 &  0.596 &  0.540 \\
+ & HoloClean  -1.127 &  0.242 &  0.506 &  0.330 &  -3.110 &  0.106 &  0.415 &  0.168 \\
+ & Horizon  -0.663 &  0.351 &  0.768 &  0.479 &  -0.219 &  0.429 &  0.671 &  0.505 \\
+ & SCARE  -0.804 &  0.319 &  0.743 &  0.450 &  -0.137 &  0.452 &  0.622 &  0.490 \\
+ & Raha\textminus Baran  -0.065 &  0.479 &  0.721 &  0.572 &  -0.225 &  0.434 &  0.612 &  0.502 \\
+ & Unified \bfseries -0.002 & \bfseries 0.500 &  0.829 & \bfseries 0.628 & \bfseries -0.004 & \bfseries 0.499 &  0.712 & \bfseries 0.587 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\label{tab:q1-acc-summary}
+\end{table*}

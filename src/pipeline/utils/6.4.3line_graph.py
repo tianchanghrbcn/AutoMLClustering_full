@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os
-import sys
+import os, sys
 import pandas as pd
 
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
+from matplotlib.font_manager import FontProperties   # ★
 
-matplotlib.rc('font', family='Times New Roman')
-# sns.set_style("whitegrid")  # 如需网格，可取消注释
+# ── 字体设置 ──────────────────────────────────────────────
+matplotlib.rc('font', family='Times New Roman')  # 英文默认
+# 中文用宋体；若没有宋体请改为 SimHei / Microsoft YaHei 等
+cn_font         = FontProperties(family='SimSun')           # 轴标签
+cn_font_title   = FontProperties(family='SimSun', size=16)  # 备用标题
+cn_font_legend  = FontProperties(family='SimSun', size=14)  # 图例
 
 def main():
     #--------------------------------------------------------------------
@@ -27,8 +31,7 @@ def main():
             print(f"[WARN] missing {fp}, skip {t}")
             continue
         tmp = pd.read_excel(fp)
-        if "task_name" not in tmp.columns:
-            tmp["task_name"] = t
+        tmp["task_name"] = t
         dfs.append(tmp)
 
     if not dfs:
@@ -38,12 +41,10 @@ def main():
     df["error_rate"] = df["error_rate"].astype(float)
 
     #--------------------------------------------------------------------
-    # B) 错误率分箱
+    # B) 最近 5 的倍数 error_bin
     #--------------------------------------------------------------------
-    bins   = [0, 5, 10, 15, 20, 25, 30, 9e9]
-    labels = ["0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "≥30"]
-    df["error_rate_bin"] = pd.cut(df["error_rate"], bins=bins,
-                                  labels=labels, right=False)
+    df["error_rate_bin"] = ((df["error_rate"] / 5).round() * 5).astype(int)
+    df = df.sort_values("error_rate_bin")
 
     #--------------------------------------------------------------------
     # C) 输出目录
@@ -58,7 +59,7 @@ def main():
         # 计算 CEGR
         rec = []
         for (ds, ebin, cm), g in sub.groupby(
-                ["dataset_id", "error_rate_bin", "cluster_method"]):
+                ["dataset_id", "error_rate_bin", "cluster_method"], observed=False):
             if len(g) < 2:
                 continue
             best  = g.loc[g["EDR"].idxmax()]
@@ -69,29 +70,27 @@ def main():
             rec.append({
                 "error_rate_bin": ebin,
                 "cluster_method": cm,
-                "CEGR": (best["Comb_relative"] - worst["Comb_relative"]) / d_edr
+                "CEGR": (best["Combined Score"] - worst["Combined Score"]) / d_edr
             })
 
         ratio_df = pd.DataFrame(rec)
         if ratio_df.empty:
             print(f"[WARN] no CEGR for {task}"); continue
 
-        agg = (ratio_df.groupby(["error_rate_bin", "cluster_method"], as_index=False)
+        agg = (ratio_df.groupby(["error_rate_bin", "cluster_method"], observed=False, as_index=False)
                .CEGR.median()
-               .rename(columns={"CEGR": "CEGR_median"}))
-        agg["error_rate_bin"] = agg["error_rate_bin"].astype(
-            pd.CategoricalDtype(labels, ordered=True))
-        agg = agg.sort_values(["error_rate_bin", "cluster_method"])
+               .rename(columns={"CEGR": "CEGR_median"})
+               .sort_values(["error_rate_bin", "cluster_method"]))
 
         #----------------------------------------------------------------
-        # E) 保存图像对应的数据表格  ← 新增
+        # 数据表保存
         #----------------------------------------------------------------
         table_path = os.path.join(out_dir, f"CEGR_5pct_{task}.xlsx")
         agg.to_excel(table_path, index=False)
         print(f"[INFO] saved {table_path}")
 
         #----------------------------------------------------------------
-        # D) 绘图
+        # 绘图
         #----------------------------------------------------------------
         plt.figure(figsize=(6.5, 4.5))
         sns.lineplot(
@@ -106,17 +105,20 @@ def main():
             markersize=13
         )
 
-        plt.xlabel("Error-Rate Bin (%)",  fontsize=18)
-        plt.ylabel("Median CEGR",         fontsize=18)
-        # plt.title(f"{task}: CEGR vs Error-Rate", fontsize=18, pad=6)
+        # 中文轴标签
+        plt.xlabel("错误率",     fontsize=18, fontproperties=cn_font)   # ★
+        plt.ylabel("CEGR 中位数", fontsize=18, fontproperties=cn_font)  # ★
 
         plt.grid(True, alpha=0.3)
         plt.tick_params(axis='both', which='major', labelsize=18)
 
-        # ★ 图例移入图内右下角并设置透明度
-        plt.legend(title="Cluster Method",
-                   fontsize=12, title_fontsize=13,
-                   loc="lower right", frameon=True, framealpha=0.5)
+        # 中文图例
+        leg = plt.legend(title="聚类方法",                 # ★
+                         fontsize=12, title_fontsize=13,
+                         loc="lower right", frameon=True, framealpha=0.5)
+        for txt in leg.get_texts():
+            txt.set_fontproperties(cn_font_legend)
+        leg.get_title().set_fontproperties(cn_font_legend)
 
         plt.tight_layout()
         out_pdf = os.path.join(out_dir, f"CEGR_5pct_{task}.pdf")
@@ -124,7 +126,7 @@ def main():
         plt.close()
         print(f"[INFO] saved {out_pdf}")
 
-    print("[INFO] Done. Each task_name ⇒ one PDF chart and one data table.")
+    print("[INFO] Done. Each task ⇒ PDF chart + data table.")
 
 if __name__ == "__main__":
     main()

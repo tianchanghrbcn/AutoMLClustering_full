@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-import os, sys
+"""
+stats_6.4.3_scatter.py
+───────────────────────────────────────────────────────────
+• 每张图 X 轴列顺序：不同 dataset_id 按其最小 error_rate 升序排列
+• 其它绘图 / 输出逻辑保持不变
+"""
+import os, sys, warnings
 import matplotlib
 from matplotlib import font_manager as fm
 import numpy as np
@@ -10,20 +15,17 @@ from scipy.stats import pearsonr
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# ------------------------------------------------------------------
-# 0. 显式注册 Times New Roman 字体
-# ------------------------------------------------------------------
-ttf_candidates = [
+# ── 字体设置 ───────────────────────────────────────────────
+for fp in (
     r"C:\Windows\Fonts\times.ttf",
     r"C:\Windows\Fonts\Times New Roman.ttf",
     r"/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf",
-]
-for p in ttf_candidates:
-    if os.path.exists(p):
-        fm.fontManager.addfont(p)
+):
+    if os.path.exists(fp):
+        fm.fontManager.addfont(fp)
         break
 else:
-    print("[WARN] Times New Roman.ttf not found – fallback to default serif.")
+    warnings.warn("Times New Roman 未找到，使用系统 serif。")
 
 matplotlib.rcParams.update({
     "font.family": "serif",
@@ -32,131 +34,112 @@ matplotlib.rcParams.update({
 })
 sns.set_style("ticks")
 
-# ------------------------------------------------------------------
-# 仅保存 PDF（矢量 + 透明度）
-# ------------------------------------------------------------------
-def save_pdf(fig, pdf_path):
-    fig.savefig(pdf_path, dpi=300, bbox_inches="tight", format="pdf")
+# ── 工具函数 ───────────────────────────────────────────────
+def save_pdf(fig, path):
+    fig.savefig(path, dpi=300, bbox_inches="tight", format="pdf")
 
+# ── 主程序 ─────────────────────────────────────────────────
 def main():
-    # ---------- 1. 读数据 ----------
-    all_tasks = ["beers", "rayyan", "flights", "hospital"]
-    data_dir   = os.path.join("..", "..", "..", "results", "analysis_results")
+    tasks    = ["beers", "rayyan", "flights", "hospital"]
+    data_dir = Path("..") / ".." / ".." / "results" / "analysis_results"
+    out_dir  = Path("..") / ".." / ".." / "task_progress" / "figures" / "6.4.3graph"
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     frames = []
-    for task in all_tasks:
-        fp = os.path.join(data_dir, f"{task}_summary.xlsx")
-        if not os.path.isfile(fp):
-            print(f"[WARN] {fp} missing, skip")
+    for t in tasks:
+        f = data_dir / f"{t}_summary.xlsx"
+        if not f.exists():
+            warnings.warn(f"{f} missing, skip")
             continue
-        df_tmp = pd.read_excel(fp)
-        df_tmp["task_name"] = task
-        frames.append(df_tmp)
+        df = pd.read_excel(f)
+        df["task_name"] = t
+        frames.append(df)
 
     if not frames:
         sys.exit("No data loaded – check paths.")
-    df = pd.concat(frames, ignore_index=True)
+    df_all = pd.concat(frames, ignore_index=True)
 
-    # ---------- 2. 列检查 ----------
-    need = ["dataset_id", "cluster_method", "task_name",
-            "EDR", "F1", "Comb_relative", "Sil_relative", "DB_relative"]
-    for c in need:
-        if c not in df.columns:
-            sys.exit(f"[ERROR] missing column: {c}")
-    df["dataset_id"] = pd.to_numeric(df["dataset_id"])
+    need_cols = ["dataset_id", "cluster_method", "task_name", "error_rate",
+                 "EDR", "F1", "Combined Score", "Silhouette Score", "DB_relative"]
+    for c in need_cols:
+        if c not in df_all.columns:
+            sys.exit(f"[ERR] missing column: {c}")
 
-    # ---------- 3. 每数据集一组 & 指标组合 ----------
-    task_groups = [([t], t[:2].upper()) for t in all_tasks]
-    combos = [("EDR", "Comb_relative"), ("F1", "Sil_relative")]
+    df_all["dataset_id"]       = pd.to_numeric(df_all["dataset_id"])
+    df_all["Silhouette Score"] = (df_all["Silhouette Score"] + 1) / 2
 
-    out_dir = os.path.join("..", "..", "..", "task_progress", "figures", "6.4.3graph")
-    os.makedirs(out_dir, exist_ok=True)
+    metric_pairs = [("EDR", "Combined Score"),
+                    ("F1",  "Silhouette Score")]
 
-    # ---------- 4. 主循环 ----------
-    for tasks, tag in task_groups:
-        df_sub = df[df["task_name"].isin(tasks)].copy()
-        if df_sub.empty:
+    # ── 逐数据集绘制 ───────────────────────────────────────
+    for task in tasks:
+        sub = df_all[df_all["task_name"] == task].copy()
+        if sub.empty:
             continue
 
-        # 4.1 将 dataset_id → 紧凑坐标
-        pos_map, centers, boundaries = {}, [], []
-        current_offset, group_gap = 0, 0.6
+        # ── 关键：根据 dataset_id 的 **最小** error_rate 排序 ──
+        order_df = (sub.groupby("dataset_id", as_index=False)
+                        .agg(min_err=("error_rate", "min"))
+                        .sort_values("min_err"))
+        id_order = order_df["dataset_id"].tolist()          # 升序 id
+        pos_map  = {ds: idx for idx, ds in enumerate(id_order)}
 
-        for idx, t in enumerate(tasks):        # 实际上每轮只有一个 t
-            local_ids = sorted(df_sub[df_sub.task_name == t]["dataset_id"].unique())
-            for j, ds in enumerate(local_ids):
-                pos_map[ds] = current_offset + j
-            start, end = current_offset, current_offset + len(local_ids) - 1
-            centers.append((start + end) / 2)
-            if idx < len(tasks) - 1:
-                boundary = end + group_gap / 2
-                boundaries.append(boundary)
-                current_offset = end + group_gap
-            else:
-                current_offset = end + 1
+        # 一条竖线隔开最后一列，仅作视觉参考
+        boundaries = [len(id_order) - 0.5]
 
-        # 4.2 绘图
-        for xm, ym in combos:
-            rs = []
-            for (ds, cm), sub in df_sub.groupby(["dataset_id", "cluster_method"]):
-                r_val = np.nan if len(sub) < 2 else pearsonr(sub[xm], sub[ym])[0]
-                rs.append({"dataset_id": ds, "cluster_method": cm, "r": r_val})
-            pv = (pd.DataFrame(rs)
-                    .pivot(index="dataset_id", columns="cluster_method", values="r")
-                    .sort_index())
-            long = (pv.stack().reset_index()
-                    .rename(columns={0: "r"})
-                    .fillna({"r": 0.0}))
+        for xm, ym in metric_pairs:
+            # Pearson r 先按 (dataset_id, cluster_method) 聚合
+            rows = []
+            for (ds, cm), g in sub.groupby(["dataset_id", "cluster_method"]):
+                rows.append({
+                    "dataset_id": ds,
+                    "cluster_method": cm,
+                    "r": np.nan if len(g) < 2 else pearsonr(g[xm], g[ym])[0]
+                })
+            long = (pd.DataFrame(rows)
+                    .fillna({"r": 0})
+                    .assign(xpos=lambda d: d["dataset_id"].map(pos_map))
+                    .assign(cluster_method=lambda d:
+                            pd.Categorical(d["cluster_method"],
+                                           sorted(d["cluster_method"].unique()),
+                                           ordered=True)))
 
-            long["xpos"] = long["dataset_id"].map(pos_map)
-            long["cluster_method"] = pd.Categorical(
-                long["cluster_method"],
-                sorted(long["cluster_method"].unique()),
-                ordered=True
-            )
-
-            # ---- 绘图 ----------------------------------------------------
+            # ── 绘图 ────────────────────────────────────
             fig = plt.figure(figsize=(6.5, 4.5))
             ax  = sns.scatterplot(
-                data=long,
-                x="xpos", y="cluster_method",
-                size=long["r"].abs(), hue="r",
-                palette="RdBu", sizes=(60, 600),
-                alpha=0.85, edgecolor="black", legend=False
-            )
+                    data=long,
+                    x="xpos", y="cluster_method",
+                    size=long["r"].abs(), hue="r",
+                    palette="RdBu", sizes=(60, 600),
+                    edgecolor="black", alpha=.85, legend=False
+                 )
             ax.axis("tight")
+            for bx in boundaries:
+                ax.axvline(bx, ls="--", lw=1, c="gray")
 
-            for x in boundaries:
-                ax.axvline(x, ls="--", lw=1, c="gray")
-
-            # 轴刻度 & 标签
-            ax.set_xticks([])                     # 不显示 x 轴刻度
-            ax.set_xlabel("")
-            ax.set_ylabel("")
-            ax.tick_params(axis="y", labelsize=16)
-
+            ax.set_xticks([]); ax.set_xlabel("")
+            ax.set_ylabel(""); ax.tick_params(axis="y", labelsize=16)
             for tick in ax.get_yticklabels():
-                tick.set_rotation(0)
-                tick.set_va("center")
-                tick.set_ha("right")
+                tick.set_rotation(0); tick.set_ha("right"); tick.set_va("center")
 
-            # 色条
-            sm = plt.cm.ScalarMappable(norm=plt.Normalize(vmin=-1, vmax=1), cmap="RdBu")
+            sm   = matplotlib.cm.ScalarMappable(
+                        norm=plt.Normalize(-1, 1), cmap="RdBu")
             sm.set_array([])
             cbar = fig.colorbar(sm, ax=ax, orientation="horizontal",
                                 pad=0.12, fraction=0.035, aspect=30)
             cbar.set_label("Pearson r", fontsize=16)
             cbar.ax.tick_params(labelsize=16)
 
-            # —— 不再添加标题 ——
             plt.tight_layout()
-
-            pdf_path = os.path.join(out_dir, f"{tag}_{xm}_vs_{ym}.pdf")
-            save_pdf(fig, pdf_path)
+            tag = task[:2].upper()
+            pdf = out_dir / f"{tag}_{xm}_vs_{ym}.pdf"
+            save_pdf(fig, pdf)
             plt.close()
-            print(f"saved → {pdf_path}")
+            print("saved →", pdf)
 
-    print("✅ 8 figures regenerated without titles and with smaller y-tick fonts.")
+    print("✅ Figures regenerated with columns ordered by min(error_rate).")
 
+# ──────────────────────────────────────────────────────────
 if __name__ == "__main__":
+    from pathlib import Path
     main()

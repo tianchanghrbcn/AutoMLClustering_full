@@ -74,15 +74,14 @@
 \newlabel{eq:Omega-prime}{{3.9}{5}{从数据特征到优选策略的映射}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}技术难度}{5}{}\protected@file@percent }
 \newlabel{subsec:problem-statement}{{3.2}{5}{技术难度}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 符号与描述}}{6}{}\protected@file@percent }
-\newlabel{tab:symbols-advanced}{{2}{6}{自动化聚类方法}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}自动化聚类方法}{6}{}\protected@file@percent }
 \newlabel{sec:autoML}{{4}{6}{自动化聚类方法}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}先验数据与多标签映射策略}{6}{}\protected@file@percent }
 \newlabel{sec:prior-data-mapping}{{4.1}{6}{先验数据与多标签映射策略}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}先验数据与测试数据的划分}{7}{}\protected@file@percent }
-\newlabel{subsec:dataset-split}{{4.1.1}{7}{先验数据与测试数据的划分}{}{}}
-\newlabel{eq:topK-matrix}{{4.1}{7}{先验数据与测试数据的划分}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}先验数据与测试数据的划分}{6}{}\protected@file@percent }
+\newlabel{subsec:dataset-split}{{4.1.1}{6}{先验数据与测试数据的划分}{}{}}
+\newlabel{eq:topK-matrix}{{4.1}{6}{先验数据与测试数据的划分}{}{}}
+\citation{Ni2023}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}多标签学习与映射函数构建}{7}{}\protected@file@percent }
 \newlabel{subsec:multi-label}{{4.1.2}{7}{多标签学习与映射函数构建}{}{}}
 \@writefile{toc}{\contentsline {paragraph}{标签空间与多标签样本}{7}{}\protected@file@percent }
@@ -96,123 +95,123 @@
 \newlabel{eq:mapping-function}{{4.8}{7}{分类器训练与优选子空间映射}{}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}清洗准确度与聚类过程跟踪}{7}{}\protected@file@percent }
 \newlabel{subsec:tracking}{{4.1.3}{7}{清洗准确度与聚类过程跟踪}{}{}}
-\citation{Ni2023}
+\@writefile{toc}{\contentsline {paragraph}{记录清洗准确度指标}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{跟踪聚类内部过程}{7}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 自动化聚类优化流程示意图}}{8}{}\protected@file@percent }
 \newlabel{fig:autocluster-workflow}{{1}{8}{自动化聚类优化流程}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{记录清洗准确度指标}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{跟踪聚类内部过程}{8}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}自动化聚类优化流程}{8}{}\protected@file@percent }
 \newlabel{sec:autocluster-process}{{4.2}{8}{自动化聚类优化流程}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}训练阶段：离线知识积累}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}测试阶段：在线预测与最优方案搜索}{8}{}\protected@file@percent }
 \@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces 离线训练阶段：生成训练数据与训练多标签分类器}}{9}{}\protected@file@percent }
 \newlabel{alg:train-phase}{{1}{9}{训练阶段：离线知识积累}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}训练阶段：离线知识积累}{9}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}测试阶段：在线预测与最优方案搜索}{9}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}小结}{9}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces 测试阶段：寻找最优方案 \(\hat  {\omega }\)}}{10}{}\protected@file@percent }
-\newlabel{alg:test-phase}{{2}{10}{测试阶段：在线预测与最优方案搜索}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}实验设计与实施框架}{10}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}数据集与噪声注入}{10}{}\protected@file@percent }
-\newlabel{sec:datasets}{{5.1}{10}{数据集与噪声注入}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 四个数据集的规模、列类型统计及约束数量（数值、文本、混合）}}{10}{}\protected@file@percent }
-\newlabel{tab:dataset_overview}{{3}{10}{数据集与噪声注入}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 错误类型定义、注入规则与对应错误率}}{10}{}\protected@file@percent }
-\newlabel{tab:error_def}{{4}{10}{数据集与噪声注入}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}数据清洗模块：算法库与评价指标}{10}{}\protected@file@percent }
-\newlabel{sec:algo_prep}{{5.2}{10}{数据清洗模块：算法库与评价指标}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}算法目录}{10}{}\protected@file@percent }
-\newlabel{sec:algo_cat}{{5.2.1}{10}{算法目录}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}实验设计与实施框架}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}数据集与噪声注入}{9}{}\protected@file@percent }
+\newlabel{sec:datasets}{{5.1}{9}{数据集与噪声注入}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}数据清洗模块：算法库与评价指标}{9}{}\protected@file@percent }
+\newlabel{sec:algo_prep}{{5.2}{9}{数据清洗模块：算法库与评价指标}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}算法目录}{9}{}\protected@file@percent }
+\newlabel{sec:algo_cat}{{5.2.1}{9}{算法目录}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}单元格级评估指标}{9}{}\protected@file@percent }
+\newlabel{sec:metrics}{{5.2.2}{9}{单元格级评估指标}{}{}}
 \citation{10.5555/3016100.3016103}
 \citation{10.1109/TKDE.2022.3155450}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 本实验选取的 9 种数据清洗方法总览}}{11}{}\protected@file@percent }
-\newlabel{tab:clean_algo_overview}{{5}{11}{算法目录}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}单元格级评估指标}{11}{}\protected@file@percent }
-\newlabel{sec:metrics}{{5.2.2}{11}{单元格级评估指标}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces 单元格级混淆矩阵及派生指标 Precision, Recall, F1, EDR}}{11}{}\protected@file@percent }
-\newlabel{tab:cell-metrics-def}{{6}{11}{单元格级评估指标}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}聚类算法及超参数}{11}{}\protected@file@percent }
-\newlabel{sec:clu_algo}{{5.3}{11}{聚类算法及超参数}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces 6类聚类脚本的主要概览（\(\downarrow /\uparrow \) 表示指标的期望改善方向）。}}{12}{}\protected@file@percent }
-\newlabel{tab:algo_full}{{7}{12}{聚类算法及超参数}{}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces 测试阶段：寻找最优方案 \(\hat  {\omega }\)}}{10}{}\protected@file@percent }
+\newlabel{alg:test-phase}{{2}{10}{测试阶段：在线预测与最优方案搜索}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 四个数据集的规模、列类型统计及约束数量（数值、文本、混合）}}{10}{}\protected@file@percent }
+\newlabel{tab:dataset_overview}{{2}{10}{数据集与噪声注入}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}聚类算法及超参数}{10}{}\protected@file@percent }
+\newlabel{sec:clu_algo}{{5.3}{10}{聚类算法及超参数}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 错误类型定义、注入规则与对应错误率}}{10}{}\protected@file@percent }
+\newlabel{tab:error_def}{{3}{10}{数据集与噪声注入}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 本实验选取的 9 种数据清洗方法总览}}{11}{}\protected@file@percent }
+\newlabel{tab:clean_algo_overview}{{4}{11}{算法目录}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 三元状态与混淆矩阵映射 \& 四大指标公式（总体 + 缺失值示例）}}{11}{}\protected@file@percent }
+\newlabel{tab:all-in-one}{{5}{11}{单元格级评估指标}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}\textcolor [rgb]{0.00,0.07,1.00}{实验设计流程}}{11}{}\protected@file@percent }
+\newlabel{sec:exp_pipeline}{{5.4}{11}{\textcolor [rgb]{0.00,0.07,1.00}{实验设计流程}}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces 6类聚类脚本的主要概览（\(\downarrow /\uparrow \) 表示指标的期望改善方向）。}}{12}{}\protected@file@percent }
+\newlabel{tab:algo_full}{{6}{12}{聚类算法及超参数}{}{}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {3}{\ignorespaces \textcolor [rgb]{0.00,0.07,1.00}{预实验阶段：权重网格搜索与肘部检测}}}{12}{}\protected@file@percent }
 \newlabel{alg:grid}{{3}{12}{聚类算法及超参数}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}\textcolor [rgb]{0.00,0.07,1.00}{实验设计流程}}{12}{}\protected@file@percent }
-\newlabel{sec:exp_pipeline}{{5.4}{12}{\textcolor [rgb]{0.00,0.07,1.00}{实验设计流程}}{}{}}
 \newlabel{fig:alpha-vs-median}{{2a}{13}{聚类算法及超参数}{}{}}
 \newlabel{sub@fig:alpha-vs-median}{{a}{13}{聚类算法及超参数}{}{}}
 \newlabel{fig:alpha-vs-var}{{2b}{13}{聚类算法及超参数}{}{}}
 \newlabel{sub@fig:alpha-vs-var}{{b}{13}{聚类算法及超参数}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 权重网格预实验：平均得分与最大方差随 $\alpha $ 变化曲线}}{13}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces §6.1的6条核心发现（$\text  {$\mathsurround \z@ \mathchar "458$}$ 表示结果与通常的直觉相悖）}}{13}{}\protected@file@percent }
+\newlabel{tab:global_findings_refined1}{{7}{13}{\textcolor [rgb]{0.00,0.07,1.00}{清洗准确度对聚类质量的作用机制}}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}机理分析与 AutoML 优化}{13}{}\protected@file@percent }
 \newlabel{sec:chapter6}{{6}{13}{机理分析与 AutoML 优化}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}\textcolor [rgb]{0.00,0.07,1.00}{清洗准确度对聚类质量的作用机制}}{13}{}\protected@file@percent }
+\newlabel{sec:exp_results}{{6.1}{13}{\textcolor [rgb]{0.00,0.07,1.00}{清洗准确度对聚类质量的作用机制}}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}全局对照：收益–风险权衡}{13}{}\protected@file@percent }
+\newlabel{subsec:global_contrast}{{6.1.1}{13}{全局对照：收益–风险权衡}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 本研究中批量实验的流水线示意图}}{14}{}\protected@file@percent }
 \newlabel{fig:exp_flow}{{3}{14}{\textcolor [rgb]{0.00,0.07,1.00}{实验设计流程}}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}\textcolor [rgb]{0.00,0.07,1.00}{清洗准确度对聚类质量的作用机制}}{14}{}\protected@file@percent }
-\newlabel{sec:exp_results}{{6.1}{14}{\textcolor [rgb]{0.00,0.07,1.00}{清洗准确度对聚类质量的作用机制}}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}全局对照：收益–风险权衡}{14}{}\protected@file@percent }
-\newlabel{subsec:global_contrast}{{6.1.1}{14}{全局对照：收益–风险权衡}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces §6.1的6条核心发现（$\text  {$\mathsurround \z@ \mathchar "458$}$ 表示结果与通常的直觉相悖）}}{15}{}\protected@file@percent }
-\newlabel{tab:global_findings_refined1}{{8}{15}{\textcolor [rgb]{0.00,0.07,1.00}{清洗准确度对聚类质量的作用机制}}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}错误敏感性：噪声阈值与类型差异}{15}{}\protected@file@percent }
-\newlabel{subsec:error_sensitivity}{{6.1.2}{15}{错误敏感性：噪声阈值与类型差异}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}过程动力学：清洗如何重塑聚类内部行为}{15}{}\protected@file@percent }
-\newlabel{subsec:internal_tracking}{{6.2}{15}{过程动力学：清洗如何重塑聚类内部行为}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}质心法的收敛动力学（以 K‑Means 为例）}{15}{}\protected@file@percent }
-\newlabel{subsec:centroid_dynamics}{{6.2.1}{15}{质心法的收敛动力学（以 K‑Means 为例）}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 三种视角的得分评估结果（每行对应一个数据集）。颜色越深蓝表示 \(\overline  {S}_{\%\mathrm  {GT}}\) 越高；散点越靠右/越低表示高收益且低风险；条形误差条体现平均收益的置信区间。 }}{16}{}\protected@file@percent }
-\newlabel{fig:score_eval_all}{{4}{16}{全局对照：收益–风险权衡}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 错误敏感性可视化：每行对应一个数据集， 依次展示清洗策略曲线、聚类算法曲线与类型比例热力图。}}{17}{}\protected@file@percent }
-\newlabel{fig:error_sense_all}{{5}{17}{错误敏感性：噪声阈值与类型差异}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces 各清洗方法在两类错误上的综合指标}}{18}{}\protected@file@percent }
-\newlabel{tab:q1-acc-all}{{9}{18}{错误敏感性：噪声阈值与类型差异}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}密度法的邻域稳健性（以 DBSCAN 为例）}{18}{}\protected@file@percent }
-\newlabel{subsec:density_dynamics}{{6.2.2}{18}{密度法的邻域稳健性（以 DBSCAN 为例）}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces 六类过程绝对指标（中位数），箭头表示指标期望方向（粗体表示最优，下划线表示最差）}}{19}{}\protected@file@percent }
-\newlabel{tab:proc_abs}{{10}{19}{过程动力学：清洗如何重塑聚类内部行为}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces 过程动力学的6条关键发现（$\text  {$\mathsurround \z@ \mathchar "458$}$ 表示结果与通常的直觉相悖）}}{19}{}\protected@file@percent }
-\newlabel{tab:global_findings_refined2}{{11}{19}{过程动力学：清洗如何重塑聚类内部行为}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}层次法的树形压缩与分离度（以HC为例）}{19}{}\protected@file@percent }
-\newlabel{subsec:hierarch_dynamics}{{6.2.3}{19}{层次法的树形压缩与分离度（以HC为例）}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 归一化七维雷达图——四数据集任务 × 八清洗方法}}{20}{}\protected@file@percent }
-\newlabel{fig:radar_four_in_one}{{6}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}结果映射：清洗效果如何转化为聚类收益}{20}{}\protected@file@percent }
-\newlabel{sec:q3-metric}{{6.3}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{eq:cegr-def}{{6.1}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:be_edr_comb}{{7a}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:be_edr_comb}{{a}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:be_f1_sil}{{7b}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:be_f1_sil}{{b}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:be_cegr}{{7c}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:be_cegr}{{c}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:fl_edr_comb}{{7d}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:fl_edr_comb}{{d}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:fl_f1_sil}{{7e}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:fl_f1_sil}{{e}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:fl_cegr}{{7f}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:fl_cegr}{{f}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:ho_edr_comb}{{7g}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:ho_edr_comb}{{g}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:ho_f1_sil}{{7h}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:ho_f1_sil}{{h}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:ho_cegr}{{7i}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:ho_cegr}{{i}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:ra_edr_comb}{{7j}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:ra_edr_comb}{{j}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:ra_f1_sil}{{7k}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:ra_f1_sil}{{k}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{fig:ra_cegr}{{7l}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\newlabel{sub@fig:ra_cegr}{{l}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 四个数据集的“清洗–聚类”相关性与收益趋势： 每行同一数据集——左、中的散点图展示 Pearson 相关性；右侧折线图给出随错误率递增的 CEGR 中位数。}}{21}{}\protected@file@percent }
-\newlabel{fig:scatter_line_grid}{{7}{21}{结果映射：清洗效果如何转化为聚类收益}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces 各错误率档位下最优超参数相对基准的中位漂移（负值＝收缩；正值＝放宽）}}{22}{}\protected@file@percent }
-\newlabel{tab:hyper-drift}{{12}{22}{超参数选择偏移}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Error-Rate × Cleaning 二因素 ANOVA 结果（$n=432$）。 显著性：{\Pifont {pzd}\char 72}\,$p<0.05$，{\Pifont {pzd}\char 73}\,$p<0.01$，\dag  \,$p<0.001$.}}{22}{}\protected@file@percent }
-\newlabel{tab:anova}{{13}{22}{超参数选择偏移}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}超参数选择偏移}{22}{}\protected@file@percent }
-\newlabel{subsec:param_shift}{{6.4}{22}{超参数选择偏移}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}原理驱动的 \textit  {AutoML} 改进与搜索经验}{23}{}\protected@file@percent }
-\newlabel{sec:6.5}{{6.5}{23}{原理驱动的 \textit  {AutoML} 改进与搜索经验}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}结论}{23}{}\protected@file@percent }
-\newlabel{sec:conclusion}{{7}{23}{结论}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}错误敏感性：噪声阈值与类型差异}{14}{}\protected@file@percent }
+\newlabel{subsec:error_sensitivity}{{6.1.2}{14}{错误敏感性：噪声阈值与类型差异}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 三种视角的得分评估结果（每行对应一个数据集）。颜色越深蓝表示 \(\overline  {S}_{\%\mathrm  {GT}}\) 越高；散点越靠右/越低表示高收益且低风险；条形误差条体现平均收益的置信区间。 }}{15}{}\protected@file@percent }
+\newlabel{fig:score_eval_all}{{4}{15}{全局对照：收益–风险权衡}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 错误敏感性可视化：每行对应一个数据集， 依次展示清洗策略曲线、聚类算法曲线与类型比例热力图。}}{16}{}\protected@file@percent }
+\newlabel{fig:error_sense_all}{{5}{16}{错误敏感性：噪声阈值与类型差异}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces 各清洗方法在两类错误上的综合指标（中位数，排除无错记录）}}{17}{}\protected@file@percent }
+\newlabel{tab:q1-acc-summary}{{8}{17}{错误敏感性：噪声阈值与类型差异}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}过程动力学：清洗如何重塑聚类内部行为}{17}{}\protected@file@percent }
+\newlabel{subsec:internal_tracking}{{6.2}{17}{过程动力学：清洗如何重塑聚类内部行为}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}质心法的收敛动力学（以K‑Means为例）}{17}{}\protected@file@percent }
+\newlabel{subsec:centroid_dynamics}{{6.2.1}{17}{质心法的收敛动力学（以K‑Means为例）}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces 六类过程绝对指标（中位数），箭头表示指标期望方向（粗体表示最优，下划线表示最差）}}{18}{}\protected@file@percent }
+\newlabel{tab:proc_abs}{{9}{18}{过程动力学：清洗如何重塑聚类内部行为}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces 过程动力学的6条关键发现（$\text  {$\mathsurround \z@ \mathchar "458$}$ 表示结果与通常的直觉相悖）}}{18}{}\protected@file@percent }
+\newlabel{tab:global_findings_refined2}{{10}{18}{过程动力学：清洗如何重塑聚类内部行为}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}密度法的邻域稳健性（以DBSCAN为例）}{18}{}\protected@file@percent }
+\newlabel{subsec:density_dynamics}{{6.2.2}{18}{密度法的邻域稳健性（以DBSCAN为例）}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}层次法的树形压缩与分离度（以HC为例）}{18}{}\protected@file@percent }
+\newlabel{subsec:hierarch_dynamics}{{6.2.3}{18}{层次法的树形压缩与分离度（以HC为例）}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 归一化七维雷达图——四数据集任务 × 八清洗方法}}{19}{}\protected@file@percent }
+\newlabel{fig:radar_four_in_one}{{6}{19}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}结果映射：清洗效果如何转化为聚类收益}{19}{}\protected@file@percent }
+\newlabel{sec:q3-metric}{{6.3}{19}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{eq:cegr-def}{{6.1}{19}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:be_edr_comb}{{7a}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:be_edr_comb}{{a}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:be_f1_sil}{{7b}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:be_f1_sil}{{b}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:be_cegr}{{7c}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:be_cegr}{{c}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:fl_edr_comb}{{7d}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:fl_edr_comb}{{d}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:fl_f1_sil}{{7e}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:fl_f1_sil}{{e}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:fl_cegr}{{7f}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:fl_cegr}{{f}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:ho_edr_comb}{{7g}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:ho_edr_comb}{{g}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:ho_f1_sil}{{7h}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:ho_f1_sil}{{h}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:ho_cegr}{{7i}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:ho_cegr}{{i}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:ra_edr_comb}{{7j}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:ra_edr_comb}{{j}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:ra_f1_sil}{{7k}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:ra_f1_sil}{{k}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{fig:ra_cegr}{{7l}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\newlabel{sub@fig:ra_cegr}{{l}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 四个数据集的“清洗–聚类”相关性与收益趋势： 每行同一数据集——左、中的散点图展示 Pearson 相关性；右侧折线图给出随错误率递增的 CEGR 中位数。}}{20}{}\protected@file@percent }
+\newlabel{fig:scatter_line_grid}{{7}{20}{结果映射：清洗效果如何转化为聚类收益}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}超参数选择偏移}{20}{}\protected@file@percent }
+\newlabel{subsec:param_shift}{{6.4}{20}{超参数选择偏移}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces 各错误率档位下最优超参数相对基准的中位漂移（负值＝收缩；正值＝放宽）}}{21}{}\protected@file@percent }
+\newlabel{tab:hyper-drift}{{11}{21}{超参数选择偏移}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Error-Rate × Cleaning 二因素 ANOVA 结果（$n=432$）。 显著性：{\Pifont {pzd}\char 72}\,$p<0.05$，{\Pifont {pzd}\char 73}\,$p<0.01$，\dag  \,$p<0.001$.}}{21}{}\protected@file@percent }
+\newlabel{tab:anova}{{12}{21}{超参数选择偏移}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}原理驱动的 \textit  {AutoML} 改进与搜索经验}{21}{}\protected@file@percent }
+\newlabel{sec:6.5}{{6.5}{21}{原理驱动的 \textit  {AutoML} 改进与搜索经验}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}结论}{22}{}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{22}{结论}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{未来工作}{22}{}\protected@file@percent }
 \bibstyle{IEEEtran}
 \bibdata{references}
 \bibcite{Aljohani2024}{1}
@@ -228,7 +227,6 @@
 \bibcite{ALAM2023100341}{11}
 \bibcite{Ni2023}{12}
 \bibcite{SINGH2024102799}{13}
-\@writefile{toc}{\contentsline {paragraph}{未来工作}{24}{}\protected@file@percent }
 \bibcite{Blumenberg2020}{14}
 \bibcite{Barbudo2023}{15}
 \bibcite{SALEHIN202452}{16}
@@ -270,4 +268,4 @@
 \bibcite{ROUSSEEUW198753}{52}
 \bibcite{10.5555/3016100.3016103}{53}
 \bibcite{10.1109/TKDE.2022.3155450}{54}
-\gdef \@abspage@last{26}
+\gdef \@abspage@last{25}

@@ -1,15 +1,21 @@
 {
     "clean_state": "raw",
-    "best_k": 5,
-    "linkage": "single",
+    "best_k": 45,
+    "linkage": "average",
     "metric": "euclidean",
-    "combined": 1.2323425174872684,
-    "silhouette": 0.32582320807255793,
-    "davies_bouldin": 0.46753838299524186,
-    "intra_dist_mean": 5.73407428402715,
-    "inter_dist_mean": 9.799385252154256,
-    "ratio_intra_inter": 0.5851463266806466,
-    "n_merge_steps": 999,
-    "h_max": 6.361035812821295,
-    "total_runtime_sec": 20.13769555091858
+    "combined": 0.6404317933195147,
+    "silhouette": 0.40958561036883245,
+    "davies_bouldin": 0.6878941031605733,
+    "sse": 2334.9872107749957,
+    "weights": {
+        "alpha": 0.47,
+        "beta": 0.53,
+        "gamma": 0.0
+    },
+    "intra_dist_mean": 1.2020990749703864,
+    "inter_dist_mean": 3.563550952860894,
+    "ratio_intra_inter": 0.33733180495285986,
+    "n_merge_steps": 2375,
+    "h_max": 5.107349663661656,
+    "total_runtime_sec": 124.23556399345398
 }

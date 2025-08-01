@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Draw error-rate vs. combined-score line charts (one per dataset).
+绘制各数据集“错误率–综合得分”折线图（直接 PDF）。
 
-Input : ../../../results/analysis_results/{task}_cluster.csv
-Output: ../../../task_progress/figures/{task}_combined_score.svg + .pdf
-
-改动要点
---------
-* 保存图像时使用 **bbox_inches="tight"**，确保真正的 tight 模式。
-* 其余逻辑完全保持不变。
+输入 : ../../../results/analysis_results/{task}_cluster.csv
+输出 : ../../../task_progress/figures/5.3.2graph/{task}_combined_score.pdf
 """
 
-import subprocess, shutil, importlib
+import subprocess, shutil, importlib   # 仍保留，若想再扩展为 SVG→PDF 可用
 from pathlib import Path
 
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties    # 中文字体
+
+# ── 中文字体（如无宋体请改成 SimHei / 微软雅黑） ────────────────────────────
+cn_font        = FontProperties(family='SimSun', size=16)
+cn_font_title  = FontProperties(family='SimSun', size=18)
 
 # ------------ 1. constants ---------------------------------------------------
 TASK_NAMES = ["beers", "flights", "hospital", "rayyan"]
@@ -25,26 +25,23 @@ CSV_ROOT   = Path("../../../results/analysis_results")
 FIG_ROOT   = Path("../../../task_progress/figures/5.3.2graph")
 FIG_ROOT.mkdir(parents=True, exist_ok=True)
 
-BIN_EDGES  = [0, 5, 10, 15, 20, 25, 30, float("inf")]
-BIN_LABELS = ["0-5", "5-10", "10-15", "15-20", "20-25", "25-30", ">=30"]
-
-# high-contrast colour pool
+# high-contrast colour池 & marker 池
 COLOR_LIST = (
-    list(mpl.colormaps["tab10"].colors) +
-    list(mpl.colormaps["Set1"].colors)  +
-    list(mpl.colormaps["Dark2"].colors) +
-    list(mpl.colormaps["tab20"].colors) +
-    list(mpl.colormaps["tab20b"].colors)+
-    list(mpl.colormaps["tab20c"].colors)
+    list(mpl.colormaps["tab10"].colors)
+    + list(mpl.colormaps["Set1"].colors)
+    + list(mpl.colormaps["Dark2"].colors)
+    + list(mpl.colormaps["tab20"].colors)
+    + list(mpl.colormaps["tab20b"].colors)
+    + list(mpl.colormaps["tab20c"].colors)
 )
 MARKERS = ["o","s","D","^","v",">","<","h","p","X","8","*","P"]
 
-# ------------ 2. global style map -------------------------------------------
+# ------------ 2. 全局 style map（清洗方法→颜色/形状） -------------------------
 cleaners = set()
 for t in TASK_NAMES:
-    p = CSV_ROOT / f"{t}_cluster.csv"
-    if p.exists():
-        cleaners |= set(pd.read_csv(p, usecols=["cleaning_method"])
+    f = CSV_ROOT / f"{t}_cluster.csv"
+    if f.exists():
+        cleaners |= set(pd.read_csv(f, usecols=["cleaning_method"])
                         ["cleaning_method"].unique())
 
 if len(cleaners) > len(COLOR_LIST):
@@ -53,78 +50,59 @@ if len(cleaners) > len(COLOR_LIST):
 STYLE_MAP = {cl: (COLOR_LIST[i], MARKERS[i % len(MARKERS)])
              for i, cl in enumerate(sorted(cleaners))}
 
-# ------------ 3. helpers -----------------------------------------------------
-def svg_to_pdf(svg_path: Path):
-    """Convert SVG→PDF using inkscape or cairosvg; return Path or None."""
-    pdf_path = svg_path.with_suffix(".pdf")
-    # try inkscape CLI
-    if shutil.which("inkscape"):
-        try:
-            subprocess.run(
-                ["inkscape", "--export-type=pdf", "-o", pdf_path, svg_path],
-                check=True, capture_output=True
-            )
-            return pdf_path
-        except subprocess.CalledProcessError as e:
-            print(f"[WARN] Inkscape failed: {e.stderr.decode().strip()}")
-    # try cairosvg python library
-    try:
-        cairosvg = importlib.import_module("cairosvg")
-        cairosvg.svg2pdf(url=str(svg_path), write_to=str(pdf_path))
-        return pdf_path
-    except ModuleNotFoundError:
-        pass
-    except Exception as e:
-        print(f"[WARN] cairosvg failed: {e}")
-    print("[INFO] No SVG→PDF converter found – SVG kept only.")
-    return None
-
-# ------------ 4. main loop ---------------------------------------------------
+# ------------ 3. 主循环 -------------------------------------------------------
 for task in TASK_NAMES:
     csv = CSV_ROOT / f"{task}_cluster.csv"
     if not csv.exists():
-        print(f"[WARN] {csv} missing – skipped");  continue
+        print(f"[WARN] {csv} 缺失，已跳过");  continue
 
     df = pd.read_csv(csv)
-    if not {"error_rate","Combined Score","cleaning_method"} <= set(df.columns):
-        print(f"[ERROR] {csv} lacks required columns");  continue
+    needed = {"error_rate","Combined Score","cleaning_method"}
+    if not needed <= set(df.columns):
+        print(f"[ERROR] {csv} 缺少列 {needed - set(df.columns)}");  continue
 
-    df["error_bin"] = pd.cut(df["error_rate"], BIN_EDGES, labels=BIN_LABELS,
-                             right=False, include_lowest=True)
-    best = (df.groupby(["cleaning_method","error_bin"])["Combined Score"]
-              .max().reset_index())
+    # —— ³ error_bin = 最近的 5 的倍数（整数） ————————————————
+    df["error_bin"] = ((df["error_rate"] / 5).round() * 5).astype(int)
 
-    plt.figure(figsize=(6.5,4.5))
+    # 同一 error_bin、cleaning_method 取最高分（可按需改成均值/中位数）
+    best = (df.groupby(["cleaning_method", "error_bin"])
+              ["Combined Score"].max().reset_index())
+
+    # x 轴次序
+    x_order = sorted(best["error_bin"].unique())
+
+    plt.figure(figsize=(6.5, 4.5))
     for cln, sub in best.groupby("cleaning_method"):
         y = (sub.set_index("error_bin")
-                 .reindex(BIN_LABELS)["Combined Score"].values)
+                 .reindex(x_order)["Combined Score"].values)
         color, marker = STYLE_MAP[cln]
-        plt.plot(BIN_LABELS, y, label=cln,
+        plt.plot(x_order, y, label=cln,
                  color=color, marker=marker,
                  linewidth=1.8, markersize=8)
 
-    # larger fonts
-    plt.title(f"{task.capitalize()} - Combined Score vs. Error Rate",
-              fontsize=18, pad=6)
-    plt.xlabel("Error-Rate Range (%)", fontsize=16)
-    plt.ylabel("Combined Score",      fontsize=16)
+    # —— 中文标题 & 轴标签 —————————————————————————————
+    plt.title(f"{task.capitalize()}：综合得分随错误率变化",
+              fontproperties=cn_font_title, pad=6)
+    plt.xlabel("误差率 (%)", fontproperties=cn_font)
+    plt.ylabel("综合得分",    fontproperties=cn_font)
     plt.xticks(fontsize=16);  plt.yticks(fontsize=16)
 
-    # legend: upper-right, semi-transparent
-    leg = plt.legend(title="Cleaning Method",
+    # 图例
+    leg = plt.legend(title="清洗方法",
                      fontsize=11,
                      loc="upper right",
                      framealpha=0.4)
-    frame = leg.get_frame()
-    frame.set_edgecolor("0.5"); frame.set_linewidth(0.8)
+    leg.get_title().set_fontproperties(cn_font)
+    for text in leg.get_texts():
+        text.set_fontproperties(cn_font)
+    leg.get_frame().set_edgecolor("0.5"); leg.get_frame().set_linewidth(0.8)
 
-    plt.tight_layout()                         # layout 紧凑
+    plt.grid(alpha=0.25)
+    plt.tight_layout()
 
-    svg_path = FIG_ROOT / f"{task}_combined_score_cleaning.svg"
-    # ★ tight 模式保存
-    plt.savefig(svg_path, format="svg", bbox_inches="tight")
+    pdf_path = FIG_ROOT / f"{task}_combined_score_cleaning.pdf"
+    plt.savefig(pdf_path, format="pdf", dpi=300, bbox_inches="tight")
     plt.close()
+    print(f"[INFO] saved {pdf_path}")
 
-    svg_to_pdf(svg_path)
-
-print("✅ SVG & PDF (if converter present) generated in:", FIG_ROOT.resolve())
+print("✅ PDF 图已生成:", FIG_ROOT.resolve())

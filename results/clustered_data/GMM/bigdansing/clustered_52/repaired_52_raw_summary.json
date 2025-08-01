@@ -1,14 +1,20 @@
 {
     "clean_state": "raw",
-    "best_k": 16,
+    "best_k": 10,
     "best_cov_type": "full",
-    "best_combined": 2.448814613410642,
-    "best_silhouette": 0.8069517888349762,
-    "best_db": 0.24445828720542281,
+    "best_combined": 0.8015843935072718,
+    "best_silhouette": 0.6887839829656116,
+    "best_db": 0.3036146354287547,
+    "best_sse": 105.75104257165138,
+    "weights": {
+        "alpha": 0.47,
+        "beta": 0.53,
+        "gamma": 0.0
+    },
     "n_iter_final": 1,
     "ll_curve_final": [
-        27.852403282569753,
-        27.852403282569753
+        26.578934550084764,
+        26.578934548793022
     ],
-    "total_runtime_sec": 2.7908735275268555
+    "total_runtime_sec": 1.4228222370147705
 }

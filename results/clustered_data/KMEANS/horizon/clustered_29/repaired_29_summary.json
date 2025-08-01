@@ -1,11 +1,16 @@
 {
-    "n_trials": 31,
-    "avg_iterations": 12.064516129032258,
-    "median_iterations": 12.0,
-    "avg_auc_delta": 21.090022380067726,
-    "avg_geo_decay": 0.6584327763336373,
-    "best_k": 24,
-    "best_combined_score": 0.38193946066926887,
-    "best_sse": 4671.283958574753,
-    "total_runtime_sec": 9.487885236740112
+    "n_trials": 30,
+    "avg_iterations": 11.733333333333333,
+    "median_iterations": 8.0,
+    "avg_auc_delta": 5.08745587165247,
+    "avg_geo_decay": 0.5065621859347383,
+    "best_k": 45,
+    "best_combined_score": 0.5912137899950248,
+    "best_sse": 946.7472568138942,
+    "weights": {
+        "alpha": 0.47,
+        "beta": 0.53,
+        "gamma": 0.0
+    },
+    "total_runtime_sec": 6.238592624664307
 }

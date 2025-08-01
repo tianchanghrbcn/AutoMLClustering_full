@@ -8,6 +8,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
+from matplotlib.font_manager import FontProperties   # ← 新增：用于宋体标题
 
 # ---------- 0. 目标数据集列表 ----------
 ALL_TASKS = ["beers", "flights", "hospital", "rayyan"]
@@ -79,9 +80,7 @@ def draw_heatmap(task, df_task):
     vmax      = vals.max()
 
     sns.set_theme(style="white")
-    # ★ 使用 tight layout 直接在 Figure 创建时启用
     fig, ax = plt.subplots(figsize=(6, 5), layout="tight")   # Matplotlib ≥3.6
-    # 若版本较老，可改为: fig, ax = plt.subplots(figsize=(6, 5), constrained_layout=True)
 
     sns.heatmap(
         heat, cmap=cmap, vmin=vmin_pos, vmax=vmax,
@@ -96,7 +95,12 @@ def draw_heatmap(task, df_task):
     ax.set_yticklabels(ax.get_yticklabels(), rotation=0,
                        fontsize=15, fontstyle="italic")
     ax.set_xlabel(""); ax.set_ylabel("")
-    ax.set_title(f"{task} — Relative Mean Score", fontsize=18, pad=10)
+
+    # ---------- 中文标题（宋体） ----------
+    cn_font = FontProperties(family='SimSun')                # 指定宋体
+    cn_font_title = FontProperties(family='SimSun', size=16)
+    ax.set_title(f"{task} — 相对平均得分", fontproperties=cn_font_title)
+
     ax.set_aspect("equal")
 
     for ext in ("eps", "pdf", "png"):

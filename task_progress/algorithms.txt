@@ -1,0 +1,185 @@
+\begin{algorithm}[t]
+  \caption{特征增强与置信度学习}
+  \KwIn{历史评估集 $\mathbb{D}=\{(D_i,\pi_i,f_i)\}_{i=1}^M$}
+  \KwOut{置信度预测器 $\Phi(\cdot)=(\hat f(\cdot),\sigma(\cdot))$}
+  \For{每个 $(D_i,\pi_i,f_i)\in\mathbb{D}$}{
+    $\bm{q}_i \leftarrow [q_{\text{miss}},\,q_{\text{anom}}]^{\top}$\;
+    $\bm{a}_i \leftarrow [a_{\text{clean}};\,a_{\text{cluster}}]$\;
+    $(\tilde m_i,\tilde d_i) \leftarrow \textsc{scale}(m_i,d_i)$\;
+    $\bm{z}_i \leftarrow [\,\bm{q}_i;\,\bm{a}_i;\,\tilde m_i,\,\tilde d_i;\,\bm{q}_i\otimes a_{\text{mask}}\,]$\;
+  }
+  使用 $\{(\bm{z}_i,f_i)\}$ 训练 \textbf{LightGBM}，得到 $\hat f(\cdot)$\;
+  用 \textbf{分位数随机森林}拟合残差，得到 $\sigma(\cdot)$\;
+  \Return $\Phi(\cdot)=(\hat f(\cdot),\sigma(\cdot))$\;
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \caption{置信上界搜索（Confidence–UCB Search）}
+  \KwIn{搜索空间 $\Pi$，预测器 $\Phi$，参数 $c,\varepsilon,k$}
+  \KwOut{评估集 $\mathcal{S}$，近似最优管线 $\hat\pi$}
+
+  初始化 $open\gets\Pi$，$best\gets-\infty$，$\mathcal{S}\gets\varnothing$\;
+
+  \While{$open\neq\varnothing$}{
+      选择节点 $\pi^\ast\gets\arg\max_{\pi\in\,open}\bigl[\hat f(\pi)+c\cdot\sigma(\pi)\bigr]$\;
+
+      \eIf{$\hat f(\pi^\ast)+c\cdot\sigma(\pi^\ast)<best-\varepsilon$}{
+          $open\gets open\setminus\{\pi^\ast\}$\tcp*{剪枝整棵子树}
+      }{
+          执行真实评估 $f(\pi^\ast)$，$\mathcal{S}\gets\mathcal{S}\cup\{\pi^\ast\}$\;
+
+          \If{$f(\pi^\ast)>best$}{
+              $best\gets f(\pi^\ast)$，$\hat\pi\gets\pi^\ast$\;
+          }
+
+          生成 $\pi^\ast$ 的子节点集合 $V$，取 Top-$k$ 入队：$open\gets open\cup V$\;
+      }
+  }
+
+  \Return{$\mathcal{S},\;\hat\pi$}\;
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \caption{窗口监控与局部微调（Window Monitoring and Local Fine‑Tuning）}
+  \KwIn{初始管线 $\hat{\pi}$，监控窗口 $w$，阈值 $\tau_{\text{flat}},\tau_{\text{drift}},\eta$}
+  \KwOut{实时最优管线 $\pi_{\text{online}}^{\ast}$}
+
+  $\pi_{\text{online}}^{\ast}\gets\hat{\pi}$\;
+
+  \For{每个新到达的数据批次}{
+    计算当前指标 $\operatorname{Sil}_{t}^{\ast},\ \operatorname{DB}_{t}^{\ast}$\;
+    更新滑动窗口序列 $\{\operatorname{Sil}^{\ast}\},\{\operatorname{DB}^{\ast}\}$\;
+
+    \If{$|\nabla\operatorname{Sil}_{t}^{\ast}|<\tau_{\text{flat}}
+         \ \land\
+         (\operatorname{DB}_{t}^{\ast}-\operatorname{DB}_{t-w}^{\ast})>\tau_{\text{drift}}$}{
+      \tcp*[l]{--- 触发局部微调器 ---}
+      构造邻域 $\Theta_{\text{local}}\gets\{k\!\pm\!1,\ \varepsilon\times[0.8,1.2],\ \textit{minPts}\!\pm\!1\}$\;
+      \For{$\theta'\in\Theta_{\text{local}}$（随机抽样 $10\%$）}{
+        评估 $f'(\theta')$\;
+        \If{$f'(\theta')-f(\pi_{\text{online}}^{\ast})>\eta$}{
+          更新 $\pi_{\text{online}}^{\ast}\gets\pi_{\text{online}}^{\ast}(\theta')$\;
+          \If{清洗策略发生变化}{
+            增量刷新 $\mathbf{q}$，重新获取 $\hat{f}$\;
+          }
+          \textbf{break}\;
+        }
+      }
+    }
+  }
+
+  \Return{$\pi_{\text{online}}^{\ast}$}\;
+\end{algorithm}
+
+\begin{algorithm}[t]
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\caption{\textcolor[rgb]{0.00,0.07,1.00}{预实验阶段：权重网格搜索与肘部检测}}
+\label{alg:grid}
+\KwIn{
+  数据集集合 $\mathcal{D}$（大小 $|\mathcal{D}|$）；
+  算法集合 $\mathcal{A}$（大小 $|\mathcal{A}|$）；\\
+  $\alpha$ 网格 $\mathcal{G}=\{\alpha_1,\dots,\alpha_{n_\alpha}\}$；
+  \textsc{Optuna} trial 数 $N$
+}
+\KwOut{
+  结果表 $\bigl[\alpha_i,\,v_{\max}(\alpha_i),\,m_{\mathrm{avg}}(\alpha_i)\bigr]_{i=1}^{n_\alpha}$；
+  肘部权重 $\alpha_{\text{elbow}}$
+}
+
+\ForEach{$\alpha_i\in\mathcal{G}$}{
+  \ForEach{$(d,a)\in\mathcal{D}\times\mathcal{A}$ \textbf{并行}}{
+    在算法 $a$ 的超参数空间用 \textsc{Optuna} 进行 $N$ 次贝叶斯优化，\\
+    得到最优得分 $s_{d,a}^{(\alpha_i)}$\;
+  }
+  计算数据集内方差
+  $\text{Var}_d(\alpha_i)=
+  \operatorname{Var}\{s_{d,a}^{(\alpha_i)}\}_{a\in\mathcal{A}}$\;
+  以及中位数
+  $\widetilde m_d(\alpha_i)=
+  \operatorname{median}\{s_{d,a}^{(\alpha_i)}\}_{a\in\mathcal{A}}$\;
+  \[
+  v_{\max}(\alpha_i)=\max_{d}\text{Var}_d(\alpha_i),\qquad
+  m_{\mathrm{avg}}(\alpha_i)=
+  \frac{1}{|\mathcal{D}|}\sum_{d}\widetilde m_d(\alpha_i)
+  \]
+}
+用 \texttt{kneed.KneeLocator}$\bigl(\{\alpha_i\},\{m_{\mathrm{avg}}(\alpha_i)\}\bigr)$\\
+检测肘部并返回 $\alpha_{\text{elbow}}$\;
+\KwRet 结果表及 $\alpha_{\text{elbow}}$
+\end{algorithm}
+
+\begin{algorithm}[t]
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\caption{离线训练阶段：生成训练数据与训练多标签分类器}
+\label{alg:train-phase}
+\KwIn{
+    先验数据集 $D_{\text{train}}=\{D^{(1)},\dots,D^{(N)}\}$；\\
+    搜索空间 $\Omega$；\\
+    Top-K 大小 $K$。
+}
+\KwOut{多标签分类器 $\mathcal{F}$}
+
+\SetKwFunction{GenerateTrainingData}{GenerateTrainingData}
+\SetKwFunction{TrainClassifier}{TrainClassifier}
+
+$\mathcal{M} \leftarrow \GenerateTrainingData(D_{\text{train}}, \Omega, K)$\;
+$\mathcal{F} \leftarrow \TrainClassifier(\mathcal{M})$\;
+\KwRet{$\mathcal{F}$}
+
+\bigskip
+
+\SetKwProg{Fn}{Function}{:}{}
+\Fn{\GenerateTrainingData{$D_{\text{train}}, \Omega, K$}}{
+  $\mathcal{M} \leftarrow \emptyset$\;
+  \For{$i \leftarrow 1$ \KwTo $|D_{\text{train}}|$}{
+    \ForEach{$\omega \in \Omega$ \textbf{(或采样自 $\Omega$)}}{
+      计算 $S(D^{(i)}, \omega)$\;
+      记录 EDR/F1 等清洗准确度，以及算法内部过程数据（如质心迭代、核心点等）\;
+    }
+    选出 Top-K 策略 $\mathbf{M}^{(i)} = \{\omega_1^{(i)}, \dots, \omega_K^{(i)}\}$ 按得分降序\;
+    映射为多标签集合 $\mathbf{L}^{(i)} = \{\ell_{\omega_1^{(i)}}, \dots, \ell_{\omega_K^{(i)}}\}$\;
+    $\mathcal{M} \leftarrow \mathcal{M} \cup \{(\mathbf{x}(D^{(i)}), \mathbf{L}^{(i)})\}$\;
+  }
+  \KwRet{$\mathcal{M}$}
+}
+
+\Fn{\TrainClassifier{$\mathcal{M}$}}{
+  \tcp{可根据具体多标签算法实现}
+  训练多标签分类器 $\mathcal{F}$\;
+  \KwRet{$\mathcal{F}$}
+}
+\end{algorithm}
+
+\begin{algorithm}[t]
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\caption{测试阶段：寻找最优方案 \(\hat{\omega}\)}
+\label{alg:test-phase}
+\KwIn{
+    测试数据集 $D_{\text{test}}$；\\
+    多标签分类器 $\mathcal{F}$；\\
+    搜索空间 $\Omega$；\\
+    保留标签数 $r$。
+}
+\KwOut{最优方案 $\hat{\omega}$}
+
+计算 $\mathbf{x}(D_{\text{test}})$\;
+$\mathbf{L}' \leftarrow \{\}$\;
+\ForEach{$\ell \in \mathcal{L}$}{
+  $q_{\ell} \leftarrow \text{置信度}(\mathcal{F}, \mathbf{x}(D_{\text{test}}), \ell)$\;
+  $\mathbf{L}' \leftarrow \mathbf{L}' \cup \{(\ell, q_{\ell})\}$\;
+}
+选取置信度最高的 $r$ 个标签 $\mathbf{L}'_{\mathrm{top}}$\;
+映射回优选子空间 $\Omega'(D_{\text{test}})$\;
+\ForEach{$\omega \in \Omega'(D_{\text{test}})$}{
+    计算 $S(D_{\text{test}}, \omega)$ \tcp*{计算综合得分}
+}
+$\hat{\omega} \leftarrow \arg\max_{\omega \in \Omega'(D_{\text{test}})}S(D_{\text{test}}, \omega)$\;
+\KwRet{$\hat{\omega}$}
+\end{algorithm}
+
